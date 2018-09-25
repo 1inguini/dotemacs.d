@@ -12,6 +12,19 @@
 (package-initialize)
 
 
+(package-install 'exwm)
+(require 'exwm)
+(require 'exwm-config)
+(exwm-config-default)
+
+;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057")
+
+
+
+(package-install 'undo-tree)
+
+
+
 ;; ivy設定
 (package-install 'ivy)
 (require 'ivy)
@@ -115,7 +128,16 @@
  '(custom-safe-themes
    (quote
     ("26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default)))
- '(package-selected-packages (quote (moe-theme smartparens helm 0blayout exwm-x))))
+ '(face-font-family-alternatives
+   (quote
+    (("Monospace" "courier" "fixed" "ipa-gothic")
+     ("Monospace Serif" "Courier 10 Pitch" "Consolas" "Courier Std" "FreeMono" "Nimbus Mono L" "courier" "fixed")
+     ("courier" "CMU Typewriter Text" "fixed")
+     ("Sans Serif" "helv" "helvetica" "arial" "fixed")
+     ("helv" "helvetica" "arial" "fixed"))))
+ '(package-selected-packages
+   (quote
+    (undo-tree rainbow-delimiters adaptive-wrap dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

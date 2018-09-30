@@ -44,10 +44,9 @@
   :group 'exwm)
 
 (defcustom exwm-input-prefix-keys
-  '(?\C-x ?\C-u ?\C-h ?\M-x ?\M-` ?\M-& ?\M-:)
-  "List of prefix keys EXWM should forward to Emacs when in line-mode.
+  '(?\C-x ?\C-u ?\C-h ?\M-x should forward to Emacs when in line-mode.
 
-The point is to make keys like 'C-x C-f' forwarded to Emacs in line-mode.
+"The point is to make keys like 'C-x C-f' forwarded to Emacs in line-mode.
 There is no need to add prefix keys for global/simulation keys or those
 defined in `exwm-mode-map' here."
   :type '(repeat key-sequence)

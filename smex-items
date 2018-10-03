@@ -2,20 +2,20 @@
 ;; ----- smex-history -----
 (
  eval-buffer
+ counsel-linux-app
+ linum-mode
  comment-or-uncomment-region
  disable-theme
  company-flx-mode
  elisp-flymake--batch-compile-for-flymake
- package-list-packages
- icomplete-mode
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 24)
- (linum-mode . 1)
- (counsel-linux-app . 3)
+ (eval-buffer . 26)
+ (linum-mode . 2)
+ (counsel-linux-app . 6)
  (recover-session . 2)
  (load-file . 4)
  (comment-region . 3)

@@ -155,6 +155,8 @@
 (adaptive-wrap-prefix-mode 1)
 
 
+(setq cursor-type '(bar . 2))
+
 ;; 括弧の深さをカラーコードで表す
 (package-install #'rainbow-delimiters)
 (rainbow-delimiters-mode t)
@@ -198,6 +200,7 @@
 
 (setq exwm-input-global-keys
       `(([?\M-x] . counsel-M-x)
+	([?\M-m] . Control-X-prefix)
 	))
 
 ;; (package-install 'general)

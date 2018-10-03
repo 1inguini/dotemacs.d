@@ -1,0 +1,35 @@
+
+;; ----- smex-history -----
+(
+ eval-buffer
+ comment-or-uncomment-region
+ disable-theme
+ company-flx-mode
+ elisp-flymake--batch-compile-for-flymake
+ package-list-packages
+ icomplete-mode
+)
+
+;; ----- smex-data -----
+(
+ (smex . 1)
+ (eval-buffer . 24)
+ (linum-mode . 1)
+ (counsel-linux-app . 3)
+ (recover-session . 2)
+ (load-file . 4)
+ (comment-region . 3)
+ (global-auto-complete-mode . 4)
+ (package-delete . 5)
+ (uncomment-region . 1)
+ (enable-theme . 1)
+ (disable-theme . 5)
+ (comment-or-uncomment-region . 4)
+ (global-company-mode . 3)
+ (company-filter-candidates . 1)
+ (company-complete . 1)
+ (icomplete-mode . 1)
+ (package-list-packages . 1)
+ (elisp-flymake--batch-compile-for-flymake . 1)
+ (company-flx-mode . 1)
+)

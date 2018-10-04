@@ -32,9 +32,12 @@
 (scroll-bar-mode -1)
 (fringe-mode 1)
 
+
 (package-install #'mozc)
 (set-language-environment "Japanese")
+(require #'mozc)
 (setq default-input-method "japanese-mozc")
+
 
 (package-install #'twittering-mode)
 (require #'twittering-mode)
@@ -155,7 +158,8 @@
 (adaptive-wrap-prefix-mode 1)
 
 
-(setq cursor-type '(bar . 2))
+(setq cursor-type '(bar . 1))
+
 
 ;; 括弧の深さをカラーコードで表す
 (package-install #'rainbow-delimiters)
@@ -203,25 +207,22 @@
 	([?\M-m] . Control-X-prefix)
 	))
 
-;; (package-install 'general)
-;; (general-define-key
-;;  :keymaps 'global-map
-;;  "C-v" 'yank
-;;  "C-x" 'kill-region
-;;  "C-s" 'save-buffer
-;;  "C-f" 'isearch-forward
-;;  "C-b" 'previous-buffer
-;;  )
 
-;; (general-define-key
-;;  :keymaps 'global-map
-;;  :prefix "M-w"
-;;  "" nil
-;;  "0" 'delete-window
-;;  "1" 'delete-other-windows
-;;  "d" 'dired
-;;  "l" 'linum-mode
-;;  )
+(package-install 'general)
+(general-define-key
+ :keymaps 'global-map
+ "C-x" 'kill-region
+ "C-v" 'yank
+ "C-z" 'undo-tree-undo
+ "C-y" 'undo-tree-redo
+ ;; "C-s" 'save-buffer
+ ;; "C-f" 'isearch-forward
+ ;; "C-b" 'previous-buffer
+ "M-<left>" 'backward-word
+ "M-<right>" 'forward-word
+ )
+
+
 
 ;; (general-define-key
 ;;  :keymaps 'global-map
@@ -243,7 +244,7 @@
    ["#303030" "#ff4b4b" "#d7ff5f" "#fce94f" "#5fafd7" "#d18aff" "#afd7ff" "#c6c6c6"])
  '(custom-safe-themes
    (quote
-    ("43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default)))
+    ("e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default)))
  '(exwm-input-line-mode-passthrough t)
  '(face-font-family-alternatives
    (quote
@@ -255,7 +256,7 @@
  '(icomplete-mode t)
  '(package-selected-packages
    (quote
-    (company-quickhelp company-quickhelp-mode company-flx company smex mozc mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters adaptive-wrap dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
+    (company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters adaptive-wrap dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -1,30 +1,30 @@
 
 ;; ----- smex-history -----
 (
- eval-buffer
  counsel-linux-app
- linum-mode
+ next-buffer
+ multi-term
+ auto-sudoedit-mode
+ eval-buffer
+ rectangular-region-mode
  comment-or-uncomment-region
- disable-theme
- company-flx-mode
- elisp-flymake--batch-compile-for-flymake
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
- (eval-buffer . 26)
+ (eval-buffer . 46)
  (linum-mode . 2)
- (counsel-linux-app . 6)
+ (counsel-linux-app . 33)
  (recover-session . 2)
- (load-file . 4)
+ (load-file . 22)
  (comment-region . 3)
  (global-auto-complete-mode . 4)
- (package-delete . 5)
+ (package-delete . 6)
  (uncomment-region . 1)
  (enable-theme . 1)
- (disable-theme . 5)
- (comment-or-uncomment-region . 4)
+ (disable-theme . 6)
+ (comment-or-uncomment-region . 8)
  (global-company-mode . 3)
  (company-filter-candidates . 1)
  (company-complete . 1)
@@ -32,4 +32,19 @@
  (package-list-packages . 1)
  (elisp-flymake--batch-compile-for-flymake . 1)
  (company-flx-mode . 1)
+ (rainbow-delimiters-mode . 2)
+ (multi-term . 6)
+ (load-theme . 2)
+ (moe-theme-select-color . 18)
+ (moe-theme-random-color . 3)
+ (mozc-mode . 1)
+ (powerline-moe-theme . 4)
+ (powerline-center-theme . 1)
+ (powerline-center-evil-theme . 1)
+ (undo-tree-visualize . 1)
+ (undo-tree-visualizer-selection-toggle-diff . 1)
+ (powerline-default-theme . 1)
+ (rectangular-region-mode . 6)
+ (auto-sudoedit-mode . 2)
+ (next-buffer . 1)
 )

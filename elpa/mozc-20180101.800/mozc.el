@@ -46,7 +46,7 @@
 ;;
 ;; 1. Environment settings
 ;;
-;; You need to install a helper program called 'mozc_emacs_helper'.
+;; xYou need to install a helper program called 'mozc_emacs_helper'.
 ;; You may need to set PATH environment variable to the program, or
 ;; set `mozc-helper-program-name' to the path to the program.
 ;; You need to install this mozc.el as well.

@@ -3,6 +3,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	counsel-M-x
+	indent-for-tab-command
 	mouse-set-region
 	))
 

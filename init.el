@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(prefer-coding-system 'utf-8)
+(setq coding-system-for-read 'utf-8)
+(setq coding-system-for-write 'utf-8)
 
 (require #'package)
 ;; MELPAを追加
@@ -15,10 +18,14 @@
 ;; 初期化
 (package-initialize)
 
+
 (require 'exwm)
 (package-install #'exwm)
-
 ;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
+
+;; set exwm buffer name according to application
+(defun exwm-rename-buffer-to-title () (exwm-workspace-rename-buffer exwm-title))
+(add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
 
 ;; don't send keys to application while line-mode
 
@@ -32,11 +39,14 @@
 (scroll-bar-mode -1)
 (fringe-mode 1)
 
+(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/ibus-el-0.3.29")
+;; (require #'ibus)
+(add-hook 'after-init-hook 'ibus-mode-on)
 
-(package-install #'mozc)
+;;(setq mozc-helper-program-name "home/linguini/.cache/yay/mozc/pkg/emacs-mozc/usr/bin/mozc_emacs_helper")
 (set-language-environment "Japanese")
 (require #'mozc)
-(setq default-input-method "japanese-mozc")
+;; (setq default-input-method "japanese-mozc")
 
 
 (package-install #'twittering-mode)
@@ -89,7 +99,7 @@
 ;; (set-face-attribute 'company-scrollbar-bg nil
 ;;                     :background "gray40")
 
-
+ 
 ;; (package-install #'auto-complete)
 ;; (global-auto-complete-mode t)
 ;; (setq ac-auto-start 1)
@@ -172,6 +182,7 @@
 (set-face-foreground #'rainbow-delimiters-depth-4-face "#dddd77")
 (set-face-foreground #'rainbow-delimiters-depth-5-face "#80ee80")
 (set-face-foreground #'rainbow-delimiters-depth-6-face "#66bbff")
+
 (set-face-foreground #'rainbow-delimiters-depth-7-face "#da6bda")
 (set-face-foreground #'rainbow-delimiters-depth-8-face "#afafaf")
 (set-face-foreground #'rainbow-delimiters-depth-9-face "#f0f0f0")
@@ -180,22 +191,25 @@
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
 
 
+
+(set-face-attribute 'default nil :family "inconsolata" :height 120)
+
                                         ; 半角ｶﾅ設定
 (set-fontset-font (frame-parameter nil #'font)
                   #'katakana-jisx0201
-                  (font-spec :family "NasuM" :size  14))
+                  (font-spec :family "NasuM" :size  16))
 
                                         ; 全角かな設定
 (set-fontset-font (frame-parameter nil #'font)
 		  #'japanese-jisx0208
-                  (font-spec :family "NasuM" :size 14))
+                  (font-spec :family "NasuM" :size 16))
 
-                                        ; ずれ確認用
-                                        ; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-                                        ; 0123456789012345678901234567890123456789
-                                        ; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
-                                        ; あいうえおあいうえおあいうえおあいうえお
-                                        ; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
+                                        ;; ずれ確認用
+                                        ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+                                        ;; 0123456789012345678901234567890123456789
+                                        ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+                                        ;; あいうえおあいうえおあいうえおあいうえお
+                                        ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
 
 
 (global-set-key (kbd "<f1> ESC") #'execute-extended-command)
@@ -211,18 +225,33 @@
 (package-install 'general)
 (general-define-key
  :keymaps 'global-map
+
+ "C-c" 'kill-ring-save
  "C-x" 'kill-region
  "C-v" 'yank
  "C-z" 'undo-tree-undo
  "C-y" 'undo-tree-redo
- ;; "C-s" 'save-buffer
- ;; "C-f" 'isearch-forward
+ "C-s" 'save-buffer
+ "C-f" 'swiper 
  ;; "C-b" 'previous-buffer
  "M-<left>" 'backward-word
  "M-<right>" 'forward-word
  )
 
 
+(general-define-key
+ :keymaps 'ctl-x-map
+ "C-b" 'swiper-multi
+ "t" 'universal-argument
+ )
+
+
+
+(general-define-key
+ :keymaps 'swiper-map
+ "C-r" 'swiper-query-replace
+ "C-z" 'ivy-reverse-i-search
+ )
 
 ;; (general-define-key
 ;;  :keymaps 'global-map
@@ -244,7 +273,7 @@
    ["#303030" "#ff4b4b" "#d7ff5f" "#fce94f" "#5fafd7" "#d18aff" "#afd7ff" "#c6c6c6"])
  '(custom-safe-themes
    (quote
-    ("e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default)))
+    ("13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default)))
  '(exwm-input-line-mode-passthrough t)
  '(face-font-family-alternatives
    (quote
@@ -256,7 +285,7 @@
  '(icomplete-mode t)
  '(package-selected-packages
    (quote
-    (company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters adaptive-wrap dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
+    (adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -266,3 +295,4 @@
  )
 
 (put 'dired-find-alternate-file 'disabled nil)
+

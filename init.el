@@ -39,9 +39,9 @@
 (scroll-bar-mode -1)
 (fringe-mode 1)
 
-(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/ibus-el-0.3.29")
+;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/ibus-el-0.3.29")
 ;; (require #'ibus)
-(add-hook 'after-init-hook 'ibus-mode-on)
+;; (add-hook 'after-init-hook 'ibus-mode-on)
 
 ;;(setq mozc-helper-program-name "home/linguini/.cache/yay/mozc/pkg/emacs-mozc/usr/bin/mozc_emacs_helper")
 (set-language-environment "Japanese")

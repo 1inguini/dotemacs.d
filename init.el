@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(set-language-environment "Japanese")
+
 (prefer-coding-system 'utf-8)
 (setq coding-system-for-read 'utf-8)
 (setq coding-system-for-write 'utf-8)
@@ -44,7 +46,6 @@
 ;; (add-hook 'after-init-hook 'ibus-mode-on)
 
 ;;(setq mozc-helper-program-name "home/linguini/.cache/yay/mozc/pkg/emacs-mozc/usr/bin/mozc_emacs_helper")
-(set-language-environment "Japanese")
 (require #'mozc)
 ;; (setq default-input-method "japanese-mozc")
 

@@ -19,8 +19,8 @@
 (package-initialize)
 
 
-(require 'exwm)
 (package-install #'exwm)
+(require 'exwm)
 ;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
 
 ;; set exwm buffer name according to application

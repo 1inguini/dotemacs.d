@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ load-file
+ counsel-linux-app
+ multi-term
  comment-or-uncomment-region
  exwm-restart
- load-file
- multi-term
  revert-buffer
  write-file
- find-name-dired
 )
 
 ;; ----- smex-data -----
@@ -15,9 +15,9 @@
  (smex . 1)
  (eval-buffer . 55)
  (linum-mode . 4)
- (counsel-linux-app . 86)
+ (counsel-linux-app . 90)
  (recover-session . 2)
- (load-file . 261)
+ (load-file . 269)
  (comment-region . 3)
  (global-auto-complete-mode . 4)
  (package-delete . 11)
@@ -33,7 +33,7 @@
  (elisp-flymake--batch-compile-for-flymake . 1)
  (company-flx-mode . 1)
  (rainbow-delimiters-mode . 2)
- (multi-term . 35)
+ (multi-term . 37)
  (load-theme . 4)
  (moe-theme-select-color . 20)
  (moe-theme-random-color . 3)

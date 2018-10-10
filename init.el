@@ -17,6 +17,8 @@
 (add-to-list #'package-archives  #'("marmalade" . "http://marmalade-repo.org/packages/") t)
 ;; Orgを追加
 (add-to-list #'package-archives #'("org" . "http://orgmode.org/elpa/") t)
+
+(setq package-check-signature nil)
 ;; 初期化
 (package-initialize)
 
@@ -34,9 +36,9 @@
 
 ;; Turn on `display-time-mode' if you don't use an external bar.
 (setq display-time-default-load-average nil)
-(display-time-mode t)
+(display-time-mode nil)
 
-(menu-bar-mode -1)
+(menu-bar-mode t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (fringe-mode 1)
@@ -47,7 +49,7 @@
 
 ;;(setq mozc-helper-program-name "home/linguini/.cache/yay/mozc/pkg/emacs-mozc/usr/bin/mozc_emacs_helper")
 (require #'mozc)
-;; (setq default-input-method "japanese-mozc")
+(setq default-input-method "japanese-mozc")
 
 
 (package-install #'twittering-mode)
@@ -218,7 +220,7 @@
 (global-set-key (kbd "C-l") #'avy-goto-line)
 
 (setq exwm-input-global-keys
-      `(([?\M-x] . counsel-M-x)
+      `(([?\M-x] . execute-extended-command)
 	([?\M-m] . Control-X-prefix)
 	))
 

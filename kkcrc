@@ -1,1 +1,1 @@
-(setq kkc-lookup-cache '(kkc-lookup-cache-2 (12354 t (12356 t (12375 t (12390 (3 "愛爲手" "愛支手" "愛仕手" "相爲手" "相支手" "相仕手")))))))
+(setq kkc-lookup-cache '(kkc-lookup-cache-2 (12354 t (12356 t (12375 t (12390 (1 "愛爲手" "愛支手" "愛仕手" "相爲手" "相支手" "相仕手")))))))

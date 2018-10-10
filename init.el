@@ -25,6 +25,8 @@
 
 (package-install #'exwm)
 (require 'exwm)
+(package-install #'exwm-x)
+(require 'exwmx-sendstring)
 ;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
 
 ;; set exwm buffer name according to application
@@ -220,7 +222,7 @@
 (global-set-key (kbd "C-l") #'avy-goto-line)
 
 (setq exwm-input-global-keys
-      `(([?\M-x] . execute-extended-command)
+      `(([?\M-x] . counsel-M-x)
 	([?\M-m] . Control-X-prefix)
 	))
 

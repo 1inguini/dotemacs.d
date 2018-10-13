@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(set-language-environment "Japanese")
+
 (prefer-coding-system 'utf-8)
 (setq coding-system-for-read 'utf-8)
 (setq coding-system-for-write 'utf-8)
@@ -15,12 +17,16 @@
 (add-to-list #'package-archives  #'("marmalade" . "http://marmalade-repo.org/packages/") t)
 ;; Orgを追加
 (add-to-list #'package-archives #'("org" . "http://orgmode.org/elpa/") t)
+
+(setq package-check-signature nil)
 ;; 初期化
 (package-initialize)
 
 
-(require 'exwm)
 (package-install #'exwm)
+(require 'exwm)
+;; (package-install #'exwm-x)
+;; (require 'exwmx-sendstring)
 ;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
 
 ;; set exwm buffer name according to application
@@ -32,21 +38,25 @@
 
 ;; Turn on `display-time-mode' if you don't use an external bar.
 (setq display-time-default-load-average nil)
-(display-time-mode t)
+(display-time-mode nil)
 
-(menu-bar-mode -1)
+(menu-bar-mode t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (fringe-mode 1)
 
-(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/ibus-el-0.3.29")
+;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/ibus-el-0.3.29")
 ;; (require #'ibus)
-(add-hook 'after-init-hook 'ibus-mode-on)
+;; (add-hook 'after-init-hook 'ibus-mode-on)
 
 ;;(setq mozc-helper-program-name "home/linguini/.cache/yay/mozc/pkg/emacs-mozc/usr/bin/mozc_emacs_helper")
-(set-language-environment "Japanese")
 (require #'mozc)
-;; (setq default-input-method "japanese-mozc")
+(setq default-input-method "japanese-mozc")
+
+
+(setq recentf-auto-cleanup 'never)
+
+(package-install 'nix-mode)
 
 
 (package-install #'twittering-mode)
@@ -82,7 +92,7 @@
   (company-flx-mode t))
 
 (company-quickhelp-mode t)
-
+ 
 (setq company-quickhelp-delay 0)
 ;; (set-face-attribute 'company-tooltip nil
 ;;                     :foreground "black" :background "lightgrey")
@@ -168,7 +178,7 @@
 (adaptive-wrap-prefix-mode 1)
 
 
-(setq cursor-type '(bar . 1))
+(setq-default cursor-type '(bar . 1))
 
 
 ;; 括弧の深さをカラーコードで表す
@@ -182,34 +192,13 @@
 (set-face-foreground #'rainbow-delimiters-depth-4-face "#dddd77")
 (set-face-foreground #'rainbow-delimiters-depth-5-face "#80ee80")
 (set-face-foreground #'rainbow-delimiters-depth-6-face "#66bbff")
+
 (set-face-foreground #'rainbow-delimiters-depth-7-face "#da6bda")
 (set-face-foreground #'rainbow-delimiters-depth-8-face "#afafaf")
 (set-face-foreground #'rainbow-delimiters-depth-9-face "#f0f0f0")
 
 ;; ewwのデフォルトのエンジンをgoogleに
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
-
-
-
-(set-face-attribute 'default nil :family "inconsolata" :height 120)
-
-                                        ; 半角ｶﾅ設定
-(set-fontset-font (frame-parameter nil #'font)
-                  #'katakana-jisx0201
-                  (font-spec :family "NasuM" :size  16))
-
-                                        ; 全角かな設定
-(set-fontset-font (frame-parameter nil #'font)
-		  #'japanese-jisx0208
-                  (font-spec :family "NasuM" :size 16))
-
-                                        ;; ずれ確認用
-                                        ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-                                        ;; 0123456789012345678901234567890123456789
-                                        ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
-                                        ;; あいうえおあいうえおあいうえおあいうえお
-                                        ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
-
 
 (global-set-key (kbd "<f1> ESC") #'execute-extended-command)
 
@@ -220,10 +209,12 @@
 	([?\M-m] . Control-X-prefix)
 	))
 
+(counsel-mode t)
 
 (package-install 'general)
 (general-define-key
  :keymaps 'global-map
+ "M-m" 'Control-X-prefix
  "C-c" 'kill-ring-save
  "C-x" 'kill-region
  "C-v" 'yank
@@ -283,7 +274,7 @@
  '(icomplete-mode t)
  '(package-selected-packages
    (quote
-    (adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
+    (nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -292,5 +283,27 @@
  ;; If there is more than one, they won't work right.
  )
 
+
 (put 'dired-find-alternate-file 'disabled nil)
+
+
+
+(set-face-attribute 'default nil :family "inconsolata" :height 120)
+
+                                        ; 半角ｶﾅ設定
+(set-fontset-font (frame-parameter nil #'font)
+                  #'katakana-jisx0201
+                  (font-spec :family "NasuM" :size  16))
+
+                                        ; 全角かな設定
+(set-fontset-font (frame-parameter nil #'font)
+		  #'japanese-jisx0208
+                  (font-spec :family "NasuM" :size 16))
+
+                                        ;; ずれ確認用
+                                        ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+                                        ;; 0123456789012345678901234567890123456789
+                                        ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+                                        ;; あいうえおあいうえおあいうえおあいうえお
+                                        ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
 

@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- load-file
- counsel-linux-app
+ auto-sudoedit-sudoedit
+ tramp-cleanup-all-connections
+ dired-toggle-sudo
+ window-swap-states
  multi-term
- comment-or-uncomment-region
- exwm-restart
- revert-buffer
- write-file
+ nix-mode
+ auto-sudoedit-mode
 )
 
 ;; ----- smex-data -----
@@ -17,15 +17,15 @@
  (linum-mode . 4)
  (counsel-linux-app . 90)
  (recover-session . 2)
- (load-file . 269)
+ (load-file . 271)
  (comment-region . 3)
  (global-auto-complete-mode . 4)
  (package-delete . 11)
  (uncomment-region . 1)
  (enable-theme . 1)
  (disable-theme . 6)
- (comment-or-uncomment-region . 24)
- (global-company-mode . 3)
+ (comment-or-uncomment-region . 28)
+ (global-company-mode . 4)
  (company-filter-candidates . 1)
  (company-complete . 2)
  (icomplete-mode . 1)
@@ -33,7 +33,7 @@
  (elisp-flymake--batch-compile-for-flymake . 1)
  (company-flx-mode . 1)
  (rainbow-delimiters-mode . 2)
- (multi-term . 37)
+ (multi-term . 42)
  (load-theme . 4)
  (moe-theme-select-color . 20)
  (moe-theme-random-color . 3)
@@ -45,11 +45,11 @@
  (undo-tree-visualizer-selection-toggle-diff . 1)
  (powerline-default-theme . 2)
  (rectangular-region-mode . 7)
- (auto-sudoedit-mode . 10)
+ (auto-sudoedit-mode . 29)
  (next-buffer . 1)
- (dired-toggle-sudo . 2)
- (auto-sudoedit-sudoedit . 1)
- (window-swap-states . 4)
+ (dired-toggle-sudo . 3)
+ (auto-sudoedit-sudoedit . 4)
+ (window-swap-states . 5)
  (term . 5)
  (exwm-init . 1)
  (avy-copy-region . 1)
@@ -93,4 +93,13 @@
  (recursive-edit . 1)
  (ido-find-file . 1)
  (revert-buffer . 3)
+ (nix-mode . 8)
+ (smartparens-mode . 1)
+ (ansi-term . 2)
+ (eval-expression . 4)
+ (tramp-cleanup-all-connections . 4)
+ (tramp-cleanup-this-connection . 2)
+ (exwm-workspace-add . 2)
+ (exwm-workspace-move . 1)
+ (exwm-workspace-delete . 2)
 )

@@ -25,8 +25,8 @@
 
 (package-install #'exwm)
 (require 'exwm)
-(package-install #'exwm-x)
-(require 'exwmx-sendstring)
+;; (package-install #'exwm-x)
+;; (require 'exwmx-sendstring)
 ;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
 
 ;; set exwm buffer name according to application
@@ -52,6 +52,11 @@
 ;;(setq mozc-helper-program-name "home/linguini/.cache/yay/mozc/pkg/emacs-mozc/usr/bin/mozc_emacs_helper")
 (require #'mozc)
 (setq default-input-method "japanese-mozc")
+
+
+(setq recentf-auto-cleanup 'never)
+
+(package-install 'nix-mode)
 
 
 (package-install #'twittering-mode)
@@ -87,7 +92,7 @@
   (company-flx-mode t))
 
 (company-quickhelp-mode t)
-
+ 
 (setq company-quickhelp-delay 0)
 ;; (set-face-attribute 'company-tooltip nil
 ;;                     :foreground "black" :background "lightgrey")
@@ -173,7 +178,7 @@
 (adaptive-wrap-prefix-mode 1)
 
 
-(setq cursor-type '(bar . 1))
+(setq-default cursor-type '(bar . 1))
 
 
 ;; 括弧の深さをカラーコードで表す
@@ -195,28 +200,6 @@
 ;; ewwのデフォルトのエンジンをgoogleに
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
 
-
-
-(set-face-attribute 'default nil :family "inconsolata" :height 120)
-
-                                        ; 半角ｶﾅ設定
-(set-fontset-font (frame-parameter nil #'font)
-                  #'katakana-jisx0201
-                  (font-spec :family "NasuM" :size  16))
-
-                                        ; 全角かな設定
-(set-fontset-font (frame-parameter nil #'font)
-		  #'japanese-jisx0208
-                  (font-spec :family "NasuM" :size 16))
-
-                                        ;; ずれ確認用
-                                        ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-                                        ;; 0123456789012345678901234567890123456789
-                                        ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
-                                        ;; あいうえおあいうえおあいうえおあいうえお
-                                        ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
-
-
 (global-set-key (kbd "<f1> ESC") #'execute-extended-command)
 
 (global-set-key (kbd "C-l") #'avy-goto-line)
@@ -226,11 +209,12 @@
 	([?\M-m] . Control-X-prefix)
 	))
 
+(counsel-mode t)
 
 (package-install 'general)
 (general-define-key
  :keymaps 'global-map
-
+ "M-m" 'Control-X-prefix
  "C-c" 'kill-ring-save
  "C-x" 'kill-region
  "C-v" 'yank
@@ -290,7 +274,7 @@
  '(icomplete-mode t)
  '(package-selected-packages
    (quote
-    (adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
+    (nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -299,5 +283,27 @@
  ;; If there is more than one, they won't work right.
  )
 
+
 (put 'dired-find-alternate-file 'disabled nil)
+
+
+
+(set-face-attribute 'default nil :family "inconsolata" :height 120)
+
+                                        ; 半角ｶﾅ設定
+(set-fontset-font (frame-parameter nil #'font)
+                  #'katakana-jisx0201
+                  (font-spec :family "NasuM" :size  16))
+
+                                        ; 全角かな設定
+(set-fontset-font (frame-parameter nil #'font)
+		  #'japanese-jisx0208
+                  (font-spec :family "NasuM" :size 16))
+
+                                        ;; ずれ確認用
+                                        ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+                                        ;; 0123456789012345678901234567890123456789
+                                        ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+                                        ;; あいうえおあいうえおあいうえおあいうえお
+                                        ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
 

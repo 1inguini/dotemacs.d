@@ -1,7 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-
+(setenv "LANG" "ja_JP.UTF-8")
 (set-language-environment "Japanese")
 
 (prefer-coding-system 'utf-8)
@@ -22,7 +22,6 @@
 ;; 初期化
 (package-initialize)
 
-
 (package-install #'exwm)
 (require 'exwm)
 ;; (package-install #'exwm-x)
@@ -33,7 +32,31 @@
 (defun exwm-rename-buffer-to-title () (exwm-workspace-rename-buffer exwm-title))
 (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
 
-;; don't send keys to application while line-mode
+(setq exwm-workspace-number 3)
+
+
+(require 'exwm-randr)
+(exwm-randr-enable)
+(setq exwm-randr-workspace-output-plist '(0 "HDMI-1-1" 1 "HDMI-0" 2 "DP-1-1"))
+(add-hook 'exwm-randr-screen-change-hook
+          (lambda ()
+            (async-shell-command
+	     "
+bash /home/linguini/.screenlayout/default.sh &
+
+mate-panel &
+
+start-pulseaudio-x11 &
+
+xdg-user-dirs-update &
+
+nm-applet &
+
+compton &
+
+plank -n dock1
+")))
+
 
 
 ;; Turn on `display-time-mode' if you don't use an external bar.
@@ -53,8 +76,48 @@
 (require #'mozc)
 (setq default-input-method "japanese-mozc")
 
+(package-install 'ddskk)
+;; M-x skk-tutorialでNo file found as 〜とエラーが出たときにskk-tut-fileを設定
+;; make what-whereでSKK tutorialsで表示されるディレクトリ上のSKK.tutを指定
+(setq skk-tut-file "/usr/share/skk/SKK.tut")
+;; (setq SKK_DATADIR "/usr/share/skk")
+(setq skk-show-annotation nil)
+(setq skk-show-inline 'vertical)
+(setq skk-auto-insert-paren t)
+(setq skk-egg-like-newline t)
+
 
 (setq recentf-auto-cleanup 'never)
+
+
+(package-install #'org-plus-contrib)
+(require 'ox-latex)
+(require 'ox-bibtex)
+
+;;; LaTeX 形式のファイル PDF に変換するためのコマンド
+(setq org-latex-pdf-process
+      '("platex %f"
+        "platex %f"
+        "bibtex %b"
+        "platex %f"
+        "platex %f"
+        "dvipdfmx %b.dvi"))
+
+;;; \hypersetup{...} を出力しない
+;; (setq org-latex-with-hyperref nil)
+
+(add-to-list 'org-latex-classes
+             '("thesis"
+               "\\documentclass{jarticle}
+                [NO-PACKAGES]
+                [NO-DEFAULT-PACKAGES]
+                \\usepackage[dvipdfmx]{graphicx}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
 
 (package-install 'nix-mode)
 
@@ -67,9 +130,7 @@
 (package-install #'auto-sudoedit)
 
 
-
 (package-install #'w3m)
-
 
 
 ;; ace jump mode major function
@@ -215,6 +276,7 @@
 (general-define-key
  :keymaps 'global-map
  "M-m" 'Control-X-prefix
+ "M-<tab>" 'switch-to-buffer
  "C-c" 'kill-ring-save
  "C-x" 'kill-region
  "C-v" 'yank
@@ -227,11 +289,17 @@
  "M-<right>" 'forward-word
  )
 
+(general-define-key
+ :keymaps 'ivy-minibuffer-map
+ "M-<tab>" 'next-line
+ "M-<iso-lefttab>" 'previous-line
+ )
 
 (general-define-key
  :keymaps 'ctl-x-map
  "C-b" 'swiper-multi
  "t" 'universal-argument
+  "M-j" 'skk-mode
  )
 
 
@@ -250,8 +318,30 @@
 ;;  "e" 'eval-buffer
 ;;  "i" 'ibuffer
 ;;  "M-k" 'kill-buffer
-;;  "k" 'kill-current-buffer
+;;  "k" 'kill-current-buffer+
 ;;  )
+
+
+
+                                        ; 半角ｶﾅ設定
+(set-fontset-font (frame-parameter nil #'font)
+                  #'katakana-jisx0201
+                  (font-spec :family "NasuM" :size 12))
+
+                                        ; 全角かな設定
+(set-fontset-font (frame-parameter nil #'font)
+		  #'japanese-jisx0208
+                  (font-spec :family "NasuM" :size 12))
+
+                                        ;; ずれ確認用
+                                        ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+                                        ;; 0123456789012345678901234567890123456789
+                                        ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+                                        ;; あいうえおあいうえおあいうえおあいうえお
+                                        ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
+
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -263,6 +353,11 @@
  '(custom-safe-themes
    (quote
     ("13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default)))
+ '(desktop-globals-to-save
+   (quote
+    (kill-ring desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history)))
+ '(desktop-save-mode t)
+ '(display-time-mode t)
  '(exwm-input-line-mode-passthrough t)
  '(face-font-family-alternatives
    (quote
@@ -271,39 +366,22 @@
      ("courier" "CMU Typewriter Text" "fixed")
      ("Sans Serif" "helv" "helvetica" "arial" "fixed")
      ("helv" "helvetica" "arial" "fixed"))))
+ '(fringe-mode 0 nil (fringe))
  '(icomplete-mode t)
  '(package-selected-packages
    (quote
-    (nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x))))
+    (org-plus-contrib ddskk nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x)))
+ '(skk-jisyo-edit-user-accepts-editing t)
+ '(smartparens-global-mode t)
+ '(tool-bar-mode nil)
+ '(window-divider-default-places t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 113 :width normal)))))
 
 
 (put 'dired-find-alternate-file 'disabled nil)
-
-
-
-(set-face-attribute 'default nil :family "inconsolata" :height 120)
-
-                                        ; 半角ｶﾅ設定
-(set-fontset-font (frame-parameter nil #'font)
-                  #'katakana-jisx0201
-                  (font-spec :family "NasuM" :size  16))
-
-                                        ; 全角かな設定
-(set-fontset-font (frame-parameter nil #'font)
-		  #'japanese-jisx0208
-                  (font-spec :family "NasuM" :size 16))
-
-                                        ;; ずれ確認用
-                                        ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-                                        ;; 0123456789012345678901234567890123456789
-                                        ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
-                                        ;; あいうえおあいうえおあいうえおあいうえお
-                                        ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
-

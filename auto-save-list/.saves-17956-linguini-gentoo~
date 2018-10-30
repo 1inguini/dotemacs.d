@@ -1,0 +1,6 @@
+/home/linguini/.xbindkeysrc
+/home/linguini/#.xbindkeysrc#
+/sudo:root@linguini-gentoo:/etc/portage/make.conf
+/tmp/#!sudo:root@linguini-gentoo:!etc!portage!make.conf#
+/sudo:root@linguini-gentoo:/etc/X11/xorg.conf.d/nvidia.conf
+/tmp/#!sudo:root@linguini-gentoo:!etc!X11!xorg.conf.d!nvidia.conf#

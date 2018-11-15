@@ -1,0 +1,12 @@
+/sudo:root@linguini-gentoo:/etc/X11/xorg.conf.d/wheel-emulation.conf
+/tmp/#!sudo:root@linguini-gentoo:!etc!X11!xorg.conf.d!wheel-emulation.conf#
+/home/linguini/.emacs.d/init.el
+/home/linguini/.emacs.d/#init.el#
+/home/linguini/.Xmodmap
+/home/linguini/#.Xmodmap#
+/home/linguini/.xbindkeysrc
+/home/linguini/#.xbindkeysrc#
+/home/linguini/bushi2019/sample/linguini.re
+/home/linguini/bushi2019/sample/#linguini.re#
+/home/linguini/.xprofile
+/home/linguini/#.xprofile#

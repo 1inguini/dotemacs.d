@@ -1,7 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
-(setenv "LANG" "ja_JP.UTF-8")
+;; (setenv "LANG" "ja_JP.UTF-8")
 (set-language-environment "Japanese")
 
 (prefer-coding-system 'utf-8)
@@ -34,30 +34,23 @@
 
 (setq exwm-workspace-number 3)
 
+;; (require 'exwm-systemtray)
+;; (exwm-systemtray-enable)m
+
 
 (require 'exwm-randr)
 (exwm-randr-enable)
-(setq exwm-randr-workspace-output-plist '(0 "HDMI-1-1" 1 "HDMI-0" 2 "DP-1-1"))
+(setq exwm-randr-workspace-output-plist '(0 "HDMI1" 1 "HDMI-0" 2 "DP1"))
 (add-hook 'exwm-randr-screen-change-hook
           (lambda ()
             (async-shell-command
 	     "
-bash /home/linguini/.screenlayout/default.sh &
-
-mate-panel &
-
-start-pulseaudio-x11 &
-
-xdg-user-dirs-update &
-
-nm-applet &
-
 compton &
 
 plank -n dock1
 ")))
 
-
+(package-install #'exwm-edit)
 
 ;; Turn on `display-time-mode' if you don't use an external bar.
 (setq display-time-default-load-average nil)
@@ -77,6 +70,7 @@ plank -n dock1
 (setq default-input-method "japanese-mozc")
 
 (package-install 'ddskk)
+(require #'skk)
 ;; M-x skk-tutorialでNo file found as 〜とエラーが出たときにskk-tut-fileを設定
 ;; make what-whereでSKK tutorialsで表示されるディレクトリ上のSKK.tutを指定
 (setq skk-tut-file "/usr/share/skk/SKK.tut")
@@ -217,7 +211,7 @@ plank -n dock1
 (powerline-default-theme)
 
 ;; install magit
-(package-install #'magit)
+;; (package-install #'magit)
  
 
 ;; install multi-term
@@ -277,7 +271,7 @@ plank -n dock1
  :keymaps 'global-map
  "M-m" 'Control-X-prefix
  "M-<tab>" 'switch-to-buffer
- "C-c" 'kill-ring-save
+ "C-c" 'nil ;;kill-ring-save
  "C-x" 'kill-region
  "C-v" 'yank
  "C-z" 'undo-tree-undo
@@ -299,9 +293,17 @@ plank -n dock1
  :keymaps 'ctl-x-map
  "C-b" 'swiper-multi
  "t" 'universal-argument
-  "M-j" 'skk-mode
+ "c" 'mode-specific-command-prefix
+ "w" 'exwm-edit--compose
+ "M-j" 'skk-mode
  )
 
+
+(general-define-key
+ :keymaps 'mode-specific-map
+ "<left>" 'winner-undo
+ "<right>" 'winner-redo
+ )
 
 
 (general-define-key
@@ -348,17 +350,14 @@ plank -n dock1
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#303030" "#ff4b4b" "#d7ff5f" "#fce94f" "#5fafd7" "#d18aff" "#afd7ff" "#c6c6c6"])
- '(custom-safe-themes
-   (quote
-    ("13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default)))
  '(desktop-globals-to-save
    (quote
     (kill-ring desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history)))
  '(desktop-save-mode t)
  '(display-time-mode t)
- '(exwm-input-line-mode-passthrough t)
+ '(exwm-input-line-mode-passthrough nil)
+ '(exwm-input-move-event [M-down-mouse-1])
+ '(exwm-input-resize-event [M-down-mouse-3])
  '(face-font-family-alternatives
    (quote
     (("Monospace" "courier" "fixed" "ipa-gothic")
@@ -370,7 +369,7 @@ plank -n dock1
  '(icomplete-mode t)
  '(package-selected-packages
    (quote
-    (org-plus-contrib ddskk nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term magit powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x)))
+    (add-hooks ddskk exwm-edit org-plus-contrib nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x)))
  '(skk-jisyo-edit-user-accepts-editing t)
  '(smartparens-global-mode t)
  '(tool-bar-mode nil)

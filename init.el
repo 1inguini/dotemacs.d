@@ -40,14 +40,14 @@
 
 (require 'exwm-randr)
 (exwm-randr-enable)
-(setq exwm-randr-workspace-output-plist '(0 "HDMI1" 1 "HDMI-0" 2 "DP1"))
+(setq exwm-randr-workspace-output-plist '(0 "HDMI1" 1 "HDMI-0" 2 "DP1" 1 "HDMI-1-3"))
 (add-hook 'exwm-randr-screen-change-hook
           (lambda ()
             (async-shell-command
 	     "
 compton &
 
-plank -n dock1
+lxpanel
 ")))
 
 (package-install #'exwm-edit)
@@ -194,7 +194,7 @@ plank -n dock1
 (package-install #'leuven-theme)
 (package-install #'moe-theme)
 (load-theme #'moe-dark t)
-
+(enable-theme #'moe-dark)
 
 ;; enable which key mode
 (package-install #'which-key)
@@ -271,7 +271,7 @@ plank -n dock1
  :keymaps 'global-map
  "M-m" 'Control-X-prefix
  "M-<tab>" 'switch-to-buffer
- "C-c" 'nil ;;kill-ring-save
+ "C-c" 'kill-ring-save
  "C-x" 'kill-region
  "C-v" 'yank
  "C-z" 'undo-tree-undo
@@ -312,6 +312,7 @@ plank -n dock1
  "C-z" 'ivy-reverse-i-search
  )
 
+
 ;; (general-define-key
 ;;  :keymaps 'global-map
 ;;  :prefix "M-b"
@@ -323,19 +324,20 @@ plank -n dock1
 ;;  "k" 'kill-current-buffer+
 ;;  )
 
-
+(set-face-attribute 'default nil :family "inconsolata" :height 130)
 
                                         ; 半角ｶﾅ設定
 (set-fontset-font (frame-parameter nil #'font)
                   #'katakana-jisx0201
-                  (font-spec :family "NasuM" :size 12))
+                  (font-spec :family "NasuM" :size 14))
 
                                         ; 全角かな設定
 (set-fontset-font (frame-parameter nil #'font)
 		  #'japanese-jisx0208
-                  (font-spec :family "NasuM" :size 12))
+                  (font-spec :family "NasuM" :size 14))
 
-                                        ;; ずれ確認用
+
+;; ずれ確認用
                                         ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
                                         ;; 0123456789012345678901234567890123456789
                                         ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
@@ -350,6 +352,9 @@ plank -n dock1
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" default)))
  '(desktop-globals-to-save
    (quote
     (kill-ring desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history)))
@@ -357,6 +362,14 @@ plank -n dock1
  '(display-time-mode t)
  '(exwm-input-line-mode-passthrough nil)
  '(exwm-input-move-event [M-down-mouse-1])
+ '(exwm-input-prefix-keys
+   (quote
+    ([134217848]
+     [134217824]
+     [134217766]
+     [134217786]
+     [134217837]
+     [M-tab])))
  '(exwm-input-resize-event [M-down-mouse-3])
  '(face-font-family-alternatives
    (quote
@@ -369,7 +382,7 @@ plank -n dock1
  '(icomplete-mode t)
  '(package-selected-packages
    (quote
-    (add-hooks ddskk exwm-edit org-plus-contrib nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x)))
+    (review-mode add-hooks ddskk exwm-edit org-plus-contrib nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage twittering-mode auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term powerline multiple-cursors which-key ivy exwm moe-theme smartparens helm 0blayout exwm-x)))
  '(skk-jisyo-edit-user-accepts-editing t)
  '(smartparens-global-mode t)
  '(tool-bar-mode nil)
@@ -380,7 +393,7 @@ plank -n dock1
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 113 :width normal)))))
+ )
 
 
 (put 'dired-find-alternate-file 'disabled nil)

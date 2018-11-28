@@ -22,6 +22,9 @@
 ;; 初期化
 (package-initialize)
 
+(add-to-list 'load-path "~/.emacs.d/emacs-libvterm")
+(require 'vterm)
+
 (package-install #'exwm)
 (require 'exwm)
 ;; (package-install #'exwm-x)
@@ -397,3 +400,4 @@ lxpanel
 
 
 (put 'dired-find-alternate-file 'disabled nil)
+

@@ -22,6 +22,10 @@
 ;; 初期化
 (package-initialize)
 
+(add-to-list 'load-path "/home/linguini/emacs-libvterm")
+(require 'vterm)
+
+
 (package-install #'exwm)
 (require 'exwm)
 ;; (package-install #'exwm-x)

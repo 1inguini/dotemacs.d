@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- delete-file
- goto-line
- multi-term
- auto-sudoedit-sudoedit-and-kill
- auto-sudoedit-sudoedit
- auto-sudoedit-mode
- shell-script-mode
+ kill-buffer
+ vterm
+ vterm-module-compile
+ vterm-mode
+ read-only-mode
+ load-file
+ package-list-packages
 )
 
 ;; ----- smex-data -----
@@ -17,7 +17,7 @@
  (linum-mode . 4)
  (counsel-linux-app . 186)
  (recover-session . 2)
- (load-file . 485)
+ (load-file . 488)
  (comment-region . 3)
  (global-auto-complete-mode . 4)
  (package-delete . 23)
@@ -29,11 +29,11 @@
  (company-filter-candidates . 1)
  (company-complete . 2)
  (icomplete-mode . 1)
- (package-list-packages . 12)
+ (package-list-packages . 13)
  (elisp-flymake--batch-compile-for-flymake . 1)
  (company-flx-mode . 1)
  (rainbow-delimiters-mode . 3)
- (multi-term . 155)
+ (multi-term . 161)
  (load-theme . 30)
  (moe-theme-select-color . 20)
  (moe-theme-random-color . 3)
@@ -45,7 +45,7 @@
  (undo-tree-visualizer-selection-toggle-diff . 1)
  (powerline-default-theme . 2)
  (rectangular-region-mode . 7)
- (auto-sudoedit-mode . 129)
+ (auto-sudoedit-mode . 133)
  (next-buffer . 1)
  (dired-toggle-sudo . 3)
  (auto-sudoedit-sudoedit . 7)
@@ -56,7 +56,7 @@
  (isearch-forward . 3)
  (tramp-unload-tramp . 2)
  (view-file . 1)
- (read-only-mode . 1)
+ (read-only-mode . 2)
  (write-file . 3)
  (find-file . 4)
  (mozc-handle-event . 2)
@@ -66,7 +66,7 @@
  (dired . 1)
  (describe-coding-system . 1)
  (universal-coding-system-argument . 4)
- (prefer-coding-system . 5)
+ (prefer-coding-system . 6)
  (set-file-name-coding-system . 1)
  (update-file-autoloads . 1)
  (uim-mode . 3)
@@ -111,7 +111,7 @@
  (exwm-workspace-move-window . 7)
  (tabify . 1)
  (tabbar-mode . 3)
- (delete-file . 2)
+ (delete-file . 4)
  (exwm-layout-shrink-window . 1)
  (smartparens-global-mode . 8)
  (widget-key-sequence-read-event . 1)
@@ -123,7 +123,7 @@
  (suspend-emacs . 1)
  (customize-option . 9)
  (skk-mode . 13)
- (revert-buffer-with-coding-system . 46)
+ (revert-buffer-with-coding-system . 48)
  (recover-file . 1)
  (skk-jisx0201-mode . 6)
  (skk-tutorial . 6)
@@ -159,7 +159,7 @@
  (list-fontsets . 1)
  (org-preview-latex-fragment . 1)
  (org-latex-export-to-pdf . 8)
- (auto-sudoedit-sudoedit-and-kill . 27)
+ (auto-sudoedit-sudoedit-and-kill . 30)
  (make-directory . 3)
  (shell-script-mode . 17)
  (exwmx-dmenu-simple . 1)
@@ -194,11 +194,18 @@
  (dired-do-delete . 1)
  (find-grep-dired . 1)
  (dired-do-copy . 4)
- (w3m . 1)
+ (w3m . 4)
  (eww . 1)
  (eww-back-url . 8)
  (eww-download . 2)
  (move-file-to-trash . 1)
  (redraw-display . 1)
  (goto-line . 1)
+ (w3m-goto-url . 2)
+ (image-dired . 2)
+ (w3m-view-image . 1)
+ (vterm . 4)
+ (vterm-mode . 2)
+ (kill-buffer . 5)
+ (vterm-module-compile . 1)
 )

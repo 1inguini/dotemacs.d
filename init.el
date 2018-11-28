@@ -22,8 +22,6 @@
 ;; 初期化
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/emacs-libvterm")
-(require 'vterm)
 
 (package-install #'exwm)
 (require 'exwm)

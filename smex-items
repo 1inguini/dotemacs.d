@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ kill-emacs
  multi-term
  w3m-fb-mode
  w3m-goto-url
  image-dired
  yank
  swiper
- load-file
 )
 
 ;; ----- smex-data -----
@@ -220,4 +220,5 @@
  (yank . 1)
  (image-dired . 1)
  (w3m-fb-mode . 2)
+ (kill-emacs . 1)
 )

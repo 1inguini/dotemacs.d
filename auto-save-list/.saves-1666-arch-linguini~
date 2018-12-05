@@ -1,0 +1,4 @@
+/etc/pacman.conf
+/etc/#pacman.conf#
+/home/linguini/.emacs.d/init.el
+/home/linguini/.emacs.d/#init.el#

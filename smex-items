@@ -1,6 +1,7 @@
 
 ;; ----- smex-history -----
 (
+<<<<<<< HEAD
  load-file
  rainbow-delimiters-mode
  package-list-packages
@@ -8,6 +9,15 @@
  revert-buffer
  async-shell-command
  server-start
+=======
+ kill-emacs
+ multi-term
+ w3m-fb-mode
+ w3m-goto-url
+ image-dired
+ yank
+ swiper
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
 )
 
 ;; ----- smex-data -----
@@ -15,26 +25,39 @@
  (smex . 1)
  (eval-buffer . 55)
  (linum-mode . 5)
+<<<<<<< HEAD
  (counsel-linux-app . 186)
  (recover-session . 3)
  (load-file . 489)
+=======
+ (counsel-linux-app . 200)
+ (recover-session . 2)
+ (load-file . 536)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (comment-region . 3)
  (global-auto-complete-mode . 4)
- (package-delete . 23)
+ (package-delete . 25)
  (uncomment-region . 1)
- (enable-theme . 10)
+ (enable-theme . 20)
  (disable-theme . 14)
- (comment-or-uncomment-region . 67)
+ (comment-or-uncomment-region . 68)
  (global-company-mode . 4)
  (company-filter-candidates . 1)
  (company-complete . 3)
  (icomplete-mode . 1)
  (package-list-packages . 13)
  (elisp-flymake--batch-compile-for-flymake . 1)
+<<<<<<< HEAD
  (company-flx-mode . 3)
  (rainbow-delimiters-mode . 4)
  (multi-term . 156)
  (load-theme . 30)
+=======
+ (company-flx-mode . 1)
+ (rainbow-delimiters-mode . 5)
+ (multi-term . 161)
+ (load-theme . 36)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (moe-theme-select-color . 20)
  (moe-theme-random-color . 3)
  (mozc-mode . 8)
@@ -51,12 +74,12 @@
  (auto-sudoedit-sudoedit . 7)
  (window-swap-states . 13)
  (term . 7)
- (exwm-init . 14)
+ (exwm-init . 18)
  (avy-copy-region . 1)
  (isearch-forward . 3)
  (tramp-unload-tramp . 2)
- (view-file . 1)
- (read-only-mode . 1)
+ (view-file . 2)
+ (read-only-mode . 2)
  (write-file . 3)
  (find-file . 4)
  (mozc-handle-event . 4)
@@ -75,14 +98,18 @@
  (swiper-query-replace . 2)
  (org-reload . 2)
  (exwm-reset . 1)
- (exwm-restart . 13)
+ (exwm-restart . 15)
  (japanese-hankaku-region . 1)
+<<<<<<< HEAD
  (lao-compose-region . 2)
+=======
+ (lao-compose-region . 7)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (package-install . 4)
  (ac-skk-enable . 1)
  (exwm-floating-toggle-floating . 13)
  (find-variable . 1)
- (swiper . 3)
+ (swiper . 4)
  (swiper-mc . 3)
  (swiper-multi . 1)
  (xterm-mouse-mode . 6)
@@ -95,7 +122,7 @@
  (revert-buffer . 42)
  (nix-mode . 8)
  (smartparens-mode . 3)
- (ansi-term . 2)
+ (ansi-term . 5)
  (eval-expression . 4)
  (tramp-cleanup-all-connections . 4)
  (tramp-cleanup-this-connection . 2)
@@ -111,13 +138,13 @@
  (exwm-workspace-move-window . 7)
  (tabify . 1)
  (tabbar-mode . 3)
- (delete-file . 2)
+ (delete-file . 3)
  (exwm-layout-shrink-window . 1)
- (smartparens-global-mode . 8)
+ (smartparens-global-mode . 12)
  (widget-key-sequence-read-event . 1)
  (exwm-input-set-key . 2)
- (desktop-save . 2)
- (desktop-revert . 4)
+ (desktop-save . 5)
+ (desktop-revert . 6)
  (desktop-save-mode . 1)
  (info . 1)
  (suspend-emacs . 1)
@@ -161,7 +188,11 @@
  (org-latex-export-to-pdf . 8)
  (auto-sudoedit-sudoedit-and-kill . 32)
  (make-directory . 3)
+<<<<<<< HEAD
  (shell-script-mode . 18)
+=======
+ (shell-script-mode . 20)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (exwmx-dmenu-simple . 1)
  (skk-annotation-toggle-display-p . 2)
  (skk-hiragana-region . 1)
@@ -176,7 +207,11 @@
  (japanese-hiragana-region . 1)
  (review-change-mode . 1)
  (vc-git-log-view-mode . 1)
+<<<<<<< HEAD
  (review-mode . 7)
+=======
+ (review-mode . 2)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (counsel-git-log . 1)
  (org-mode . 1)
  (table-span-cell . 1)
@@ -194,12 +229,37 @@
  (dired-do-delete . 1)
  (find-grep-dired . 1)
  (dired-do-copy . 4)
- (w3m . 1)
- (eww . 1)
- (eww-back-url . 8)
+ (w3m . 4)
+ (eww . 2)
+ (eww-back-url . 9)
  (eww-download . 2)
  (move-file-to-trash . 1)
+<<<<<<< HEAD
  (redraw-display . 2)
  (goto-line . 1)
  (async-shell-command . 1)
+=======
+ (redraw-display . 1)
+ (goto-line . 2)
+ (hexl-mode . 6)
+ (hexl-mode-exit . 2)
+ (desktop-read . 2)
+ (conf-desktop-mode . 3)
+ (desktop-clear . 3)
+ (list-character-sets . 2)
+ (describe-face . 2)
+ (sane-term . 1)
+ (switch-to-buffer . 1)
+ (eww-reload . 1)
+ (find-file-literally . 1)
+ (dired-goto-file . 2)
+ (ido-enter-find-file . 1)
+ (w3m-goto-url . 6)
+ (w3m-view-image . 2)
+ (w3m-toggle-inline-images . 1)
+ (yank . 1)
+ (image-dired . 1)
+ (w3m-fb-mode . 2)
+ (kill-emacs . 1)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
 )

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ;; -*- emacs-lisp -*- <18/12/01 23:43:19 /home/linguini/.emacs.d/tramp>
+=======
+;; -*- emacs-lisp -*- <18/11/25 19:12:31 /home/linguini/.emacs.d/tramp>
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -52,7 +56,7 @@
   ("touch-t" t)
   ("touch" "\\touch"))
  ((tramp-file-name "sudo" "root" nil "arch-linguini" nil nil nil)
-  ("uname" "Linux 4.18.16-arch1-1-ARCH")
+  ("uname" "Linux 4.19.2-arch1-1-ARCH")
   ("locale" "LC_ALL=en_US.utf8")
   ("test" "test")
   ("remote-path"
@@ -61,22 +65,21 @@
   ("readlink" "\\readlink")
   ("stat" "env QUOTING_STYLE=locale \\stat")
   ("file-exists" "test -e")
-  ("id" "/bin/id")
-  ("gid-integer" 0)
   ("case-insensitive" nil)
-  ("gid-string" "root")
-  ("uid-integer" 0)
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
   ("perl" "\\perl")
-  ("tmpdir" "/sudo:root@arch-linguini:/tmp")
-  ("touch-t" t)
-  ("touch" "\\touch")
-  ("~root" "/root")
+  ("git" "\\git")
+  ("id" "/bin/id")
+  ("gid-string" "root")
+  ("gid-integer" 0)
+  ("uid-integer" 0)
   ("ls" "/bin/ls --color=never")
   ("ls-quoting-style" t)
   ("ls-dired" t)
-  ("git" "\\git"))
+  ("tmpdir" "/sudo:root@arch-linguini:/tmp")
+  ("touch-t" t)
+  ("touch" "\\touch"))
  ((tramp-file-name "sudo" "root" nil "archlinux" nil nil nil)
   ("uname" "Linux 4.18.16-arch1-1-ARCH")
   ("locale" "LC_ALL=en_US.utf8")
@@ -100,13 +103,19 @@
   ("touch-t" t)
   ("touch" "\\touch")
   ("~root" "/root"))
+<<<<<<< HEAD
  ((tramp-file-name "sudo" "root" nil "linguini-lap" nil nil nil)
   ("uname" "Linux 4.18.16-arch1-1.0-ARCH")
+=======
+ ((tramp-file-name "sudo" "root" nil "hyper-linguini" nil nil nil)
+  ("uname" "Linux 4.19.2-arch1-1-ARCH")
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
   ("locale" "LC_ALL=en_US.utf8")
   ("test" "test")
   ("remote-path"
    ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
   ("remote-shell" "/bin/sh")
+<<<<<<< HEAD
   ("file-exists" "test -e")
   ("case-insensitive" nil)
   ("ls" "/bin/ls --color=never")
@@ -125,4 +134,24 @@
   ("touch" "\\touch")
   ("uid-integer" 0)
   ("~root" "/root")
+=======
+  ("readlink" "\\readlink")
+  ("stat" "env QUOTING_STYLE=locale \\stat")
+  ("file-exists" "test -e")
+  ("id" "/bin/id")
+  ("gid-integer" 0)
+  ("case-insensitive" nil)
+  ("gid-string" "root")
+  ("uid-integer" 0)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("tmpdir" "/sudo:root@hyper-linguini:/tmp")
+  ("touch-t" t)
+  ("touch" "\\touch")
+  ("~root" "/root")
+  ("ls" "/bin/ls --color=never")
+  ("ls-quoting-style" t)
+  ("ls-dired" t)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
   ("git" "\\git")))

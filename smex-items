@@ -1,23 +1,23 @@
 
 ;; ----- smex-history -----
 (
- delete-file
- goto-line
- multi-term
- auto-sudoedit-sudoedit-and-kill
- auto-sudoedit-sudoedit
- auto-sudoedit-mode
- shell-script-mode
+ load-file
+ rainbow-delimiters-mode
+ package-list-packages
+ redraw-display
+ revert-buffer
+ async-shell-command
+ server-start
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 55)
- (linum-mode . 4)
+ (linum-mode . 5)
  (counsel-linux-app . 186)
- (recover-session . 2)
- (load-file . 485)
+ (recover-session . 3)
+ (load-file . 489)
  (comment-region . 3)
  (global-auto-complete-mode . 4)
  (package-delete . 23)
@@ -27,13 +27,13 @@
  (comment-or-uncomment-region . 67)
  (global-company-mode . 4)
  (company-filter-candidates . 1)
- (company-complete . 2)
+ (company-complete . 3)
  (icomplete-mode . 1)
- (package-list-packages . 12)
+ (package-list-packages . 13)
  (elisp-flymake--batch-compile-for-flymake . 1)
- (company-flx-mode . 1)
- (rainbow-delimiters-mode . 3)
- (multi-term . 155)
+ (company-flx-mode . 3)
+ (rainbow-delimiters-mode . 4)
+ (multi-term . 156)
  (load-theme . 30)
  (moe-theme-select-color . 20)
  (moe-theme-random-color . 3)
@@ -45,7 +45,7 @@
  (undo-tree-visualizer-selection-toggle-diff . 1)
  (powerline-default-theme . 2)
  (rectangular-region-mode . 7)
- (auto-sudoedit-mode . 129)
+ (auto-sudoedit-mode . 141)
  (next-buffer . 1)
  (dired-toggle-sudo . 3)
  (auto-sudoedit-sudoedit . 7)
@@ -59,7 +59,7 @@
  (read-only-mode . 1)
  (write-file . 3)
  (find-file . 4)
- (mozc-handle-event . 2)
+ (mozc-handle-event . 4)
  (set-variable . 14)
  (powerline-reset . 4)
  (powerline-vim-theme . 1)
@@ -78,7 +78,7 @@
  (exwm-restart . 13)
  (japanese-hankaku-region . 1)
  (lao-compose-region . 2)
- (package-install . 3)
+ (package-install . 4)
  (ac-skk-enable . 1)
  (exwm-floating-toggle-floating . 13)
  (find-variable . 1)
@@ -92,7 +92,7 @@
  (find-name-dired . 8)
  (recursive-edit . 1)
  (ido-find-file . 1)
- (revert-buffer . 40)
+ (revert-buffer . 42)
  (nix-mode . 8)
  (smartparens-mode . 3)
  (ansi-term . 2)
@@ -104,7 +104,7 @@
  (exwm-workspace-delete . 3)
  (tetris . 1)
  (exwm-exit . 1)
- (server-start . 41)
+ (server-start . 45)
  (exwm-layout-unset-fullscreen . 3)
  (exwm-workspace-swap . 4)
  (exwm-workspace-switch . 14)
@@ -123,7 +123,7 @@
  (suspend-emacs . 1)
  (customize-option . 9)
  (skk-mode . 13)
- (revert-buffer-with-coding-system . 46)
+ (revert-buffer-with-coding-system . 48)
  (recover-file . 1)
  (skk-jisx0201-mode . 6)
  (skk-tutorial . 6)
@@ -159,9 +159,9 @@
  (list-fontsets . 1)
  (org-preview-latex-fragment . 1)
  (org-latex-export-to-pdf . 8)
- (auto-sudoedit-sudoedit-and-kill . 27)
+ (auto-sudoedit-sudoedit-and-kill . 32)
  (make-directory . 3)
- (shell-script-mode . 17)
+ (shell-script-mode . 18)
  (exwmx-dmenu-simple . 1)
  (skk-annotation-toggle-display-p . 2)
  (skk-hiragana-region . 1)
@@ -170,13 +170,13 @@
  (org-koma-letter-export-to-pdf . 4)
  (org-beamer-export-to-pdf . 1)
  (org-md-export-to-markdown . 1)
- (review-header . 1)
+ (review-header . 2)
  (review-search-uri . 1)
  (japanese-katakana-region . 12)
  (japanese-hiragana-region . 1)
  (review-change-mode . 1)
  (vc-git-log-view-mode . 1)
- (review-mode . 1)
+ (review-mode . 7)
  (counsel-git-log . 1)
  (org-mode . 1)
  (table-span-cell . 1)
@@ -199,6 +199,7 @@
  (eww-back-url . 8)
  (eww-download . 2)
  (move-file-to-trash . 1)
- (redraw-display . 1)
+ (redraw-display . 2)
  (goto-line . 1)
+ (async-shell-command . 1)
 )

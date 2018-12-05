@@ -1,7 +1,15 @@
+
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
 ;; (setenv "LANG" "ja_JP.UTF-8")
+
+(locale-name-match (locale-translate "ja_JP.UTF-8")
+		   locale-language-names)
+
+(locale-name-match (locale-translate "ja_JP.UTF-8")
+		   locale-charset-language-names)
+
 (set-language-environment "Japanese")
 
 (prefer-coding-system 'utf-8)
@@ -22,8 +30,6 @@
 ;; 初期化
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/emacs-libvterm")
-(require 'vterm)
 
 (package-install #'exwm)
 (require 'exwm)
@@ -59,7 +65,7 @@ plank -n dock1
 (setq display-time-default-load-average nil)
 (display-time-mode nil)
 
-(menu-bar-mode t)
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (fringe-mode 1)
@@ -190,7 +196,7 @@ plank -n dock1
 ;; enable smartparens
 (package-install #'smartparens)
 (require #'smartparens)
-(smartparens-mode 1)
+(smartparens-global-mode 1)
 
 
 ;; leaven theme
@@ -260,7 +266,7 @@ plank -n dock1
 
 (global-set-key (kbd "<f1> ESC") #'execute-extended-command)
 
-(global-set-key (kbd "C-l") #'avy-goto-line)
+(global-set-key (kbd "C-l") #'redraw-display)
 
 (setq exwm-input-global-keys
       `(([?\M-x] . counsel-M-x)
@@ -386,5 +392,5 @@ plank -n dock1
  '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 113 :width normal)))))
 
 
-(put 'dired-find-alternate-file 'disabled nil)
 
+(put 'dired-find-alternate-file 'disabled nil)

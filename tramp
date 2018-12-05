@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <18/11/15 17:57:26 /home/linguini/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <18/12/01 23:43:19 /home/linguini/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -99,4 +99,30 @@
   ("tmpdir" "/sudo:root@archlinux:/tmp")
   ("touch-t" t)
   ("touch" "\\touch")
-  ("~root" "/root")))
+  ("~root" "/root"))
+ ((tramp-file-name "sudo" "root" nil "linguini-lap" nil nil nil)
+  ("uname" "Linux 4.18.16-arch1-1.0-ARCH")
+  ("locale" "LC_ALL=en_US.utf8")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("file-exists" "test -e")
+  ("case-insensitive" nil)
+  ("ls" "/bin/ls --color=never")
+  ("ls-quoting-style" t)
+  ("ls-dired" t)
+  ("stat" "env QUOTING_STYLE=locale \\stat")
+  ("id" "/bin/id")
+  ("gid-integer" 0)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("readlink" "\\readlink")
+  ("gid-string" "root")
+  ("tmpdir" "/sudo:root@linguini-lap:/tmp")
+  ("touch-t" t)
+  ("touch" "\\touch")
+  ("uid-integer" 0)
+  ("~root" "/root")
+  ("git" "\\git")))

@@ -1,7 +1,15 @@
+
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
 ;; (setenv "LANG" "ja_JP.UTF-8")
+
+(locale-name-match (locale-translate "ja_JP.UTF-8")
+		   locale-language-names)
+
+(locale-name-match (locale-translate "ja_JP.UTF-8")
+		   locale-charset-language-names)
+
 (set-language-environment "Japanese")
 
 (prefer-coding-system 'utf-8)
@@ -49,7 +57,7 @@
 (setq display-time-default-load-average nil)
 (display-time-mode nil)
 
-(menu-bar-mode t)
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (fringe-mode 1)
@@ -220,9 +228,15 @@
       #'((t . ivy--regex-ignore-order)))
 
 ;; enable smartparens
+<<<<<<< HEAD
 (package-install  #'smartparens)
 (require  #'smartparens)
 (smartparens-mode 1)
+=======
+(package-install #'smartparens)
+(require #'smartparens)
+(smartparens-global-mode 1)
+>>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
 
 ;;leaven theme
 (package-install  #'leuven-theme)
@@ -430,5 +444,10 @@
  ;; If there is more than one, they won't work right.
  )
 
+<<<<<<< HEAD
 (put 'dired-find-alternate-file 'disabled nil)
+=======
 
+>>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
+
+(put 'dired-find-alternate-file 'disabled nil)

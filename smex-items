@@ -1,23 +1,55 @@
 
 ;; ----- smex-history -----
 (
+<<<<<<< HEAD
+ load-file
+ rainbow-delimiters-mode
+ package-list-packages
+ redraw-display
+ revert-buffer
+ async-shell-command
+ server-start
+=======
  kill-emacs
+<<<<<<< HEAD
  load-file
  help
  which-key-show-full-keymap
  which-key-show-minor-mode-keymap
  which-key-show-keymap
  shrink-window-if-larger-than-buffer
+=======
+ multi-term
+ w3m-fb-mode
+ w3m-goto-url
+ image-dired
+ yank
+ swiper
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+>>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 55)
+<<<<<<< HEAD
  (linum-mode . 10)
  (counsel-linux-app . 400)
  (recover-session . 2)
  (load-file . 574)
+=======
+ (linum-mode . 5)
+<<<<<<< HEAD
+ (counsel-linux-app . 186)
+ (recover-session . 3)
+ (load-file . 489)
+=======
+ (counsel-linux-app . 200)
+ (recover-session . 2)
+ (load-file . 536)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+>>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
  (comment-region . 3)
  (global-auto-complete-mode . 4)
  (package-delete . 30)
@@ -31,10 +63,17 @@
  (icomplete-mode . 1)
  (package-list-packages . 19)
  (elisp-flymake--batch-compile-for-flymake . 1)
+<<<<<<< HEAD
+ (company-flx-mode . 3)
+ (rainbow-delimiters-mode . 4)
+ (multi-term . 156)
+ (load-theme . 30)
+=======
  (company-flx-mode . 1)
  (rainbow-delimiters-mode . 11)
  (multi-term . 169)
  (load-theme . 36)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (moe-theme-select-color . 20)
  (moe-theme-random-color . 3)
  (mozc-mode . 8)
@@ -59,7 +98,7 @@
  (read-only-mode . 2)
  (write-file . 3)
  (find-file . 4)
- (mozc-handle-event . 2)
+ (mozc-handle-event . 4)
  (set-variable . 14)
  (powerline-reset . 4)
  (powerline-vim-theme . 1)
@@ -77,8 +116,16 @@
  (exwm-reset . 1)
  (exwm-restart . 16)
  (japanese-hankaku-region . 1)
+<<<<<<< HEAD
+ (lao-compose-region . 2)
+=======
  (lao-compose-region . 7)
+<<<<<<< HEAD
  (package-install . 5)
+=======
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+ (package-install . 4)
+>>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
  (ac-skk-enable . 1)
  (exwm-floating-toggle-floating . 22)
  (find-variable . 1)
@@ -104,7 +151,7 @@
  (exwm-workspace-delete . 3)
  (tetris . 1)
  (exwm-exit . 1)
- (server-start . 41)
+ (server-start . 45)
  (exwm-layout-unset-fullscreen . 3)
  (exwm-workspace-swap . 4)
  (exwm-workspace-switch . 16)
@@ -123,7 +170,11 @@
  (suspend-emacs . 1)
  (customize-option . 10)
  (skk-mode . 13)
+<<<<<<< HEAD
  (revert-buffer-with-coding-system . 51)
+=======
+ (revert-buffer-with-coding-system . 48)
+>>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
  (recover-file . 1)
  (skk-jisx0201-mode . 6)
  (skk-tutorial . 6)
@@ -161,7 +212,11 @@
  (org-latex-export-to-pdf . 8)
  (auto-sudoedit-sudoedit-and-kill . 44)
  (make-directory . 3)
+<<<<<<< HEAD
+ (shell-script-mode . 18)
+=======
  (shell-script-mode . 20)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (exwmx-dmenu-simple . 1)
  (skk-annotation-toggle-display-p . 2)
  (skk-hiragana-region . 1)
@@ -170,13 +225,17 @@
  (org-koma-letter-export-to-pdf . 4)
  (org-beamer-export-to-pdf . 1)
  (org-md-export-to-markdown . 1)
- (review-header . 1)
+ (review-header . 2)
  (review-search-uri . 1)
  (japanese-katakana-region . 12)
  (japanese-hiragana-region . 1)
  (review-change-mode . 1)
  (vc-git-log-view-mode . 1)
+<<<<<<< HEAD
+ (review-mode . 7)
+=======
  (review-mode . 2)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (counsel-git-log . 1)
  (org-mode . 1)
  (table-span-cell . 1)
@@ -199,6 +258,11 @@
  (eww-back-url . 9)
  (eww-download . 2)
  (move-file-to-trash . 1)
+<<<<<<< HEAD
+ (redraw-display . 2)
+ (goto-line . 1)
+ (async-shell-command . 1)
+=======
  (redraw-display . 1)
  (goto-line . 2)
  (hexl-mode . 6)
@@ -220,6 +284,7 @@
  (yank . 1)
  (image-dired . 2)
  (w3m-fb-mode . 2)
+<<<<<<< HEAD
  (kill-emacs . 4)
  (yaml-mode . 1)
  (maximize-window . 1)
@@ -252,4 +317,8 @@
  (which-key-show-keymap . 1)
  (which-key-show-minor-mode-keymap . 2)
  (help . 1)
+=======
+ (kill-emacs . 1)
+>>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+>>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
 )

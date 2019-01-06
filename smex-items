@@ -1,153 +1,144 @@
 
 ;; ----- smex-history -----
 (
-<<<<<<< HEAD
+ exwm-restart
+ srefactor-lisp-format-sexp
+ package-install
  load-file
- rainbow-delimiters-mode
- package-list-packages
- redraw-display
- revert-buffer
- async-shell-command
- server-start
-=======
- kill-emacs
-<<<<<<< HEAD
- load-file
- help
- which-key-show-full-keymap
- which-key-show-minor-mode-keymap
- which-key-show-keymap
- shrink-window-if-larger-than-buffer
-=======
- multi-term
- w3m-fb-mode
- w3m-goto-url
- image-dired
- yank
- swiper
->>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
->>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
+ ov-clear
+ indent-for-tab-command
+ counsel-linux-app
 )
 
 ;; ----- smex-data -----
 (
  (smex . 1)
  (eval-buffer . 55)
-<<<<<<< HEAD
+ <<<<<<<
+ HEAD
  (linum-mode . 10)
- (counsel-linux-app . 400)
+ (counsel-linux-app . 440)
  (recover-session . 2)
- (load-file . 574)
-=======
+ (load-file . 885)
+ =======
  (linum-mode . 5)
-<<<<<<< HEAD
+ <<<<<<<
+ HEAD
  (counsel-linux-app . 186)
  (recover-session . 3)
  (load-file . 489)
-=======
+ =======
  (counsel-linux-app . 200)
  (recover-session . 2)
  (load-file . 536)
->>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
->>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
+ >>>>>>>
+ 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+ >>>>>>>
+ ef7504086eceed8b9dac9bfced453e8786a39a69
  (comment-region . 3)
  (global-auto-complete-mode . 4)
- (package-delete . 30)
+ (package-delete . 44)
  (uncomment-region . 1)
- (enable-theme . 28)
- (disable-theme . 14)
- (comment-or-uncomment-region . 76)
+ (enable-theme . 49)
+ (disable-theme . 17)
+ (comment-or-uncomment-region . 87)
  (global-company-mode . 4)
  (company-filter-candidates . 1)
  (company-complete . 3)
- (icomplete-mode . 1)
- (package-list-packages . 19)
+ (icomplete-mode . 3)
+ (package-list-packages . 32)
  (elisp-flymake--batch-compile-for-flymake . 1)
-<<<<<<< HEAD
+ <<<<<<<
+ HEAD
  (company-flx-mode . 3)
  (rainbow-delimiters-mode . 4)
  (multi-term . 156)
- (load-theme . 30)
-=======
+ (load-theme . 57)
+ =======
  (company-flx-mode . 1)
  (rainbow-delimiters-mode . 11)
  (multi-term . 169)
  (load-theme . 36)
->>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+ >>>>>>>
+ 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (moe-theme-select-color . 20)
  (moe-theme-random-color . 3)
- (mozc-mode . 8)
- (powerline-moe-theme . 4)
- (powerline-center-theme . 1)
+ (mozc-mode . 19)
+ (powerline-moe-theme . 7)
+ (powerline-center-theme . 2)
  (powerline-center-evil-theme . 1)
  (undo-tree-visualize . 1)
  (undo-tree-visualizer-selection-toggle-diff . 1)
- (powerline-default-theme . 2)
- (rectangular-region-mode . 7)
+ (powerline-default-theme . 8)
+ (rectangular-region-mode . 11)
  (auto-sudoedit-mode . 165)
  (next-buffer . 1)
  (dired-toggle-sudo . 3)
  (auto-sudoedit-sudoedit . 8)
  (window-swap-states . 16)
  (term . 7)
- (exwm-init . 20)
+ (exwm-init . 31)
  (avy-copy-region . 1)
  (isearch-forward . 3)
  (tramp-unload-tramp . 2)
  (view-file . 2)
- (read-only-mode . 2)
+ (read-only-mode . 4)
  (write-file . 3)
- (find-file . 4)
+ (find-file . 5)
  (mozc-handle-event . 4)
  (set-variable . 14)
- (powerline-reset . 4)
- (powerline-vim-theme . 1)
+ (powerline-reset . 5)
+ (powerline-vim-theme . 3)
  (dired . 1)
  (describe-coding-system . 1)
  (universal-coding-system-argument . 4)
  (prefer-coding-system . 5)
  (set-file-name-coding-system . 1)
  (update-file-autoloads . 1)
- (uim-mode . 3)
- (uim-im-switch . 1)
- (uim-mode-switch . 1)
+ (uim-mode . 17)
+ (uim-im-switch . 9)
+ (uim-mode-switch . 8)
  (swiper-query-replace . 2)
  (org-reload . 2)
- (exwm-reset . 1)
- (exwm-restart . 16)
+ (exwm-reset . 2)
+ (exwm-restart . 23)
  (japanese-hankaku-region . 1)
-<<<<<<< HEAD
+ <<<<<<<
+ HEAD
  (lao-compose-region . 2)
-=======
+ =======
  (lao-compose-region . 7)
-<<<<<<< HEAD
- (package-install . 5)
-=======
->>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+ <<<<<<<
+ HEAD
+ (package-install . 25)
+ =======
+ >>>>>>>
+ 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (package-install . 4)
->>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
+ >>>>>>>
+ ef7504086eceed8b9dac9bfced453e8786a39a69
  (ac-skk-enable . 1)
  (exwm-floating-toggle-floating . 22)
  (find-variable . 1)
  (swiper . 4)
- (swiper-mc . 3)
+ (swiper-mc . 4)
  (swiper-multi . 1)
  (xterm-mouse-mode . 6)
  (mouse-split-window-horizontally . 1)
- (mc/edit-lines . 3)
+ (mc/edit-lines . 8)
  (rgrep . 6)
  (find-name-dired . 8)
  (recursive-edit . 1)
  (ido-find-file . 1)
- (revert-buffer . 44)
+ (revert-buffer . 52)
  (nix-mode . 8)
  (smartparens-mode . 5)
  (ansi-term . 5)
- (eval-expression . 4)
+ (eval-expression . 11)
  (tramp-cleanup-all-connections . 4)
  (tramp-cleanup-this-connection . 2)
  (exwm-workspace-add . 21)
- (exwm-workspace-move . 46)
+ (exwm-workspace-move . 47)
  (exwm-workspace-delete . 3)
  (tetris . 1)
  (exwm-exit . 1)
@@ -158,32 +149,34 @@
  (exwm-workspace-move-window . 19)
  (tabify . 1)
  (tabbar-mode . 3)
- (delete-file . 3)
+ (delete-file . 7)
  (exwm-layout-shrink-window . 1)
  (smartparens-global-mode . 12)
  (widget-key-sequence-read-event . 1)
  (exwm-input-set-key . 2)
- (desktop-save . 7)
- (desktop-revert . 6)
- (desktop-save-mode . 1)
+ (desktop-save . 11)
+ (desktop-revert . 20)
+ (desktop-save-mode . 5)
  (info . 1)
  (suspend-emacs . 1)
- (customize-option . 10)
- (skk-mode . 13)
-<<<<<<< HEAD
- (revert-buffer-with-coding-system . 51)
-=======
+ (customize-option . 27)
+ (skk-mode . 29)
+ <<<<<<<
+ HEAD
+ (revert-buffer-with-coding-system . 57)
+ =======
  (revert-buffer-with-coding-system . 48)
->>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
+ >>>>>>>
+ ef7504086eceed8b9dac9bfced453e8786a39a69
  (recover-file . 1)
  (skk-jisx0201-mode . 6)
  (skk-tutorial . 6)
- (byte-recompile-directory . 14)
+ (byte-recompile-directory . 17)
  (lisp-mode . 1)
  (kill-some-buffers . 3)
  (skk-jisyo-edit-mode . 2)
- (emacs-lisp-mode . 3)
- (counsel-load-theme . 2)
+ (emacs-lisp-mode . 6)
+ (counsel-load-theme . 3)
  (skk-clock . 2)
  (skk-list-chars . 2)
  (skk-study-read . 2)
@@ -198,25 +191,27 @@
  (skk-toggle-jisx0201 . 8)
  (skk-toggle-kana . 3)
  (skk-menu . 1)
- (skk-auto-fill-mode . 1)
+ (skk-auto-fill-mode . 4)
  (skk-hurigana-region . 3)
  (move-beginning-of-line . 1)
  (mark-paragraph . 2)
  (mc/mark-previous-like-this-word . 1)
  (mark-page . 1)
- (mark-whole-buffer . 1)
- (adaptive-wrap-prefix-mode . 3)
+ (mark-whole-buffer . 3)
+ (adaptive-wrap-prefix-mode . 9)
  (toggle-word-wrap . 1)
  (list-fontsets . 1)
  (org-preview-latex-fragment . 1)
  (org-latex-export-to-pdf . 8)
  (auto-sudoedit-sudoedit-and-kill . 44)
- (make-directory . 3)
-<<<<<<< HEAD
+ (make-directory . 4)
+ <<<<<<<
+ HEAD
  (shell-script-mode . 18)
-=======
+ =======
  (shell-script-mode . 20)
->>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+ >>>>>>>
+ 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (exwmx-dmenu-simple . 1)
  (skk-annotation-toggle-display-p . 2)
  (skk-hiragana-region . 1)
@@ -227,21 +222,23 @@
  (org-md-export-to-markdown . 1)
  (review-header . 2)
  (review-search-uri . 1)
- (japanese-katakana-region . 12)
+ (japanese-katakana-region . 13)
  (japanese-hiragana-region . 1)
  (review-change-mode . 1)
  (vc-git-log-view-mode . 1)
-<<<<<<< HEAD
+ <<<<<<<
+ HEAD
  (review-mode . 7)
-=======
+ =======
  (review-mode . 2)
->>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+ >>>>>>>
+ 3f2b9b5c526944fd6944f4bd16facc9c59f997db
  (counsel-git-log . 1)
  (org-mode . 1)
  (table-span-cell . 1)
  (org-table-create . 1)
  (org-table-toggle-coordinate-overlays . 1)
- (customize . 2)
+ (customize . 4)
  (which-key-show-full-keymap . 4)
  (describe-key . 1)
  (exwm-edit-mode . 5)
@@ -253,23 +250,24 @@
  (dired-do-delete . 1)
  (find-grep-dired . 1)
  (dired-do-copy . 4)
- (w3m . 4)
+ (w3m . 5)
  (eww . 2)
- (eww-back-url . 9)
+ (eww-back-url . 10)
  (eww-download . 2)
  (move-file-to-trash . 1)
-<<<<<<< HEAD
+ <<<<<<<
+ HEAD
  (redraw-display . 2)
  (goto-line . 1)
  (async-shell-command . 1)
-=======
+ =======
  (redraw-display . 1)
  (goto-line . 2)
  (hexl-mode . 6)
  (hexl-mode-exit . 2)
- (desktop-read . 2)
- (conf-desktop-mode . 3)
- (desktop-clear . 3)
+ (desktop-read . 10)
+ (conf-desktop-mode . 5)
+ (desktop-clear . 4)
  (list-character-sets . 2)
  (describe-face . 2)
  (sane-term . 1)
@@ -282,16 +280,17 @@
  (w3m-view-image . 2)
  (w3m-toggle-inline-images . 1)
  (yank . 1)
- (image-dired . 2)
+ (image-dired . 3)
  (w3m-fb-mode . 2)
-<<<<<<< HEAD
- (kill-emacs . 4)
+ <<<<<<<
+ HEAD
+ (kill-emacs . 5)
  (yaml-mode . 1)
  (maximize-window . 1)
  (exwm-layout-toggle-fullscreen . 4)
  (toggle-frame-fullscreen . 1)
  (exwm-layout-set-fullscreen . 3)
- (ibuffer . 1)
+ (ibuffer . 4)
  (conf-unix-mode . 1)
  (dired-do-touch . 1)
  (python-mode . 2)
@@ -317,8 +316,140 @@
  (which-key-show-keymap . 1)
  (which-key-show-minor-mode-keymap . 2)
  (help . 1)
-=======
+ =======
  (kill-emacs . 1)
->>>>>>> 3f2b9b5c526944fd6944f4bd16facc9c59f997db
->>>>>>> ef7504086eceed8b9dac9bfced453e8786a39a69
+ >>>>>>>
+ 3f2b9b5c526944fd6944f4bd16facc9c59f997db
+ >>>>>>>
+ ef7504086eceed8b9dac9bfced453e8786a39a69
+ (global-flycheck-mode . 3)
+ (eval-region . 11)
+ (package-reinstall . 19)
+ (package-menu-refresh . 1)
+ (package-menu-execute . 2)
+ (package-menu-backup-unmark . 1)
+ (ivy-rich-mode . 8)
+ (desktop-lazy-complete . 1)
+ (eww-toggle-colors . 2)
+ (calc-julian . 1)
+ (ediff-windows-linewise . 1)
+ (ediff-quit . 2)
+ (sp-wrap-curly . 2)
+ (hs-minor-mode . 2)
+ (hs-toggle-hiding . 4)
+ (flycheck-rust-setup . 2)
+ (flycheck-mode . 4)
+ (hs-minor-mode-menu . 3)
+ (elint-current-buffer . 1)
+ (common-lisp-mode . 1)
+ (flycheck-popup-tip-mode . 1)
+ (ivy-avy . 2)
+ (avy-isearch . 2)
+ (avy-goto-char . 2)
+ (ac-next . 2)
+ (mc/mark-pop . 1)
+ (flymake-running-backends . 1)
+ (variable-pitch-mode . 7)
+ (skk-restart . 1)
+ (uim-switch-candidate-display-mode . 1)
+ (customize-variable . 4)
+ (customize-set-value . 1)
+ (quail-update-leim-list-file . 1)
+ (list-input-methods . 1)
+ (indent-region . 4)
+ (global-adaptive-wrap-prefix-mode . 4)
+ (exit-splash-screen . 1)
+ (htmlize-buffer . 2)
+ (all-the-icons-install-fonts . 1)
+ (icon-mode . 1)
+ (all-the-icons-insert-faicon . 1)
+ (blink-matching-open . 1)
+ (swiper-toggle-face-matching . 1)
+ (powerline-revert . 10)
+ (describe-theme . 1)
+ (all-the-icons-dired-mode . 2)
+ (customize-face . 2)
+ (neotree . 1)
+ (counsel-grep . 1)
+ (delete-directory . 1)
+ (awesome-tray-mode . 3)
+ (indent-guide-show . 1)
+ (mode-icons-mode . 7)
+ (vc-mode-line . 1)
+ (mouse-drag-mode-line . 1)
+ (moe-dark . 2)
+ (layout-restore . 1)
+ (layout-save-current . 1)
+ (wg-revert-workgroup . 5)
+ (wg-save-wconfig . 6)
+ (wg-save-session . 3)
+ (wg-save-session-as . 2)
+ (workgroups-mode . 5)
+ (wg-switch-to-workgroup . 4)
+ (wg-open-session . 2)
+ (wg-restore-saved-wconfig . 6)
+ (winner-undo . 1)
+ (wg-swap-workgroups . 1)
+ (mc/mark-all-in-region . 4)
+ (el-get-list-packages . 3)
+ (el-get-remove . 5)
+ (ibuffer-change-marks . 3)
+ (el-get-install . 3)
+ (quelpa . 2)
+ (quelpa-upgrade . 1)
+ (mc/mark-all-like-this . 1)
+ (quelpa-expand-recipe . 1)
+ (package-menu-mark-upgrades . 1)
+ (describe-function . 1)
+ (package-initialize . 2)
+ (package-install-file . 1)
+ (elisp-format-buffer . 20)
+ (query-replace . 4)
+ (elint-defun . 1)
+ (elisp-def . 10)
+ (imenu . 1)
+ (counsel-imenu . 1)
+ (elisp-format-region . 4)
+ (mc--replace-region-strings-1 . 1)
+ (multiple-cursors-mode . 1)
+ (text-mode . 3)
+ (sp-forward-barf-sexp . 4)
+ (smartparens-strict-mode . 1)
+ (ivy-call . 157)
+ (ivy-pop-view . 1)
+ (semantic-mode . 6)
+ (srefactor-ui-menu-mode . 1)
+ (srefactor-lisp-format-buffer . 5)
+ (lispy-mode . 18)
+ (lispy-multiline . 1)
+ (special-lispy-alt-multiline . 1)
+ (kill-buffer . 1)
+ (srefactor-lisp-one-line . 6)
+ (srefactor-lisp-format-sexp . 65)
+ (srefactor-ui--refactor-based-on-tag-class-1 . 1)
+ (srefactor-ui-create-menu . 1)
+ (srefactor-lisp-format-defun . 1)
+ (srefactor-refactor-at-point . 1)
+ (whitespace-mode . 253)
+ (whitespace-toggle-options . 3)
+ (counsel-unicode-char . 28)
+ (lispy-barf . 11)
+ (newline . 2)
+ (global-whitespace-mode . 2)
+ (pcre-to-elisp . 6)
+ (eldoc-mode . 2)
+ (describe-current-display-table . 1)
+ (leerzeichen-mode . 2)
+ (switch-window-then-swap-buffer . 1)
+ (describe-minor-mode . 1)
+ (package-refresh-contents . 1)
+ (describe-variable . 1)
+ (counsel-describe-variable . 1)
+ (ov-clear . 35)
+ (my/buffer-minchoize . 6)
+ (my/whitespace . 26)
+ (pcre-query-replace-regexp . 1)
+ (lispy-raise . 11)
+ (undo-tree-redo . 1)
+ (indent-for-tab-command . 1)
 )

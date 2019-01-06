@@ -6,6 +6,9 @@
 	counsel-M-x
 	indent-for-tab-command
 	mouse-set-region
+	my/exwm-counsel-yank-pop
+	swiper
+	swiper-mc
 	))
 
 (setq mc/cmds-to-run-once

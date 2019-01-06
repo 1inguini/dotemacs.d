@@ -2,20 +2,20 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Fri Dec 21 22:21:40 2018
+;; Created Sun Jan  6 15:18:08 2019
 ;; Desktop file format version 208
 ;; Emacs version 26.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (23580 59620 415933 918000) (desktop . "208") "linguini@arch-linguini" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font-backend xft x) (font . "-CYRE-Inconsolata-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#c6c6c6") (background-color . "#303030") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 0) (right-fringe . 0) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . fullboth) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#eeeeee") (ccc-frame-cursor-color . "#eeeeee") (ccc-frame-foreground-color . "black") (ccc-frame-background-color . "white") (powerline-cache) (sticky) (frameset--id . "CC6D-2E1C-33A6-AF26") (frameset--mini t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (height . 68) (width . 274) (left . 1024) (top . 26)) ((min-height . 8) (min-width . 20) (min-height-ignore . 5) (min-width-ignore . 4) (min-height-safe . 2) (min-width-safe . 4) (min-pixel-height . 120) (min-pixel-width . 140) (min-pixel-height-ignore . 75) (min-pixel-width-ignore . 28) (min-pixel-height-safe . 30) (min-pixel-width-safe . 28)) hc (pixel-width . 1918) (pixel-height . 1005) (total-width . 274) (total-height . 67) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (vc (pixel-width . 959) (pixel-height . 1005) (total-width . 137) (total-height . 67) (normal-height . 1.0) (normal-width . 0.5) (combination-limit) (leaf (pixel-width . 959) (pixel-height . 147) (total-width . 137) (total-height . 10) (normal-height . 0.1394182547642931) (normal-width . 1.0) (buffer " Speed Dial" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (leaf (last . t) (pixel-width . 959) (pixel-height . 858) (total-width . 137) (total-height . 57) (normal-height . 0.8605817452357071) (normal-width . 1.0) (buffer " ’¡ÚPython’¤ÇGUI’¡ÛPyQt5 -’½à’È÷- - Qiita" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1)))) (vc (last . t) (pixel-width . 959) (pixel-height . 1005) (total-width . 137) (total-height . 67) (normal-height . 1.0) (normal-width . 0.5) (combination-limit) (leaf (pixel-width . 959) (pixel-height . 739) (total-width . 137) (total-height . 49) (normal-height . 0.7419678714859438) (normal-width . 1.0) (buffer " dotemacs.d/init.el at master —©® 1inguini/dotemacs.d —©® GitHub" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (leaf (last . t) (pixel-width . 959) (pixel-height . 266) (total-width . 137) (total-height . 18) (normal-height . 0.258032128514056) (normal-width . 1.0) (buffer " Slack - NCAS" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))))) (((minibuffer . t) (undecorated) (override-redirect) (font-backend xft x) (font . "-CYRE-Inconsolata-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#c6c6c6") (background-color . "#303030") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 0) (right-fringe . 0) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . fullboth) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#eeeeee") (ccc-frame-cursor-color . "#eeeeee") (ccc-frame-foreground-color . "#c6c6c6") (ccc-frame-background-color . "#303030") (powerline-cache) (sticky) (frameset--id . "25DC-DA4C-5EE6-1033") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (height . 70) (width . 274) (left . 1024) (top . 1080)) ((min-height . 12) (min-width . 20) (min-height-ignore . 6) (min-width-ignore . 4) (min-height-safe . 3) (min-width-safe . 4) (min-pixel-height . 180) (min-pixel-width . 140) (min-pixel-height-ignore . 90) (min-pixel-width-ignore . 28) (min-pixel-height-safe . 45) (min-pixel-width-safe . 28)) hc (pixel-width . 1918) (pixel-height . 1035) (total-width . 274) (total-height . 69) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 959) (pixel-height . 1035) (total-width . 137) (total-height . 69) (normal-height . 1.0) (normal-width . 0.5) (buffer "Qt Designer" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (vc (last . t) (pixel-width . 959) (pixel-height . 1035) (total-width . 137) (total-height . 69) (normal-height . 1.0) (normal-width . 0.5) (combination-limit) (leaf (pixel-width . 959) (pixel-height . 419) (total-width . 137) (total-height . 27) (normal-height . 0.40487804878048783) (normal-width . 1.0) (buffer "Pipfile" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 196) (start . 1))) (leaf (pixel-width . 959) (pixel-height . 222) (total-width . 137) (total-height . 14) (normal-height . 0.21764705882352942) (normal-width . 1.0) (buffer "init.el" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 8810) (start . 8611))) (leaf (last . t) (pixel-width . 959) (pixel-height . 394) (total-width . 137) (total-height . 26) (normal-height . 0.3774748923959829) (normal-width . 1.0) (buffer "fish  /home/linguini/.emacs.d" (selected . t) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))))) (((minibuffer . t) (undecorated) (override-redirect) (font-backend xft x) (font . "-CYRE-Inconsolata-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#c6c6c6") (background-color . "#303030") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 0) (right-fringe . 0) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . fullboth) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#eeeeee") (environment) (powerline-cache) (ccc-frame-cursor-color . "#eeeeee") (ccc-frame-foreground-color . "black") (ccc-frame-background-color . "white") (sticky) (frameset--id . "1F79-A113-A56D-A742") (frameset--mini t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (height . 49) (width . 146) (left . 0) (top . 0)) ((min-height . 8) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 2) (min-height-safe . 2) (min-width-safe . 2) (min-pixel-height . 120) (min-pixel-width . 70) (min-pixel-height-ignore . 60) (min-pixel-width-ignore . 14) (min-pixel-height-safe . 30) (min-pixel-width-safe . 14)) vc (pixel-width . 1022) (pixel-height . 720) (total-width . 146) (total-height . 48) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 1022) (pixel-height . 359) (total-width . 146) (total-height . 24) (normal-height . 0.5) (normal-width . 1.0) (buffer "bookmark.html" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 820) (start . 747))) (leaf (last . t) (pixel-width . 1022) (pixel-height . 361) (total-width . 146) (total-height . 24) (normal-height . 0.5) (normal-width . 1.0) (buffer "bookmark.html" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 820) (start . 747)))))])
-(setq kill-ring '("\n(global-set-key (kbd \"C-l\") #'redraw-display)" "(global-set-key(kbd \"C-l\")  #'avy-goto-line)" " \"%7d\"" "import sys\nimport PyQt5.QtWidgets\n\napp = PyQt5.QtWidgets.QApplication([])\nw = PyQt5.QtWidgets.QWidget()\nw.resize(300, 200)\nw.setWindowTitle('foo')\nw.show()\nsys.exit(app.exec())" "import sys import sys import PyQt4.QtCore as QtCore import PyQt4.QtCore as QtCore import PyQt4.QtGui as QtGui import PyQt4.QtGui as QtGui def main(): def main():     app = QtGui.QApplication(sys.argv)     app = QtGui.QApplication(sys.argv)     main_window = QtGui.QMainWindow()     main_window = QtGui.QMainWindow()     hello_button = QtGui.QPushButton(\"’ÇÈ’Ï²’¥ï’¡¼’¥ë’¥É\")     hello_button = QtGui.QPushButton(\"’ÇÈ’Ï²’¥ï’¡¼’¥ë’¥É\")     main_window.setCentralWidget(hello_button)     main_window.setCentralWidget(hello_button)     main_window.show()     main_window.show()     app.exec_()     app.exec_() if __name__ == __main__: " "import" "(defun my-lua-mode-company-init ()\n  (setq-local company-backends '((company-lua\n                                  company-etags\n                                  company-dabbrev-code\n                                  company-yasnippet))))" " codi" "[scripts]\nstart = \"python app.py\"" "tomlkit.exceptions.EmptyKeyError: Empty key at line 14 col 0\n" "\n{script}\nstart = \"main.py\"" "-- Press Enter here to update --\n-- Press Enter here to update --\n\n’¤·’¤Æ’¤ë" "aa’°¦’¤·’¤Æ’¤ë" "(add-hook 'python-mode-hook #'pipenv-mode)" "https://stackoverflow.com/questions/16048231/how-to-enable-a-non-global-minor-mode-by-default-on-emacs-startup" "file:///home/linguini/.config/lariza/bookmark.html" "(package-install #'key-intercept)\n(require #'key-intercept)\n(key-intercept-mode 1)\n(define-intercept-key (kbd \"C-c\") #'kill-ring-save 0.01)\n\n" "(lambda ()\n\n" "  (define-key global-map (kbd \"C-c\") 'kill-ring-save))" "(general-define-" "key\n  :keymaps 'python-mode-prifix\n  )" "(require #'general)" "tch-to-buffer\n \"C-c\" 'kill-ring-sa" "search\n )\n\n(general-define-key\n :keymaps 'python-mode-map\n \"M-p\" 'python-mode-" " \"C-r\" 'swiper-query-replace\n" " \"C-z\" 'ivy-reverse-i-search\n" "(general-define-key\n :keymaps 'swiper-map\n \"C-r\" 'swiper-query-replace\n \"C-z\" 'ivy-reverse-i-search\n )" "(add-hook 'emacs-load-hook 'reassign-C-c)" "my-" "global-" "(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode\n  (lambda () (rainbow-mode 1)))\n\n(my-global-rainbow-mode 1)" "emacs-startup" "tex-mode-keymap" "reassign-" "ex-mode-load" "hook " "mode-keymap" "(defun reassign-tex-mode-keymap()\n  (define-key latex-mode-map (kbd \"C-c\") 'end-of-buffer))\n(add-hook 'tex-mode-load-hook 'reassign-tex-mode-keymap)" "(rainbow-delimiters-mode t)" "company-lua\n		 " "param-cross-junction--cmacro\n" "(defun my-lua-mode-company-init ()\n  (setq-local company-backends '((company-lua\n                                  company-etags\n                                  company-dabbrev-code\n                                  company-yasnippet))))\n(add-hook 'lua-mode-hook #'my-lua-mode-company-init)" "   (add-to-list 'load-path \"/path/to/directory/where/lua-mode-el/resides\")" "    ;;;; This snippet enables lua-mode\n    ;; This line is not necessary, if lua-mode.el is already on your load-path\n    (add-to-list 'load-path \"/path/to/directory/where/lua-mode-el/resides\")\n\n    (autoload 'lua-mode \"lua-mode\" \"Lua editing mode.\" t)\n    (add-to-list 'auto-mode-alist '(\"\\\\.lua$\" . lua-mode))\n    (add-to-list 'interpreter-mode-alist '(\"lua\" . lua-mode))" "m\n		" "update-" " (add-to-list 'company-backends '(company-jedi company-files))" "(require 'virtualenvwrapper)\n(require 'auto-virtualenvwrapper)\n(add-hook 'python-mode-hook #'auto-virtualenvwrapper-activate)" "QApp" "QUiLoader." "loader=QUiLoader" "impor" "(add-hook 'python-mode-hook 'jedi:setup)\n(setq jedi:complete-on-dot t)" "import PyQt as p\n" "exec_())\n\n    " "# -*- coding: utf-8 -*-\nfrom PyQt4 import uic\n \nfin = open('first_form.ui', 'r')\nfout = open('first_form.py', 'w')\nuic.compileUi(fin,fout,execute=False)\nfin.close()\nfout.close()" "file\n   " "    (flymake-mode t)\n    ;;error\222\244\344warning\222\244\362\222—ªð\222\274\250\222\244\271\222\244\353\n    (require 'flymake-python-pyflakes)\n    (flymake-python-pyflakes-load)" "counsel" "nil\n"))
+(setq desktop-saved-frameset [frameset 1 (23601 40352 306407 354000) (desktop . "208") "linguini@arch-linguini" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font-backend xft x) (font . "-CYRE-Inconsolata-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#c6c6c6") (background-color . "#303030") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 1) (right-fringe . 1) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . fullboth) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#eeeeee") (powerline-cache) (sticky) (frameset--id . "389F-4D23-6852-89FA") (frameset--mini t) (height . 46) (width . 146) (modeline . t) (unsplittable) (left . 0) (top . 0) (icon-name) (display . ":0") (explicit-name)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 3) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 64) (min-pixel-width . 70) (min-pixel-height-ignore . 32) (min-pixel-width-ignore . 21) (min-pixel-height-safe . 16) (min-pixel-width-safe . 14)) leaf (pixel-width . 1024) (pixel-height . 720) (total-width . 146) (total-height . 45) (normal-height . 1.0) (normal-width . 1.0) (buffer "init.el" (selected) (hscroll . 0) (fringes 1 1 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 9604) (start . 9318))) (((minibuffer . t) (undecorated) (override-redirect) (font-backend xft x) (font . "-CYRE-Inconsolata-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#c6c6c6") (background-color . "#303030") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 1) (right-fringe . 1) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . fullboth) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#eeeeee") (powerline-cache) (sticky) (frameset--id . "F767-D769-C7F0-3C1C") (frameset--mini t) (height . 65) (width . 274) (modeline . t) (unsplittable) (left . 1024) (top . 1080) (icon-name) (display . ":0") (explicit-name)) ((min-height . 8) (min-width . 20) (min-height-ignore . 4) (min-width-ignore . 5) (min-height-safe . 2) (min-width-safe . 4) (min-pixel-height . 128) (min-pixel-width . 140) (min-pixel-height-ignore . 64) (min-pixel-width-ignore . 35) (min-pixel-height-safe . 32) (min-pixel-width-safe . 28)) hc (pixel-width . 1920) (pixel-height . 1036) (total-width . 274) (total-height . 65) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 961) (pixel-height . 1036) (total-width . 137) (total-height . 65) (normal-height . 1.0) (normal-width . 0.5) (buffer " GitKraken" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (vc (last . t) (pixel-width . 959) (pixel-height . 1036) (total-width . 137) (total-height . 65) (normal-height . 1.0) (normal-width . 0.5) (combination-limit) (leaf (pixel-width . 959) (pixel-height . 767) (total-width . 137) (total-height . 48) (normal-height . 0.7375609756097561) (normal-width . 1.0) (buffer "init.el" (selected) (hscroll . 0) (fringes 1 1 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 10102) (start . 9821))) (leaf (last . t) (pixel-width . 959) (pixel-height . 269) (total-width . 137) (total-height . 17) (normal-height . 0.2624390243902439) (normal-width . 1.0) (buffer " fish  /home/linguini/Desktop" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))))) (((minibuffer . t) (undecorated) (override-redirect) (font-backend xft x) (font . "-CYRE-Inconsolata-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#c6c6c6") (background-color . "#303030") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 1) (right-fringe . 1) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . fullboth) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#eeeeee") (powerline-cache) (sticky) (frameset--id . "314F-CAEB-6A2F-F853") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (height . 64) (width . 274) (left . 1024) (top . 26)) ((min-height . 8) (min-width . 20) (min-height-ignore . 4) (min-width-ignore . 4) (min-height-safe . 2) (min-width-safe . 4) (min-pixel-height . 128) (min-pixel-width . 140) (min-pixel-height-ignore . 64) (min-pixel-width-ignore . 28) (min-pixel-height-safe . 32) (min-pixel-width-safe . 28)) hc (pixel-width . 1920) (pixel-height . 1008) (total-width . 274) (total-height . 63) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 961) (pixel-height . 1008) (total-width . 137) (total-height . 63) (normal-height . 1.0) (normal-width . 0.5) (buffer "TweetDeck - Vivaldi" (selected . t) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (vc (last . t) (pixel-width . 959) (pixel-height . 1008) (total-width . 137) (total-height . 63) (normal-height . 1.0) (normal-width . 0.5) (combination-limit) (leaf (pixel-width . 959) (pixel-height . 496) (total-width . 137) (total-height . 31) (normal-height . 0.5) (normal-width . 1.0) (buffer "GNOME ALSA Mixer" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (leaf (last . t) (pixel-width . 959) (pixel-height . 512) (total-width . 137) (total-height . 32) (normal-height . 0.5) (normal-width . 1.0) (buffer "Slack - NCAS" (selected) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 nil nil 0 t) (vscroll . 0) (dedicated) (point . 1) (start . 1))))))])
+(setq kill-ring '("((\n   sldfslkdflksj))" "defn a\n   \"the thing\" " "end)))\n(fizzbuzz -10 10)" "\222\244\325 \222\244\250)(\222\244\325 \222\244\250)(\222\244\325 \222\244\250)(\222\244\325 \222\244\250)(\222\244\325 \222\244\250)" "(\222\244\325 \222\244\250)" "(\222\244\325 \222\244\250)" "(let ((\222\244\242 (lambda (\222\244\325 \222\244\250) (\222\244\325 \222\244\250 \222\244\250)))) (\222\244\242 \222\244\242 \222\244\242))" "(fn nth-fibo [number]\n  (loop [num 1\n         number number]\n      (if (= number 0)\n        1\n        (recur (- num 1) number \n" "(nth-fibo 1)" "FIXME: " "def :else" "(in-ns cider.nrepl.middleware.debug)\n(defmacro breakpoint-implementation [form {:keys [coor]} original-form]\n  (let [val-form (cider.nrepl.middleware.util.meta/strip-meta\n                  (if (looks-step-innable? form)\n                    (let [[fn-sym & args] form]\n                      ;; Evaluate args first, delaying the decision of whether or\n                      ;; not to step in until the last possible moment.\n                      `(let [args# [~@args]\n                             step-in?# (step-in? (var ~fn-sym) ~coor)]\n                         (apply (if step-in?#\n                                  (::instrumented (meta (var ~fn-sym)))\n                                  ~fn-sym)\n                                args#)))\n                    form))]\n    `(let [val# ~val-form]\n       (cond\n         (skip-breaks? ~coor) val#\n         ;; The length of `coor` is a good indicator of current code\n         ;; depth.\n         (= (:mode @*skip-breaks*) :trace)\n         (do (print-step-indented ~(count coor) '~(cider.nrepl.middleware.util.meta/strip-meta original-form) val#)\n             val#)\n         ;; Nothing special. Here's the actual breakpoint logic.\n         :else                (->> (pr-short val#)\n                                   (assoc *extras* :debug-value)\n                                   (read-debug-command val#))))))" " ;FIXME" "    (def a (+ a 1))" "a)))\n\n(fizzbuzz 1 5)" "default-data-reader-fn*" "(*default-data-reader-fn*" "(*default-data-reader-fn*" "(def a 5)" ":private" ":private " "doc *default-data-reader-fn*" "*default-data-reader-fn*" "compile-path*" "(*default-data-reader-fn*" "(*default-data-reader-fn*" "(*default-data-reader-fn*" "(*default-data-reader-fn*" "if (= a " "chunked-" "FIXM" "reset-met" "reset-met" "(require '\222\244\252\222\273\234\363\254\304\267.core :reload)" "a b c]" "#{:a\n  [1 2 3]\n  {:foo 11 :bar 12}\n  #{\"shirt\" \"coat\" \"hat\"}}" "doc doc)" "(use-package cider\n  :init\n  (add-hook 'cider-mode-hook #'clj-refactor-mode)\n  (add-hook 'cider-mode-hook #'company-mode)\n  (add-hook 'cider-mode-hook #'eldoc-mode)\n  (add-hook 'cider-repl-mode-hook #'company-mode)\n  (add-hook 'cider-repl-mode-hook #'eldoc-mode)\n  :diminish subword-mode\n  :config\n  (setq nrepl-log-messages t\n        cider-repl-display-in-current-window t\n        cider-repl-use-clojure-font-lock t\n        cider-prompt-save-file-on-load 'always-save\n        cider-font-lock-dynamically '(macro core function var)\n        cider-overlays-use-font-lock t)\n  (cider-repl-toggle-pretty-printing))" "https://github.com/remvee/elein" "mode" "CIDER\nclj-refactor" "Clojure Mode" "show-invisibles-ov" "\n;; Copyright (C) 2013- zk_phi" ".																	\222\244\242" "																	\222\244\242" "https://github.com/daichirata/emacs-rotate" "pcre-to-elisp \"^ +| +$|\\t +| +\\t\"" "\n(defcustom invisibles-to-show (pcre-to-elisp \"^ +| +$|\\t +| +\\t\")\n  \"\"\n  :type 'string\n  :group 'make-char-visible)\n" "char-to-visualize" "invisible" "invisible-to-show" "chars other than the invisible char to show" "my-whitespace" "space" "white" "white" "https://pbs.twimg.com/profile_images/953149886198833152/IK7-s5mk_bigger.jpg" "https://pbs.twimg.com/profile_images/953149886198833152/IK7-s5mk_bigger.jpg" ";; * customs"))
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring nil)
-(setq regexp-search-ring '("gen" "\\(\\).*?\\(glo\\).*?\\(un\\)" "undo" "\\(\\).*?\\(back\\)" "python" "\\(key\\).*?\\(inter\\)" "gener" "ena" "flymake" "\\(flymake\\).*?\\(pyt\\)" "nil" "gene" "coun" "-\\\\" "\\(globa\\).*?\\(key\\)" "\\(auto\\).*?\\(pep\\)"))
-(setq register-alist nil)
-(setq file-name-history '("/home/linguini/.emacs.d/init.el" "/usr/share/qt/" "/home/linguini/Desktop/python/’¤ª’»î’¤·/qt.conf" "/home/linguini/Desktop/" "/home/linguini/temp" "/home/linguini/Desktop/python/’¤ª’»î’¤·/ui/ui_text_selector.py" "/home/linguini/Desktop/python/’¤ª’»î’¤·/ui_test_selector.py" "/home/linguini/Desktop/python/’¤ª’»î’¤·/Pipfile" "/usr/lib/python3.7/site-packages/pipenv/project.py" "/home/linguini/Desktop/python/’¤ª’»î’¤·/main.py" "/usr/lib/python3.7/site-packages/pipenv/vendor/toml/decoder.py" "/home/linguini/Desktop/python/’¤ª’»î’¤·/ui" "/home/linguini/.config/lariza/" "/home/linguini/#.xinitrc#" "/home/linguini/ui.convert.py" "/usr/share/applications/" "/sudo:root@arch-linguini:/home/linguini/.local/share/applications/lariza-home.desktop" "/home/linguini/.local/share/applications/lariza.desktop" "/home/linguini/Templates/" "/home/linguini/Dialog - untitled.ui" "/home/linguini/Dialog - untitled" "/home/linguini/.xsession" "/usr/share/PySide2/" "/sudo:root@arch-linguini:/usr/share/applications/" "/usr/share/applications/colibri.desktop~" "/snap/" "/snap/snap/colibri/9/meta/gui/colibri.desktop" "/sudo:root@arch-linguini:/sudo:root@arch-linguini:/snap/snap/colibri/9/meta/" "/sudo:root@arch-linguini:/usr/share/applications/colibri.desktop" "/sudo:root@arch-linguini:/usr/share/applications/vivaldi-stable.desktop" "/sudo:root@arch-linguini:/snap/snap/colibri/9/meta/gui/" "/snap/snap/colibri/9/bin/" "/home/linguini/.local/share/applications/" "/home/linguini/.local/" "/home/linguini/.bashrc" "/home/linguini/.cache/webkit/" "/home/linguini/.cache/lariza/WebKitCache/Version 13/Blobs/" "/home/linguini/.cache/lariza/" "/home/linguini/.config/lariza/bookmark.html" "/sudo:root@arch-linguini:/home/linguini/.local/share/applications/lariza.desktop" "/home/linguini/.local/share/applications/lariza-home.desktop" "/usr/share/xsessions/exwm.desktop" "/home/linguini/.local/share/" "/home/linguini/.Xresources" "/home/linguini/.icons/default/index.theme" "/home/linguini/.emacs.d/" "/home/linguini/" "/home/linguini/.emacs.desktop" "/home/linguini/.xinitrc" "/sudo:root@arch-linguini:/mnt/etc/modprobe.d/vfio.conf" "/etc/modprobe.d/vfio.conf" "/sudo:root@arch-linguini:/mnt/etc/mkinitcpio.conf" "/sudo:root@arch-linguini:/etc/mkinitcpio.conf" "/sudo:root@arch-linguini:/mnt/etc/default/grub" "/etc/default/grub" "/" "/home/linguini/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/" "/sudo:root@arch-linguini:/home/linguini/.config/lariza/keywordsearch" "/sudo:root@arch-linguini:/home/linguini/.config/lariza/bookmark.html" "/home/linguini/surf/surf.install" "/etc/pacman.d/mirrorlist" "/usr/share/xsessions/" "/home/linguini/tablet.sh" "/usr/share/applications/krita_ora.desktop" "/usr/share/applications/org.kde.krita.desktop" "/home/linguini/saversan/" "/home/linguini/.config/vimb/" "/home/linguini/.config/vimb/command" "/home/linguini/netsurf/" "/home/linguini/netsurf/PKGBUILD" "/home/linguini/lyricallisp_free/readme.txt" "/home/linguini/lyricallisp_free/" "/etc/wcgbrowser.yaml" "/home/linguini/bushi2019/bushi/linguini2.re" "/home/linguini/.vnc/xstartup" "/home/linguini/.vnc/config" "/etc/libvirt/qemu.conf" "/home/linguini/draph-digital/\222\245\224\253\325\245\253\222\306\375\222\304\235\367\352 \364\242\362\224\252\312\222\274\357\222\227\251\254\222\241 \222\246\242\263\224\247\362\244\362\222\300\234\364\261\322\244\353\222\317\224\252\322\241\234\364\256\362\245\252\222\245\227\252\351\245\234\364\257\322\262\275\222\241\333_JPG/" "/home/linguini/draph-digital/" "/home/linguini/Downloads/" "/home/linguini/BJ161010/" "/home/linguini/Pictures/" "/home/linguini/Downloads/control" "/home/linguini/bushi2019/bushi/linguini.re" "/home/linguini/binary" "/usr/bin/sudo" "/home/linguini/.Xmodmap~" "/home/linguini/surf/src/surf/surf.c" "/home/linguini/surf/src/surf/config.def.h.rej" "/home/linguini/surf/src/surf/surf-bookmarks-20170722-723ff26.diff" "/home/linguini/surf/src/surf/" "/home/linguini/surf/src/surf/config.def.h" "/home/linguini/surf/src/surf/surf.c.rej" "/home/linguini/surf/src/surf/surf" "/home/linguini/surf/src/surf/config.h" "/sudo:root@arch-linguini:/home/linguini/surf/surf-0.7-smoothscrolling.diff" "/home/linguini/surf/PKGBUILD" "/home/linguini/surf/config.h" "/home/"))
+(setq search-ring '("def"))
+(setq regexp-search-ring '("company" "sma" "py" "leinin" "yasni" "rotate" "bidi" "bidir" "simple" "emacs" "invisible-to" "invisibles-to" "invisibles-ind" "invisibles-to" "invisible" "hook"))
+(setq register-alist (list (list 49 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk)) (list 97 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk)) (list 115 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk)) (list 114 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook `(lambda nil (set-marker ,mk ,nil (get-buffer ," *temp*")))) mk))))
+(setq file-name-history '("/home/linguini/.emacs.d/init.el" "/home/linguini/.emacs.d/elpa/lispy-20181210.1751/lispy-clojure.clj" "/home/linguini/.emacs.d/elpa/" "/home/linguini/.lein/" "/home/linguini/Desktop/clojure/\222\244\252\222\273\234\363\254\304\267/src/\222\244\252\222\273\234\363\254\304\267/core.clj" "/home/linguini/.local/" "/home/linguini/.emacs.d/mylisp/make-char-visible.el" "/usr/share/" "/home/linguini/.emacs.d/mylisp/my-whitespace.el" "/home/linguini/Desktop/icon.jpg" "/home/linguini/Desktop/" "/home/linguini/DEs" "/etc/" "/home/linguini/.emacs.d/elpa/indent-guide-20170221.1127/" "/home/linguini/.emacs.d/mylisp/.#whitespace.el" "/home/linguini/.emacs.d/mylisp/#whitespace.el#" "/home/linguini/.emacs.d/mylisp/" "/home/linguini/.emacs.d/mylisp/whitespace.el" "/usr/share/emacs/26.1/lisp/whitespace.el.gz" "/usr/share/emacs/26.1/lisp/progmodes/prog-mode.el.gz" "/home/linguini/.emacs.d/elpa/which-key-20181114.1432/" "/home/linguini/.emacs.d/elpa/m-buffer-20170407.2141/m-buffer.el" "/home/linguini/.emacs.d/elpa/m-buffer-20170407.2141/" "/usr/share/emacs/26.1/lisp/" "/sudo:root@arch-linguini:/usr/bin/" "/home/linguini/.emacs.d/init.el]" "/home/linguini/.emacs.d/elpa/lispy-20181210.1751/lispy.el" "/home/linguini/.emacs.d/elpa/lispy-20181210.1751/" "/home/linguini/.emacs.d/packages.el" "/home/linguini/.emacs.d/elpa/elisp-format-20160508.952/elisp-format.el" "/home/linguini/.emacs.d/elpa/switch-window-20181104.340/switch-window.el" "/home/linguini/.emacs.d/" "/home/linguini/.emacs.d/quelpa/" "/home/linguini/.emacs.d/el-get/" "/home/linguini/.xbindkeysrc" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/main.rs" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/main.rs" "/home/linguini/.emacs.d/session.106e12dee1604547f154061902440734200000061990091" "/home/linguini/.emacs.d/window" "/home/linguini/.Xmodmap" "/usr/share/keymaps/Caps2Ctrl.map" "/home/linguini/.emacs.d/.git/" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/" "/home/linguini/Documents/" "/home/" "/home/linguini/.emacs.d/elpa/avy-20181126.1705/" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/main.rs" "/home/linguini/.emacs.d/elpa/adaptive-wrap-0.7/adaptive-wrap.elc" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/main.rs" "/home/linguini/.emacs.d/elpa/major-mode-icons-20170301.714/" "/home/linguini/.emacs.d/elisp/awesome-tray.el" "/home/linguini/.emacs.d/elisp" "/home/linguini/.emacs.d/elpa/awesome-tray.el" "/home/linguini/.emacs.d/elpa/awesome-tray/" "/home/linguini/.emacs.d/elpa/awesome-tray/awesome-tray.el" "/home/linguini/.emacs.d/elpa/counsel-20181223.325/" "/home/linguini/#.xinitrc#" "/home/linguini/.emacs.d/elpa/font-lock+.el" "/home/linguini/.emacs.d/init.el.html" "/home/linguini/.SpaceVim.d/" "/home/linguini/.SpaceVim/init.vim" "/usr/share/emacs/" "/usr/share/emacs/26.1/etc/images/icons/allout-widgets/dark-bg/" "/usr/share/emacs/26.1/etc/images/icons/" "/home/linguini/exwm-session.sh" "/usr/share/xsessions/" "/home/linguini/.emacs.d/elpa/ddskk-20181220.2002/ddskk-autoloads.el" "/home/linguini/.emacs.d/elpa/ddskk-20181220.2002/" "/home/linguini/.emacs.d/elpa/ddskk-20181220.2002/skk-tut.el" "/home/linguini/.emacs.d/elpa/ddskk-20181220.2002/context-skk.el" "/home/linguini/bushi2019/bushi/linguini.re" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/main.rs" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/main.rs" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/main.rs" "/home/linguini/.config/lariza/" "/sudo:root@arch-linguini:/home/linguini/exwm-session.sh" "/home/linguini/.xsession" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/Cargo.toml" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/Cargo.lock" "/home/linguini/.config/lariza/keywordsearch" "/home/linguini/.local/share/applications/" "/home/linguini/.emacs.d/elpa/exwm-edit-20180905.743/exwm-edit.el" "/home/linguini/Desktop/python/\222\244\252\222\273\234\363\254\304\267/main.py" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/src/main.rs" "/home/linguini/Desktop/rust/hello-world/src/main.rs" "/home/linguini/Desktop/rust/\222\244\252\222\273\234\363\254\304\267/" "/home/linguini/Desktop/rust/temp/src/main.rs" "/home/linguini/Desktop/rust/hello-world/Cargo.toml" "/home/linguini/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/lib/" "/home/linguini/.rustup/" "/home/linguini/.cargo/bin/racer" "/home/linguini/.emacs.d/elpa/elpy-20181214.2233/" "/opt/" "/bin/" "/usr/lib/python3.7/site-packages/cefpython3/examples/hello_world.py" "/home/linguini/Downloads/" "/usr/lib/python3.7/site-packages/cefpython3/examples/qt.py"))
 (setq kill-ring-yank-pointer (nthcdr 0 kill-ring))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
@@ -23,95 +23,179 @@
   "/home/linguini/.emacs.d/init.el"
   "init.el"
   'emacs-lisp-mode
-  '(eldoc-mode company-mode flymake-mode undo-tree-mode ivy-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode)
-  8810
-  '(8762 nil)
+  '(eldoc-mode company-mode yas-minor-mode auto-complete-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode lispy-mode auto-revert-mode magit-file-mode)
+  9604
+  '(19813 nil)
   nil
   nil
-  '((buffer-display-time 23580 59588 254848 561000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode))
-  '((mark-ring (8762 8904 9420 3450 3791 3791 3791 3006 3119 3760 3692 9746 8973 8973 8953 8972))))
+  '((buffer-display-time 23601 39743 51624 676000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode))
+  '((mark-ring (9756 9756 10744 5561 4706 2652 9584 2848 2520 1823 12929 50 1 6676 6783 6863))))
 
 (desktop-create-buffer 208
-  "/home/linguini/Desktop/python/’¤ª’»î’¤·/Pipfile"
-  "Pipfile"
-  'fundamental-mode
-  '(company-mode undo-tree-mode ivy-mode counsel-mode smartparens-mode which-key-mode rainbow-delimiters-mode auto-sudoedit-mode)
-  196
-  '(112 nil)
   nil
-  nil
-  '((buffer-display-time 23580 59588 254847 671000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (1 104 104 104 104 196 196 160 195 112 196))))
+  "*info*"
+  'Info-mode
+  '(company-mode yas-minor-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode)
+  6215
+  '(nil nil)
+  t
+  '("/home/linguini/.emacs.d/elpa/magit-popup-20181204.2031/magit-popup.info" "Usage" nil)
+  '((tab-width . 8) (buffer-display-time 23601 38593 588006 177000) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t))
+  '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/home/linguini/Desktop/python/’¤ª’»î’¤·/main.py"
-  "main.py"
-  'python-mode
-  '(eldoc-mode company-mode flymake-mode auto-complete-mode undo-tree-mode ivy-mode counsel-mode smartparens-mode which-key-mode rainbow-delimiters-mode auto-sudoedit-mode pipenv-mode linum-mode elpy-mode highlight-indentation-mode yas-minor-mode)
-  200
-  '(202 nil)
+  "/home/linguini/.emacs.d/packages.el"
+  "packages.el"
+  'emacs-lisp-mode
+  '(eldoc-mode company-mode yas-minor-mode auto-complete-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode lispy-mode magit-file-mode)
+  603
+  '(796 nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 23580 57424 777530 103000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (202 42 240 159 1 1 1 1 1 1 1 1 1 1 1 200))))
+  '((buffer-display-time 23600 32944 538363 112000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (796 796 464 373 561 762 762 768 768 2162 27 21 768 604 768 943))))
 
 (desktop-create-buffer 208
-  "/home/linguini/temp"
-  "temp"
-  'python-mode
-  '(eldoc-mode company-mode flymake-mode auto-complete-mode undo-tree-mode ivy-mode counsel-mode smartparens-mode which-key-mode rainbow-delimiters-mode auto-sudoedit-mode pipenv-mode elpy-mode highlight-indentation-mode yas-minor-mode)
-  1
-  '(1 nil)
+  "/home/linguini/.emacs.d/mylisp/make-char-visible.el"
+  "make-char-visible.el"
+  'emacs-lisp-mode
+  '(eldoc-mode company-mode yas-minor-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode magit-file-mode)
+  1480
+  '(1120 nil)
+  t
   nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 23580 52065 189123 853000) (buffer-file-coding-system . utf-8))
-  '((mark-ring (1 1 1 1 1 1 1 1 1))))
+  '((buffer-display-time 23600 13537 38974 907000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (1163 1294 1266 616 937 902 898 24 1649 1686 972 1295 1080 1418 1082 1480))))
 
 (desktop-create-buffer 208
-  "/home/linguini/Desktop/python/’¤ª’»î’¤·/ui/ui_text_selector.py"
-  "ui_text_selector.py"
-  'python-mode
-  '(eldoc-mode company-mode auto-complete-mode undo-tree-mode ivy-mode counsel-mode smartparens-mode which-key-mode rainbow-delimiters-mode auto-sudoedit-mode pipenv-mode)
-  564
-  '(512 nil)
+  "/home/linguini/.emacs.d/elpa/indent-guide-20170221.1127/indent-guide.el"
+  "indent-guide.el"
+  'emacs-lisp-mode
+  '(eldoc-mode company-mode yas-minor-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode magit-file-mode)
+  6384
+  '(6384 t)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 23580 50242 228487 364000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (269 564))))
+  '((buffer-display-time 23600 13149 370881 259000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (96 7518 7438 2709 2818 2709 12278 12239 12276 6115 2928 3771 1315 1291 4947 4225))))
+
+(desktop-create-buffer 208
+  "/home/linguini/.emacs.d/elpa/m-buffer-20170407.2141/m-buffer.el"
+  "m-buffer.el"
+  'emacs-lisp-mode
+  '(eldoc-mode company-mode yas-minor-mode auto-complete-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode magit-file-mode)
+  4247
+  '(3359 nil)
+  nil
+  nil
+  '((buffer-display-time 23595 42410 483740 593000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (3359 3358))))
+
+(desktop-create-buffer 208
+  "/home/linguini/.emacs.d/init.el.html"
+  "init.el.html"
+  'css-mode
+  '(company-mode yas-minor-mode auto-complete-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode magit-file-mode)
+  847
+  '(146 nil)
+  nil
+  nil
+  '((buffer-display-time 23591 43139 558793 856000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (1004 249 929 855 749 872 929 1270 249 301 343 1059 1036 1004 951 847))))
+
+(desktop-create-buffer 208
+  "/home/linguini/.emacs.d/elpa/counsel-20181223.325/counsel.el"
+  "counsel.el"
+  'emacs-lisp-mode
+  '(eldoc-mode company-mode yas-minor-mode auto-complete-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode magit-file-mode)
+  190099
+  '(191257 nil)
+  nil
+  nil
+  '((buffer-display-time 23591 46364 745360 21000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (191437 191404 191223 1 190099))))
 
 (desktop-create-buffer 208
   "/home/linguini/.xsession"
   ".xsession"
   'sh-mode
-  '(company-mode undo-tree-mode ivy-mode counsel-mode smartparens-mode which-key-mode rainbow-delimiters-mode auto-sudoedit-mode)
-  468
-  '(703 nil)
+  '(company-mode yas-minor-mode auto-complete-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode)
+  961
+  '(898 nil)
   nil
   nil
-  '((buffer-display-time 23580 42493 306513 366000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (595 703 336 247 248 248 492 467 342 836 598 556 468))))
+  '((buffer-display-time 23593 56446 430024 610000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (898 899 961 961 961 961 879 914 961 961))))
 
 (desktop-create-buffer 208
-  "/home/linguini/.config/lariza/bookmark.html"
-  "bookmark.html"
-  'css-mode
-  '(company-mode undo-tree-mode ivy-mode counsel-mode smartparens-mode which-key-mode rainbow-delimiters-mode auto-sudoedit-mode)
-  820
-  '(925 nil)
+  "/home/linguini/.emacs.d/elpa/org-plus-contrib-20181230/org-loaddefs.el"
+  "org-loaddefs.el"
+  'emacs-lisp-mode
+  '(eldoc-mode company-mode yas-minor-mode auto-complete-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode magit-file-mode)
+  131307
+  '(nil nil)
   nil
   nil
-  '((buffer-display-time 23580 40014 265197 839000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (925 924 916 915 901 915 915 915 915 915 915 915 625 626 609 871))))
+  '((buffer-display-time 23595 52059 687309 988000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/home/linguini/tablet.sh"
-  "tablet.sh"
-  'sh-mode
-  '(company-mode undo-tree-mode ivy-mode counsel-mode smartparens-mode which-key-mode rainbow-delimiters-mode auto-sudoedit-mode)
-  94
-  '(94 nil)
+  nil
+  "Desktop"
+  'dired-mode
+  '(company-mode yas-minor-mode ivy-mode counsel-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode)
+  509
+  '(509 t)
+  t
+  '("/home/linguini/Desktop/")
+  '((buffer-display-time 23598 10876 77827 627000))
+  '((mark-ring (509))))
+
+(desktop-create-buffer 208
+  nil
+  "share"
+  'dired-mode
+  '(company-mode yas-minor-mode ivy-mode counsel-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode)
+  246
+  '(nil nil)
+  t
+  '("/home/linguini/.local/share/")
+  '((buffer-display-time 23600 13139 942697 391000))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/linguini/.emacs.d/elpa/lispy-20181210.1751/lispy-clojure.clj"
+  "lispy-clojure.clj"
+  'clojure-mode
+  '(eldoc-mode company-mode cider-mode yas-minor-mode clj-refactor-mode ivy-mode indent-guide-mode undo-tree-mode counsel-mode smartparens-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode magit-file-mode)
+  1
+  '(nil nil)
   nil
   nil
-  '((buffer-display-time 23580 38067 297269 678000) (buffer-file-coding-system . utf-8-unix))
-  '((mark-ring (1 94 94 93 94 94 94 62 32 1 94 94 94 94 94 94))))
+  '((indent-tabs-mode) (buffer-display-time 23601 38632 43869 858000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "elpa"
+  'dired-mode
+  '(company-mode yas-minor-mode ivy-mode counsel-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode)
+  247
+  '(nil nil)
+  t
+  '("/home/linguini/.emacs.d/elpa/")
+  '((buffer-display-time 23601 38710 79328 934000))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  ".saves-*"
+  'dired-mode
+  '(company-mode yas-minor-mode ivy-mode counsel-mode which-key-mode adaptive-wrap-prefix-mode rainbow-delimiters-mode auto-sudoedit-mode)
+  278
+  '(nil nil)
+  t
+  '("/home/linguini/.emacs.d/auto-save-list/.saves-*")
+  '((buffer-display-time 23601 38813 938243 399000))
+  '((mark-ring nil)))
 

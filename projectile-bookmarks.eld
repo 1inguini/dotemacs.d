@@ -1,1 +1,1 @@
-nil
+("~/Desktop/rust/atcoder/" "~/Desktop/rust/お試し/" "~/.emacs.d/")

@@ -1,0 +1,25 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("powerline-display-buffer-size" variable (:default-value t) nil [921 1044])
+            ("powerline-display-mule-info" variable (:default-value t) nil [1046 1165])
+            ("powerline-display-hud" variable (:default-value t) nil [1167 1274])
+            ("powerline-default-theme" function (:user-visible-flag t) nil [1291 5227])
+            ("powerline-center-theme" function (:user-visible-flag t) nil [5244 8675])
+            ("powerline-center-evil-theme" function (:user-visible-flag t) nil [8677 12849])
+            ("powerline-vim-theme" function (:user-visible-flag t) nil [12866 16576])
+            ("powerline-nano-theme" function (:user-visible-flag t) nil [16593 17994])
+            ("powerline-themes" package nil nil [17997 18024]))          
+      :file "powerline-themes.el"
+      :pointmax 18060
+      :fsize 18059
+      :lastmodtime '(23649 30190 132663 687000)
+      :unmatched-syntax nil))
+  :file "!home!linguini!.emacs.d!elpa!powerline-20190130.226!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

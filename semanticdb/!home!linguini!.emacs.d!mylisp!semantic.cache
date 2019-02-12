@@ -1,0 +1,23 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("make-char-visible" customgroup (:user-visible-flag t) nil [172 235])
+            ("invisibles-to-show" variable (:default-value (pcre-to-elisp "^ +| +$|	 +| +	")) nil [237 352])
+            ("char-to-visualize" variable (:default-value " ") nil [355 437])
+            ("invisible-indicator" variable (:default-value "·") nil [440 524])
+            ("show-invisibles-reset" function (:user-visible-flag t) nil [526 638])
+            ("show-invisibles-write" function (:user-visible-flag t) nil [640 1605])
+            ("make-char-visible" package nil nil [1621 1649]))          
+      :file "make-char-visible.el"
+      :pointmax 1686
+      :fsize 1686
+      :lastmodtime '(23599 27758 538790 506000)
+      :unmatched-syntax '((semantic-list 143 . 156) (semantic-list 122 . 142) (semantic-list 107 . 121) (semantic-list 87 . 106))))
+  :file "!home!linguini!.emacs.d!mylisp!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

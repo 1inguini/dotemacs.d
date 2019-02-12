@@ -1,0 +1,81 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("seq" include nil nil [2774 2788])
+            ("m-buffer-macro" include nil nil [2789 2814])
+            ("m-buffer-match" function (:arguments ("match")) nil [3158 4481])
+            ("m-buffer--match-1" function (:arguments ("buffer" "regexp" "begin" "end" "post-match" "widen" "cfs" "numeric")) nil [4641 8175])
+            ("m-buffer--normalize-args" function (:arguments ("match-with")) nil [8827 10655])
+            ("m-buffer-ensure-match" function (:arguments ("match")) nil [11286 11669])
+            ("m-buffer-buffer-for-match" function (:arguments ("match-data")) nil [11844 11985])
+            ("m-buffer-match-nth-group" function (:arguments ("n" "match-data")) nil [11987 12212])
+            ("m-buffer-match-begin-n" function (:arguments ("n" "match")) nil [12214 12612])
+            ("m-buffer-match-begin-n-pos" function (:arguments ("n" "match")) nil [12614 12984])
+            ("m-buffer-match-begin" function (:arguments ("match")) nil [12986 13288])
+            ("m-buffer-match-begin-pos" function (:arguments ("match")) nil [13290 13613])
+            ("m-buffer-match-end-n" function (:arguments ("n" "match")) nil [13615 14002])
+            ("m-buffer-match-end-n-pos" function (:arguments ("n" "match")) nil [14004 14365])
+            ("m-buffer-match-end" function (:arguments ("match")) nil [14367 14686])
+            ("m-buffer-match-end-pos" function (:arguments ("match")) nil [14688 15031])
+            ("m-buffer-match-equal" function (:arguments ("m" "n")) nil [15301 15541])
+            ("m-buffer-match-subtract" function (:arguments ("m" "n")) nil [15713 16073])
+            ("m-buffer-match-exact-subtract" function (:arguments ("m" "n")) nil [16201 17449])
+            ("m-buffer-in-match-p" function (:arguments ("matches" "position")) nil [17451 17670])
+            ("m-buffer--partition-by-marker" function (:arguments ("list" "partition")) nil [17831 18455])
+            ("m-buffer-partition-by-marker" function (:arguments ("list" "partition")) nil [18457 18956])
+            ("m-buffer-nil-marker" function (:arguments ("markers")) nil [19297 19716])
+            ("m-buffer-marker-to-pos" function (:arguments ("markers" "postnil")) nil [19718 20156])
+            ("m-buffer-marker-to-pos-nil" function (:arguments ("markers")) nil [20158 20338])
+            ("m-buffer-marker-tree-to-pos" function (:arguments ("marker-tree" "postnil")) nil [20340 20766])
+            ("m-buffer-marker-tree-to-pos-nil" function (:arguments ("marker-tree")) nil [20768 20980])
+            ("m-buffer-marker-clone" function (:arguments ("marker-tree" "type")) nil [20982 21313])
+            ("m-buffer-pos-to-marker" function (:arguments ("buffer" "positions")) nil [21315 21513])
+            ("m-buffer-replace-match" function (:arguments ("match-data" "replacement" "fixedcase" "literal" "subexp")) nil [21586 22486])
+            ("m-buffer-delete-match" function (:arguments ("match-data" "subexp")) nil [22488 22822])
+            ("m-buffer-match-string" function (:arguments ("match-data" "subexp")) nil [22824 23160])
+            ("m-buffer-match-string-no-properties" function (:arguments ("match-data" "subexp")) nil [23162 23421])
+            ("m-buffer-apply-join" function (:arguments ("fn" "match" "more-match")) nil [23838 24419])
+            ("m-buffer-match-page" function (:arguments ("match")) nil [24530 24810])
+            ("m-buffer-match-paragraph-separate" function (:arguments ("match")) nil [24984 25321])
+            ("m-buffer--line-regexp" variable (:default-value "^.*$") nil [25323 25390])
+            ("m-buffer-match-line" function (:arguments ("match")) nil [25392 25704])
+            ("m-buffer-match-line-start" function (:arguments ("match")) nil [25706 26016])
+            ("m-buffer-match-line-end" function (:arguments ("match")) nil [26018 26314])
+            ("m-buffer-match-first" function (:arguments ("match")) nil [26551 26838])
+            ("m-buffer-match-first-line" function (:arguments ("match")) nil [26840 27148])
+            ("m-buffer-match-multi" function (:arguments ("regexps" "match")) nil [27150 27843])
+            ("m-buffer-match-sentence-end" function (:arguments ("match")) nil [28017 28287])
+            ("m-buffer-match-word" function (:arguments ("match")) nil [28289 28535])
+            ("m-buffer-match-empty-line" function (:arguments ("match")) nil [28537 28841])
+            ("m-buffer-match-non-empty-line" function (:arguments ("match")) nil [28843 29107])
+            ("m-buffer-match-whitespace-line" function (:arguments ("match")) nil [29109 29425])
+            ("m-buffer-match-non-whitespace-line" function (:arguments ("match")) nil [29566 29956])
+            ("m-buffer-post-match-forward-line" function nil nil [29989 30117])
+            ("m-buffer-post-match-forward-char" function nil nil [30119 30338])
+            ("m-buffer-on-region" function (:arguments ("fn" "match-data")) nil [30567 30811])
+            ("m-buffer-on-region-nth-group" function (:arguments ("fn" "n" "match-data")) nil [30813 31126])
+            ("m-buffer-overlay-match" function (:arguments ("match-data" "front-advance" "rear-advance")) nil [31487 32104])
+            ("m-buffer-add-text-property-match" function (:arguments ("match-data" "properties")) nil [32106 32512])
+            ("m-buffer-put-text-property-match" function (:arguments ("match-data" "property" "value")) nil [32514 32932])
+            ("m-buffer-overlay-face-match" function (:arguments ("match-data" "face")) nil [32934 33276])
+            ("m-buffer-overlay-font-lock-face-match" function (:arguments ("match-data" "face")) nil [33278 33613])
+            ("m-buffer-text-property-face" function (:arguments ("match-data" "face")) nil [33615 33895])
+            ("m-buffer-text-property-font-lock-face" function (:arguments ("match-data" "face")) nil [33897 34180])
+            ("m-buffer" package nil nil [34182 34201]))          
+      :file "m-buffer.el"
+      :pointmax 34243
+      :fsize 34242
+      :lastmodtime '(23595 40017 203496 19000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "m-buffer-macro.el"
+      :fsize 4088
+      :lastmodtime '(23595 40017 83496 23000)))
+  :file "!home!linguini!.emacs.d!elpa!m-buffer-20170407.2141!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

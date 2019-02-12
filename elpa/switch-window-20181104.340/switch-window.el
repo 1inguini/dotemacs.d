@@ -16,7 +16,6 @@
 ;;
 ;; This file is NOT part of GNU Emacs.
 ;;
-
 ;;; Commentary:
 ;;
 ;; * What is switch-window                       :README:

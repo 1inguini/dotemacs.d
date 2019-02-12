@@ -1,0 +1,46 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("deftheme" code nil nil [143 237])
+            ("let" code nil nil [239 59604])
+            ("setq" code nil nil [59607 59643])
+            ("provide-theme" code nil nil [59645 59670]))          
+      :file "moe-dark-theme.el"
+      :pointmax 59755
+      :fsize 59754
+      :lastmodtime '(23648 19641 803238 20000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("when" code nil nil [4890 5028])
+            ("moe-theme-highlight-buffer-id" variable (:default-value t) nil [5030 5160])
+            ("moe-theme-mode-line-color" variable (:default-value (quote blue)) nil [5162 5335])
+            ("moe-light-pure-white-background-in-terminal" variable nil nil [5337 5632])
+            ("moe-theme-resize-markdown-title" variable nil nil [5681 6028])
+            ("moe-theme-resize-org-title" variable nil nil [6030 6512])
+            ("moe-theme-resize-rst-title" variable nil nil [6514 6914])
+            ("moe-theme-revert-theme" variable (:default-value t) nil [6916 7195])
+            ("moe-theme-powerline-enable-p" variable nil nil [7197 7462])
+            ("moe-theme-resize-font-size" function nil nil [7464 10913])
+            ("moe-light" function (:user-visible-flag t) nil [10915 14591])
+            ("moe-dark" function (:user-visible-flag t) nil [14593 17967])
+            ("moe-theme-set-color" function (:arguments ("color")) nil [17983 18470])
+            ("moe-theme-select-color" function (:user-visible-flag t) nil [18472 18881])
+            ("moe-theme-random-color" function (:user-visible-flag t) nil [18883 19378])
+            ("when" code nil nil [19380 26285])
+            ("when" code nil nil [26303 26568])
+            ("moe-theme" package nil nil [26571 26591]))          
+      :file "moe-theme.el"
+      :pointmax 26665
+      :fsize 26664
+      :lastmodtime '(23648 19641 869904 687000)
+      :unmatched-syntax nil))
+  :file "!home!linguini!.emacs.d!elpa!moe-theme-20180617.200!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

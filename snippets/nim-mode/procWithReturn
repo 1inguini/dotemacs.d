@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: proc with return
+# key: procr
+# --
+proc ${1:procName} (${2:args}): ${3:return} =
+  $0

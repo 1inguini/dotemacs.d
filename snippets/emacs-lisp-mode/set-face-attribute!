@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: set-face-attribute!
+# key: sfa
+# --
+(set-face-attribute! '$1 nil
+			$0)

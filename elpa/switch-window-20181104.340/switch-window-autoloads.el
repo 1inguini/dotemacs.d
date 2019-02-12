@@ -99,7 +99,7 @@ Designed to replace `compose-mail-other-window'.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "switch-window" '(#("switch-window-" 0 14 (fontified nil)) #("delete-other-window" 0 19 (fontified nil)))))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "switch-window" '("switch-window-" "delete-other-window")))
 
 ;;;***
 

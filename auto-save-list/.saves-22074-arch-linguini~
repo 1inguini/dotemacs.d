@@ -1,5 +1,9 @@
+/home/linguini/Desktop/小説/魔女/main.org
+/home/linguini/Desktop/小説/魔女/#main.org#
 /home/linguini/.emacs.d/packages.el
 /home/linguini/.emacs.d/#packages.el#
+/home/linguini/.emacs.d/.gitignore
+/home/linguini/.emacs.d/#.gitignore#
 /home/linguini/.emacs.d/init.el
 /home/linguini/.emacs.d/#init.el#
 /home/linguini/Desktop/nim/playground/src/playground.nim
@@ -18,14 +22,10 @@
 /tmp/#!sudo:root@arch-linguini:!etc!nsswitch.conf#
 /home/linguini/Desktop/rust/atcoder/src/main.rs
 /home/linguini/Desktop/rust/atcoder/src/#main.rs#
-/home/linguini/Desktop/小説/魔女/main.org
-/home/linguini/Desktop/小説/魔女/#main.org#
 /home/linguini/Desktop/rust/お試し/src/main.rs
 /home/linguini/Desktop/rust/お試し/src/#main.rs#
 /home/linguini/.emacs.d/themes/my-moe-dark-theme.el
 /home/linguini/.emacs.d/themes/#my-moe-dark-theme.el#
-/home/linguini/.emacs.d/.gitignore
-/home/linguini/.emacs.d/#.gitignore#
 /home/linguini/.config/fish/functions/fish_prompt.fish
 /home/linguini/.config/fish/functions/#fish_prompt.fish#
 /home/linguini/.emacs.d/elpa/moe-theme-20180617.200/moe-dark-theme.el

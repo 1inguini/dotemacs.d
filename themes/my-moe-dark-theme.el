@@ -579,7 +579,6 @@
 		       :foreground white-1
 		       :stipple nil))
 
-
 ;; Dired
 (ignore-errors
   (set-face-attribute! 'dired-directory nil

@@ -849,6 +849,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 			#'japanese-jisx0208
 			(font-spec :family japanese-fonts
 				   :size 12))
+      
 
       ;;ずれ確認用
       ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn

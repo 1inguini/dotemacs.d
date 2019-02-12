@@ -1,4 +1,5 @@
 ;;; Commentary:
+
 ;;; Code:
 
 (require  #'package)
@@ -13,7 +14,6 @@
 ;; emacswikiを追加
 ;; (add-to-list  #'package-archives #'("emacswiki" . "http://www.emacswiki.org/emacs/download/") t)
 
-
 (setq package-check-signature nil)
 ;;初期化
 (package-initialize)
@@ -22,6 +22,7 @@
 (setq my-gui-packages
       ;; packages to be installed only in gui
       #'(exwm gpastel))
+
 
 
 (setq my-common-packages #'(telephone-line

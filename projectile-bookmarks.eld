@@ -1,1 +1,1 @@
-("~/Desktop/rust/atcoder/" "~/Desktop/rust/お試し/" "~/.emacs.d/")
+("~/.emacs.d/" "~/Desktop/rust/atcoder/" "~/Desktop/rust/お試し/")

@@ -7,11 +7,11 @@
 ;;   (setq user-emacs-directory
 ;;	(file-name-directory
 ;;	 load-file-name)))
-
+(setq package-enable-at-startup nil)
+(package-initialize)
 (load-file
  "~/.emacs.d/packages.el")
 
-(setq custom-theme-directory "~/.emacs.d/themes/")
 
 (set-language-environment
  "Japanese")
@@ -59,107 +59,10 @@
       (require #'exwm-randr)
       (require #'gpastel)))
 
-(load-file "~/.emacs.d/themes/my-moe-dark-theme.el")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(setq custom-safe-themes t)
+(load-theme 'my-moe-dark t)
 
-(if window-system
-    (progn
-      ;; ←GUI用設定を、ここに記述
-      ;;(package-install #'exwm-x); ; (require 'exwmx-sendstring)
-      ;;(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
-      ;; set exwm buffer name according to application
-      (defun exwm-rename-buffer-to-title ()
-	(exwm-workspace-rename-buffer exwm-title))
-      (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
-      (setq exwm-workspace-number 3)
-      ;; (require 'exwm-systemtray)
-      ;; (exwm-systemtray-enable)
-      (exwm-randr-enable)
-
-      ;;(add-hook 'exwm-randr-screen-change-hook;;           (lambda ()
-      ;;             (async-shell-command
-      ;;	     "
-      ;; ")))
-      ;; (package-install  #'exwm-edit)
-      ;; (require #'exwm-edit)
-      (defun gpastel-exwm-counsel-yank-pop ()
-	"Same as `counsel-yank-pop' and paste into exwm buffer."
-	(interactive)
-	(let ((inhibit-read-only t)
-	      ;; Make sure we send selected yank-pop candidate to
-	      ;; clipboard:
-	      (yank-pop-change-selection t))
-	  (call-interactively #'counsel-yank-pop))
-	(when (derived-mode-p 'exwm-mode)
-	  ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
-	  (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
-	  ;; (exwm-input--fake-key ?\C-v)
-	  ))
-
-      (exwm-input-set-key (kbd "M-y")
-			  #'gpastel-exwm-counsel-yank-pop)
-      (exwm-input-set-key (kbd "M-y")
-			  #'gpastel-exwm-counsel-yank-pop)
-
-
-
-      ;; (set-fontset-font (frame-parameter nil #'font)
-      ;;			#'unicode
-      ;;			(font-spec :family "Inconsolata"
-      ;;				   :size 14))
-
-      ;; (set-face-attribute 'default nil :family "inconsolata" :height 160)
-
-      (setq japanese-fonts "UmeGothic")
-
-      (set-fontset-font nil
-			#'ascii
-			(font-spec :family "inconsolata"
-				   :size 12))
-
-
-					; 半角ｶﾅ設定
-      (set-fontset-font nil
-			;; (frame-parameter nil #'font)
-			#'katakana-jisx0201
-			(font-spec :family japanese-fonts
-				   :size 12))
-
-					; 全角かな設定
-      (set-fontset-font nil
-			;; (frame-parameter nil #'font)
-			#'japanese-jisx0208
-			(font-spec :family japanese-fonts
-				   :size 12))
-
-      ;;ずれ確認用
-      ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-      ;; 0123456789012345678901234567890123456789
-      ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
-      ;; あいうえおあいうえおあいうえおあいうえお
-      ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
-      ;; (add-hook 'kill-emacs-hook
-      ;;		(lambda ()
-      ;;		  (window-configuration-to-register ?1)
-      ;;		  (save-buffer-kill-emacs)))
-
-
-
-      (setq switch-window-shortcut-appearance 'text)
-      (fringe-mode '(nil . 0))
-      (setq exwm-randr-workspaoce-output-plist '(0 "HDMI-0" 1  "HDMI1" 2 "DP1"))
-      (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
-      (add-hook 'exwm-randr-screen-change-hook
-		(lambda ()
-		  (start-process-shell-command "bash" nil "bash ~/.screenlayout/default.sh")))))
-
-
-(if (not window-system)
-    (progn
-      ;; ←CUI用設定を、ここに記述
-      (diff-hl-margin-mode)
-
-      (setq switch-window-shortcut-appearance
-	    'asciiart)))
 
 
 (diff-hl-mode 1)
@@ -193,7 +96,10 @@
 (setq uim-candidate-display-inline t)
 (setq uim-preedit-display-fences t)
 (setq uim-candidate-display-frame t)
-
+(define-globalized-minor-mode global-uim-mode
+  uim-mode
+  uim-mode)
+(global-uim-mode t)
 
 ;; (package-install 'ddskk)
 ;; (require  #'skk)
@@ -226,11 +132,19 @@
 
 (defun my-lua-mode-company-init ()
   (setq-local company-backends
-	      '((company-yasnippet :with company-lua))))
+	      '((company-yasnippet :with
+				   company-lua
+				   company-dabbrev
+				   company-files
+				   company-dabbrev-code
+				   company-gtags
+				   company-etags
+				   company-keywords))))
+
 (add-hook 'lua-mode-hook #'my-lua-mode-company-init)
 
 
-
+(add-to-list 'nim-capf-after-exit-function-hook 'suggestion-box-nim-by-type)
 (add-hook 'nim-mode-hook 'nimsuggest-mode)
 
 (global-auto-revert-mode t)
@@ -251,7 +165,13 @@
 
 (defun nim-mode-company-init ()
   (add-to-list 'company-backends
-	       '(company-yasnippet :with company-nim)))
+	       '(company-yasnippet :with company-nimsuggest
+				   company-dabbrev
+				   company-files
+				   company-dabbrev-code
+				   company-gtags
+				   company-etags
+				   company-keywords)))
 
 ;; (add-hook 'nim-mode-hook #'nim-mode-company-init)
 
@@ -577,7 +497,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 ;; (add-hook 'emacs-lisp-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-symbols t )))
 
 
-(global-undo-tree-mode -1)
+(global-undo-tree-mode 1)
 
 ;;ivy設定
 
@@ -602,7 +522,6 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 ;; (require 'my-moe-dark-theme)
 ;; (load-theme 'my-moe-dark t :no-confirm)
 
-(load-file "~/.emacs.d/themes/my-moe-dark-theme.el")
 
 
 
@@ -620,6 +539,39 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 (projectile-global-mode t)
 
 (winum-mode t)
+
+;; telephone-line
+(setq telephone-line-height 14)
+;; (setq telephone-line-faces
+;;       '((evil . (mode-line . mode-line-inactive))
+;;         (accent .(mode-line-emphasis . mode-line-emphasis))
+;;         (nil . (mode-line-inactive . mode-line-inactive))))
+
+(setq telephone-line-faces
+      '((evil . (mode-line-inactive . mode-line-inactive))
+        (accent . (telephone-line-accent-active . telephone-line-accent-inactive))
+        (nil . (mode-line . mode-line-inactive))))
+
+(telephone-line-defsegment telephone-line-nil-segment ()
+  "")
+
+;; Left edge
+(setq telephone-line-lhs
+      '((nil . ((telephone-line-window-number-segment t)
+		 telephone-line-input-info-segment))
+	(accent . (telephone-line-projectile-buffer-segment
+		   telephone-line-buffer-modified-segment))
+	(evil . (telephone-line-simple-major-mode-segment
+		telephone-line-simple-minor-mode-segment
+		telephone-line-nil-segment))))
+;; Right edge
+(setq telephone-line-rhs
+      '((evil . (telephone-line-atom-encoding-segment
+		telephone-line-misc-info-segment))
+	(accent . (telephone-line-flycheck-segment
+		   (telephone-line-vc-segment :active)))
+	(nil . (telephone-line-filesize-segment
+		telephone-line-hud-segment))))
 
 (telephone-line-mode t)
 
@@ -716,10 +668,10 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  :keymaps 'nim-mode-map
  "C-s" 'nimpretty-on-save)
 
-;; (general-define-key
-;;  :keymaps 'uim-mode-map
-;;  "ESC" nil
-;;  "M-m" 'Control-X-prefix)
+(general-define-key
+ :keymaps 'uim-mode-map
+ "ESC" nil
+ "M-m" 'Control-X-prefix)
 
 
 ;; (general-define-key
@@ -807,9 +759,107 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 ;;  "k" 'kill-current-buffer
 ;;  )
 
-(setq custom-safe-themes t)
-(setq undo-tree-auto-save-history t)
+
+;; (setq undo-tree-auto-save-history t)
 (desktop-save-mode t)
+(if window-system
+    (progn
+      ;; ←GUI用設定を、ここに記述
+      ;;(package-install #'exwm-x); ; (require 'exwmx-sendstring)
+      ;;(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
+      ;; set exwm buffer name according to application
+      (defun exwm-rename-buffer-to-title ()
+	(exwm-workspace-rename-buffer exwm-title))
+      (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
+      (setq exwm-workspace-number 3)
+      ;; (require 'exwm-systemtray)
+      ;; (exwm-systemtray-enable)
+      (exwm-randr-enable)
+
+      ;;(add-hook 'exwm-randr-screen-change-hook;;           (lambda ()
+      ;;             (async-shell-command
+      ;;	     "
+      ;; ")))
+      ;; (package-install  #'exwm-edit)
+      ;; (require #'exwm-edit)
+      (defun gpastel-exwm-counsel-yank-pop ()
+	"Same as `counsel-yank-pop' and paste into exwm buffer."
+	(interactive)
+	(let ((inhibit-read-only t)
+	      ;; Make sure we send selected yank-pop candidate to
+	      ;; clipboard:
+	      (yank-pop-change-selection t))
+	  (call-interactively #'counsel-yank-pop))
+	(when (derived-mode-p 'exwm-mode)
+	  ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
+	  (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
+	  ;; (exwm-input--fake-key ?\C-v)
+	  ))
+
+      (exwm-input-set-key (kbd "M-y")
+			  #'gpastel-exwm-counsel-yank-pop)
+      (exwm-input-set-key (kbd "M-y")
+			  #'gpastel-exwm-counsel-yank-pop)
+      (gpastel-mode t)
+
+
+      ;; (set-fontset-font (frame-parameter nil #'font)
+      ;;			#'unicode
+      ;;			(font-spec :family "Inconsolata"
+      ;;				   :size 14))
+
+      ;; (set-face-attribute 'default nil :family "inconsolata" :height 160)
+
+      (setq japanese-fonts "UmeGothic")
+
+      (set-fontset-font nil
+			#'ascii
+			(font-spec :family "inconsolata"
+				   :size 12))
+
+
+					; 半角ｶﾅ設定
+      (set-fontset-font nil
+			;; (frame-parameter nil #'font)
+			#'katakana-jisx0201
+			(font-spec :family japanese-fonts
+				   :size 12))
+
+					; 全角かな設定
+      (set-fontset-font nil
+			;; (frame-parameter nil #'font)
+			#'japanese-jisx0208
+			(font-spec :family japanese-fonts
+				   :size 12))
+
+      ;;ずれ確認用
+      ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+      ;; 0123456789012345678901234567890123456789
+      ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+      ;; あいうえおあいうえおあいうえおあいうえお
+      ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
+      ;; (add-hook 'kill-emacs-hook
+      ;;		(lambda ()
+      ;;		  (window-configuration-to-register ?1)
+      ;;		  (save-buffer-kill-emacs)))
+
+
+
+      (setq switch-window-shortcut-appearance 'text)
+      (fringe-mode '(nil . 0))
+      (setq exwm-randr-workspaoce-output-plist '(0 "HDMI-0" 1  "HDMI1" 2 "DP1"))
+      (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
+      (add-hook 'exwm-randr-screen-change-hook
+		(lambda ()
+		  (start-process-shell-command "bash" nil "bash ~/.screenlayout/default.sh")))))
+
+(if (not window-system)
+    (progn
+      ;; ←CUI用設定を、ここに記述
+      (diff-hl-margin-mode)
+
+      (setq switch-window-shortcut-appearance
+	    'asciiart)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -843,6 +893,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
    (quote
     (kill-ring desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history)))
  '(desktop-restore-in-current-display nil)
+ '(diff-hl-flydiff-mode t)
  '(display-time-mode t)
  '(elpy-modules
    (quote
@@ -862,7 +913,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(fci-rule-color "#202020")
  '(flycheck-clang-warnings (quote ("all" "extra")))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
- '(flycheck-pos-tip-mode t)
+ '(flycheck-pos-tip-mode nil)
  '(global-centered-cursor-mode t)
  '(global-company-mode t)
  '(global-hl-line-mode t)
@@ -884,16 +935,20 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(package-selected-packages
    (quote
     (winum telephone-line lispxmp xah-replace-pairs flycheck-nim fcitx lsp-mode clang-format shackle calfw-ical calfw calfw-cal calfw-org diminish eldoc-eval doom-modeline magit elein elien clj-refactor cider CIDER all-the-icons m-buffer ov el-doc pcre2el swiper flx markdown-mode pyvenv highlight-indentation find-file-in-project auto-complete jedi-core python-environment epc ctable concurrent deferred popup pos-tip pkg-info epl f dash s memoize quelpa package yasnippet yasnippet-snippets layout-restore poet-theme neotree all-the-icons-dired all-the-icons-ivy htmlize gpastel ivy-rich company-statistics switch-window rust-mode ace-window flycheck-pos-tip flycheck-popup-tip flycheck-rust racer cargo elpy flycheck indent-guide-mode pipenv company-lua lua-mode auto-virtualenvwrapper virtualenvwrapper virtalenvwrapper flymake-python company-jedi py-autopep8 jedi counsel-jedi yaml-mode review-mode add-hooks ddskk exwm-edit org-plus-contrib nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term multiple-cursors which-key ivy moe-theme smartparens helm 0blayout exwm-x)))
+ '(projectile-mode t nil (projectile))
  '(rust-always-locate-project-on-open t)
  '(skk-jisyo-edit-user-accepts-editing t)
  '(smartparens-global-mode t)
  '(switch-window-mouse-mode t nil (switch-window))
+ '(telephone-line-mode t)
  '(tool-bar-mode nil)
  '(tooltip-delay 0.3)
  '(tooltip-hide-delay 100)
+ '(undo-tree-history-directory-alist (quote (("\"*\"" . "~/.emacs.d/undo-hist/"))))
  '(whitespace-display-mappings t)
  '(window-divider-default-places t)
- '(window-divider-mode nil))
+ '(window-divider-mode nil)
+ '(winum-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

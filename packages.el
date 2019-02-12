@@ -24,7 +24,8 @@
       #'(exwm gpastel))
 
 
-(setq my-common-packages #'(centered-cursor-mode
+(setq my-common-packages #'(telephone-line
+			    centered-cursor-mode
 			    calfw-org
 			    diff-hl
 			    lispxmp

@@ -355,75 +355,76 @@
 		       :italic t)
 
   (set-face-attribute! 'eldoc-highlight-function-argument nil
-		       :foreground green-01
+	 	       :foreground green-01
 		       :bold t
 		       :underline t
-		       :background green-5)
+		       :background green-5))
 
-  ;; Mode line & frames' faces
-  (ignore-errors
-    (set-face-attribute! 'mode-line nil
-			 :foreground blue-3
-			 :background blue-0
-			 :box nil)
+;; Mode line & frames' faces
+(ignore-errors
+  (set-face-attribute! 'mode-line nil
+		       :foreground blue-3
+		       :background blue-0
+		       :box nil)
 
-    (set-face-attribute! 'mode-line-buffer-id nil
-			 :foreground black-5
-			 :bold t
-			 :inherit 'mode-line)
+  (set-face-attribute! 'mode-line-buffer-id nil
+		       :foreground black-5
+		       :bold t
+		       :inherit 'mode-line)
 
-    (set-face-attribute! 'mode-line-inactive nil
-			 :foreground white-1
-			 :background black-2-5)
+  (set-face-attribute! 'mode-line-inactive nil
+		       :foreground white-1
+		       :background black-2-5)
 
-    (set-face-attribute! 'mode-line-buffer-id-inactive nil
-			 ;; :foreground white-1
-			 ;; :background black-2-5
-			 :inherit 'mode-line-inactive)
+  (set-face-attribute! 'mode-line-buffer-id-inactive nil
+		       ;; :foreground white-1
+		       ;; :background black-2-5
+		       :inherit 'mode-line-inactive)
 
-    (set-face-attribute! 'mode-line-emphasis nil
-			 :background black-5
-			 :weight 'bold
-			 :inherit 'default)
+  (set-face-attribute! 'mode-line-emphasis nil
+		       :background black-5
+		       :weight 'bold
+		       :inherit 'default)
 
-    (set-face-attribute! 'mode-line-highlight nil
-			 :box '(
-				:line-width 2
-				:style released-button)
-			 :inherit 'highlight))
+  (set-face-attribute! 'mode-line-highlight nil
+		       :box '(
+			      :line-width 2
+			      :style released-button)
+		       :inherit 'highlight))
 
-  ;; telephone-line
+;; telephone-line
 
-  ;; Escape and prompt faces
-  (ignore-errors
-    (set-face-attribute! 'minibuffer-prompt nil
-			 :foreground black-3
-			 :background green-2)
+;; Escape and prompt faces
+(ignore-errors
+  (set-face-attribute! 'minibuffer-prompt nil
+		       :foreground black-3
+		       :background green-2)
 
-    (set-face-attribute! 'escape-glyph nil
-			 :foreground yellow-3)
+  (set-face-attribute! 'escape-glyph nil
+		       :foreground yellow-3)
 
-    (set-face-attribute! 'error nil
-			 :foreground red-0)
+  (set-face-attribute! 'error nil
+		       :foreground red-0)
 
-    (set-face-attribute! 'warning nil
-			 :foreground orange-1)
+  (set-face-attribute! 'warning nil
+		       :foreground orange-1)
 
-    (set-face-attribute! 'success nil
-			 :foreground green-1))
+  (set-face-attribute! 'success nil
+		       :foreground green-1))
 
 
-  ;; Font lock faces
+;; Font lock faces
+(ignore-errors
   (set-face-attribute! 'font-lock-builtin-face nil
 		       :foreground purple-1)
 
   (set-face-attribute! 'font-lock-comment-delimiter-face nil
 		       :foreground black-2-5
-		       :slant italic)
+		       :slant 'italic)
 
   (set-face-attribute! 'font-lock-comment-face nil
 		       :foreground black-2-5
-		       :slant italic)
+		       :slant 'italic)
 
   (set-face-attribute! 'font-lock-constant-face nil
 		       :foreground blue-1)
@@ -463,241 +464,251 @@
 
   (set-face-attribute! 'font-lock-warning-face nil
 		       :weight bold
-		       :foreground red-2))
-
+		       :foreground red-2)
+  )
 
 (ignore-errors
- ;; company
- (set-face-attribute! 'company-echo nil
-		      :background nil
-		      :foreground white-1)
+  ;; company
+  (set-face-attribute! 'company-echo nil
+		       :background nil
+		       :foreground white-1)
 
- (set-face-attribute! 'company-echo-common nil
-		      :background black-3
-		      :foreground red-1)
+  (set-face-attribute! 'company-echo-common nil
+		       :background black-3
+		       :foreground red-1)
 
- (set-face-attribute! 'company-preview nil
-		      :background black-5
-		      :foreground magenta-2)
+  (set-face-attribute! 'company-preview nil
+		       :background black-5
+		       :foreground magenta-2)
 
- (set-face-attribute! 'company-preview-common nil
-		      :background black-5
-		      :foreground magenta-2)
+  (set-face-attribute! 'company-preview-common nil
+		       :background black-5
+		       :foreground magenta-2)
 
- (set-face-attribute! 'company-preview-search nil
-		      :background black-4
-		      :foreground magenta-2
-		      :weight 'bold)
+  (set-face-attribute! 'company-preview-search nil
+		       :background black-4
+		       :foreground magenta-2
+		       :weight 'bold)
 
- (set-face-attribute! 'company-scrollbar-bg nil
-		      :background black-3)
+  (set-face-attribute! 'company-scrollbar-bg nil
+		       :background black-3)
 
- (set-face-attribute! 'company-scrollbar-fg nil
-		      :background white-3)
+  (set-face-attribute! 'company-scrollbar-fg nil
+		       :background white-3)
 
 
- (set-face-attribute! 'company-template-field nil
-		      :background yellow-00
-		      :foreground black-4)
+  (set-face-attribute! 'company-template-field nil
+		       :background yellow-00
+		       :foreground black-4)
 
- (set-face-attribute! 'company-tooltip nil
-		      :background black-3
-		      :foreground blue-1)
+  (set-face-attribute! 'company-tooltip nil
+		       :background black-3
+		       :foreground blue-1)
 
- (set-face-attribute! 'company-tooltip-annotation nil
-		      :background black-4
-		      :foreground red-1)
+  (set-face-attribute! 'company-tooltip-annotation nil
+		       :background black-4
+		       :foreground red-1)
 
- (set-face-attribute! 'company-tooltip-common nil
-		      :background black-2-5
-		      :foreground blue-0)
+  (set-face-attribute! 'company-tooltip-common nil
+		       :background black-2-5
+		       :foreground blue-0)
 
- (set-face-attribute! 'company-tooltip-common-selection nil
-		      :background blue-3
-		      :foreground blue-0
-		      :weight 'bold)
+  (set-face-attribute! 'company-tooltip-common-selection nil
+		       :background blue-3
+		       :foreground blue-0
+		       :weight 'bold)
 
- (set-face-attribute! 'company-tooltip-mouse nil
-		      :background green-0
-		      :foreground black-5)
+  (set-face-attribute! 'company-tooltip-mouse nil
+		       :background green-0
+		       :foreground black-5)
 
- (set-face-attribute! 'company-tooltip-selection nil
-		      :background blue-3
-		      :foreground blue-0)
- )
-  ;; popup
+  (set-face-attribute! 'company-tooltip-selection nil
+		       :background blue-3
+		       :foreground blue-0)
+  )
+;; popup
 (ignore-errors
- (set-face-attribute! 'popup-face nil
-		      :background black-3
-		      :foreground blue-1)
+  (set-face-attribute! 'popup-face nil
+		       :background black-3
+		       :foreground blue-1
+		       :stipple nil)
 
- (set-face-attribute! 'popup-isearch-match nil
-		      :background black-3
-		      :foreground magenta-2
-		      :weight 'bold)
+  (set-face-attribute! 'popup-isearch-match nil
+		       :background black-3
+		       :foreground magenta-2
+		       :weight 'bold
+		       :stipple nil)
 
- (set-face-attribute! 'popup-menu-face nil
-		      :background black-3
-		      :foreground blue-1)
+  (set-face-attribute! 'popup-menu-face nil
+		       :background black-3
+		       :foreground blue-1
+		       :stipple nil)
 
- (set-face-attribute! 'popup-menu-mouse-face nil
-		      :background green-0
-		      :foreground black-4)
+  (set-face-attribute! 'popup-menu-mouse-face nil
+		       :background green-0
+		       :foreground black-4
+		       :stipple nil)
 
- (set-face-attribute! 'popup-menu-selection-face nil
-		      :background blue-3
-		      :foreground blue-0)
+  (set-face-attribute! 'popup-menu-selection-face nil
+		       :background blue-3
+		       :foreground blue-0
+		       :stipple nil)
 
- (set-face-attribute! 'popup-menu-summary-face nil
-		      :background black-3
-		      :foreground blue-1)
+  (set-face-attribute! 'popup-menu-summary-face nil
+		       :background black-3
+		       :foreground blue-1
+		       :stipple nil)
 
- (set-face-attribute! 'popup-scroll-bar-background-face nil
-		      :background black-3
-		      :foreground black-3)
+  (set-face-attribute! 'popup-scroll-bar-background-face nil
+		       :background black-3
+		       :foreground black-3
+		       :stipple nil)
 
- (set-face-attribute! 'popup-scroll-bar-foreground-face nil
-		      :background black-2
-		      :foreground white-3)
+  (set-face-attribute! 'popup-scroll-bar-foreground-face nil
+		       :background black-2
+		       :foreground white-3
+		       :stipple nil)
 
- (set-face-attribute! 'popup-summary-face nil
-		      :background black-3
-		      :foreground blue-1)
+  (set-face-attribute! 'popup-summary-face nil
+		       :background black-3
+		       :foreground blue-1
+		       :stipple nil)
 
- (set-face-attribute! 'popup-tip-face nil
-		      :background black-2-5
-		      :foreground white-1))
+  (set-face-attribute! 'popup-tip-face nil
+		       :background black-2-5
+		       :foreground white-1
+		       :stipple nil))
 
 
-  ;; Dired
+;; Dired
 (ignore-errors
- (set-face-attribute! 'dired-directory nil
-		      :foreground blue-1
-		      :bold t)
+  (set-face-attribute! 'dired-directory nil
+		       :foreground blue-1
+		       :bold t)
 
- (set-face-attribute! 'dired-flagged nil
-		      :foreground red-1)
+  (set-face-attribute! 'dired-flagged nil
+		       :foreground red-1)
 
- (set-face-attribute! 'dired-header nil
+  (set-face-attribute! 'dired-header nil
 
-		      :foreground black-5
-		      :background green-2
-		      :bold t)
+		       :foreground black-5
+		       :background green-2
+		       :bold t)
 
- (set-face-attribute! 'dired-ignored nil
-		      :foreground black-1)
+  (set-face-attribute! 'dired-ignored nil
+		       :foreground black-1)
 
- (set-face-attribute! 'dired-mark nil
-		      :foreground green-1)
+  (set-face-attribute! 'dired-mark nil
+		       :foreground green-1)
 
- (set-face-attribute! 'dired-marked nil
-		      :foreground green-2)
+  (set-face-attribute! 'dired-marked nil
+		       :foreground green-2)
 
- (set-face-attribute! 'dired-perm-write nil
-		      :foreground red-2
-		      :bold t)
+  (set-face-attribute! 'dired-perm-write nil
+		       :foreground red-2
+		       :bold t)
 
- (set-face-attribute! 'dired-symlink nil
-		      :foreground magenta-2)
+  (set-face-attribute! 'dired-symlink nil
+		       :foreground magenta-2)
 
- (set-face-attribute! 'dired-warning nil
-		      :foreground white-1
-		      :background red-3
-		      :bold t)
- )
-  ;; Dired+
+  (set-face-attribute! 'dired-warning nil
+		       :foreground white-1
+		       :background red-3
+		       :bold t)
+  )
+;; Dired+
 (ignore-errors
- (set-face-attribute! 'diredp-compressed-file-suffix nil
-		      :foreground purple-2)
+  (set-face-attribute! 'diredp-compressed-file-suffix nil
+		       :foreground purple-2)
 
- (set-face-attribute! 'diredp-date-time nil
-		      :foreground blue-1
-		      :background black-4)
+  (set-face-attribute! 'diredp-date-time nil
+		       :foreground blue-1
+		       :background black-4)
 
- (set-face-attribute! 'diredp-deletion nil
-		      :foreground white-1
-		      :background red-3)
+  (set-face-attribute! 'diredp-deletion nil
+		       :foreground white-1
+		       :background red-3)
 
- (set-face-attribute! 'diredp-deletion-file-name nil
-		      :foreground red-2)
+  (set-face-attribute! 'diredp-deletion-file-name nil
+		       :foreground red-2)
 
- (set-face-attribute! 'diredp-dir-heading nil
-		      :foreground black-5
-		      :background green-2)
+  (set-face-attribute! 'diredp-dir-heading nil
+		       :foreground black-5
+		       :background green-2)
 
- (set-face-attribute! 'diredp-dir-priv nil
-		      :foreground blue-1
-		      :background black-5
-		      :bold t)
+  (set-face-attribute! 'diredp-dir-priv nil
+		       :foreground blue-1
+		       :background black-5
+		       :bold t)
 
- (set-face-attribute! 'diredp-display-msg nil
-		      :foreground orange-2)
+  (set-face-attribute! 'diredp-display-msg nil
+		       :foreground orange-2)
 
- (set-face-attribute! 'diredp-executable-tag nil
+  (set-face-attribute! 'diredp-executable-tag nil
 
-		      :foreground green-2)
+		       :foreground green-2)
 
- (set-face-attribute! 'diredp-file-name nil
-		      :foreground white-1)
+  (set-face-attribute! 'diredp-file-name nil
+		       :foreground white-1)
 
- (set-face-attribute! 'diredp-file-suffix nil
-		      :foreground orange-2)
+  (set-face-attribute! 'diredp-file-suffix nil
+		       :foreground orange-2)
 
- (set-face-attribute! 'diredp-flag-mark nil
-		      :foreground white-1
-		      :background magenta-3
-		      :bold t)
+  (set-face-attribute! 'diredp-flag-mark nil
+		       :foreground white-1
+		       :background magenta-3
+		       :bold t)
 
- (set-face-attribute! 'diredp-flag-mark-line nil
-		      :foreground black-5
-		      :background magenta-1)
+  (set-face-attribute! 'diredp-flag-mark-line nil
+		       :foreground black-5
+		       :background magenta-1)
 
- (set-face-attribute! 'diredp-ignored-file-name nil
-		      :foreground black-2)
+  (set-face-attribute! 'diredp-ignored-file-name nil
+		       :foreground black-2)
 
- (set-face-attribute! 'diredp-link-priv nil
-		      :foreground magenta-3)
+  (set-face-attribute! 'diredp-link-priv nil
+		       :foreground magenta-3)
 
- (set-face-attribute! 'diredp-mode-line-flagged nil
-		      :foreground black-5
-		      :background green-2)
+  (set-face-attribute! 'diredp-mode-line-flagged nil
+		       :foreground black-5
+		       :background green-2)
 
- (set-face-attribute! 'diredp-mode-line-marked nil
-		      :foreground white-1
-		      :background magenta-3
-		      :bold t)
+  (set-face-attribute! 'diredp-mode-line-marked nil
+		       :foreground white-1
+		       :background magenta-3
+		       :bold t)
 
- (set-face-attribute! 'diredp-no-priv nil
-		      :foreground white-1
-		      :background black-4)
+  (set-face-attribute! 'diredp-no-priv nil
+		       :foreground white-1
+		       :background black-4)
 
- (set-face-attribute! 'diredp-number nil
-		      :foreground yellow-1)
+  (set-face-attribute! 'diredp-number nil
+		       :foreground yellow-1)
 
- (set-face-attribute! 'diredp-other-priv nil
-		      :foreground white-1
-		      :background blue-3)
+  (set-face-attribute! 'diredp-other-priv nil
+		       :foreground white-1
+		       :background blue-3)
 
- (set-face-attribute! 'diredp-rare-priv nil
-		      :foreground white-1
-		      :background purple-2)
+  (set-face-attribute! 'diredp-rare-priv nil
+		       :foreground white-1
+		       :background purple-2)
 
- (set-face-attribute! 'diredp-symlink nil
-		      :foreground magenta-3)
+  (set-face-attribute! 'diredp-symlink nil
+		       :foreground magenta-3)
 
- (set-face-attribute! 'diredp-read-priv nil
-		      :foreground green-4
-		      :background green-0)
+  (set-face-attribute! 'diredp-read-priv nil
+		       :foreground green-4
+		       :background green-0)
 
- (set-face-attribute! 'diredp-write-priv nil
-		      :foreground blue-5
-		      :background blue-0)
+  (set-face-attribute! 'diredp-write-priv nil
+		       :foreground blue-5
+		       :background blue-0)
 
- (set-face-attribute! 'diredp-exec-priv nil
-		      :foreground red-3
-		      :background orange-0))
+  (set-face-attribute! 'diredp-exec-priv nil
+		       :foreground red-3
+		       :background orange-0))
 
-  ;; Completions
+;; Completions
 (ignore-errors
   (set-face-attribute! 'completions-annotations nil
 		       :foreground green-2)
@@ -709,7 +720,7 @@
 		       :weight 'bold
 		       :foreground orange-2))
 
-  ;; org-mode
+;; org-mode
 (ignore-errors
   (set-face-attribute! 'org-document-title nil
 		       :foreground blue-0
@@ -947,7 +958,7 @@
   (set-face-attribute! 'outline-8 nil :foreground yellow-2))
 
 
-  ;; undo-tree
+;; undo-tree
 (ignore-errors
   (set-face-attribute! 'undo-tree-visualizer-default-face nil
 		       :foreground white-1)
@@ -963,7 +974,7 @@
 		       :foreground yellow-2))
 
 
-  ;; Markdown-mode
+;; Markdown-mode
 (ignore-errors
   (set-face-attribute! 'markdown-blockquote-face nil
 		       :foreground orange-2
@@ -1038,7 +1049,7 @@
 		       :underline magenta-3))
 
 
-  ;; Twittering-mode
+;; Twittering-mode
 (ignore-errors
   (set-face-attribute! 'twittering-username-face nil
 		       :foreground blue-1
@@ -1057,7 +1068,7 @@
 		       :foreground white-3))
 
 
-  ;; Jabber
+;; Jabber
 (ignore-errors
   (set-face-attribute! 'jabber-activity-face nil
 		       :foreground magenta-2)
@@ -1111,7 +1122,7 @@
 		       :foreground black-1))
 
 
-  ;; Button and link faces
+;; Button and link faces
 (ignore-errors
   (set-face-attribute! 'link nil
 		       :underline t
@@ -1122,7 +1133,7 @@
 		       :foreground blue-2)
   )
 
-  ;; Gnus
+;; Gnus
 (ignore-errors
   (set-face-attribute! 'gnus-button nil
 		       :weight 'normal
@@ -1389,409 +1400,409 @@
 		       :background green-0
 		       :foreground green-5)
   )
-  ;; Helm
+;; Helm
 (ignore-errors
- (set-face-attribute! 'helm-bookmark-directory nil
-		      :foreground blue-1
-		      :background black-5
-		      :bold t)
+  (set-face-attribute! 'helm-bookmark-directory nil
+		       :foreground blue-1
+		       :background black-5
+		       :bold t)
 
- (set-face-attribute! 'helm-bookmark-file nil
-		      :foreground yellow-4
-		      :background yellow-0)
+  (set-face-attribute! 'helm-bookmark-file nil
+		       :foreground yellow-4
+		       :background yellow-0)
 
- (set-face-attribute! 'helm-bookmark-info nil
-		      :foreground green-4
-		      :background green-0)
+  (set-face-attribute! 'helm-bookmark-info nil
+		       :foreground green-4
+		       :background green-0)
 
- (set-face-attribute! 'helm-buffer-directory nil
-		      :foreground blue-1
-		      :bold t)
+  (set-face-attribute! 'helm-buffer-directory nil
+		       :foreground blue-1
+		       :bold t)
 
- (set-face-attribute! 'helm-buffer-process nil
-		      :foreground magenta-2)
+  (set-face-attribute! 'helm-buffer-process nil
+		       :foreground magenta-2)
 
- (set-face-attribute! 'helm-buffer-saved-out nil
-		      :foreground red-2
-		      :background black-5)
+  (set-face-attribute! 'helm-buffer-saved-out nil
+		       :foreground red-2
+		       :background black-5)
 
- (set-face-attribute! 'helm-buffer-size nil
-		      :foreground orange-2)
+  (set-face-attribute! 'helm-buffer-size nil
+		       :foreground orange-2)
 
- (set-face-attribute! 'helm-candidate-number nil
-		      :foreground blue-3
-		      :background white-0)
+  (set-face-attribute! 'helm-candidate-number nil
+		       :foreground blue-3
+		       :background white-0)
 
- (set-face-attribute! 'helm-ff-directory nil
-		      :foreground blue-1
-		      :background black-5
-		      :bold t)
+  (set-face-attribute! 'helm-ff-directory nil
+		       :foreground blue-1
+		       :background black-5
+		       :bold t)
 
- (set-face-attribute! 'helm-ff-excutable nil
-		      :foreground green-1
-		      :background black-5
-		      :bold t)
+  (set-face-attribute! 'helm-ff-excutable nil
+		       :foreground green-1
+		       :background black-5
+		       :bold t)
 
- (set-face-attribute! 'helm-ff-file nil
-		      :foreground white-1
-		      :background black-5)
+  (set-face-attribute! 'helm-ff-file nil
+		       :foreground white-1
+		       :background black-5)
 
- (set-face-attribute! 'helm-ff-invalid-symlink nil
-		      :foreground white-1
-		      :background red-2)
+  (set-face-attribute! 'helm-ff-invalid-symlink nil
+		       :foreground white-1
+		       :background red-2)
 
- (set-face-attribute! 'helm-ff-prefix nil
-		      :foreground white-1
-		      :background orange-2)
+  (set-face-attribute! 'helm-ff-prefix nil
+		       :foreground white-1
+		       :background orange-2)
 
- (set-face-attribute! 'helm-grep-cmd-line nil
-		      :foreground green-4
-		      :background green-00
-		      :bold t)
+  (set-face-attribute! 'helm-grep-cmd-line nil
+		       :foreground green-4
+		       :background green-00
+		       :bold t)
 
- (set-face-attribute! 'helm-grep-file nil
-		      :foreground purple-1)
+  (set-face-attribute! 'helm-grep-file nil
+		       :foreground purple-1)
 
- (set-face-attribute! 'helm-grep-finish nil
-		      :foreground green-2)
+  (set-face-attribute! 'helm-grep-finish nil
+		       :foreground green-2)
 
- (set-face-attribute! 'helm-grep-lineno nil
-		      :foreground orange-2)
+  (set-face-attribute! 'helm-grep-lineno nil
+		       :foreground orange-2)
 
- (set-face-attribute! 'helm-grep-match nil
-		      :background black-4
-		      :foreground yellow-1
-		      :bold t)
+  (set-face-attribute! 'helm-grep-match nil
+		       :background black-4
+		       :foreground yellow-1
+		       :bold t)
 
- (set-face-attribute! 'helm-grep-running nil
-		      :foreground red-0
-		      :background nil)
+  (set-face-attribute! 'helm-grep-running nil
+		       :foreground red-0
+		       :background nil)
 
- (set-face-attribute! 'helm-header nil
-		      :foreground blue-3
-		      :background blue-0)
+  (set-face-attribute! 'helm-header nil
+		       :foreground blue-3
+		       :background blue-0)
 
- (set-face-attribute! 'helm-lisp-show-completion nil
-		      :foreground black-3
-		      :background green-0)
+  (set-face-attribute! 'helm-lisp-show-completion nil
+		       :foreground black-3
+		       :background green-0)
 
- (set-face-attribute! 'helm-match nil
-		      :foreground green-2
-		      :background black-5
-		      :bold t)
+  (set-face-attribute! 'helm-match nil
+		       :foreground green-2
+		       :background black-5
+		       :bold t)
 
- (set-face-attribute! 'helm-selection nil
-		      :foreground nil
-		      :background blue-3)
+  (set-face-attribute! 'helm-selection nil
+		       :foreground nil
+		       :background blue-3)
 
- (set-face-attribute! 'helm-selection-line nil
-		      :foreground nil
-		      :background yellow-4)
+  (set-face-attribute! 'helm-selection-line nil
+		       :foreground nil
+		       :background yellow-4)
 
- (set-face-attribute! 'helm-source-header nil
-		      :foreground white-0
-		      :background black-2-5
-		      :bold t)
+  (set-face-attribute! 'helm-source-header nil
+		       :foreground white-0
+		       :background black-2-5
+		       :bold t)
 
- (set-face-attribute! 'helm-visible-mark nil
-		      :foreground magenta-2
-		      :background magenta-0))
+  (set-face-attribute! 'helm-visible-mark nil
+		       :foreground magenta-2
+		       :background magenta-0))
 
 
-  ;; Magit >= 2.1.0
+;; Magit >= 2.1.0
 (ignore-errors
- (set-face-attribute! 'magit-bisect-bad nil
-		      :foreground red-3
-		      :background red-00)
+  (set-face-attribute! 'magit-bisect-bad nil
+		       :foreground red-3
+		       :background red-00)
 
- (set-face-attribute! 'magit-bisect-good nil
-		      :foreground green-4
-		      :background green-0)
+  (set-face-attribute! 'magit-bisect-good nil
+		       :foreground green-4
+		       :background green-0)
 
- (set-face-attribute! 'magit-bisect-skip nil
-		      :foreground yellow-4
-		      :background orange-00)
+  (set-face-attribute! 'magit-bisect-skip nil
+		       :foreground yellow-4
+		       :background orange-00)
 
- (set-face-attribute! 'magit-blame-date nil
-		      :foreground orange-2
-		      :background black-3)
+  (set-face-attribute! 'magit-blame-date nil
+		       :foreground orange-2
+		       :background black-3)
 
- (set-face-attribute! 'magit-blame-hash nil
-		      :foreground orange-2
-		      :background black-3)
+  (set-face-attribute! 'magit-blame-hash nil
+		       :foreground orange-2
+		       :background black-3)
 
- (set-face-attribute! 'magit-blame-heading nil
-		      :foreground white-1
-		      :background black-3)
+  (set-face-attribute! 'magit-blame-heading nil
+		       :foreground white-1
+		       :background black-3)
 
- (set-face-attribute! 'magit-blame-name nil
-		      :foreground green-1
-		      :background black-3)
+  (set-face-attribute! 'magit-blame-name nil
+		       :foreground green-1
+		       :background black-3)
 
- (set-face-attribute! 'magit-blame-summary nil
-		      :foreground white-2
-		      :background black-3)
+  (set-face-attribute! 'magit-blame-summary nil
+		       :foreground white-2
+		       :background black-3)
 
- (set-face-attribute! 'magit-branch-current nil
-		      :foreground white-0
-		      :background orange-2
-		      :bold t
-		      :underline nil)
+  (set-face-attribute! 'magit-branch-current nil
+		       :foreground white-0
+		       :background orange-2
+		       :bold t
+		       :underline nil)
 
- (set-face-attribute! 'magit-branch-local nil
-		      :foreground green-4
-		      :background green-00
-		      :bold t
-		      :underline t)
+  (set-face-attribute! 'magit-branch-local nil
+		       :foreground green-4
+		       :background green-00
+		       :bold t
+		       :underline t)
 
- (set-face-attribute! 'magit-branch-remote nil
-		      :foreground blue-3
-		      :background blue-0
-		      :bold t
-		      :underline t)
+  (set-face-attribute! 'magit-branch-remote nil
+		       :foreground blue-3
+		       :background blue-0
+		       :bold t
+		       :underline t)
 
- (set-face-attribute! 'magit-cherry-equivalent nil
-		      :foreground purple-2)
+  (set-face-attribute! 'magit-cherry-equivalent nil
+		       :foreground purple-2)
 
- (set-face-attribute! 'magit-cherry-unmatched nil
-		      :foreground cyan-4)
+  (set-face-attribute! 'magit-cherry-unmatched nil
+		       :foreground cyan-4)
 
- (set-face-attribute! 'magit-diff-added nil
-		      :foreground green-0
-		      :background nil
-		      :bold t)
+  (set-face-attribute! 'magit-diff-added nil
+		       :foreground green-0
+		       :background nil
+		       :bold t)
 
- (set-face-attribute! 'magit-diff-added-highlight nil
-		      :foreground green-0
-		      :bold t
-		      :inherit 'magit-section-highlight)
+  (set-face-attribute! 'magit-diff-added-highlight nil
+		       :foreground green-0
+		       :bold t
+		       :inherit 'magit-section-highlight)
 
- (set-face-attribute! 'magit-diff-base nil
-		      :foreground yellow-1
-		      :background nil)
+  (set-face-attribute! 'magit-diff-base nil
+		       :foreground yellow-1
+		       :background nil)
 
- (set-face-attribute! 'magit-diff-base-highlight nil
-		      :foreground yellow-1
-		      :bold t
-		      :inherit 'magit-section-highlight)
+  (set-face-attribute! 'magit-diff-base-highlight nil
+		       :foreground yellow-1
+		       :bold t
+		       :inherit 'magit-section-highlight)
 
- (set-face-attribute! 'magit-diff-conflict-heading nil
-		      :foreground white-0
-		      :background orange-2)
+  (set-face-attribute! 'magit-diff-conflict-heading nil
+		       :foreground white-0
+		       :background orange-2)
 
- (set-face-attribute! 'magit-diff-context nil
-		      :foreground white-1
-		      :background nil)
+  (set-face-attribute! 'magit-diff-context nil
+		       :foreground white-1
+		       :background nil)
 
- (set-face-attribute! 'magit-diff-context-highlight nil
-		      :foreground white-1
-		      :inherit 'magit-section-highlight)
+  (set-face-attribute! 'magit-diff-context-highlight nil
+		       :foreground white-1
+		       :inherit 'magit-section-highlight)
 
- (set-face-attribute! 'magit-diff-file-heading nil
-		      :foreground white-0
-		      :bold t)
+  (set-face-attribute! 'magit-diff-file-heading nil
+		       :foreground white-0
+		       :bold t)
 
- (set-face-attribute! 'magit-diff-file-heading-highlight nil
-		      :background blue-3
-		      :bold t)
+  (set-face-attribute! 'magit-diff-file-heading-highlight nil
+		       :background blue-3
+		       :bold t)
 
- (set-face-attribute! 'magit-diff-file-heading-selection nil
-		      :foreground white-0
-		      :background black-2
-		      :bold t)
+  (set-face-attribute! 'magit-diff-file-heading-selection nil
+		       :foreground white-0
+		       :background black-2
+		       :bold t)
 
- (set-face-attribute! 'magit-diff-hunk-heading nil
-		      :foreground black-2
-		      :background black-3
-		      :bold t)
+  (set-face-attribute! 'magit-diff-hunk-heading nil
+		       :foreground black-2
+		       :background black-3
+		       :bold t)
 
- (set-face-attribute! 'magit-diff-hunk-heading-highlight nil
-		      :foreground black-4
-		      :background blue-01)
+  (set-face-attribute! 'magit-diff-hunk-heading-highlight nil
+		       :foreground black-4
+		       :background blue-01)
 
- (set-face-attribute! 'magit-diff-hunk-heading-selection nil
-		      :foreground white-1
-		      :background white-1)
+  (set-face-attribute! 'magit-diff-hunk-heading-selection nil
+		       :foreground white-1
+		       :background white-1)
 
- (set-face-attribute! 'magit-diff-lines-boundary nil
-		      :foreground white-1
-		      :background red-0)
+  (set-face-attribute! 'magit-diff-lines-boundary nil
+		       :foreground white-1
+		       :background red-0)
 
- (set-face-attribute! 'magit-diff-lines-heading nil
-		      :foreground white-1
-		      :background red-0)
+  (set-face-attribute! 'magit-diff-lines-heading nil
+		       :foreground white-1
+		       :background red-0)
 
- (set-face-attribute! 'magit-diff-our nil
-		      :foreground magenta-3)
+  (set-face-attribute! 'magit-diff-our nil
+		       :foreground magenta-3)
 
- (set-face-attribute! 'magit-diff-our-highlight nil
-		      :foreground magenta-3
-		      :background magenta-00)
+  (set-face-attribute! 'magit-diff-our-highlight nil
+		       :foreground magenta-3
+		       :background magenta-00)
 
- (set-face-attribute! 'magit-diff-removed nil
-		      :foreground red-0
-		      :background nil
-		      :bold t)
+  (set-face-attribute! 'magit-diff-removed nil
+		       :foreground red-0
+		       :background nil
+		       :bold t)
 
- (set-face-attribute! 'magit-diff-removed-highlight nil
-		      :foreground red-0
-		      :bold t
-		      :inherit 'magit-section-highlight)
+  (set-face-attribute! 'magit-diff-removed-highlight nil
+		       :foreground red-0
+		       :bold t
+		       :inherit 'magit-section-highlight)
 
- (set-face-attribute! 'magit-diff-their nil
-		      :foreground cyan-4)
+  (set-face-attribute! 'magit-diff-their nil
+		       :foreground cyan-4)
 					;
- (set-face-attribute! 'magit-diff-their-highlight nil
-		      :foreground cyan-6
-		      :background cyan-1)
+  (set-face-attribute! 'magit-diff-their-highlight nil
+		       :foreground cyan-6
+		       :background cyan-1)
 
- (set-face-attribute! 'magit-diff-whitespace-warning nil
-		      :foreground red-3
-		      :background red-3)
+  (set-face-attribute! 'magit-diff-whitespace-warning nil
+		       :foreground red-3
+		       :background red-3)
 
- (set-face-attribute! 'magit-diffstat-added nil
-		      :foreground green-3
-		      :background green-0
-		      :bold t)
+  (set-face-attribute! 'magit-diffstat-added nil
+		       :foreground green-3
+		       :background green-0
+		       :bold t)
 
- (set-face-attribute! 'magit-diffstat-removed nil
-		      :foreground red-3
-		      :background red-0
-		      :bold t)
+  (set-face-attribute! 'magit-diffstat-removed nil
+		       :foreground red-3
+		       :background red-0
+		       :bold t)
 
- (set-face-attribute! 'magit-dimmed nil
-		      :foreground black-2)
+  (set-face-attribute! 'magit-dimmed nil
+		       :foreground black-2)
 
- (set-face-attribute! 'magit-filename nil
-		      :foreground blue-1)
+  (set-face-attribute! 'magit-filename nil
+		       :foreground blue-1)
 
- (set-face-attribute! 'magit-hash nil
-		      :foreground orange-2
-		      :background nil)
+  (set-face-attribute! 'magit-hash nil
+		       :foreground orange-2
+		       :background nil)
 
- (set-face-attribute! 'magit-head nil
-		      :foreground orange-4
-		      :background orange-000)
+  (set-face-attribute! 'magit-head nil
+		       :foreground orange-4
+		       :background orange-000)
 
- (set-face-attribute! 'magit-header-line nil
-		      :foreground orange-2)
+  (set-face-attribute! 'magit-header-line nil
+		       :foreground orange-2)
 
- (set-face-attribute! 'magit-log-author nil
-		      :foreground green-2
-		      :background nil)
+  (set-face-attribute! 'magit-log-author nil
+		       :foreground green-2
+		       :background nil)
 
- (set-face-attribute! 'magit-log-date nil
-		      :foreground black-2
-		      :background nil)
+  (set-face-attribute! 'magit-log-date nil
+		       :foreground black-2
+		       :background nil)
 
- (set-face-attribute! 'magit-log-graph nil
-		      :foreground black-2
-		      :background nil)
+  (set-face-attribute! 'magit-log-graph nil
+		       :foreground black-2
+		       :background nil)
 
- (set-face-attribute! 'magit-process-ng nil
-		      :foreground red-3
-		      :background red-00
-		      :underline t)
+  (set-face-attribute! 'magit-process-ng nil
+		       :foreground red-3
+		       :background red-00
+		       :underline t)
 
- (set-face-attribute! 'magit-process-ok nil
-		      :foreground green-3
-		      :background green-00
-		      :underline t)
+  (set-face-attribute! 'magit-process-ok nil
+		       :foreground green-3
+		       :background green-00
+		       :underline t)
 
- (set-face-attribute! 'magit-reflog-amend nil
-		      :foreground magenta-3
-		      :background magenta-00)
+  (set-face-attribute! 'magit-reflog-amend nil
+		       :foreground magenta-3
+		       :background magenta-00)
 
- (set-face-attribute! 'magit-reflog-checkout nil
-		      :foreground green-3
-		      :background green-00)
+  (set-face-attribute! 'magit-reflog-checkout nil
+		       :foreground green-3
+		       :background green-00)
 
- (set-face-attribute! 'magit-reflog-cherry-pick nil
-		      :foreground orange-4
-		      :background orange-00)
+  (set-face-attribute! 'magit-reflog-cherry-pick nil
+		       :foreground orange-4
+		       :background orange-00)
 
- (set-face-attribute! 'magit-reflog-commit nil
-		      :foreground yellow-4
-		      :background yellow-0)
+  (set-face-attribute! 'magit-reflog-commit nil
+		       :foreground yellow-4
+		       :background yellow-0)
 
- (set-face-attribute! 'magit-reflog-merge nil
-		      :foreground purple-4
-		      :background purple-00)
+  (set-face-attribute! 'magit-reflog-merge nil
+		       :foreground purple-4
+		       :background purple-00)
 
- (set-face-attribute! 'magit-reflog-other nil
-		      :foreground white-0
-		      :background black-3)
+  (set-face-attribute! 'magit-reflog-other nil
+		       :foreground white-0
+		       :background black-3)
 
- (set-face-attribute! 'magit-reflog-rebase nil
-		      :foreground cyan-6
-		      :background cyan-2)
+  (set-face-attribute! 'magit-reflog-rebase nil
+		       :foreground cyan-6
+		       :background cyan-2)
 
- (set-face-attribute! 'magit-reflog-remote nil
-		      :foreground blue-4
-		      :background blue-0)
+  (set-face-attribute! 'magit-reflog-remote nil
+		       :foreground blue-4
+		       :background blue-0)
 
- (set-face-attribute! 'magit-reflog-reset nil
-		      :foreground red-3
-		      :background red-00)
+  (set-face-attribute! 'magit-reflog-reset nil
+		       :foreground red-3
+		       :background red-00)
 
- (set-face-attribute! 'magit-section-heading nil
-		      :foreground orange-3
-		      :background nil
-		      :bold t
-		      :underline t)
+  (set-face-attribute! 'magit-section-heading nil
+		       :foreground orange-3
+		       :background nil
+		       :bold t
+		       :underline t)
 
- (set-face-attribute! 'magit-section-heading-selection nil
-		      :background blue-0)
+  (set-face-attribute! 'magit-section-heading-selection nil
+		       :background blue-0)
 
- (set-face-attribute! 'magit-section-highlight nil
-		      :background black-3)
+  (set-face-attribute! 'magit-section-highlight nil
+		       :background black-3)
 
- (set-face-attribute! 'magit-sequence-done nil
-		      :foreground green-3)
+  (set-face-attribute! 'magit-sequence-done nil
+		       :foreground green-3)
 
- (set-face-attribute! 'magit-sequence-drop nil
-		      :foreground orange-2)
+  (set-face-attribute! 'magit-sequence-drop nil
+		       :foreground orange-2)
 
- (set-face-attribute! 'magit-sequence-head nil
-		      :foreground blue-2)
+  (set-face-attribute! 'magit-sequence-head nil
+		       :foreground blue-2)
 
- (set-face-attribute! 'magit-sequence-onto nil
-		      :foreground purple-2)
+  (set-face-attribute! 'magit-sequence-onto nil
+		       :foreground purple-2)
 
- (set-face-attribute! 'magit-sequence-part nil
-		      :foreground cyan-4)
+  (set-face-attribute! 'magit-sequence-part nil
+		       :foreground cyan-4)
 
- (set-face-attribute! 'magit-sequence-pick nil
-		      :foreground magenta-2)
+  (set-face-attribute! 'magit-sequence-pick nil
+		       :foreground magenta-2)
 
- (set-face-attribute! 'magit-sequence-stop nil
-		      :foreground red-3)
+  (set-face-attribute! 'magit-sequence-stop nil
+		       :foreground red-3)
 
- (set-face-attribute! 'magit-signature-bad nil
-		      :foreground red-2)
+  (set-face-attribute! 'magit-signature-bad nil
+		       :foreground red-2)
 
- (set-face-attribute! 'magit-signature-good nil
-		      :foreground green-3)
+  (set-face-attribute! 'magit-signature-good nil
+		       :foreground green-3)
 
- (set-face-attribute! 'magit-signature-untrusted nil
-		      :foreground yellow-3)
+  (set-face-attribute! 'magit-signature-untrusted nil
+		       :foreground yellow-3)
 
- (set-face-attribute! 'magit-tag nil
-		      :foreground blue-3
-		      :background blue-0)
+  (set-face-attribute! 'magit-tag nil
+		       :foreground blue-3
+		       :background blue-0)
 
- (set-face-attribute! 'magit-valid-signature nil
-		      :foreground cyan-4
-		      :background LIGHT_BG
-		      :bold t)
+  (set-face-attribute! 'magit-valid-signature nil
+		       :foreground cyan-4
+		       :background LIGHT_BG
+		       :bold t)
 
- (set-face-attribute! 'magit-whitespace-warning-face nil
-		      :foreground white-0
-		      :background red-2
-		      :bold t))
+  (set-face-attribute! 'magit-whitespace-warning-face nil
+		       :foreground white-0
+		       :background red-2
+		       :bold t))
 
 
-  ;; Magit
+;; Magit
 (ignore-errors
   (set-face-attribute! 'magit-branch nil
 		       :foreground green-4
@@ -2004,7 +2015,7 @@
 		       :bold t))
 
 
-  ;; git-commit-mode
+;; git-commit-mode
 (ignore-errors
   (set-face-attribute! 'git-commit-branch-face nil
 		       :foreground blue-4
@@ -2053,44 +2064,44 @@
 		       :foreground black-3))
 
 
-  ;; Message faces
+;; Message faces
 (ignore-errors
- (set-face-attribute! 'message-cited-text nil
-		      :foreground green-1)
+  (set-face-attribute! 'message-cited-text nil
+		       :foreground green-1)
 
- (set-face-attribute! 'message-header-cc nil
-		      :foreground blue-0)
+  (set-face-attribute! 'message-header-cc nil
+		       :foreground blue-0)
 
- (set-face-attribute! 'message-header-name nil
-		      :foreground white-3)
+  (set-face-attribute! 'message-header-name nil
+		       :foreground white-3)
 
- (set-face-attribute! 'message-header-newsgroups nil
-		      :foreground blue-1
-		      :bold t)
+  (set-face-attribute! 'message-header-newsgroups nil
+		       :foreground blue-1
+		       :bold t)
 
- (set-face-attribute! 'message-header-other nil
-		      :foreground magenta-1)
+  (set-face-attribute! 'message-header-other nil
+		       :foreground magenta-1)
 
- (set-face-attribute! 'message-header-subject nil
-		      :foreground white-0
-		      :bold t)
+  (set-face-attribute! 'message-header-subject nil
+		       :foreground white-0
+		       :bold t)
 
- (set-face-attribute! 'message-header-to nil
-		      :foreground blue-1
-		      :underline t
-		      :bold t)
+  (set-face-attribute! 'message-header-to nil
+		       :foreground blue-1
+		       :underline t
+		       :bold t)
 
- (set-face-attribute! 'message-header-xheader nil
-		      :foreground black-1)
+  (set-face-attribute! 'message-header-xheader nil
+		       :foreground black-1)
 
- (set-face-attribute! 'message-mml nil
-		      :foreground orange-2)
+  (set-face-attribute! 'message-mml nil
+		       :foreground orange-2)
 
- (set-face-attribute! 'message-separator nil
-		      :foreground black-2-5))
+  (set-face-attribute! 'message-separator nil
+		       :foreground black-2-5))
 
 
-  ;; Grep
+;; Grep
 (ignore-errors
   (set-face-attribute! 'grep-context-face nil
 		       :foreground red-2)
@@ -2187,7 +2198,7 @@
 		       :bold t))
 
 
-  ;; Ediff
+;; Ediff
 (ignore-errors
   (set-face-attribute! 'ediff-current-diff-A nil
 		       :background yellow-4)
@@ -2246,16 +2257,16 @@
 		       :background red-3))
 
 
-  ;; smerge
+;; smerge
 (ignore-errors
   (set-face-attribute! 'smerge-refined-change nil
 		       :background blue-3
 		       :foreground white-0))
 
 
-  ;; Flyspell faces
+;; Flyspell faces
 (ignore-errors
-(set-face-attribute! 'flyspell-duplicate nil
+  (set-face-attribute! 'flyspell-duplicate nil
 		       :underline t foreground-colororange-1)
 
   (set-face-attribute! 'flyspell-incorrect nil
@@ -2264,7 +2275,7 @@
 		       :bold t))
 
 
-  ;; Semantic faces
+;; Semantic faces
 (ignore-errors
   (set-face-attribute! 'semantic-decoration-on-includes nil
 		       :underline black-1)
@@ -2292,13 +2303,13 @@
 		       :underline red-1))
 
 
-  ;; CUA
+;; CUA
 (ignore-errors
   (set-face-attribute! 'cua-rectangle nil
 		       :background magenta-3
 		       :foreground white-1))
 
-  ;; Ace-jump
+;; Ace-jump
 (ignore-errors
   (set-face-attribute! 'ace-jump-face-background nil
 		       :background nil
@@ -2309,7 +2320,7 @@
 		       :bold t)
   )
 
-  ;; avy-mode
+;; avy-mode
 (ignore-errors
   (set-face-attribute! 'avy-lead-face nil
 		       :background cyan-1
@@ -2328,7 +2339,7 @@
 		       :foreground black-4)
   )
 
-  ;; EShell
+;; EShell
 (ignore-errors
   (set-face-attribute! 'eshell-ls-archive nil
 		       :foreground purple-2)
@@ -2372,7 +2383,7 @@
 		       :bold t)
   )
 
-  ;; Comint prompt
+;; Comint prompt
 (ignore-errors
   (set-face-attribute! 'comint-highlight-prompt nil
 		       :foreground white-0
@@ -2380,13 +2391,13 @@
 		       :bold t))
 
 
-  ;; which-function-mode
+;; which-function-mode
 (ignore-errors
   (set-face-attribute! 'which-func nil
 		       :foreground white-0
 		       :background orange-2))
 
-  ;; Flymake
+;; Flymake
 (ignore-errors
   (set-face-attribute! 'flymake-warnline nil
 		       :underline orange-2)
@@ -2395,7 +2406,7 @@
 		       :underline red-2))
 
 
-  ;; Flycheck
+;; Flycheck
 (ignore-errors
   (set-face-attribute! 'flycheck-error nil
 		       :underline '(:style wave)
@@ -2481,7 +2492,7 @@
 
 
 
-  ;; Malabar
+;; Malabar
 (ignore-errors
   (set-face-attribute! 'malabar-error-face nil
 		       :underline red-2)
@@ -2492,7 +2503,7 @@
   (set-face-attribute! 'malabar-info-face nil
 		       :underline blue-2))
 
-  ;; MMM-Mode
+;; MMM-Mode
 (ignore-errors
   (set-face-attribute! 'mmm-cleanup-submode-face nil
 		       :background orange-00)
@@ -2523,7 +2534,7 @@
 		       :background green-00))
 
 
-  ;; Clojure/Cider
+;; Clojure/Cider
 (ignore-errors
   (set-face-attribute! 'clojure-test-failure-face nil
 		       :underline orange-2)
@@ -2538,7 +2549,7 @@
 		       :background red-4))
 
 
-  ;; Javascript
+;; Javascript
 (ignore-errors
   (set-face-attribute! 'js2-function-param-face nil
 		       :foreground green-3)
@@ -2557,7 +2568,7 @@
 		       :underline t
 		       :bold t))
 
-  ;; rcirc
+;; rcirc
 (ignore-errors
   (set-face-attribute! 'rcirc-bright-nick nil
 		       :foreground blue-1
@@ -2611,7 +2622,7 @@
 		       :underline blue-2))
 
 
-  ;; ERC
+;; ERC
 (ignore-errors
   (set-face-attribute! 'erc-button nil
 		       :foreground blue-1
@@ -2668,7 +2679,7 @@
 		       :foreground orange-2))
 
 
-  ;; ReStructuredText
+;; ReStructuredText
 (ignore-errors
   (set-face-attribute! 'rst-level-1-face nil
 		       :foreground orange-2
@@ -2754,7 +2765,7 @@
 		       :bold t)
   )
 
-  ;; yalinum
+;; yalinum
 (ignore-errors
   (set-face-attribute! 'yalinum-bar-face nil
 		       :foreground black-2-5
@@ -2769,7 +2780,7 @@
 		       :background black-2-5))
 
 
-  ;; Ruby
+;; Ruby
 (ignore-errors
   (set-face-attribute! 'enh-ruby-heredoc-delimiter-face nil
 		       :foreground purple-2)
@@ -2795,7 +2806,7 @@
 		       :underline t))
 
 
-  ;; ansi-term
+;; ansi-term
 (ignore-errors
   (set-face-attribute! 'term-color-black nil
 		       :background black-5
@@ -2830,7 +2841,7 @@
 		       :foreground orange-2))
 
 
-  ;; ido-mode
+;; ido-mode
 (ignore-errors
   (set-face-attribute! 'ido-first-match nil
 		       :foreground orange-2
@@ -2856,7 +2867,7 @@
 		       :foreground magenta-3))
 
 
-  ;; ivy-mode
+;; ivy-mode
 (ignore-errors
   (set-face-attribute! 'ivy-current-match nil
 		       :foreground orange-2
@@ -2897,7 +2908,7 @@
 		       :foreground white-0))
 
 
-  ;; swiper
+;; swiper
 (ignore-errors
   (set-face-attribute! 'swiper-match-face-1 nil
 		       :background blue-1
@@ -2924,20 +2935,20 @@
 		       :inherit highlight))
 
 
-  ;; volatile-highlights
+;; volatile-highlights
 (ignore-errors
   (set-face-attribute! 'vhl/default-face nil
 		       :foreground black-3
 		       :background green-0))
 
 
-  ;; notmuch
+;; notmuch
 (ignore-errors
   (set-face-attribute! 'notmuch-search-unread-face nil
 		       :weight 'bold))
 
 
-  ;; git-gutter (&-fringe)
+;; git-gutter (&-fringe)
 (ignore-errors
   (set-face-attribute! 'git-gutter
 		       :added nil
@@ -2958,7 +2969,7 @@
 		       :bold t))
 
 
-  ;; cfw: Calendar Framework
+;; cfw: Calendar Framework
 (ignore-errors
   (set-face-attribute! 'cfw:face-annotation nil
 		       :foreground
@@ -3036,7 +3047,7 @@
 		       :background white-0))
 
 
-  ;; Column marker
+;; Column marker
 (ignore-errors
   (set-face-attribute! 'column-marker-1 nil
 		       :background black-2-5)
@@ -3048,7 +3059,7 @@
 		       :background red-3))
 
 
-  ;; Swoop
+;; Swoop
 (ignore-errors
   (set-face-attribute! 'swoop-face-header-format-line nil
 		       :foreground black-6
@@ -3086,7 +3097,7 @@
 		       :bold t))
 
 
-  ;; widget
+;; widget
 (ignore-errors
   (set-face-attribute! 'widget-button nil
 		       :foreground blue-1
@@ -3111,14 +3122,14 @@
 		       :background black-3))
 
 
-  ;; table
+;; table
 (ignore-errors
   (set-face-attribute! 'table-cell nil
 		       :foreground white-0
 		       :background black-3))
 
 
-  ;; compilation
+;; compilation
 (ignore-errors
   (set-face-attribute! 'compilation-column-number nil
 		       :foreground green-2)
@@ -3154,7 +3165,7 @@
 		       :foreground orange-3))
 
 
-  ;; Neotree
+;; Neotree
 (ignore-errors
   (set-face-attribute! 'neo-banner-face nil
 		       :foreground green-3
@@ -3183,7 +3194,7 @@
 		       :foreground white-1))
 
 
-  ;; info
+;; info
 (ignore-errors
   (set-face-attribute! 'info-header-node nil
 		       :foreground magenta-2
@@ -3233,7 +3244,7 @@
 		       :underline t))
 
 
-  ;; Tuareg
+;; Tuareg
 (ignore-errors
   (set-face-attribute! 'tuareg-font-lock-error-face nil
 		       :foreground red-3
@@ -3261,7 +3272,7 @@
 		       :bold t))
 
 
-  ;; CPerl
+;; CPerl
 (ignore-errors
   (set-face-attribute! 'cperl-array-face nil
 		       :foreground blue-01
@@ -3276,7 +3287,7 @@
 		       :background green-5))
 
 
-  ;; Haskell
+;; Haskell
 (ignore-errors
   (set-face-attribute! 'haskell-interactive-face-compile-error nil
 		       :foreground red-0
@@ -3300,7 +3311,7 @@
 		       :foreground blue-1))
 
 
-  ;; EMMS
+;; EMMS
 (ignore-errors
   (set-face-attribute! 'emms-state-current-playing-time nil
 		       :foreground blue-3
@@ -3318,7 +3329,7 @@
 
 
 
-  ;; tty-menu
+;; tty-menu
 (ignore-errors
   (set-face-attribute! 'menu nil
 		       :foreground black-1
@@ -3337,7 +3348,7 @@
 		       :background blue-3))
 
 
-  ;; web-mode
+;; web-mode
 (ignore-errors
   (set-face-attribute! 'web-mode-comment-face nil
 		       :foreground black-2-5)
@@ -3356,7 +3367,7 @@
 
 
 
-  ;; Custom
+;; Custom
 (ignore-errors
   (set-face-attribute! 'custom-button nil
 		       :background blue-0
@@ -3379,7 +3390,7 @@
 			      :line-width 1
 			      :style pressed-button)))
 
-  ;; Hydra
+;; Hydra
 (ignore-errors
   (set-face-attribute! 'hydra-face-red nil
 		       :foreground red-0)
@@ -3391,7 +3402,7 @@
 		       :foreground magenta-2))
 
 
-  ;; rpm-spec-mode
+;; rpm-spec-mode
 (ignore-errors
   (set-face-attribute! 'rpm-spec-tag-face nil
 		       :foreground blue-1)
@@ -3423,24 +3434,24 @@
 		       :foreground yellow-2))
 
 
-  (set-face-attribute! 'rainbow-delimiters-unmatched-face nil
-		      :foreground white-0
-		      :background red-3
-		      :bold t)
+(set-face-attribute! 'rainbow-delimiters-unmatched-face nil
+		     :foreground white-0
+		     :background red-3
+		     :bold t)
 
-  (set-face-attribute! 'rainbow-delimiters-depth-1-face nil :foreground "#9a4040" :weight 'normal)
-  (set-face-attribute! 'rainbow-delimiters-depth-2-face nil :foreground "#ff5e5e" :weight 'normal)
-  (set-face-attribute! 'rainbow-delimiters-depth-3-face nil :foreground "#ffaa77" :weight 'normal)
-  (set-face-attribute! 'rainbow-delimiters-depth-4-face nil :foreground "#dddd77" :weight 'normal)
-  (set-face-attribute! 'rainbow-delimiters-depth-5-face nil :foreground "#80ee80" :weight 'normal)
-  (set-face-attribute! 'rainbow-delimiters-depth-6-face nil :foreground "#66bbff" :weight 'normal)
-  (set-face-attribute! 'rainbow-delimiters-depth-7-face nil :foreground "#da6bda" :weight 'normal)
-  (set-face-attribute! 'rainbow-delimiters-depth-8-face nil :foreground "#afafaf" :weight 'normal)
-  (set-face-attribute! 'rainbow-delimiters-depth-9-face nil :foreground "#f0f0f0" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-1-face nil :foreground "#9a4040" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-2-face nil :foreground "#ff5e5e" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-3-face nil :foreground "#ffaa77" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-4-face nil :foreground "#dddd77" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-5-face nil :foreground "#80ee80" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-6-face nil :foreground "#66bbff" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-7-face nil :foreground "#da6bda" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-8-face nil :foreground "#afafaf" :weight 'normal)
+(set-face-attribute! 'rainbow-delimiters-depth-9-face nil :foreground "#f0f0f0" :weight 'normal)
 
-  (set-face-attribute! 'highlight-indent-guides-top-character-face nil
-		      :foreground blue-0
-		      :weight 'bold)
+(set-face-attribute! 'highlight-indent-guides-top-character-face nil
+		     :foreground blue-0
+		     :weight 'ultra-bold)
 
 
 

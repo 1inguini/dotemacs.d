@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- powerline-moe-theme
- load-theme
- load-file
  kill-emacs
+ load-file
+ load-theme
  telephone-line-mode
  revert-buffer
  byte-compile-file
+ counsel-linux-app
 )
 
 ;; ----- smex-data -----
@@ -19,7 +19,7 @@
  (linum-mode . 162)
  (counsel-linux-app . 535)
  (recover-session . 2)
- (load-file . 1344)
+ (load-file . 1364)
  =======
  (linum-mode . 5)
  <<<<<<<
@@ -53,7 +53,7 @@
  (company-flx-mode . 6)
  (rainbow-delimiters-mode . 4)
  (multi-term . 156)
- (load-theme . 202)
+ (load-theme . 207)
  =======
  (company-flx-mode . 1)
  (rainbow-delimiters-mode . 11)
@@ -284,7 +284,7 @@
  (w3m-fb-mode . 2)
  <<<<<<<
  HEAD
- (kill-emacs . 8)
+ (kill-emacs . 15)
  (yaml-mode . 1)
  (maximize-window . 1)
  (exwm-layout-toggle-fullscreen . 9)

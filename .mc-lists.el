@@ -93,6 +93,7 @@
 	special-pop-tag-mark
 	swiper
 	swiper-mc
+	uim-process-input
 	))
 
 (setq mc/cmds-to-run-once

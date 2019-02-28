@@ -1,1 +1,1 @@
-("~/.emacs.d/" "~/Desktop/小説/" "~/Desktop/rust/atcoder/" "~/Desktop/rust/お試し/")
+("~/.emacs.d/" "~/.cache/pacman-src/packages/packages/" "~/.cache/aurman/llvm37/" "~/Desktop/rust/nucleo-64/" "~/Desktop/rust/atcoder/" "~/Desktop/ocaml/OMicroB/" "~/arm-ocaml/ocaml/" "~/Desktop/rust/atmega328p-blink/" "~/Desktop/rust/arm-app/" "~/Desktop/rust/rust-avr/src/llvm/" "~/.cargo/registry/index/github.com-1ecc6299db9ec823/" "~/Desktop/rust/お試し/" "~/Desktop/小説/")

@@ -7,8 +7,25 @@
 ;;   (setq user-emacs-directory
 ;;	(file-name-directory
 ;;	 load-file-name)))
+(require  #'package)
 (setq package-enable-at-startup nil)
+;; MELPAを追加
+(add-to-list  #'package-archives #'("melpa" . "https://melpa.org/packages/") t)
+;; MELPA-stableを追加
+(add-to-list  #'package-archives #'("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; Marmaladeを追加
+(add-to-list  #'package-archives  #'("marmalade" . "http://marmalade-repo.org/packages/") t)
+;; Orgを追加
+(add-to-list  #'package-archives #'("org" . "http://orgmode.org/elpa/") t)
+;; emacswikiを追加
+;; (add-to-list  #'package-archives #'("emacswiki" . "http://www.emacswiki.org/emacs/download/") t)
+
+(setq package-check-signature nil)
+;;初期化
 (package-initialize)
+
+(add-to-list 'load-path "~/.emacs.d/mylisp")
+
 (load-file
  "~/.emacs.d/packages.el")
 
@@ -52,32 +69,33 @@
 (require #'shackle)
 (require #'ov)
 (require #'calfw-org)
+(require #'git-gutter-fringe+)
+(require #'tuareg)
+(require #'merlin)
+(require #'merlin-eldoc)
 
 (if window-system
     (progn
       (require #'exwm)
       (require #'exwm-randr)
-      (require #'gpastel)))
+      ;; (require #'gpastel)
+      ))
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (setq custom-safe-themes t)
 (load-theme 'my-moe-dark t)
 
 
-
-(diff-hl-mode 1)
-(diff-hl-flydiff-mode)
-
 ;; Turn on `display-time-mode' if you don't use an external bar.
 (setq display-time-default-load-average nil)
 (display-time-mode nil)
 
-(menu-bar-mode t)
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
 
-(setq linum-format " %4d ")
+(setq linum-format " %4d")
 
 
 (setq switch-window-threshold 2)
@@ -116,8 +134,6 @@
 (add-hook 'c-mode-common-hook 'flycheck-mode t)
 
 
-
-
 ;;This snippet enables lua-mode
 ;; This line is not necessary, if lua-mode.el is already on your load-path
 
@@ -143,8 +159,39 @@
 
 (add-hook 'lua-mode-hook #'my-lua-mode-company-init)
 
+(eval-after-load 'flymake
+  '(progn
+     (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$"
+                                                     (lambda ()
+                                                       (list "/usr/local/bin/smlsharp" (list "-ftypecheck-only" (buffer-file-name))))
+                                                     (lambda () nil)))
+     (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(Error\\|Warning\\):"
+                                               1 2 3 4))))
+;; (add-hook 'sml-mode-hook #'flymake-mode)
 
-(add-to-list 'nim-capf-after-exit-function-hook 'suggestion-box-nim-by-type)
+;; (flycheck-define-checker smlsharp
+;;   "A SMLsharp syntax checker using the `SMLsharp -ftype-only` command."
+  
+;;   :command ("smlsharp" "-ftypecheck-only" source)
+;;   :error-patterns
+;;   ((error line-start (file-name) ":" line "." column "-" line "." column " Error:\n"
+;; 	  (message) "\n" line-end))
+;;   :modes sml-mode)
+;; (add-to-list 'flycheck-checkers 'smlsharp)
+
+(load "flycheck-smlsharp.el")
+
+(font-lock-add-keywords 'sml-mode
+			'(("|" . 'font-lock-keyword-face)))
+
+(defun my-c-mode-common-hook ()
+  "."
+  ;; コメント形式
+  (setq comment-start "// ")
+  (setq comment-end ""))
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+
 (add-hook 'nim-mode-hook 'nimsuggest-mode)
 
 (global-auto-revert-mode t)
@@ -254,6 +301,35 @@
 (setq company-tooltip-align-annotations t)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
+
+(defun my-arduino-mode-company-init ()
+  (setq-local company-backends
+	      '((company-yasnippet :with
+				   company-arduino
+				   company-dabbrev
+				   company-files
+				   company-dabbrev-code
+				   company-gtags
+				   company-etags
+				   company-keywords))))
+
+(add-hook 'arduino-mode 'may-arduino-company-init)
+
+(autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code" t)
+(autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
+(autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger" t)
+(autoload 'merlin-mode "merlin" "Merlin mode" t)
+
+(with-eval-after-load 'merlin
+  ;; Disable Merlin's own error checking
+  (setq merlin-error-after-save nil)
+
+  ;; Enable Flycheck checker
+  (flycheck-ocaml-setup))
+
+(add-hook 'tuareg-mode-hook 'merlin-mode)
+;; (add-hook 'caml-mode-hook 'merlin-mode)
+
 ;; (require #'indent-guide)
 ;; (set-face-foreground #'indent-guide-face "LightGrey")
 ;; (setq indent-guide-recursive nil)
@@ -261,10 +337,11 @@
 ;; (indent-guide-global-mode)
 
 (setq highlight-indent-guides-method 'character)
-(setq highlight-indent-guides-character ?\|)
+;; (setq highlight-indent-guides-character ?\|)
+(setq highlight-indent-guides-character ?\x0020)
 (setq highlight-indent-guides-delay 0)
 (setq highlight-indent-guides-responsive 'top)
-(setq rainbow-indent-highlighter-count 9)
+;; (setq rainbow-indent-highlighter-count 9)
 
 ;; (defun rainbow-indent-highlighter (level responsive display)
 ;;   (cond
@@ -305,8 +382,8 @@
 			(- rainbow-delimiters-max-face-count
 			   rainbow-delimiters-outermost-only-face-count)))))
 	     "-face")))
-   ((eq responsive 'top)
-    'highlight-indent-guides-top-character-face)))
+												       ((eq responsive 'top)
+													'highlight-indent-guides-top-character-face)))
 
 
 (setq highlight-indent-guides-highlighter-function 'rainbow-indent-highlighter)
@@ -316,11 +393,13 @@
 (defun lisp-less-prog-mode-hook-highlight-indent-guides-mode ()
   (if (or (eq major-mode 'emacs-lisp-mode)
 	  (eq major-mode 'clojure-mode)
-	  (eq major-mode 'common-lisp-mode))
+	  (eq major-mode 'common-lisp-mode)
+	  (eq major-mode 'dune-mode))
       (highlight-indent-guides-mode -1)
     (highlight-indent-guides-mode t)))
 
 (add-hook 'prog-mode-hook 'lisp-less-prog-mode-hook-highlight-indent-guides-mode)
+
 
 ;; (remove-hook #'emacs-lisp-mode-hook #'highlight-indent-guides-mode t)
 
@@ -355,12 +434,17 @@
 
 (add-hook 'rust-mode-hook
 	  (lambda ()
-	    (push '("=>" . ?⇒) prettify-symbols-alist)))
+	    (push '("=>" . ?⇒) prettify-symbols-alist)
+	    (prettify-symbols-mode)))
 
 (add-hook 'rust-mode-hook
 	  (lambda ()
 	    (adaptive-wrap-prefix-mode  -1)))
 
+;; (defun my-rust-mode-company-init ()
+;;   (setq-local company-backends
+;; 	      '((company-yasnippet))))
+;; (add-hook 'rust-mode-hook 'my-rust-mode-company-init)
 
 (setq shackle-rules
       '(("*Agenda Commands*" :aline right :ratio 0.3)
@@ -447,8 +531,6 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
   (company-flx-mode t))
 
 (setq company-minimum-prefix-length 1)
-(company-quickhelp-mode nil)
-
 ;; (setq company-quickhelp-delay 0)
 ;; (set-face-attribute 'company-tooltip nil
 ;;                     : foreground "black" : background "lightgrey")
@@ -465,6 +547,26 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 ;; (set-face-attribute 'company-scrollbar-bg nil
 ;;                     : background "gray40")
 
+(company-quickhelp-mode -1)
+(setq company-backends
+      '((company-yasnippet :with
+			   company-capf
+			   company-dabbrev
+			   company-dabbrev-code
+			   company-files
+			   company-gtags
+			   company-etags
+			   company-keywords)
+	(company-yasnippet :with company-dabbrev)
+	(company-yasnippet :with company-bbdb)
+	(company-yasnippet :with company-eclim)
+	(company-yasnippet :with company-semantic)
+	(company-yasnippet :with company-clang)
+	(company-yasnippet :with company-xcode)
+	(company-yasnippet :with company-cmake)
+	(company-yasnippet :with company-files)
+	(company-yasnippet :with company-oddmuse)
+	(company-yasnippet :with company-capf)))
 
 (company-statistics-mode)
 (setq company-transformers '(company-sort-by-backend-importance
@@ -497,7 +599,8 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 ;; (add-hook 'emacs-lisp-mode-hook (lambda () (add-to-list 'ac-sources 'ac-source-symbols t )))
 
 
-(global-undo-tree-mode 1)
+;; (global-undo-tree-mode)
+;; (setq undo-tree-visualizer-diff t)
 
 ;;ivy設定
 
@@ -635,11 +738,13 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 
 (general-define-key
  :keymaps 'global-map
- "<delete>" 'delete-forward-char
+ "<delete>" 'delete-char
+ "<backspace>" 'backward-delete-char
  "C-x" 'Control-X-prefix
  "C-\\" 'mozc-mode
  "M-m" 'Control-X-prefix
- "M-y" 'gpastel-exwm-counsel-yank-pop
+ "M-t" 'recenter
+ "M-y" 'yank-pop
  "M-<tab>" 'exwm-workspace-switch-to-buffer
  ;; "C-c" 'kill-ring-save
  "C-<tab>" 'my-avy-goto-char
@@ -655,6 +760,10 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  "M-<right>" 'forward-word
  "TAB" 'company-indent-or-complete-common)
 
+(general-define-key
+ :keymaps 'gpastel-mode-map
+ "M-y" 'gpastel-exwm-counsel-yank-pop)
+
 (defun clang-save ()
   (interactive)
   (clang-format-buffer)
@@ -663,6 +772,31 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 (general-define-key
  :keymaps 'c-mode-map
  "C-s" 'clang-save)
+
+(general-define-key
+ :keymaps 'arduino-mode-map
+ "C-s" 'clang-save)
+
+
+(defun smlformat-buffer ()
+  (interactive)
+  (shell-command-to-string
+   (mapconcat #'shell-quote-argument
+	      (list "smlformat" (buffer-file-name)) " ")))
+
+(defun smlsharp-format-save ()
+  (interactive)
+  (smlformat-buffer)
+  (save-buffer))
+
+(general-define-key
+ :keymaps 'sml-mode-map
+ "C-s" 'smlsharp-format-save)
+
+
+;; (general-define-key
+;;  :keymaps 'prog-mode-map
+;;  "C-s" 'save-buffer)
 
 (general-define-key
  :keymaps 'nim-mode-map
@@ -708,7 +842,8 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  "C-r" 'swiper-query-replace
  "C-z" 'ivy-reverse-i-search
  "M-c" 'swiper-mc
- "C-o" 'ivy-occur)
+ "C-o" 'ivy-occur
+ "C-v" 'yank)
 
 (with-eval-after-load "lispy"
   (general-define-key
@@ -795,12 +930,12 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 	  (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
 	  ;; (exwm-input--fake-key ?\C-v)
 	  ))
-
+      
       (exwm-input-set-key (kbd "M-y")
 			  #'gpastel-exwm-counsel-yank-pop)
       (exwm-input-set-key (kbd "M-y")
 			  #'gpastel-exwm-counsel-yank-pop)
-      (gpastel-mode t)
+      ;; (gpastel-mode -1)
 
 
       ;; (set-fontset-font (frame-parameter nil #'font)
@@ -843,20 +978,21 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
       ;;		  (window-configuration-to-register ?1)
       ;;		  (save-buffer-kill-emacs)))
 
-
+      ;; (diff-hl-mode t)
+      ;; (diff-hl-margin-mode -1)
 
       (setq switch-window-shortcut-appearance 'text)
-      (fringe-mode '(nil . 0))
+      ;; (fringe-mode '(nil . 0))
       (setq exwm-randr-workspaoce-output-plist '(0 "HDMI-0" 1  "HDMI1" 2 "DP1"))
       (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
-      (add-hook 'exwm-randr-screen-change-hook
+      (remove-hook 'exwm-randr-screen-change-hook
 		(lambda ()
 		  (start-process-shell-command "bash" nil "bash ~/.screenlayout/default.sh")))))
 
 (if (not window-system)
     (progn
       ;; ←CUI用設定を、ここに記述
-      (diff-hl-margin-mode)
+      ;; (diff-hl-margin-mode)
 
       (setq switch-window-shortcut-appearance
 	    'asciiart)))
@@ -868,32 +1004,18 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
  '(blink-matching-delay 0)
  '(blink-matching-paren-dont-ignore-comments t)
  '(cider-completion-annotations-include-ns (quote always))
- '(company-backends
-   (quote
-    ((company-yasnippet :with company-dabbrev company-dabbrev-code company-files)
-     (company-yasnippet :with company-dabbrev-code company-gtags company-etags company-keywords)
-     (company-yasnippet :with company-dabbrev)
-     (company-yasnippet :with company-bbdb)
-     (company-yasnippet :with company-eclim)
-     (company-yasnippet :with company-semantic)
-     (company-yasnippet :with company-clang)
-     (company-yasnippet :with company-xcode)
-     (company-yasnippet :with company-cmake)
-     (company-yasnippet :with company-files)
-     (company-yasnippet :with company-oddmuse)
-     (company-yasnippet :with company-capf))))
  '(debug-on-error t)
  '(desktop-globals-to-clear nil)
  '(desktop-globals-to-save
    (quote
     (kill-ring desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history)))
  '(desktop-restore-in-current-display nil)
+ '(desktop-save-mode t)
  '(diff-hl-flydiff-mode t)
+ '(diff-hl-margin-mode t)
  '(display-time-mode t)
  '(elpy-modules
    (quote
@@ -914,11 +1036,12 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(flycheck-clang-warnings (quote ("all" "extra")))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(flycheck-pos-tip-mode nil)
- '(global-centered-cursor-mode t)
+ '(global-auto-revert-mode t)
+ '(global-centered-cursor-mode nil)
  '(global-company-mode t)
  '(global-hl-line-mode t)
  '(global-hl-line-sticky-flag t)
- '(hl-sexp-background-color "#efebe9")
+ '(global-undo-tree-mode t)
  '(icomplete-mode t)
  '(indent-guide-global-mode nil)
  '(ivy-height 40)
@@ -934,7 +1057,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(org-agenda-window-setup (quote current-window))
  '(package-selected-packages
    (quote
-    (winum telephone-line lispxmp xah-replace-pairs flycheck-nim fcitx lsp-mode clang-format shackle calfw-ical calfw calfw-cal calfw-org diminish eldoc-eval doom-modeline magit elein elien clj-refactor cider CIDER all-the-icons m-buffer ov el-doc pcre2el swiper flx markdown-mode pyvenv highlight-indentation find-file-in-project auto-complete jedi-core python-environment epc ctable concurrent deferred popup pos-tip pkg-info epl f dash s memoize quelpa package yasnippet yasnippet-snippets layout-restore poet-theme neotree all-the-icons-dired all-the-icons-ivy htmlize gpastel ivy-rich company-statistics switch-window rust-mode ace-window flycheck-pos-tip flycheck-popup-tip flycheck-rust racer cargo elpy flycheck indent-guide-mode pipenv company-lua lua-mode auto-virtualenvwrapper virtualenvwrapper virtalenvwrapper flymake-python company-jedi py-autopep8 jedi counsel-jedi yaml-mode review-mode add-hooks ddskk exwm-edit org-plus-contrib nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode undo-tree rainbow-delimiters dired-toggle-sudo dired-atool multi-term multiple-cursors which-key ivy moe-theme smartparens helm 0blayout exwm-x)))
+    (smart-hungry-delete smart-hungry-mode sml-mode dune merlin-eldoc flycheck-ocaml merlin tuareg company-arduino arduino-mode rainbow-mode undo-tree winum telephone-line lispxmp xah-replace-pairs flycheck-nim fcitx lsp-mode clang-format shackle calfw-ical calfw calfw-cal calfw-org diminish eldoc-eval doom-modeline magit elein elien clj-refactor cider CIDER all-the-icons m-buffer ov el-doc pcre2el swiper flx markdown-mode pyvenv highlight-indentation find-file-in-project auto-complete jedi-core python-environment epc ctable concurrent deferred popup pos-tip pkg-info epl f dash s memoize quelpa package yasnippet yasnippet-snippets layout-restore poet-theme neotree all-the-icons-dired all-the-icons-ivy htmlize gpastel ivy-rich company-statistics switch-window rust-mode ace-window flycheck-pos-tip flycheck-popup-tip flycheck-rust racer cargo elpy flycheck indent-guide-mode pipenv company-lua lua-mode auto-virtualenvwrapper virtualenvwrapper virtalenvwrapper flymake-python company-jedi py-autopep8 jedi counsel-jedi yaml-mode review-mode add-hooks ddskk exwm-edit org-plus-contrib nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode rainbow-delimiters dired-toggle-sudo dired-atool multi-term multiple-cursors which-key ivy moe-theme smartparens helm 0blayout exwm-x)))
  '(projectile-mode t nil (projectile))
  '(rust-always-locate-project-on-open t)
  '(skk-jisyo-edit-user-accepts-editing t)
@@ -944,7 +1067,6 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(tool-bar-mode nil)
  '(tooltip-delay 0.3)
  '(tooltip-hide-delay 100)
- '(undo-tree-history-directory-alist (quote (("\"*\"" . "~/.emacs.d/undo-hist/"))))
  '(whitespace-display-mappings t)
  '(window-divider-default-places t)
  '(window-divider-mode nil)
@@ -960,3 +1082,6 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 
 (put 'dired-find-alternate-file 'disabled
      nil)
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line

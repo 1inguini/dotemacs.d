@@ -1,9 +1,9 @@
-;; -*- emacs-lisp -*- <19/02/11 12:29:15 /home/linguini/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <19/02/27 21:53:12 /home/linguini/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
 (((tramp-file-name "sudo" "root" nil "arch-linguini" nil nil nil)
-  ("uname" "Linux 4.20.4-arch1-1-ARCH")
+  ("uname" "Linux 4.20.11-arch2-1-ARCH")
   ("locale" "LC_ALL=en_US.utf8")
   ("test" "test")
   ("remote-path"
@@ -20,12 +20,4 @@
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
   ("perl" "\\perl")
-  ("git" "\\git")
-  ("ls" "/bin/ls --color=never")
-  ("ls-quoting-style" t)
-  ("ls-dired" t)
-  ("tmpdir" "/sudo:root@arch-linguini:/tmp")
-  ("touch-t" t)
-  ("touch" "\\touch")
-  ("~root" "/root")
-  ("hg" "\\hg")))
+  ("git" "\\git")))

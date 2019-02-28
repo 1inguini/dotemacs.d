@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: colloect
-# key: colloect
+# name: collect
+# key: collect
 # --
 
 .collect::${2:<Vec<${1:&str}>>}()

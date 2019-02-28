@@ -25,10 +25,23 @@
 
 
 
-(setq my-common-packages #'(telephone-line
+(setq my-common-packages #'(smart-hungry-delete
+			    sml-mode
+			    dune
+			    flycheck-ocaml
+			    merlin-eldoc
+			    merlin
+			    tuareg
+			    arduino-mode
+			    company-arduino
+			    rainbow-mode
+			    winum
+			    telephone-line
 			    centered-cursor-mode
 			    calfw-org
-			    diff-hl
+			    calfw
+			    git-gutter-fringe+
+			    ;; diff-hl
 			    lispxmp
 			    highlight-indent-guides
 			    quickrun
@@ -70,7 +83,7 @@
 			    ;; indent-guide
 			    review-mode
 			    org-plus-contrib
-			    nix-mode 
+			    nix-mode
 			    auto-sudoedit
 			    avy
 			    winner
@@ -101,8 +114,8 @@
       ;; packages to be installed only in cui
       #'())
 
-(dolist (package my-common-packages) 
-  (unless (package-installed-p package) 
+(dolist (package my-common-packages)
+  (unless (package-installed-p package)
     (package-install package)))
 
 (if window-system

@@ -1,5 +1,4 @@
-;;; package --- Summary
-;;; Commentary: my-moe-dark-theme.el --- An eye-candy theme for Emacser
+;;; my-moe-dark-theme.el --- An eye-candy theme for Emacser
 
 ;; Author: linguini
 ;; Based on "moe-dark-theme"
@@ -7,3497 +6,3305 @@
 ;;; Code:
 
 (deftheme my-moe-dark
-  "Created 2019-02-08.")
-
-(custom-theme-set-faces
- 'my-moe-dark)
-
-(setq-default unspecified
-	      '(
-		:width 'unspecified
-		:weight 'unspecified
-		:slant 'unspecified
-		:underline 'unspecified
-		:overline 'unspecified
-		:strike-through 'unspecified
-		:box 'unspecified
-		:inverse-video 'unspecified
-		:foreground 'unspecified
-		:background 'unspecified
-		:stipple 'unspecified))
-
-(defmacro set-face-attribute! (attribute frame &rest argvs)
-  `(set-face-attribute ,attribute ,frame ,@unspecified ,@argvs))
-
-
-(setq-default yellow-1 "#fce94f")
-(setq-default yellow-2 "#ffd700")
-(setq-default yellow-3 "#c4a000")
-(setq-default yellow-3-5 "#aaaa11")
-(setq-default yellow-4 "#875f00")
-
-(setq-default orange-1 "#ffaf5f")
-(setq-default orange-2 "#ff8700")
-(setq-default orange-3 "#ff5d17")
-(setq-default orange-4 "#d75f00")
-(setq-default orange-5 "#af5f00")
-
-(setq-default magenta-1 "#ff7bbb")
-(setq-default magenta-2 "#ff4ea3")
-(setq-default magenta-3 "#ff1f8b")
-
-(setq-default green-1 "#afff00")
-(setq-default green-2 "#a1db00")
-(setq-default green-3 "#5faf00")
-(setq-default green-4 "#008700")
-(setq-default green-5 "#005f00")
-
-(setq-default cyan-1 "#87ffff")
-(setq-default cyan-2 "#87d7af")
-(setq-default cyan-3 "#00d7af")
-(setq-default cyan-4 "#00ac8a")
-(setq-default cyan-5 "#5faf87")
-(setq-default cyan-6 "#005f5f")
-(setq-default cyan-7 "#236f73")
-
-(setq-default blue-1 "#5fafd7")
-(setq-default blue-2 "#1f5bff")
-(setq-default blue-3 "#005f87")
-(setq-default blue-4 "#005faf")
-(setq-default blue-5 "#0000af")
-(setq-default blue-6 "#00005f")
-
-(setq-default purple-1 "#d18aff")
-(setq-default purple-2 "#af5fff")
-(setq-default purple-3 "#9a08ff")
-(setq-default purple-4 "#6c0099")
-
-(setq-default red-1 "#ef2929")
-(setq-default red-2 "#dd0000")
-(setq-default red-3 "#a40000")
-(setq-default red-4 "#5f0000")
-
-(setq-default white-1 "#c6c6c6")
-(setq-default white-2 "#c6c6c6")
-(setq-default white-3 "#b2b2b2")
-
-(setq-default black-1 "#a8a8a8")
-(setq-default black-2 "#8a8a8a")
-(setq-default black-2-5 "#6c6c6c")
-(setq-default black-3 "#4e4e4e")
-(setq-default black-4 "#3a3a3a")
-(setq-default black-5 "#303030")
-(setq-default black-6 "#000000")
-
-(setq-default LIGHT_BG "#fdfde7")
-(setq-default white-0 "#eeeeee")
-
-(setq-default green-01 "#d7ff00")
-(setq-default green-02 "#5fd700")
-(setq-default green-0 "#d7ff5f")
-(setq-default green-00 "#d7ff87")
-
-(setq-default cyan-0 "#d7ffd7")
-
-(setq-default blue-01 "#c3c9f8")
-(setq-default blue-0 "#afd7ff")
-(setq-default blue-00 "#d7d7ff")
-
-(setq-default yellow-0 "#ffff87")
-(setq-default yellow-00 "#ffffaf")
-
-(setq-default purple-0 "#af87ff")
-(setq-default purple-00 "#e6a8df")
-
-(setq-default red-0 "#ff4b4b")
-(setq-default red-00 "#ffafaf")
-
-(setq-default magenta-0 "#ffafd7")
-(setq-default magenta-00 "#ffd7ff")
-
-(setq-default orange-0 "#ffaf87")
-(setq-default orange-00 "#ffd787")
-(setq-default orange-000 "#ffd7af")
-
-(setq-default linum-dark "#87875f")
-(setq-default linum-light "#d7d7af")
-
-
-
-
-
-;; 'my-moe-dark
-(ignore-errors
-  (set-face-attribute! 'default nil
-		       :foreground white-1
-		       :background black-5)
-
-  (set-face-attribute! 'cursor nil
-		       :background white-0)
-
-  (set-face-attribute! 'vertical-border nil
-		       :foreground black-3
-		       :background black-3)
-
-  (set-face-attribute! 'escape-glyph nil
-		       :foreground yellow-3)
-
-  (set-face-attribute! 'homoglyph nil
-		       :foreground "cyan")
-
-  (set-face-attribute! 'minibuffer-prompt nil
-		       :foreground black-4
-		       :background green-2)
-
-  (set-face-attribute! 'highlight nil
-		       :background black-4)
-
-  (set-face-attribute! 'region nil
-		       :foreground black-4
-		       :background green-0)
-
-  (set-face-attribute! 'shadow nil
-		       :foreground white-3)
-
-  (set-face-attribute! 'secondary-selection nil
-		       :foreground white-0
-		       :background blue-3)
-
-  (set-face-attribute! 'trailing-whitespace nil
-		       :background red-3)
-
-  (set-face-attribute! 'font-lock-builtin-face nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'font-lock-comment-delimiter-face nil
-		       :foreground black-2-5
-		       :slant 'italic)
-
-  (set-face-attribute! 'font-lock-comment-face nil
-		       :foreground black-2-5
-		       :slant 'italic)
-
-  (set-face-attribute! 'font-lock-constant-face nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'font-lock-doc-face nil
-		       :foreground red-0)
-
-  (set-face-attribute! 'font-lock-function-name-face nil
-		       :foreground yellow-2)
-
-  (set-face-attribute! 'font-lock-keyword-face nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'font-lock-negation-char-face nil
-		       :foreground red-0)
-
-  (set-face-attribute! 'font-lock-preprocessor-face nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'font-lock-regexp-grouping-backslash nil
-		       :weight 'bold
-		       :foreground yellow-1)
-
-  (set-face-attribute! 'font-lock-regexp-grouping-construct nil
-		       :weight 'bold
-		       :foreground purple-1)
-
-  (set-face-attribute! 'font-lock-string-face nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'font-lock-type-face nil
-		       :foreground cyan-3)
-
-  (set-face-attribute! 'font-lock-variable-name-face nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'font-lock-warning-face nil
-		       :weight 'bold
-		       :foreground red-2)
-
-  (set-face-attribute! 'button nil
-		       :inherit 'link)
-
-  (set-face-attribute! 'link nil
-		       :underline '(
-				    :color foreground-color
-				    :style line)
-		       :foreground blue-1)
-
-  (set-face-attribute! 'link-visited nil
-		       :underline '(
-				    :color foreground-color
-				    :style line)
-		       :foreground blue-2)
-  
-
-  (set-face-attribute! 'header-line nil
-		       :foreground white-0
-		       :background blue-3)
-
-  (set-face-attribute! 'tooltip nil
-		       :foreground "lightyellow"
-		       :background "black"
-		       :inherit 'variable-pitch)
-
-
-  (set-face-attribute! 'isearch nil
-		       :foreground white-1
-		       :background orange-3)
-
-  ;; (set-face-attribute! 'isearch-fail nil
-  ;;   ((((class color) (min-colors 88) (background light))
-  ;;     '(:background "RosyBrown1"))
-  ;;    (((class color) (min-colors 88) (background dark))
-  ;;     '(:background "red4"))
-  ;;    (((class color) (min-colors 16))
-  ;;     '(:background "red"))
-  ;;    (((class color) (min-colors 8))
-  ;;     '(:background "red"))
-  ;;    (((class color grayscale))
-  ;;     '(:foreground "grey"))
-  ;;    (t '(:inverse-video t))))
-
-  (set-face-attribute! 'lazy-highlight nil
-		       :foreground white-1
-		       :background magenta-3)
-
-  ;; (set-face-attribute! 'match nil
-  ;;   ((((class color) (min-colors 88) (background light))
-  ;;     :background "yellow1"))
-
-  ;;    (((class color) (min-colors 88) (background dark))
-  ;;     '(:background "RoyalBlue3"))
-
-  ;;    (((class color) (min-colors 8) (background light))
-  ;;     (
-  ;;      :foreground "black"
-  ;;      :background "yellow"))
-
-  ;;    (((class color) (min-colors 8) (background dark))
-  ;;     (
-  ;;      :foreground "white"
-  ;;      :background "blue"))
-
-  ;;    (((type tty) (class mono))
-  ;;     '(:inverse-video t))
-
-  ;;    '(:background "gray")))
-
-  (set-face-attribute! 'next-error nil
-		       :inherit 'region)
-
-  (set-face-attribute! 'query-replace nil
-		       :inherit 'isearch)
- 
-  ;; Highlighting faces
-  (set-face-attribute! 'fringe nil
-		       ;; :foreground black-1
-		       ;; :background black-3
-		       :inherit 'linum)
-
-  (set-face-attribute! 'linum nil
-		       :stipple nil
-		       :background black-4
-		       :foreground black-1)
-  
-  (set-face-attribute! 'line-number nil
-		       :foreground white-3
-		       :background black-3)
-
-  (set-face-attribute! 'linum-highlight-face nil
-		       :background green-0
-		       :foreground black-4)
-
-  (set-face-attribute! 'line-number-current-line nil
-		       :background green-0
-		       :foreground black-4)
-
-  (set-face-attribute! 'highlight nil
-		       :background black-3)
-
-  (set-face-attribute! 'hl-line nil
-		       :background black-4)
-
-  (set-face-attribute! 'highlight-symbol-face nil
-		       :background green-5)
-
-  (set-face-attribute! 'region nil
-		       :foreground black-3
-		       :background green-0)
-
-  (set-face-attribute! 'secondary-selection nil
-		       :background blue-3
-		       :foreground white-0)
-
-  (set-face-attribute! 'isearch nil
-		       :foreground white-1
-		       :background orange-3)
-
-  (set-face-attribute! 'lazy-highlight nil
-		       :background magenta-3
-		       :foreground white-1)
-
-  (set-face-attribute! 'trailing-whitespace nil
-		       :background red-3)
-
-  (set-face-attribute! 'show-paren-match nil
-		       :background blue-3
-		       :foreground nil)
-
-  (set-face-attribute! 'header-line nil
-		       :background blue-3
-		       :foreground white-0)
-
-  (set-face-attribute! 'help-argument-name nil
-		       :foreground magenta-1
-		       :italic t)
-
-  (set-face-attribute! 'eldoc-highlight-function-argument nil
-	 	       :foreground green-01
-		       :bold t
-		       :underline t
-		       :background green-5))
-
-;; Mode line & frames' faces
-(ignore-errors
-  (set-face-attribute! 'mode-line nil
-		       :foreground blue-3
-		       :background blue-0
-		       :box nil)
-
-  (set-face-attribute! 'mode-line-buffer-id nil
-		       :foreground black-5
-		       :bold t
-		       :inherit 'mode-line)
-
-  (set-face-attribute! 'mode-line-inactive nil
-		       :foreground white-1
-		       :background black-2-5)
-
-  (set-face-attribute! 'mode-line-buffer-id-inactive nil
-		       ;; :foreground white-1
-		       ;; :background black-2-5
-		       :inherit 'mode-line-inactive)
-
-  (set-face-attribute! 'mode-line-emphasis nil
-		       :background black-5
-		       :weight 'bold
-		       :inherit 'default)
-
-  (set-face-attribute! 'mode-line-highlight nil
-		       :box '(
-			      :line-width 2
-			      :style released-button)
-		       :inherit 'highlight))
-
-;; telephone-line
-
-;; Escape and prompt faces
-(ignore-errors
-  (set-face-attribute! 'minibuffer-prompt nil
-		       :foreground black-3
-		       :background green-2)
-
-  (set-face-attribute! 'escape-glyph nil
-		       :foreground yellow-3)
-
-  (set-face-attribute! 'error nil
-		       :foreground red-0)
-
-  (set-face-attribute! 'warning nil
-		       :foreground orange-1)
-
-  (set-face-attribute! 'success nil
-		       :foreground green-1))
-
-
-;; Font lock faces
-(ignore-errors
-  (set-face-attribute! 'font-lock-builtin-face nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'font-lock-comment-delimiter-face nil
-		       :foreground black-2-5
-		       :slant 'italic)
-
-  (set-face-attribute! 'font-lock-comment-face nil
-		       :foreground black-2-5
-		       :slant 'italic)
-
-  (set-face-attribute! 'font-lock-constant-face nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'font-lock-doc-face nil
-		       :foreground red-0)
-
-  (set-face-attribute! 'font-lock-doc-string-face nil
-		       :foreground yellow-3)
-
-  (set-face-attribute! 'font-lock-function-name-face nil
-		       :foreground yellow-2)
-
-  (set-face-attribute! 'font-lock-keyword-face nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'font-lock-negation-char-face nil
-		       :foreground red-0)
-
-  (set-face-attribute! 'font-lock-preprocessor-face nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'font-lock-regexp-grouping-backslash nil
-		       :foreground yellow-1)
-
-  (set-face-attribute! 'font-lock-regexp-grouping-construct nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'font-lock-string-face nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'font-lock-type-face nil
-		       :foreground cyan-3)
-
-  (set-face-attribute! 'font-lock-variable-name-face nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'font-lock-warning-face nil
-		       :weight bold
-		       :foreground red-2)
-  )
-
-(ignore-errors
-  ;; company
-  (set-face-attribute! 'company-echo nil
-		       :background nil
-		       :foreground white-1)
-
-  (set-face-attribute! 'company-echo-common nil
-		       :background black-3
-		       :foreground red-1)
-
-  (set-face-attribute! 'company-preview nil
-		       :background black-5
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'company-preview-common nil
-		       :background black-5
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'company-preview-search nil
-		       :background black-4
-		       :foreground magenta-2
-		       :weight 'bold)
-
-  (set-face-attribute! 'company-scrollbar-bg nil
-		       :background black-3)
-
-  (set-face-attribute! 'company-scrollbar-fg nil
-		       :background white-3)
-
-
-  (set-face-attribute! 'company-template-field nil
-		       :background yellow-00
-		       :foreground black-4)
-
-  (set-face-attribute! 'company-tooltip nil
-		       :background black-3
-		       :foreground blue-1)
-
-  (set-face-attribute! 'company-tooltip-annotation nil
-		       :background black-4
-		       :foreground red-1)
-
-  (set-face-attribute! 'company-tooltip-common nil
-		       :background black-2-5
-		       :foreground blue-0)
-
-  (set-face-attribute! 'company-tooltip-common-selection nil
-		       :background blue-3
-		       :foreground blue-0
-		       :weight 'bold)
-
-  (set-face-attribute! 'company-tooltip-mouse nil
-		       :background green-0
-		       :foreground black-5)
-
-  (set-face-attribute! 'company-tooltip-selection nil
-		       :background blue-3
-		       :foreground blue-0)
-  )
-;; popup
-(ignore-errors
-  (set-face-attribute! 'popup-face nil
-		       :background black-3
-		       :foreground blue-1
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-isearch-match nil
-		       :background black-3
-		       :foreground magenta-2
-		       :weight 'bold
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-menu-face nil
-		       :background black-3
-		       :foreground blue-1
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-menu-mouse-face nil
-		       :background green-0
-		       :foreground black-4
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-menu-selection-face nil
-		       :background blue-3
-		       :foreground blue-0
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-menu-summary-face nil
-		       :background black-3
-		       :foreground blue-1
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-scroll-bar-background-face nil
-		       :background black-3
-		       :foreground black-3
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-scroll-bar-foreground-face nil
-		       :background black-2
-		       :foreground white-3
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-summary-face nil
-		       :background black-3
-		       :foreground blue-1
-		       :stipple nil)
-
-  (set-face-attribute! 'popup-tip-face nil
-		       :background black-2-5
-		       :foreground white-1
-		       :stipple nil))
-
-;; Dired
-(ignore-errors
-  (set-face-attribute! 'dired-directory nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'dired-flagged nil
-		       :foreground red-1)
-
-  (set-face-attribute! 'dired-header nil
-
-		       :foreground black-5
-		       :background green-2
-		       :bold t)
-
-  (set-face-attribute! 'dired-ignored nil
-		       :foreground black-1)
-
-  (set-face-attribute! 'dired-mark nil
-		       :foreground green-1)
-
-  (set-face-attribute! 'dired-marked nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'dired-perm-write nil
-		       :foreground red-2
-		       :bold t)
-
-  (set-face-attribute! 'dired-symlink nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'dired-warning nil
-		       :foreground white-1
-		       :background red-3
-		       :bold t)
-  )
-;; Dired+
-(ignore-errors
-  (set-face-attribute! 'diredp-compressed-file-suffix nil
-		       :foreground purple-2)
-
-  (set-face-attribute! 'diredp-date-time nil
-		       :foreground blue-1
-		       :background black-4)
-
-  (set-face-attribute! 'diredp-deletion nil
-		       :foreground white-1
-		       :background red-3)
-
-  (set-face-attribute! 'diredp-deletion-file-name nil
-		       :foreground red-2)
-
-  (set-face-attribute! 'diredp-dir-heading nil
-		       :foreground black-5
-		       :background green-2)
-
-  (set-face-attribute! 'diredp-dir-priv nil
-		       :foreground blue-1
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'diredp-display-msg nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'diredp-executable-tag nil
-
-		       :foreground green-2)
-
-  (set-face-attribute! 'diredp-file-name nil
-		       :foreground white-1)
-
-  (set-face-attribute! 'diredp-file-suffix nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'diredp-flag-mark nil
-		       :foreground white-1
-		       :background magenta-3
-		       :bold t)
-
-  (set-face-attribute! 'diredp-flag-mark-line nil
-		       :foreground black-5
-		       :background magenta-1)
-
-  (set-face-attribute! 'diredp-ignored-file-name nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'diredp-link-priv nil
-		       :foreground magenta-3)
-
-  (set-face-attribute! 'diredp-mode-line-flagged nil
-		       :foreground black-5
-		       :background green-2)
-
-  (set-face-attribute! 'diredp-mode-line-marked nil
-		       :foreground white-1
-		       :background magenta-3
-		       :bold t)
-
-  (set-face-attribute! 'diredp-no-priv nil
-		       :foreground white-1
-		       :background black-4)
-
-  (set-face-attribute! 'diredp-number nil
-		       :foreground yellow-1)
-
-  (set-face-attribute! 'diredp-other-priv nil
-		       :foreground white-1
-		       :background blue-3)
-
-  (set-face-attribute! 'diredp-rare-priv nil
-		       :foreground white-1
-		       :background purple-2)
-
-  (set-face-attribute! 'diredp-symlink nil
-		       :foreground magenta-3)
-
-  (set-face-attribute! 'diredp-read-priv nil
-		       :foreground green-4
-		       :background green-0)
-
-  (set-face-attribute! 'diredp-write-priv nil
-		       :foreground blue-5
-		       :background blue-0)
-
-  (set-face-attribute! 'diredp-exec-priv nil
-		       :foreground red-3
-		       :background orange-0))
-
-;; Completions
-(ignore-errors
-  (set-face-attribute! 'completions-annotations nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'completions-common-part nil
-		       :foreground black-2-5)
-
-  (set-face-attribute! 'completions-first-difference nil
-		       :weight 'bold
-		       :foreground orange-2))
-
-;; org-mode
-(ignore-errors
-  (set-face-attribute! 'org-document-title nil
-		       :foreground blue-0
-		       :background black-5
-		       :weight 'bold)
-
-  (set-face-attribute! 'org-document-info nil
-		       :foreground blue-1
-		       :background black-5
-		       :weight 'bold)
-
-  (set-face-attribute! 'org-document-info-keyword nil
-		       :foreground orange-1
-		       :background black-2-5)
-
-  (set-face-attribute! 'org-archived nil
-		       :slant 'italic)
-
-  (set-face-attribute! 'org-checkbox nil
-		       :background white-2
-		       :foreground black-3
-		       :box '(
-			      :line-width 1
-			      :style released-button))
-
-  (set-face-attribute! 'org-date nil
-		       :foreground blue-0
-		       :underline t)
-
-  (set-face-attribute! 'org-done nil
-		       :bold t
-		       :weight 'bold
-		       :foreground green-4
-		       :background green-0
-		       :box '(
-			      :line-width 1
-			      :style none))
-
-  (set-face-attribute! 'org-todo nil
-		       :bold t
-		       :weight 'bold
-		       :foreground red-3
-		       :background orange-0
-		       :box '(
-			      :line-width 1
-			      :style none))
-
-  (set-face-attribute! 'org-level-1 nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'org-level-2 nil :foreground green-2)
-
-  (set-face-attribute! 'org-level-3 nil :foreground orange-2)
-
-  (set-face-attribute! 'org-level-4 nil :foreground cyan-3)
-
-  (set-face-attribute! 'org-level-5 nil :foreground red-1)
-
-  (set-face-attribute! 'org-level-6 nil :foreground purple-2)
-
-  (set-face-attribute! 'org-level-7 nil :foreground magenta-2)
-
-  (set-face-attribute! 'org-level-8 nil :foreground yellow-2)
-
-  (set-face-attribute! 'org-tag nil
-		       :background black-3
-		       :foreground white-1
-		       :bold t
-		       :weight 'bold)
-
-
-  (set-face-attribute! 'org-column nil
-		       :background black-4
-		       :foreground black-3)
-
-  (set-face-attribute! 'org-column-title nil
-		       :background blue-0
-		       :foreground black-5
-		       :underline t
-		       :weight 'bold)
-
-  (set-face-attribute! 'org-agenda-structure nil
-		       :foreground cyan-4
-		       :background nil
-		       :bold t)
-
-  (set-face-attribute! 'org-upcoming-deadline nil
-		       :foreground red-3)
-
-  (set-face-attribute! 'org-scheduled nil
-		       :foreground white-3)
-
-  (set-face-attribute! 'org-scheduled-previously nil
-		       :foreground red-1)
-
-  (set-face-attribute! 'org-scheduled-today nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'org-special-keyword nil
-		       :background black-3
-		       :foreground white-1)
-
-  (set-face-attribute! 'org-table nil
-		       :background black-3
-		       :foreground white-1)
-
-  (set-face-attribute! 'org-time-grid nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'org-upcoming-deadline nil
-		       :foreground red-1)
-
-  (set-face-attribute! 'org-warning nil
-		       :bold t
-		       :foreground white-0
-		       :background red-3)
-
-  (set-face-attribute! 'org-formula nil
-		       :foreground purple-2)
-
-  (set-face-attribute! 'org-headline-done nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'org-hide nil
-		       :foreground black-5)
-
-  (set-face-attribute! 'org-code nil
-		       :foreground blue-1
-		       :background black-4)
-
-  (set-face-attribute! 'org-link nil
-		       :foreground blue-1
-		       :underline t)
-
-  (set-face-attribute! 'org-footnote nil
-		       :foreground magenta-3)
-
-  (set-face-attribute! 'org-ellipsis nil
-		       :foreground red-2)
-
-  (set-face-attribute! 'org-agenda-clocking nil
-		       :foreground blue-3
-		       :background blue-0
-		       :bold t)
-
-  (set-face-attribute! 'org-agenda-date nil
-		       :foreground blue-1
-		       :background black-5
-		       :underline nil)
-
-  (set-face-attribute! 'org-agenda-date-weekend nil
-		       :foreground purple-1
-		       :underline nil
-		       :bold nil)
-
-  (set-face-attribute! 'org-agenda-date-today nil
-		       :foreground blue-0
-		       :background black-2-5
-		       :slant 'italic
-		       :weight 'bold)
-
-  (set-face-attribute! 'org-agenda-column-dateline nil
-		       :foreground white-0
-		       :background black-3
-		       :underline t)
-
-  ;; (set-face-attribute! 'org-agenda-todo nil
-  ;;		    :foreground white-0
-  ;;		    :background red-2)
-
-  (set-face-attribute! 'org-agenda-done nil
-		       :foreground green-2
-		       :background nil)
-
-  (set-face-attribute! 'org-agenda-dimmed-todo-face nil
-		       :foreground white-0
-		       :background red-2)
-
-  (set-face-attribute! 'org-priority nil
-		       :foreground red-1
-		       :background nil)
-
-  (set-face-attribute! 'org-block nil
-		       :foreground blue-1
-		       :background black-4)
-
-  ;; (set-face-attribute! 'org-block-background nil
-  ;;		    :foreground nil
-  ;;		    :background black-4)
-
-  (set-face-attribute! 'org-block-begin-line nil
-		       :foreground white-0
-		       :background blue-3)
-
-  (set-face-attribute! 'org-block-end-line nil
-		       :foreground black-3
-		       :background black-4)
-
-  (set-face-attribute! 'org-quote nil
-		       :foreground blue-1
-		       :background black-3)
-
-  (set-face-attribute! 'org-mode-line-clock nil
-		       :foreground blue-3
-		       :background blue-0
-		       :bold t)
-
-  (set-face-attribute! 'org-mode-line-clock-overrun nil
-		       :foreground white-0
-		       :background red-1
-		       :bold t)
-
-  (set-face-attribute! 'org-verbatim nil
-		       :foreground blue-1
-		       :background black-3
-		       :bold nil)
-  )
-
-;; outline
-(ignore-errors
-  (set-face-attribute! 'outline-1 nil :foreground blue-1)
-
-  (set-face-attribute! 'outline-2 nil :foreground green-2)
-
-  (set-face-attribute! 'outline-3 nil :foreground orange-2)
-
-  (set-face-attribute! 'outline-4 nil :foreground cyan-3)
-
-  (set-face-attribute! 'outline-5 nil :foreground red-1)
-
-  (set-face-attribute! 'outline-6 nil :foreground purple-2)
-
-  (set-face-attribute! 'outline-7 nil :foreground magenta-2)
-
-  (set-face-attribute! 'outline-8 nil :foreground yellow-2))
-
-
-;; undo-tree
-(ignore-errors
-  (set-face-attribute! 'undo-tree-visualizer-default-face nil
-		       :foreground white-1)
-
-  (set-face-attribute! 'undo-tree-visualizer-current-face nil
-		       :foreground green-2
-		       :weight 'bold)
-
-  (set-face-attribute! 'undo-tree-visualizer-active-branch-face nil
-		       :foreground red-2)
-
-  (set-face-attribute! 'undo-tree-visualizer-register-face nil
-		       :foreground yellow-2))
-
-
-;; Markdown-mode
-(ignore-errors
-  (set-face-attribute! 'markdown-blockquote-face nil
-		       :foreground orange-2
-		       :background black-3
-		       :italic t)
-
-  (set-face-attribute! 'markdown-bold-face nil
-		       :foreground white-1
-		       :bold t)
-
-  (set-face-attribute! 'markdown-comment-face nil
-		       :foreground black-2
-		       :italic t)
-
-  (set-face-attribute! 'markdown-header-delimiter-face nil
-		       :foreground green-3
-		       :bold t)
-
-  (set-face-attribute! 'markdown-header-face nil
-		       :foreground green-2
-		       :bold t)
-
-  (set-face-attribute! 'markdown-header-rule-face nil
-		       :foreground green-2
-		       :bold t)
-
-  (set-face-attribute! 'markdown-header-face-1 nil :foreground green-2 :bold t)
-
-  (set-face-attribute! 'markdown-header-face-2 nil :foreground green-2 :bold t)
-
-  (set-face-attribute! 'markdown-header-face-3 nil :foreground green-2 :bold t)
-
-  (set-face-attribute! 'markdown-header-face-4 nil :foreground green-2 :bold t)
-
-  (set-face-attribute! 'markdown-header-face-5 nil :foreground green-2 :bold t)
-
-  (set-face-attribute! 'markdown-header-face-6 nil :foreground green-2 :bold t)
-
-  (set-face-attribute! 'markdown-link-face nil
-		       :foreground magenta-1
-		       :underline t)
-
-  (set-face-attribute! 'markdown-inline-code-face nil :foreground blue-1
-		       :background black-3)
-
-  (set-face-attribute! 'markdown-italic-face nil
-		       :foreground white-1
-		       :italic t
-		       :underline white-1)
-
-  (set-face-attribute! 'markdown-list-face nil
-		       :foreground green-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'markdown-math-face nil
-		       :foreground magenta-1)
-
-  (set-face-attribute! 'markdown-missing-link-face nil
-		       :foreground red-1
-		       :bold t)
-
-  (set-face-attribute! 'markdown-pre-face nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'markdown-reference-face nil
-		       :foreground orange-2
-		       :italic t)
-
-  (set-face-attribute! 'markdown-url-face nil
-		       :foreground magenta-3
-		       :underline magenta-3))
-
-
-;; Twittering-mode
-(ignore-errors
-  (set-face-attribute! 'twittering-username-face nil
-		       :foreground blue-1
-		       :background black-4
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'twittering-uri-face nil
-		       :foreground blue-1
-		       :underline t)
-
-  (set-face-attribute! 'twittering-timeline-footer-face nil
-		       :foreground white-3)
-
-  (set-face-attribute! 'twittering-timeline-header-face nil
-		       :foreground white-3))
-
-
-;; Jabber
-(ignore-errors
-  (set-face-attribute! 'jabber-activity-face nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'jabber-activity-personal-face nil
-		       :foreground cyan-3)
-
-  (set-face-attribute! 'jabber-chat-error nil
-		       :foreground red-00
-		       :background red-2)
-
-  (set-face-attribute! 'jabber-chat-prompt-foreign nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'jabber-chat-prompt-local nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'jabber-chat-prompt-system nil
-		       :foreground yellow-2
-		       :weight 'bold)
-
-  (set-face-attribute! 'jabber-chat-text-foreign nil
-		       :foreground white-0)
-
-  (set-face-attribute! 'jabber-chat-text-local nil
-		       :foreground white-3)
-
-  (set-face-attribute! 'jabber-rare-time-face nil
-		       :foreground black-1)
-
-  (set-face-attribute! 'jabber-roster-user-away nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'jabber-roster-user-chatty nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'jabber-roster-user-dnd nil
-		       :foreground red-1)
-
-  (set-face-attribute! 'jabber-roster-user-error nil
-		       :foreground red-00
-		       :background red-3)
-
-  (set-face-attribute! 'jabber-roster-user-offline nil
-		       :foreground black-1)
-
-  (set-face-attribute! 'jabber-roster-user-online nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'jabber-roster-user-xa nil
-		       :foreground black-1))
-
-
-;; Button and link faces
-(ignore-errors
-  (set-face-attribute! 'link nil
-		       :underline t
-		       :foreground blue-1)
-
-  (set-face-attribute! 'link-visited nil
-		       :underline t
-		       :foreground blue-2)
-  )
-
-;; Gnus
-(ignore-errors
-  (set-face-attribute! 'gnus-button nil
-		       :weight 'normal
-		       :foreground blue-1
-		       :underline t)
-
-  (set-face-attribute! 'gnus-cite-1 nil
-		       :foreground blue-1
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-10 nil
-		       :foreground magenta-1
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-11 nil
-		       :foreground cyan-3
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-2 nil
-		       :foreground green-2
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-3 nil
-		       :foreground magenta-2
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-4 nil
-		       :foreground cyan-3
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-5 nil
-		       :foreground red-0
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-6 nil
-		       :foreground purple-1
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-7 nil
-		       :foreground orange-2
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-8 nil
-		       :foreground blue-1
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-cite-9 nil
-		       :foreground green-2
-		       :background black-4
-		       :slant 'italic)
-
-  (set-face-attribute! 'gnus-emphasis-highlight-words nil
-		       :foreground red-3
-		       :background red-00
-		       :bold t)
-
-  (set-face-attribute! 'gnus-group-mail-1 nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'gnus-group-mail-1-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-mail-1-low nil
-		       :foreground blue-2)
-
-  (set-face-attribute! 'gnus-group-mail-2 nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'gnus-group-mail-2-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-mail-2-low nil
-		       :foreground orange-3)
-
-  (set-face-attribute! 'gnus-group-mail-3 nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'gnus-group-mail-3-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-mail-3-low nil
-		       :foreground magenta-3)
-
-  (set-face-attribute! 'gnus-group-mail-low nil
-		       :foreground yellow-3)
-
-  (set-face-attribute! 'gnus-group-mail-low-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-news-1 nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'gnus-group-news-1-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-news-1-low nil
-		       :foreground blue-2)
-
-  (set-face-attribute! 'gnus-group-news-2 nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'gnus-group-news-2-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-news-2-low nil
-		       :foreground orange-3)
-
-  (set-face-attribute! 'gnus-group-news-3 nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'gnus-group-news-3-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-news-3-low nil
-		       :foreground magenta-3)
-
-  (set-face-attribute! 'gnus-group-news-4 nil
-		       :foreground purple-2)
-
-  (set-face-attribute! 'gnus-group-news-4-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-news-4-low nil
-		       :foreground purple-3)
-
-  (set-face-attribute! 'gnus-group-news-5 nil
-		       :foreground cyan-3)
-
-  (set-face-attribute! 'gnus-group-news-5-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-news-5-low nil
-		       :foreground cyan-4)
-
-  (set-face-attribute! 'gnus-group-news-6 nil
-		       :foreground green-1)
-
-  (set-face-attribute! 'gnus-group-news-6-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-group-news-6-low nil
-		       :foreground green-3)
-
-  (set-face-attribute! 'gnus-group-news-low nil
-		       :foreground yellow-3)
-
-  (set-face-attribute! 'gnus-group-news-low-empty nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-header-content nil
-		       :foreground magenta-1 )
-
-  (set-face-attribute! 'gnus-header-from nil
-		       :foreground blue-1
-		       :underline t)
-
-  (set-face-attribute! 'gnus-header-name nil
-		       :foreground black-1)
-
-  (set-face-attribute! 'gnus-header-newsgroups nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'gnus-header-subject nil
-		       :foreground white-0
-		       :bold t)
-
-  (set-face-attribute! 'gnus-server-agent nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-server-closed nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-server-denied nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-server-offline nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-server-opened nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-signature nil
-		       :slant 'italic
-		       :foreground black-2)
-
-  (set-face-attribute! 'gnus-splash nil
-		       :foreground black-1)
-
-  (set-face-attribute! 'gnus-summary-cancelled nil
-		       :foreground black-2
-		       :background black-5)
-
-  (set-face-attribute! 'gnus-summary-high-ancient nil
-		       :bold t
-		       :foreground red-3
-		       :background nil)
-
-  (set-face-attribute! 'gnus-summary-high-read nil
-		       :bold t
-		       :foreground white-1)
-
-  (set-face-attribute! 'gnus-summary-high-ticked nil
-		       :slant 'italic
-		       :bold t
-		       :foreground red-2
-		       :background nil)
-
-  (set-face-attribute! 'gnus-summary-high-undownloaded nil
-		       :slant 'italic
-		       :foreground red-2
-		       :background nil)
-
-  (set-face-attribute! 'gnus-summary-high-unread nil
-		       :bold t
-		       :foreground red-0)
-
-  (set-face-attribute! 'gnus-summary-low-ancient nil
-		       :foreground green-3)
-
-  (set-face-attribute! 'gnus-summary-low-read nil
-		       :foreground white-1)
-
-  (set-face-attribute! 'gnus-summary-low-ticked nil
-		       :slant 'italic
-		       :foreground green-1)
-
-  (set-face-attribute! 'gnus-summary-low-undownloaded nil
-		       :slant 'italic
-		       :foreground green-2)
-
-  (set-face-attribute! 'gnus-summary-low-unread nil
-		       :slant 'italic
-		       :foreground green-0)
-
-  (set-face-attribute! 'gnus-summary-normal-ancient nil
-		       :foreground blue-2)
-
-  (set-face-attribute! 'gnus-summary-normal-read nil
-		       :foreground white-1)
-
-  (set-face-attribute! 'gnus-summary-normal-ticked nil
-		       :slant 'italic
-		       :foreground blue-1)
-
-  (set-face-attribute! 'gnus-summary-normal-undownloaded nil
-		       :slant 'italic
-		       :foreground blue-1)
-
-  (set-face-attribute! 'gnus-summary-normal-unread nil
-		       :foreground blue-0
-		       :bold t)
-
-  (set-face-attribute! 'gnus-summary-selected nil
-		       :background green-0
-		       :foreground green-5)
-  )
-;; Helm
-(ignore-errors
-  (set-face-attribute! 'helm-bookmark-directory nil
-		       :foreground blue-1
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'helm-bookmark-file nil
-		       :foreground yellow-4
-		       :background yellow-0)
-
-  (set-face-attribute! 'helm-bookmark-info nil
-		       :foreground green-4
-		       :background green-0)
-
-  (set-face-attribute! 'helm-buffer-directory nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'helm-buffer-process nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'helm-buffer-saved-out nil
-		       :foreground red-2
-		       :background black-5)
-
-  (set-face-attribute! 'helm-buffer-size nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'helm-candidate-number nil
-		       :foreground blue-3
-		       :background white-0)
-
-  (set-face-attribute! 'helm-ff-directory nil
-		       :foreground blue-1
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'helm-ff-excutable nil
-		       :foreground green-1
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'helm-ff-file nil
-		       :foreground white-1
-		       :background black-5)
-
-  (set-face-attribute! 'helm-ff-invalid-symlink nil
-		       :foreground white-1
-		       :background red-2)
-
-  (set-face-attribute! 'helm-ff-prefix nil
-		       :foreground white-1
-		       :background orange-2)
-
-  (set-face-attribute! 'helm-grep-cmd-line nil
-		       :foreground green-4
-		       :background green-00
-		       :bold t)
-
-  (set-face-attribute! 'helm-grep-file nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'helm-grep-finish nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'helm-grep-lineno nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'helm-grep-match nil
-		       :background black-4
-		       :foreground yellow-1
-		       :bold t)
-
-  (set-face-attribute! 'helm-grep-running nil
-		       :foreground red-0
-		       :background nil)
-
-  (set-face-attribute! 'helm-header nil
-		       :foreground blue-3
-		       :background blue-0)
-
-  (set-face-attribute! 'helm-lisp-show-completion nil
-		       :foreground black-3
-		       :background green-0)
-
-  (set-face-attribute! 'helm-match nil
-		       :foreground green-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'helm-selection nil
-		       :foreground nil
-		       :background blue-3)
-
-  (set-face-attribute! 'helm-selection-line nil
-		       :foreground nil
-		       :background yellow-4)
-
-  (set-face-attribute! 'helm-source-header nil
-		       :foreground white-0
-		       :background black-2-5
-		       :bold t)
-
-  (set-face-attribute! 'helm-visible-mark nil
-		       :foreground magenta-2
-		       :background magenta-0))
-
-
-;; Magit >= 2.1.0
-(ignore-errors
-  (set-face-attribute! 'magit-bisect-bad nil
-		       :foreground red-3
-		       :background red-00)
-
-  (set-face-attribute! 'magit-bisect-good nil
-		       :foreground green-4
-		       :background green-0)
-
-  (set-face-attribute! 'magit-bisect-skip nil
-		       :foreground yellow-4
-		       :background orange-00)
-
-  (set-face-attribute! 'magit-blame-date nil
-		       :foreground orange-2
-		       :background black-3)
-
-  (set-face-attribute! 'magit-blame-hash nil
-		       :foreground orange-2
-		       :background black-3)
-
-  (set-face-attribute! 'magit-blame-heading nil
-		       :foreground white-1
-		       :background black-3)
-
-  (set-face-attribute! 'magit-blame-name nil
-		       :foreground green-1
-		       :background black-3)
-
-  (set-face-attribute! 'magit-blame-summary nil
-		       :foreground white-2
-		       :background black-3)
-
-  (set-face-attribute! 'magit-branch-current nil
-		       :foreground white-0
-		       :background orange-2
-		       :bold t
-		       :underline nil)
-
-  (set-face-attribute! 'magit-branch-local nil
-		       :foreground green-4
-		       :background green-00
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-branch-remote nil
-		       :foreground blue-3
-		       :background blue-0
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-cherry-equivalent nil
-		       :foreground purple-2)
-
-  (set-face-attribute! 'magit-cherry-unmatched nil
-		       :foreground cyan-4)
-
-  (set-face-attribute! 'magit-diff-added nil
-		       :foreground green-0
-		       :background nil
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-added-highlight nil
-		       :foreground green-0
-		       :bold t
-		       :inherit 'magit-section-highlight)
-
-  (set-face-attribute! 'magit-diff-base nil
-		       :foreground yellow-1
-		       :background nil)
-
-  (set-face-attribute! 'magit-diff-base-highlight nil
-		       :foreground yellow-1
-		       :bold t
-		       :inherit 'magit-section-highlight)
-
-  (set-face-attribute! 'magit-diff-conflict-heading nil
-		       :foreground white-0
-		       :background orange-2)
-
-  (set-face-attribute! 'magit-diff-context nil
-		       :foreground white-1
-		       :background nil)
-
-  (set-face-attribute! 'magit-diff-context-highlight nil
-		       :foreground white-1
-		       :inherit 'magit-section-highlight)
-
-  (set-face-attribute! 'magit-diff-file-heading nil
-		       :foreground white-0
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-file-heading-highlight nil
-		       :background blue-3
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-file-heading-selection nil
-		       :foreground white-0
-		       :background black-2
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-hunk-heading nil
-		       :foreground black-2
-		       :background black-3
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-hunk-heading-highlight nil
-		       :foreground black-4
-		       :background blue-01)
-
-  (set-face-attribute! 'magit-diff-hunk-heading-selection nil
-		       :foreground white-1
-		       :background white-1)
-
-  (set-face-attribute! 'magit-diff-lines-boundary nil
-		       :foreground white-1
-		       :background red-0)
-
-  (set-face-attribute! 'magit-diff-lines-heading nil
-		       :foreground white-1
-		       :background red-0)
-
-  (set-face-attribute! 'magit-diff-our nil
-		       :foreground magenta-3)
-
-  (set-face-attribute! 'magit-diff-our-highlight nil
-		       :foreground magenta-3
-		       :background magenta-00)
-
-  (set-face-attribute! 'magit-diff-removed nil
-		       :foreground red-0
-		       :background nil
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-removed-highlight nil
-		       :foreground red-0
-		       :bold t
-		       :inherit 'magit-section-highlight)
-
-  (set-face-attribute! 'magit-diff-their nil
-		       :foreground cyan-4)
-					;
-  (set-face-attribute! 'magit-diff-their-highlight nil
-		       :foreground cyan-6
-		       :background cyan-1)
-
-  (set-face-attribute! 'magit-diff-whitespace-warning nil
-		       :foreground red-3
-		       :background red-3)
-
-  (set-face-attribute! 'magit-diffstat-added nil
-		       :foreground green-3
-		       :background green-0
-		       :bold t)
-
-  (set-face-attribute! 'magit-diffstat-removed nil
-		       :foreground red-3
-		       :background red-0
-		       :bold t)
-
-  (set-face-attribute! 'magit-dimmed nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'magit-filename nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'magit-hash nil
-		       :foreground orange-2
-		       :background nil)
-
-  (set-face-attribute! 'magit-head nil
-		       :foreground orange-4
-		       :background orange-000)
-
-  (set-face-attribute! 'magit-header-line nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'magit-log-author nil
-		       :foreground green-2
-		       :background nil)
-
-  (set-face-attribute! 'magit-log-date nil
-		       :foreground black-2
-		       :background nil)
-
-  (set-face-attribute! 'magit-log-graph nil
-		       :foreground black-2
-		       :background nil)
-
-  (set-face-attribute! 'magit-process-ng nil
-		       :foreground red-3
-		       :background red-00
-		       :underline t)
-
-  (set-face-attribute! 'magit-process-ok nil
-		       :foreground green-3
-		       :background green-00
-		       :underline t)
-
-  (set-face-attribute! 'magit-reflog-amend nil
-		       :foreground magenta-3
-		       :background magenta-00)
-
-  (set-face-attribute! 'magit-reflog-checkout nil
-		       :foreground green-3
-		       :background green-00)
-
-  (set-face-attribute! 'magit-reflog-cherry-pick nil
-		       :foreground orange-4
-		       :background orange-00)
-
-  (set-face-attribute! 'magit-reflog-commit nil
-		       :foreground yellow-4
-		       :background yellow-0)
-
-  (set-face-attribute! 'magit-reflog-merge nil
-		       :foreground purple-4
-		       :background purple-00)
-
-  (set-face-attribute! 'magit-reflog-other nil
-		       :foreground white-0
-		       :background black-3)
-
-  (set-face-attribute! 'magit-reflog-rebase nil
-		       :foreground cyan-6
-		       :background cyan-2)
-
-  (set-face-attribute! 'magit-reflog-remote nil
-		       :foreground blue-4
-		       :background blue-0)
-
-  (set-face-attribute! 'magit-reflog-reset nil
-		       :foreground red-3
-		       :background red-00)
-
-  (set-face-attribute! 'magit-section-heading nil
-		       :foreground orange-3
-		       :background nil
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-section-heading-selection nil
-		       :background blue-0)
-
-  (set-face-attribute! 'magit-section-highlight nil
-		       :background black-3)
-
-  (set-face-attribute! 'magit-sequence-done nil
-		       :foreground green-3)
-
-  (set-face-attribute! 'magit-sequence-drop nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'magit-sequence-head nil
-		       :foreground blue-2)
-
-  (set-face-attribute! 'magit-sequence-onto nil
-		       :foreground purple-2)
-
-  (set-face-attribute! 'magit-sequence-part nil
-		       :foreground cyan-4)
-
-  (set-face-attribute! 'magit-sequence-pick nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'magit-sequence-stop nil
-		       :foreground red-3)
-
-  (set-face-attribute! 'magit-signature-bad nil
-		       :foreground red-2)
-
-  (set-face-attribute! 'magit-signature-good nil
-		       :foreground green-3)
-
-  (set-face-attribute! 'magit-signature-untrusted nil
-		       :foreground yellow-3)
-
-  (set-face-attribute! 'magit-tag nil
-		       :foreground blue-3
-		       :background blue-0)
-
-  (set-face-attribute! 'magit-valid-signature nil
-		       :foreground cyan-4
-		       :background LIGHT_BG
-		       :bold t)
-
-  (set-face-attribute! 'magit-whitespace-warning-face nil
-		       :foreground white-0
-		       :background red-2
-		       :bold t))
-
-
-;; Magit
-(ignore-errors
-  (set-face-attribute! 'magit-branch nil
-		       :foreground green-4
-		       :background green-01
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-diff-add nil
-		       :foreground green-0
-		       :background nil
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-del nil
-		       :foreground red-0
-		       :background nil
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-file-header nil
-		       :foreground white-0
-		       :background black-2
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-hunk-header nil
-		       :foreground white-2
-		       :background black-2-5
-		       :bold t)
-
-  (set-face-attribute! 'magit-diff-merge-current nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'magit-diff-merge-diff3-separator nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'magit-diff-merge-proposed nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'magit-diff-merge-separator nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'magit-diff-none nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'magit-header nil
-		       :foreground blue-2
-		       :background white-0
-		       :underline blue-2)
-
-  (set-face-attribute! 'magit-item-highlight nil
-		       :background "#444444"
-		       :foreground white-0)
-
-  (set-face-attribute! 'magit-item-mark nil
-		       :foreground white-0
-		       :background blue-3)
-
-  (set-face-attribute! 'magit-log-author nil
-		       :foreground green-0
-		       :background black-4)
-
-  (set-face-attribute! 'magit-log-author-date-cutoff nil
-		       :foreground red-1
-		       :bold t)
-
-  (set-face-attribute! 'magit-log-date nil
-		       :foreground white-1
-		       :background black-4)
-
-  (set-face-attribute! 'magit-log-graph nil
-		       :foreground white-2
-		       :background black-4)
-
-  (set-face-attribute! 'magit-log-head-label-bisect-bad nil
-		       :foreground red-3
-		       :background red-00)
-
-  (set-face-attribute! 'magit-log-head-label-bisect-good nil
-		       :foreground green-4
-		       :background green-0)
-
-  (set-face-attribute! 'magit-log-head-label-bisect-skip nil
-		       :foreground yellow-3
-		       :background orange-00)
-
-  (set-face-attribute! 'magit-log-head-label-default nil
-		       :foreground green-4
-		       :background green-2
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-log-head-label-head nil
-		       :foreground green-4
-		       :background green-01
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-log-head-label-local nil
-		       :foreground green-4
-		       :background green-00
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-log-head-label-patches nil
-		       :foreground orange-4
-		       :background orange-0
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-log-head-label-remote nil
-		       :foreground blue-4
-		       :background blue-0
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-log-head-label-tags nil
-		       :foreground yellow-4
-		       :background yellow-00
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'magit-log-head-label-wip nil
-		       :foreground white-2
-		       :background black-2)
-
-  (set-face-attribute! 'magit-log-message nil
-		       :foreground white-1
-		       :background nil)
-
-  (set-face-attribute! 'magit-log-reflog-label-amend nil
-		       :foreground magenta-3
-		       :background magenta-0)
-
-  (set-face-attribute! 'magit-log-reflog-label-checkout nil
-		       :foreground green-4
-		       :background green-00)
-
-  (set-face-attribute! 'magit-log-reflog-label-cherry-pick nil
-		       :foreground orange-4
-		       :background orange-00)
-
-  (set-face-attribute! 'magit-log-reflog-label-commit nil
-		       :foreground yellow-4
-		       :background yellow-0)
-
-  (set-face-attribute! 'magit-log-reflog-label-merge nil
-		       :foreground purple-4
-		       :background purple-0)
-
-  (set-face-attribute! 'magit-log-reflog-label-other nil
-		       :foreground white-0
-		       :background black-3)
-
-  (set-face-attribute! 'magit-log-reflog-label-rebase nil
-		       :foreground cyan-6
-		       :background cyan-2)
-
-  (set-face-attribute! 'magit-log-reflog-label-remote nil
-		       :foreground blue-4
-		       :background blue-0)
-
-  (set-face-attribute! 'magit-log-reflog-label-reset nil
-		       :foreground red-3
-		       :background red-00)
-
-  (set-face-attribute! 'magit-log-sha1 nil
-		       :foreground orange-2
-		       :background black-4)
-
-  (set-face-attribute! 'magit-process-ng nil
-		       :foreground red-3
-		       :background red-00
-		       :underline t
-		       :bold t)
-
-  (set-face-attribute! 'magit-process-ok nil
-		       :foreground green-4
-		       :background green-00
-		       :underline t
-		       :bold t)
-
-  (set-face-attribute! 'magit-section-title nil
-		       :foreground orange-2
-		       :background black-5
-		       :underline t
-		       :bold t)
-
-  (set-face-attribute! 'magit-signature-bad nil
-		       :foreground red-1)
-
-  (set-face-attribute! 'magit-signature-good nil
-		       :foreground green-1)
-
-  (set-face-attribute! 'magit-signature-none nil
-		       :foreground white-1)
-
-  (set-face-attribute! 'magit-signature-untrusted nil
-		       :foreground cyan-3)
-
-  (set-face-attribute! 'magit-tag nil
-		       :foreground blue-3
-		       :background blue-0)
-
-  (set-face-attribute! 'magit-valid-signature nil
-		       :foreground cyan-3
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'magit-whitespace-warning-face nil
-		       :foreground white-0
-		       :background red-3
-		       :bold t))
-
-
-;; git-commit-mode
-(ignore-errors
-  (set-face-attribute! 'git-commit-branch-face nil
-		       :foreground blue-4
-		       :background white-0
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'git-commit-comment-action-face nil
-		       :foreground orange-2
-		       :background black-5
-		       :underline t)
-
-  (set-face-attribute! 'git-commit-comment-file-face nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'git-commit-comment-heading-face nil
-		       :foreground green-01
-		       :background black-3
-		       :bold t)
-
-  (set-face-attribute! 'git-commit-known-pseudo-header-face nil
-		       :foreground green-1)
-
-  (set-face-attribute! 'git-commit-no-branch-face nil
-		       :foreground orange-3)
-
-  (set-face-attribute! 'git-commit-nonempty-second-line-face nil
-		       :foreground red-2)
-
-  (set-face-attribute! 'git-commit-note-face nil
-		       :foreground cyan-3)
-
-  (set-face-attribute! 'git-commit-overlong-summary-face nil
-		       :foreground red-2)
-
-  (set-face-attribute! 'git-commit-pseudo-header-face nil
-		       :foreground magenta-3)
-
-  (set-face-attribute! 'git-commit-summary-face nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'git-rebase-description-face nil
-		       :foreground black-3)
-
-  (set-face-attribute! 'git-rebase-killed-action-face nil
-		       :foreground black-3))
-
-
-;; Message faces
-(ignore-errors
-  (set-face-attribute! 'message-cited-text nil
-		       :foreground green-1)
-
-  (set-face-attribute! 'message-header-cc nil
-		       :foreground blue-0)
-
-  (set-face-attribute! 'message-header-name nil
-		       :foreground white-3)
-
-  (set-face-attribute! 'message-header-newsgroups nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'message-header-other nil
-		       :foreground magenta-1)
-
-  (set-face-attribute! 'message-header-subject nil
-		       :foreground white-0
-		       :bold t)
-
-  (set-face-attribute! 'message-header-to nil
-		       :foreground blue-1
-		       :underline t
-		       :bold t)
-
-  (set-face-attribute! 'message-header-xheader nil
-		       :foreground black-1)
-
-  (set-face-attribute! 'message-mml nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'message-separator nil
-		       :foreground black-2-5))
-
-
-;; Grep
-(ignore-errors
-  (set-face-attribute! 'grep-context-face nil
-		       :foreground red-2)
-
-  (set-face-attribute! 'grep-error-face nil
-		       :foreground red-1
-		       :weight 'bold
-		       :underline t)
-
-  (set-face-attribute! 'grep-hit-face nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'grep-match-face nil
-		       :foreground nil
-		       :background nil
-		       :inherit 'match)
-  )
-;; Diff
-(ignore-errors
-  (set-face-attribute! 'diff-added nil
-		       :foreground green-0
-		       :background black-4
-		       :bold t)
-
-  (set-face-attribute! 'diff-changed nil
-		       :foreground yellow-2
-		       :background black-4
-		       :bold t)
-
-  (set-face-attribute! 'diff-context nil
-		       :foreground black-2-5)
-
-  (set-face-attribute! 'diff-file-header nil
-		       :foreground black-5
-		       :background blue-0
-		       :bold t)
-
-  (set-face-attribute! 'diff-function nil
-		       :foreground black-4
-		       :background white-2)
-
-  (set-face-attribute! 'diff-header nil
-		       :foreground blue-3
-		       :background blue-0)
-
-  (set-face-attribute! 'diff-hunk-header nil
-		       :foreground blue-0
-		       :background black-3
-		       :bold t)
-
-  (set-face-attribute! 'diff-index nil
-		       :foreground black-4
-		       :background white-3
-		       :bold t)
-
-  (set-face-attribute! 'diff-indicator-added nil
-		       :foreground white-0
-		       :background green-3
-		       :bold t)
-
-  (set-face-attribute! 'diff-indicator-changed nil
-		       :foreground white-0
-		       :background yellow-3
-		       :bold t)
-
-  (set-face-attribute! 'diff-indicator-removed nil
-		       :foreground white-0
-		       :background red-3
-		       :bold t)
-
-  (set-face-attribute! 'diff-nonexistent nil
-		       :foreground white-0
-		       :background red-3
-		       :bold t)
-
-  (set-face-attribute! 'diff-refine-added nil
-		       :foreground white-0
-		       :background green-4
-		       :bold t)
-
-  (set-face-attribute! 'diff-refine-change nil
-		       :foreground white-0
-		       :background yellow-4
-		       :bold t)
-
-  (set-face-attribute! 'diff-refine-removed nil
-		       :foreground white-0
-		       :background red-3
-		       :bold t)
-
-  (set-face-attribute! 'diff-removed nil
-		       :foreground red-0
-		       :background black-4
-		       :bold t))
-
-
-;; Ediff
-(ignore-errors
-  (set-face-attribute! 'ediff-current-diff-A nil
-		       :background yellow-4)
-
-  (set-face-attribute! 'ediff-current-diff-Ancestor nil
-		       :background blue-3)
-
-  (set-face-attribute! 'ediff-current-diff-B nil
-		       :background purple-4)
-
-  (set-face-attribute! 'ediff-current-diff-C nil
-		       :background orange-5)
-
-  (set-face-attribute! 'ediff-even-diff-A nil
-		       :background black-3)
-
-  (set-face-attribute! 'ediff-even-diff-Ancestor nil
-		       :background black-3)
-
-  (set-face-attribute! 'ediff-even-diff-B nil
-		       :background black-3)
-
-  (set-face-attribute! 'ediff-even-diff-C nil
-		       :background black-3)
-
-  (set-face-attribute! 'ediff-fine-diff-A nil
-		       :foreground nil
-		       :background green-5
-		       :bold t)
-
-  (set-face-attribute! 'ediff-fine-diff-Ancestor nil
-		       :foreground nil
-		       :background green-5
-		       :bold t)
-
-  (set-face-attribute! 'ediff-fine-diff-B nil
-		       :foreground nil
-		       :background green-5
-		       :bold t)
-
-  (set-face-attribute! 'ediff-fine-diff-C nil
-		       :foreground nil
-		       :background green-5
-		       :bold t)
-
-  (set-face-attribute! 'ediff-odd-diff-A nil
-		       :background red-3)
-
-  (set-face-attribute! 'ediff-odd-diff-Ancestor nil
-		       :background red-3)
-
-  (set-face-attribute! 'ediff-odd-diff-B nil
-		       :background red-3)
-
-  (set-face-attribute! 'ediff-odd-diff-C nil
-		       :background red-3))
-
-
-;; smerge
-(ignore-errors
-  (set-face-attribute! 'smerge-refined-change nil
-		       :background blue-3
-		       :foreground white-0))
-
-
-;; Flyspell faces
-(ignore-errors
-  (set-face-attribute! 'flyspell-duplicate nil
-		       :underline t foreground-colororange-1)
-
-  (set-face-attribute! 'flyspell-incorrect nil
-		       :background red-1
-		       :foreground white-1
-		       :bold t))
-
-
-;; Semantic faces
-(ignore-errors
-  (set-face-attribute! 'semantic-decoration-on-includes nil
-		       :underline black-1)
-
-  (set-face-attribute! 'semantic-decoration-on-private-members-face
-		       nil
-		       :background purple-3)
-
-  (set-face-attribute! 'semantic-decoration-on-protected-members-face
-		       nil
-		       :background magenta-3)
-
-  (set-face-attribute! 'semantic-decoration-on-unknown-includes
-		       nil
-		       :background red-3)
-
-  (set-face-attribute! 'semantic-decoration-on-unparsed-includes
-		       nil
-		       :background black-4)
-
-  (set-face-attribute! 'semantic-tag-boundary-face nil
-		       :overline blue-1)
-
-  (set-face-attribute! 'semantic-unmatched-syntax-face nil
-		       :underline red-1))
-
-
-;; CUA
-(ignore-errors
-  (set-face-attribute! 'cua-rectangle nil
-		       :background magenta-3
-		       :foreground white-1))
-
-;; Ace-jump
-(ignore-errors
-  (set-face-attribute! 'ace-jump-face-background nil
-		       :background nil
-		       :foreground black-2-5)
-
-  (set-face-attribute! 'ace-jump-face-foreground nil
-		       :foreground orange-2
-		       :bold t)
-  )
-
-;; avy-mode
-(ignore-errors
-  (set-face-attribute! 'avy-lead-face nil
-		       :background cyan-1
-		       :foreground black-4)
-
-  (set-face-attribute! 'avy-lead-face-0 nil
-		       :background purple-00
-		       :foreground black-4)
-
-  (set-face-attribute! 'avy-lead-face-1 nil
-		       :background white-2
-		       :foreground black-4)
-
-  (set-face-attribute! 'avy-lead-face-2 nil
-		       :background green-2
-		       :foreground black-4)
-  )
-
-;; EShell
-(ignore-errors
-  (set-face-attribute! 'eshell-ls-archive nil
-		       :foreground purple-2)
-
-  (set-face-attribute! 'eshell-ls-backup nil
-		       :foreground black-3)
-
-  (set-face-attribute! 'eshell-ls-clutter nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'eshell-ls-directory nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'eshell-ls-executable nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'eshell-ls-missing nil
-		       :foreground white-0
-		       :background red-3)
-
-  (set-face-attribute! 'eshell-ls-product nil
-		       :foreground white-0
-		       :background green-2)
-
-  (set-face-attribute! 'eshell-ls-readonly nil
-		       :foreground orange-3)
-
-  (set-face-attribute! 'eshell-ls-special nil
-		       :foreground yellow-1)
-
-  (set-face-attribute! 'eshell-ls-symlink  nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'eshell-ls-unreadable nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'eshell-prompt nil
-		       :foreground white-0
-		       :background black-2-5
-		       :bold t)
-  )
-
-;; Comint prompt
-(ignore-errors
-  (set-face-attribute! 'comint-highlight-prompt nil
-		       :foreground white-0
-		       :background black-2-5
-		       :bold t))
-
-
-;; which-function-mode
-(ignore-errors
-  (set-face-attribute! 'which-func nil
-		       :foreground white-0
-		       :background orange-2))
-
-;; Flymake
-(ignore-errors
-  (set-face-attribute! 'flymake-warnline nil
-		       :underline orange-2)
-
-  (set-face-attribute! 'flymake-errline nil
-		       :underline red-2))
-
-
-;; Flycheck
-(ignore-errors
-  (set-face-attribute! 'flycheck-error nil
-		       :underline '(:style wave)
-		       :inherit 'error
-		       ;; "Flycheck face for errors."
-		       )
-
-  (set-face-attribute! 'flycheck-warning nil
-		       :underline '(:style wave)
-		       :inherit 'warning
-		       ;; "Flycheck face for warnings."
-		       )
-
-  (set-face-attribute! 'flycheck-info nil
-		       :underline '(:style wave)
-		       :inherit 'success
-		       ;; "Flycheck face for informational messages."
-		       )
-
-  (set-face-attribute! 'flycheck-fringe-error nil
-		       :inherit 'error
-		       ;; "Flycheck face for fringe error indicators."
-		       )
-
-  (set-face-attribute! 'flycheck-fringe-warning nil
-		       :inherit 'warning
-		       ;; "Flycheck face for fringe warning indicators."
-		       )
-
-  (set-face-attribute! 'flycheck-fringe-info nil
-		       ;; Semantically `success' is probably not the right face but it looks nice as
-		       ;; a base face
-		       :inherit 'success
-		       ;; "Flycheck face for fringe info indicators."
-		       )
-
-  (set-face-attribute! 'flycheck-error-list-error nil
-		       :inherit 'error
-		       ;; "Flycheck face for error messages in the error list."
-		       )
-
-  (set-face-attribute! 'flycheck-error-list-warning nil
-		       :inherit 'warning
-		       ;; "Flycheck face for warning messages in the error list."
-		       )
-
-  (set-face-attribute! 'flycheck-error-list-info nil
-		       :inherit 'success
-		       ;; "Flycheck face for info messages in the error list."
-		       )
-
-  ;; The base faces for the following two faces are inspired by Compilation Mode
-  (set-face-attribute! 'flycheck-error-list-line-number nil
-		       :inherit 'font-lock-constant-face
-		       ;; "Face for line numbers in the error list."
-		       )
-
-  (set-face-attribute! 'flycheck-error-list-column-number nil
-		       :inherit 'font-lock-constant-face
-		       ;; "Face for line numbers in the error list."
-		       )
-
-  (set-face-attribute! 'flycheck-error-list-id nil
-		       :inherit 'font-lock-type-face
-		       ;; "Face for the error ID in the error list."
-		       )
-
-  (set-face-attribute! 'flycheck-error-list-id-with-explainer nil
-		       :inherit 'flycheck-error-list-
-		       :box '(:style released-button)
-		       ;; "Face for the error ID in the error list for errors that have an explainer."
-		       )
-
-  (set-face-attribute! 'flycheck-error-list-checker-name nil
-		       :inherit 'font-lock-function-name-face
-		       ;; "Face for the syntax checker name in the error list."
-		       )
-
-  (set-face-attribute! 'flycheck-error-list-highlight nil
-		       :inherit 'highlight
-		       ;; "Flycheck face to highlight errors in the error list."
-		       ))
-
-
-
-;; Malabar
-(ignore-errors
-  (set-face-attribute! 'malabar-error-face nil
-		       :underline red-2)
-
-  (set-face-attribute! 'malabar-warning-face nil
-		       :underline orange-2)
-
-  (set-face-attribute! 'malabar-info-face nil
-		       :underline blue-2))
-
-;; MMM-Mode
-(ignore-errors
-  (set-face-attribute! 'mmm-cleanup-submode-face nil
-		       :background orange-00)
-
-  (set-face-attribute! 'mmm-code-submode-face nil
-		       :background blue-00)
-
-  (set-face-attribute! 'mmm-comment-submode-face nil
-		       :background blue-0)
-
-  (set-face-attribute! 'mmm-declaration-submode-face nil
-		       :background cyan-1)
-
-  (set-face-attribute! 'mmm-default-submode-face nil
-		       :background nil)
-
-  (set-face-attribute! 'mmm-delimiter-face nil
-		       :background nil
-		       :foreground white-0)
-
-  (set-face-attribute! 'mmm-init-submode-face nil
-		       :background magenta-0)
-
-  (set-face-attribute! 'mmm-output-submode-face nil
-		       :background purple-00)
-
-  (set-face-attribute! 'mmm-special-submode-face nil
-		       :background green-00))
-
-
-;; Clojure/Cider
-(ignore-errors
-  (set-face-attribute! 'clojure-test-failure-face nil
-		       :underline orange-2)
-
-  (set-face-attribute! 'clojure-test-error-face nil
-		       :underline red-2)
-
-  (set-face-attribute! 'clojure-test-success-face nil
-		       :underline green-3)
-
-  (set-face-attribute! 'cider-deprecated-face nil
-		       :background red-4))
-
-
-;; Javascript
-(ignore-errors
-  (set-face-attribute! 'js2-function-param-face nil
-		       :foreground green-3)
-
-  (set-face-attribute! 'js2-external-variable nil
-		       :foreground orange-2
-		       :underline t)
-
-  (set-face-attribute! 'js2-error nil
-		       :foreground red-2
-		       :underline t
-		       :bold t)
-
-  (set-face-attribute! 'js2-warning nil
-		       :foreground nil
-		       :underline t
-		       :bold t))
-
-;; rcirc
-(ignore-errors
-  (set-face-attribute! 'rcirc-bright-nick nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'rcirc-dim-nick nil
-		       :foreground black-2
-		       :bold t)
-
-  (set-face-attribute! 'rcirc-keyword nil
-		       :foreground magenta-2
-		       :bold t)
-
-  (set-face-attribute! 'rcirc-my-nick nil
-		       :foreground green-2
-		       :bold t)
-
-  (set-face-attribute! 'rcirc-nick-in-message nil
-		       :foreground green-3)
-
-  (set-face-attribute! 'rcirc-nick-in-message-full-line nil
-		       :foreground blue-3)
-
-  (set-face-attribute! 'rcirc-other-nick nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'rcirc-prompt nil
-		       :foreground black-3
-		       :background green-01
-		       :bold t)
-
-  (set-face-attribute! 'rcirc-server nil
-		       :foreground black-1)
-
-  (set-face-attribute! 'rcirc-server-prefix nil
-		       :foreground black-1)
-
-  (set-face-attribute! 'rcirc-timestamp nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'rcirc-track-keyword nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'rcirc-track-nick nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'rcirc-url nil
-		       :foreground blue-1
-		       :bold nil
-		       :underline blue-2))
-
-
-;; ERC
-(ignore-errors
-  (set-face-attribute! 'erc-button nil
-		       :foreground blue-1
-		       :underline blue-1
-		       :bold nil)
-
-  (set-face-attribute! 'erc-current-nick-face nil
-		       :foreground green-1)
-
-  (set-face-attribute! 'erc-dangerous-hosts nil
-		       :foreground red-2
-		       :bold t)
-
-  (set-face-attribute! 'erc-direct-msg-face nil
-		       :foreground orange-2)
-
-  (set-face-attribute! 'erc-error-face nil
-		       :foreground red-2)
-
-  (set-face-attribute! 'erc-header-face nil
-		       :background blue-1)
-
-  (set-face-attribute! 'erc-input-face nil
-		       :foreground white-0)
-
-  (set-face-attribute! 'erc-keyword-face nil
-		       :foreground magenta-2
-		       :bold t)
-
-  (set-face-attribute! 'erc-my-nick-face nil
-		       :foreground green-1
-		       :bold t)
-
-  (set-face-attribute! 'erc-nick-default-face nil
-		       :bold t
-		       :foreground blue-1)
-
-  (set-face-attribute! 'erc-nick-msg-face nil
-		       :weight 'normal
-		       :foreground orange-2)
-
-  (set-face-attribute! 'erc-notice-face nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'erc-pal-face nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'erc-prompt-face nil
-		       :bold t
-		       :foreground green-01
-		       :background black-2-5)
-
-  (set-face-attribute! 'erc-timestamp-face nil
-		       :foreground orange-2))
-
-
-;; ReStructuredText
-(ignore-errors
-  (set-face-attribute! 'rst-level-1-face nil
-		       :foreground orange-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'rst-level-2-face nil
-		       :foreground orange-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'rst-level-3-face nil
-		       :foreground orange-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'rst-level-4-face nil
-		       :foreground orange-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'rst-level-5-face nil
-		       :foreground orange-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'rst-level-6-face nil
-		       :foreground orange-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'rst-level-1 nil :foreground orange-2 :background black-5 :bold t)
-
-  (set-face-attribute! 'rst-level-2 nil :foreground orange-2 :background black-5 :bold t)
-
-  (set-face-attribute! 'rst-level-3 nil :foreground orange-2 :background black-5 :bold t)
-
-  (set-face-attribute! 'rst-level-4 nil :foreground orange-2 :background black-5 :bold t)
-
-  (set-face-attribute! 'rst-level-5 nil :foreground orange-2 :background black-5 :bold t)
-
-  (set-face-attribute! 'rst-level-6 nil :foreground orange-2 :background black-5 :bold t)
-
-  (set-face-attribute! 'rst-adornment nil
-		       :foreground orange-2
-		       :background black-5
-		       :bold t)
-
-  (set-face-attribute! 'rst-block nil
-		       :foreground green-1
-		       :background black-3
-		       :bold t)
-
-  (set-face-attribute! 'rst-comment nil
-		       :foreground red-0
-		       :background red-3
-		       :bold t)
-
-  (set-face-attribute! 'rst-literal nil
-		       :foreground green-1
-		       :background black-3)
-
-  (set-face-attribute! 'rst-reference nil
-		       :foreground magenta-2
-		       :background black-5)
-
-  (set-face-attribute! 'rst-definition nil
-		       :foreground yellow-1
-		       :background black-5)
-
-  (set-face-attribute! 'rst-directive nil
-		       :foreground purple-1
-		       :background black-4
-		       :bold t)
-
-  (set-face-attribute! 'rst-external nil
-		       :foreground blue-1
-		       :background black-5)
-
-  (set-face-attribute! 'rst-transition nil
-		       :foreground green-2
-		       :background black-4
-		       :bold t)
-  )
-
-;; yalinum
-(ignore-errors
-  (set-face-attribute! 'yalinum-bar-face nil
-		       :foreground black-2-5
-		       :background white-1)
-
-  (set-face-attribute! 'yalinum-face nil
-		       :foreground white-1
-		       :background black-2)
-
-  (set-face-attribute! 'yalinum-track-face nil
-		       :foreground white-1
-		       :background black-2-5))
-
-
-;; Ruby
-(ignore-errors
-  (set-face-attribute! 'enh-ruby-heredoc-delimiter-face nil
-		       :foreground purple-2)
-
-  (set-face-attribute! 'enh-ruby-op-face nil
-		       :foreground orange-3
-		       :bold t)
-
-  (set-face-attribute! 'enh-ruby-regexp-delimiter-face nil
-		       :foreground purple-2)
-
-  (set-face-attribute! 'enh-ruby-string-delimiter-face nil
-		       :foreground purple-0)
-
-  (set-face-attribute! 'erm-syn-errline nil
-		       :foreground red-00
-		       :background red-3
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'erm-syn-warnline nil
-		       :bold t
-		       :underline t))
-
-
-;; ansi-term
-(ignore-errors
-  (set-face-attribute! 'term-color-black nil
-		       :background black-5
-		       :foreground black-5)
-
-  (set-face-attribute! 'term-color-blue nil
-		       :background cyan-3
-		       :foreground cyan-3)
-
-  (set-face-attribute! 'term-color-cyan nil
-		       :background cyan-3
-		       :foreground cyan-3)
-
-  (set-face-attribute! 'term-color-green nil
-		       :background green-2
-		       :foreground green-2)
-
-  (set-face-attribute! 'term-color-magenta nil
-		       :background magenta-3
-		       :foreground magenta-3)
-
-  (set-face-attribute! 'term-color-red nil
-		       :background red-1
-		       :foreground red-1)
-
-  (set-face-attribute! 'term-color-white nil
-		       :background white-0
-		       :foreground white-0)
-
-  (set-face-attribute! 'term-color-yellow nil
-		       :background orange-2
-		       :foreground orange-2))
-
-
-;; ido-mode
-(ignore-errors
-  (set-face-attribute! 'ido-first-match nil
-		       :foreground orange-2
-		       :bold t)
-
-  (set-face-attribute! 'ido-incomplete-regexp nil
-		       :foreground red-0
-		       :bold t)
-
-  (set-face-attribute! 'ido-indicator nil
-		       :foreground yellow-4
-		       :background orange-00)
-
-  (set-face-attribute! 'ido-only-match nil
-		       :foreground green-2
-		       :background nil)
-
-  (set-face-attribute! 'ido-subdir nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'ido-virtual nil
-		       :foreground magenta-3))
-
-
-;; ivy-mode
-(ignore-errors
-  (set-face-attribute! 'ivy-current-match nil
-		       :foreground orange-2
-		       :background black-3
-		       :bold t
-		       :inherit 'highlight)
-
-  (set-face-attribute! 'ivy-confirm-face nil
-		       :foreground green-4
-		       :background green-00
-		       :bold t)
-
-  (set-face-attribute! 'ivy-subdir nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'ivy-virtual nil
-		       :foreground magenta-3)
-
-
-  (set-face-attribute! 'ivy-minibuffer-match-face-1 nil
-		       :background blue-1
-		       :foreground white-0)
-
-  (set-face-attribute! 'ivy-minibuffer-match-face-2 nil
-		       :bold t
-		       :background green-2
-		       :foreground white-0)
-
-  (set-face-attribute! 'ivy-minibuffer-match-face-3 nil
-		       :bold t
-		       :background magenta-2
-		       :foreground white-0)
-
-  (set-face-attribute! 'ivy-minibuffer-match-face-4 nil
-		       :bold t
-		       :background cyan-3
-		       :foreground white-0))
-
-
-;; swiper
-(ignore-errors
-  (set-face-attribute! 'swiper-match-face-1 nil
-		       :background blue-1
-		       :foreground white-0)
-
-  (set-face-attribute! 'swiper-match-face-2 nil
-		       :bold t
-		       :background green-2
-		       :foreground white-0)
-
-  (set-face-attribute! 'swiper-match-face-3 nil
-		       :bold t
-		       :background magenta-2
-		       :foreground white-0)
-
-  (set-face-attribute! 'swiper-match-face-4 nil
-		       :bold t
-		       :background cyan-3
-		       :foreground white-0)
-
-  (set-face-attribute! 'swiper-line-face nil
-		       :foreground orange-2
-		       :bold t
-		       :inherit highlight))
-
-
-;; volatile-highlights
-(ignore-errors
-  (set-face-attribute! 'vhl/default-face nil
-		       :foreground black-3
-		       :background green-0))
-
-
-;; notmuch
-(ignore-errors
-  (set-face-attribute! 'notmuch-search-unread-face nil
-		       :weight 'bold))
-
-
-;; git-gutter (&-fringe)
-(ignore-errors
-  (set-face-attribute! 'git-gutter
-		       :added nil
-		       :foreground green-4
-		       :background green-0
-		       :bold t)
-
-  (set-face-attribute! 'git-gutter
-		       :deleted nil
-		       :foreground red-3
-		       :background red-00
-		       :bold t)
-
-  (set-face-attribute! 'git-gutter
-		       :modified nil
-		       :foreground yellow-4
-		       :background yellow-0
-		       :bold t))
-
-
-;; cfw: Calendar Framework
-(ignore-errors
-  (set-face-attribute! 'cfw:face-annotation nil
-		       :foreground
-		       :background )
-
-  (set-face-attribute! 'cfw:face-day-title nil
-		       :foreground white-0
-		       :background "#262626")
-
-  (set-face-attribute! 'cfw:face-default-content nil
-		       :foreground
-		       :background )
-
-  (set-face-attribute! 'cfw:face-default-day nil
-		       :foreht
-		       :background )
-
-  (set-face-attribute! 'cfw:face-disable nil
-		       :foreground
-		       :background )
-
-  (set-face-attribute! 'cfw:face-grid nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'cfw:face-header nil
-		       :foreground white-1
-		       :background black-3
-		       :bold t)
-
-  (set-face-attribute! 'cfw:face-holiday nil
-		       :foreground purple-1
-		       :background "#262626"
-		       :bold t)
-
-  (set-face-attribute! 'cfw:face-periods nil
-		       :foreground
-		       :background )
-
-  (set-face-attribute! 'cfw:face-saturday nil
-		       :foreground blue-01
-		       :background blue-3
-		       :bold t)
-
-  (set-face-attribute! 'cfw:face-select nil
-		       :foreground black-5
-		       :background blue-1)
-
-  (set-face-attribute! 'cfw:face-sunday nil
-		       :foreground red-00
-		       :background red-3
-		       :bold t)
-
-  (set-face-attribute! 'cfw:face-title nil
-		       :foreground
-		       :background )
-
-  (set-face-attribute! 'cfw:face-today nil
-		       :foreground orange-2
-		       :background black-3)
-
-  (set-face-attribute! 'cfw:face-today-title nil
-		       :foreground white-0
-		       :background orange-2)
-
-  (set-face-attribute! 'cfw:face-toolbar nil
-		       :foreground white-1
-		       :background black-3)
-
-  (set-face-attribute! 'cfw:face-toolbar-button-off nil
-		       :foreground cyan-5
-		       :background black-3)
-
-  (set-face-attribute! 'cfw:face-toolbar-button-on nil
-		       :foreground red-1
-		       :background white-0))
-
-
-;; Column marker
-(ignore-errors
-  (set-face-attribute! 'column-marker-1 nil
-		       :background black-2-5)
-
-  (set-face-attribute! 'column-marker-2 nil
-		       :background yellow-4)
-
-  (set-face-attribute! 'column-marker-3 nil
-		       :background red-3))
-
-
-;; Swoop
-(ignore-errors
-  (set-face-attribute! 'swoop-face-header-format-line nil
-		       :foreground black-6
-		       :background nil
-		       :underline nil)
-
-  (set-face-attribute! 'swoop-face-line-buffer-name nil
-		       :foreground green-4
-		       :background green-0)
-
-  (set-face-attribute! 'swoop-face-line-number nil
-		       :foreground "#87875f"
-		       :background "#d7d7af")
-
-  (set-face-attribute! 'swoop-face-target-line nil
-		       :foreground yellow-1
-		       :background black-2-5)
-
-  (set-face-attribute! 'swoop-face-target-words nil
-		       :foreground magenta-1
-		       :background black-2-5
-		       :bold t)
-
-  (set-face-attribute! 'helm-swoop-target-line-block-face nil
-		       :foreground yellow-1
-		       :background black-3)
-
-  (set-face-attribute! 'helm-swoop-target-line-face nil
-		       :foreground yellow-1
-		       :background black-2-5)
-
-  (set-face-attribute! 'helm-swoop-target-word-face nil
-		       :foreground magenta-3
-		       :background magenta-0
-		       :bold t))
-
-
-;; widget
-(ignore-errors
-  (set-face-attribute! 'widget-button nil
-		       :foreground blue-1
-		       :underline t
-		       :bold t)
-
-  (set-face-attribute! 'widget-button-pressed nil
-		       :foreground blue-0)
-
-  (set-face-attribute! 'widget-documentation nil
-		       :foreground green-1)
-
-  (set-face-attribute! 'widget-field nil
-		       :foreground green-0
-		       :background black-3)
-
-  (set-face-attribute! 'widget-inactive nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'widget-single-line-field nil
-		       :foreground green-0
-		       :background black-3))
-
-
-;; table
-(ignore-errors
-  (set-face-attribute! 'table-cell nil
-		       :foreground white-0
-		       :background black-3))
-
-
-;; compilation
-(ignore-errors
-  (set-face-attribute! 'compilation-column-number nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'compilation-error nil
-		       :foreground red-3
-		       :background red-0
-		       :bold t)
-
-  (set-face-attribute! 'compilation-info nil
-		       :foreground orange-2
-		       :background black-3)
-
-  (set-face-attribute! 'compilation-line-number nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'compilation-mode-line-exit nil
-		       :foreground green-4
-		       :background green-0
-		       :bold t)
-
-  (set-face-attribute! 'compilation-mode-line-fail nil
-		       :foreground red-3
-		       :background red-00
-		       :bold t)
-
-  (set-face-attribute! 'compilation-mode-line-run nil
-		       :foreground orange-4
-		       :background orange-00
-		       :bold t)
-
-  (set-face-attribute! 'compilation-warning nil
-		       :foreground orange-3))
-
-
-;; Neotree
-(ignore-errors
-  (set-face-attribute! 'neo-banner-face nil
-		       :foreground green-3
-		       :background nil)
-
-  (set-face-attribute! 'neo-header-face nil
-		       :foreground green-1
-		       :background nil)
-
-  (set-face-attribute! 'neo-root-dir-face nil
-		       :foreground magenta-1)
-
-  (set-face-attribute! 'neo-button-face nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'neo-dir-link-face nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'neo-expand-btn-face nil
-		       :foreground blue-1
-		       :background black-2-5)
-
-  (set-face-attribute! 'neo-file-link-face nil
-		       :foreground white-1))
-
-
-;; info
-(ignore-errors
-  (set-face-attribute! 'info-header-node nil
-		       :foreground magenta-2
-		       :bold t)
-
-  (set-face-attribute! 'info-header-xref nil
-		       :foreground blue-1
-		       :background nil
-		       :bold t)
-
-  (set-face-attribute! 'info-index-match nil
-		       :background blue-3)
-
-  (set-face-attribute! 'info-menu-header nil
-		       :foreground white-0
-		       :bold t
-		       :underline t)
-
-  (set-face-attribute! 'info-menu-star nil
-		       :foreground red-1)
-
-  (set-face-attribute! 'info-node nil
-		       :foreground red-3)
-
-  (set-face-attribute! 'info-title-1 nil
-		       :foreground blue-1
-		       :bold t)
-
-  (set-face-attribute! 'info-title-2 nil
-		       :foreground green-2
-		       :bold t)
-
-  (set-face-attribute! 'info-title-3 nil
-		       :foreground orange-2
-		       :bold t)
-
-  (set-face-attribute! 'info-title-4 nil
-		       :foreground magenta-2
-		       :bold t)
-
-  (set-face-attribute! 'info-xref nil
-		       :foreground blue-1
-		       :underline t)
-
-  (set-face-attribute! 'info-xref-visited nil
-		       :foreground purple-1
-		       :underline t))
-
-
-;; Tuareg
-(ignore-errors
-  (set-face-attribute! 'tuareg-font-lock-error-face nil
-		       :foreground red-3
-		       :background red-00
-		       :bold t)
-
-  (set-face-attribute! 'tuareg-font-lock-governing-face nil
-		       :foreground white-1
-		       :bold t)
-
-  (set-face-attribute! 'tuareg-font-lock-interactive-error-face nil
-		       :foreground red-3
-		       :background red-00
-		       :bold t)
-
-  (set-face-attribute! 'tuareg-font-lock-interactive-output-face nil
-		       :foreground blue-3)
-
-  (set-face-attribute! 'tuareg-font-lock-multistage-face nil
-		       :foreground blue-3
-		       :background blue-0)
-
-  (set-face-attribute! 'tuareg-font-lock-operator-face nil
-		       :foreground green-2
-		       :bold t))
-
-
-;; CPerl
-(ignore-errors
-  (set-face-attribute! 'cperl-array-face nil
-		       :foreground blue-01
-		       :background blue-3)
-
-  (set-face-attribute! 'cperl-hash-face nil
-		       :foreground orange-0
-		       :background red-4)
-
-  (set-face-attribute! 'cperl-nonoverridable-face nil
-		       :foreground green-01
-		       :background green-5))
-
-
-;; Haskell
-(ignore-errors
-  (set-face-attribute! 'haskell-interactive-face-compile-error nil
-		       :foreground red-0
-		       :background nil
-		       :bold t)
-
-  (set-face-attribute! 'haskell-interactive-face-compile-warning nil
-		       :foreground orange-2
-		       :background nil
-		       :bold t)
-
-  (set-face-attribute! 'haskell-interactive-face-garbage nil
-		       :foreground black-2)
-
-  (set-face-attribute! 'haskell-interactive-face-prompt nil
-		       :foreground green-01
-		       :background black-2-5
-		       :bold t)
-
-  (set-face-attribute! 'haskell-interactive-face-result nil
-		       :foreground blue-1))
-
-
-;; EMMS
-(ignore-errors
-  (set-face-attribute! 'emms-state-current-playing-time nil
-		       :foreground blue-3
-		       :bold t)
-
-  (set-face-attribute! 'emms-state-total-playing-time nil
-		       :foreground blue-3)
-
-  (set-face-attribute! 'emms-playlist-selected-face nil
-		       :foreground green-2
-		       :bold t)
-
-  (set-face-attribute! 'emms-playlist-track-face nil
-		       :foreground cyan-5))
-
-
-
-;; tty-menu
-(ignore-errors
-  (set-face-attribute! 'menu nil
-		       :foreground black-1
-		       :background black-3)
-
-  (set-face-attribute! 'tty-menu-disabled-face nil
-		       :foreground black-2-5
-		       :background black-3)
-
-  (set-face-attribute! 'tty-menu-enabled-face nil
-		       :foreground white-0
-		       :background black-3
-		       :bold t)
-
-  (set-face-attribute! 'tty-menu-selected-face nil
-		       :background blue-3))
-
-
-;; web-mode
-(ignore-errors
-  (set-face-attribute! 'web-mode-comment-face nil
-		       :foreground black-2-5)
-
-  (set-face-attribute! 'web-mode-current-element-highlight-face nil
-		       :background black-3)
-
-  (set-face-attribute! 'web-mode-current-column-highlight-face nil
-		       :background black-3)
-
-  (set-face-attribute! 'web-mode-symbol-face nil
-		       :foreground yellow-2)
-
-  (set-face-attribute! 'web-mode-type-face nil
-		       :foreground cyan-3))
-
-
-
-;; Custom
-(ignore-errors
-  (set-face-attribute! 'custom-button nil
-		       :background blue-0
-		       :foreground blue-3
-		       :box '(
-			      :line-width 1
-			      :style released-button))
-
-  (set-face-attribute! 'custom-button-mouse nil
-		       :background blue-00
-		       :foreground black-3
-		       :box '(
-			      :line-width 1
-			      :style released-button))
-
-  (set-face-attribute! 'custom-button-pressed nil
-		       :foreground black-3
-		       :background white-1
-		       :box '(
-			      :line-width 1
-			      :style pressed-button)))
-
-;; Hydra
-(ignore-errors
-  (set-face-attribute! 'hydra-face-red nil
-		       :foreground red-0)
-
-  (set-face-attribute! 'hydra-face-blue nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'hydra-face-amaranth nil
-		       :foreground magenta-2))
-
-
-;; rpm-spec-mode
-(ignore-errors
-  (set-face-attribute! 'rpm-spec-tag-face nil
-		       :foreground blue-1)
-
-  (set-face-attribute! 'rpm-spec-obsolete-tag-face nil
-		       :foreground white-0
-		       :bold t
-		       :background red-2)
-
-  (set-face-attribute! 'rpm-spec-macro-face nil
-		       :foreground yellow-2)
-
-  (set-face-attribute! 'rpm-spec-var-face nil
-		       :foreground purple-1)
-
-  (set-face-attribute! 'rpm-spec-doc-face nil
-		       :foreground magenta-2)
-
-  (set-face-attribute! 'rpm-spec-dir-face nil
-		       :foreground green-2)
-
-  (set-face-attribute! 'rpm-spec-package-face nil
-		       :foreground red-0)
-
-  (set-face-attribute! 'rpm-spec-ghost-face nil
-		       :foreground red-0)
-
-  (set-face-attribute! 'rpm-spec-section-face nil
-		       :foreground yellow-2))
-
-
-(set-face-attribute! 'rainbow-delimiters-unmatched-face nil
-		     :foreground white-0
-		     :background red-3
-		     :bold t)
-
-(set-face-attribute! 'rainbow-delimiters-depth-1-face nil :foreground "#9a4040" :weight 'normal)
-(set-face-attribute! 'rainbow-delimiters-depth-2-face nil :foreground "#ff5e5e" :weight 'normal)
-(set-face-attribute! 'rainbow-delimiters-depth-3-face nil :foreground "#ffaa77" :weight 'normal)
-(set-face-attribute! 'rainbow-delimiters-depth-4-face nil :foreground "#dddd77" :weight 'normal)
-(set-face-attribute! 'rainbow-delimiters-depth-5-face nil :foreground "#80ee80" :weight 'normal)
-(set-face-attribute! 'rainbow-delimiters-depth-6-face nil :foreground "#66bbff" :weight 'normal)
-(set-face-attribute! 'rainbow-delimiters-depth-7-face nil :foreground "#da6bda" :weight 'normal)
-(set-face-attribute! 'rainbow-delimiters-depth-8-face nil :foreground "#afafaf" :weight 'normal)
-(set-face-attribute! 'rainbow-delimiters-depth-9-face nil :foreground "#f0f0f0" :weight 'normal)
-
-(set-face-attribute! 'highlight-indent-guides-top-character-face nil
-		     :foreground blue-0
-		     :weight 'ultra-bold)
-
-
-
-(setq rainbow-indent-highlighter-count 9)
-
-(dotimes (i 9)
-  (make-face (intern (concat "rainbow-indent-depth-"
+  "Face colors for 256 colors terminal (dark background). Moe, moe, kyun!")
+
+(let
+    ((class '((class color) (min-colors 89)))
+     ;; Palette colors.
+     (yellow-1 "#fce94f")
+     (yellow-2 "#ffd700")
+     (yellow-3 "#c4a000")
+     (yellow-3-5 "#aaaa11")
+     (yellow-4 "#875f00")
+
+     (orange-1 "#ffaf5f")
+     (orange-2 "#ff8700")
+     (orange-3 "#ff5d17")
+     (orange-4 "#d75f00")
+     (orange-5 "#af5f00")
+
+     (magenta-1 "#ff7bbb")
+     (magenta-2 "#ff4ea3")
+     (magenta-3 "#ff1f8b")
+
+     (green-1 "#afff00")
+     (green-2 "#a1db00")
+     (green-3 "#5faf00")
+     (green-4 "#008700")
+     (green-5 "#005f00")
+
+     (cyan-1 "#87ffff")
+     (cyan-2 "#87d7af")
+     (cyan-3 "#00d7af")
+     (cyan-4 "#00ac8a")
+     (cyan-5 "#5faf87")
+     (cyan-6 "#005f5f")
+     (cyan-7 "#236f73")
+
+     (blue-1 "#5fafd7")
+     (blue-2 "#1f5bff")
+     (blue-3 "#005f87")
+     (blue-4 "#005faf")
+     (blue-5 "#0000af")
+     (blue-6 "#00005f")
+
+     (purple-1 "#d18aff")
+     (purple-2 "#af5fff")
+     (purple-3 "#9a08ff")
+     (purple-4 "#6c0099")
+
+     (red-1 "#ef2929")
+     (red-2 "#dd0000")
+     (red-3 "#a40000")
+     (red-4 "#5f0000")
+
+     (white-1 "#c6c6c6")
+     (white-2 "#c6c6c6")
+     (white-3 "#b2b2b2")
+     (black-1 "#a8a8a8")
+     (black-2 "#8a8a8a")
+
+     (black-2-5 "#6c6c6c")
+     (black-3 "#4e4e4e")
+     (black-4 "#3a3a3a")
+     (black-5 "#303030")
+     (black-6 "#000000")
+
+     (LIGHT_BG "#fdfde7")
+     (white-0 "#eeeeee")
+
+     (green-02 "#5fd700")
+     (green-01 "#d7ff00")
+     (green-0 "#d7ff5f")
+     (green-00 "#d7ff87")
+
+     (cyan-0 "#d7ffd7")
+
+     (blue-01 "#c3c9f8")
+     (blue-0 "#afd7ff")
+     (blue-00 "#d7d7ff")
+
+     (yellow-0 "#ffff87")
+     (yellow-00 "#ffffaf")
+
+     (purple-0 "#af87ff")
+     (purple-00 "#e6a8df")
+
+     (red-0 "#ff4b4b")
+     (red-00 "#ffafaf")
+
+     (magenta-0 "#ffafd7")
+     (magenta-00 "#ffd7ff")
+
+     (orange-0 "#ffaf87")
+     (orange-00 "#ffd787")
+     (orange-000 "#ffd7af")
+
+     (linum-dark "#87875f")
+     (linum-light "#d7d7af"))
+
+
+  (custom-theme-set-faces
+   'my-moe-dark
+   ;; Ensure sufficient contrast on low-color terminals.
+   `(default
+      ((((class color) (min-colors 4096))
+	(
+	 :foreground ,white-1
+	 :background ,black-5))
+       (((class color) (min-colors 256))
+	(
+	 :foreground ,white-1
+	 :background ,black-5))
+       (,class
+	(
+	 :foreground ,white-1
+	 :background ,black-5))))
+   `(cursor
+     ((,class (
+	       :background ,white-0))))
+
+   ;; Highlighting faces
+   `(fringe
+     ((,class (
+	       :foreground ,black-1
+	       :background ,black-4))))
+   `(linum
+     ((,class (
+	       ;; :foreground ,black-1
+	       ;; :background ,black-4
+	       :inherit fringe
+	       :stipple nil))))
+   `(line-number
+     ((,class (
+	       :foreground ,white-3
+	       :background ,black-3))))
+   `(linum-highlight-face
+     ((,class (
+	       :background ,green-0
+	       :foreground ,black-4))))
+   `(line-number-current-line
+     ((,class (
+	       :background ,green-0
+	       :foreground ,black-4))))
+   `(highlight
+     ((,class (
+	       :background ,black-3))))
+   `(hl-line
+     ((,class (
+	       :background ,black-4))))
+   `(highlight-symbol-face
+     ((,class (
+	       :background ,green-5))))
+   `(region
+     ((,class (
+	       :foreground ,black-3
+	       :background ,green-0))))
+   `(secondary-selection
+     ((,class (
+	       :background ,blue-3
+	       :foreground ,white-0))))
+   `(isearch
+     ((,class (
+	       :foreground ,white-1
+	       :background ,orange-3))))
+   `(lazy-highlight
+     ((,class (
+	       :background ,magenta-3
+	       :foreground ,white-1))))
+   `(trailing-whitespace
+     ((,class (
+	       :background ,red-3))))
+   `(show-paren-match
+     ((,class (
+	       :background ,blue-3
+	       :foreground nil))))
+   `(header-line
+     ((,class (
+	       :background ,blue-3
+	       :foreground ,white-0))))
+   `(help-argument-name
+     ((,class (
+	       :foreground ,magenta-1
+	       :italic t))))
+   `(eldoc-highlight-function-argument
+     ((,class (
+	       :foreground ,green-01
+	       :bold t
+	       :underline t
+	       :background ,green-5))))
+   ;; Mode line & frames' faces
+   `(mode-line
+     ((,class (
+	       :box nil
+	       :background ,blue-0
+	       :foreground ,blue-3))))
+   `(mode-line-inactive
+     ((,class (
+	       :box nil
+	       :background ,black-2-5
+	       :foreground ,white-1))))
+   `(mode-line-buffer-id
+     ((,class (
+	       :box nil
+	       :foreground ,black-5
+	       :background nil
+	       :bold t))))
+   `(vertical-border
+     ((,class (
+	       :foreground ,black-3
+	       :background ,black-3))))
+
+   ;; Escape and prompt faces
+   `(minibuffer-prompt
+     ((,class (
+	       :foreground ,black-3
+	       :background ,green-2))))
+   `(escape-glyph
+     ((,class (
+	       :foreground ,yellow-3))))
+   `(error
+     ((,class (
+	       :foreground ,red-0))))
+   `(warning
+     ((,class (
+	       :foreground ,orange-1))))
+   `(success
+     ((,class (
+	       :foreground ,green-1))))
+
+   ;; Font lock faces
+   `(font-lock-builtin-face
+     ((,class (
+	       :foreground ,purple-1))))
+   `(font-lock-comment-delimiter-face
+     ((,class (
+	       :foreground ,black-2-5
+	       :slant italic))))
+   `(font-lock-comment-face
+     ((,class (
+	       :foreground ,black-2-5
+	       :slant italic))))
+   `(font-lock-constant-face
+     ((,class (
+	       :foreground ,blue-1))))
+   `(font-lock-doc-face
+     ((,class (
+	       :foreground ,red-0))))
+   `(font-lock-doc-string-face
+     ((,class (
+	       :foreground ,yellow-3))))
+   `(font-lock-function-name-face
+     ((,class (
+	       :foreground ,yellow-2))))
+   `(font-lock-keyword-face
+     ((,class (
+	       :foreground ,green-2))))
+   `(font-lock-negation-char-face
+     ((,class (
+	       :foreground ,red-0))))
+   `(font-lock-preprocessor-face
+     ((,class (
+	       :foreground ,purple-1))))
+   `(font-lock-regexp-grouping-backslash
+     ((,class (
+	       :foreground ,yellow-1))))
+   `(font-lock-regexp-grouping-construct
+     ((,class (
+	       :foreground ,purple-1))))
+   `(font-lock-string-face
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(font-lock-type-face
+     ((,class (
+	       :foreground ,cyan-3))))
+   `(font-lock-variable-name-face
+     ((,class (
+	       :foreground ,orange-2))))
+   `(font-lock-warning-face
+     ((,class (
+	       :weight bold
+	       :foreground ,red-2))))
+
+   ;; Completions
+   `(completions-annotations
+     ((,class (
+	       :foreground ,green-2))))
+   `(completions-common-part
+     ((,class (
+	       :foreground ,black-2-5))))
+   `(completions-first-difference
+     ((,class (
+	       :weight bold
+	       :foreground ,orange-2))))
+
+   ;; org-mode
+   `(org-document-title
+     ((,class (
+	       :foreground ,blue-0
+	       :background ,black-5
+	       :weight bold))))
+   `(org-document-info
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-5
+	       :weight bold))))
+   `(org-document-info-keyword
+     ((,class (
+	       :foreground ,orange-1
+	       :background ,black-2-5))))
+   `(org-archived
+     ((,class (
+	       :slant italic))))
+   `(org-checkbox
+     ((,class (
+	       :background ,white-2
+	       :foreground ,black-3
+
+	       :box (
+		     :line-width 1
+		     :style released-button)))))
+   `(org-date
+     ((,class (
+	       :foreground ,blue-0
+	       :underline t))))
+   `(org-done
+     ((,class (
+	       :bold t
+	       :weight bold
+	       :foreground ,green-4
+	       :background ,green-0
+
+	       :box (
+		     :line-width 1
+		     :style none)))))
+   `(org-todo
+     ((,class (
+	       :bold t
+	       :weight bold
+	       :foreground ,red-3
+	       :background ,orange-0
+
+	       :box (
+		     :line-width 1
+		     :style none)))))
+   `(org-level-1
+     ((,class (
+	       :foreground ,blue-1))))
+   `(org-level-2
+     ((,class (
+	       :foreground ,green-2))))
+   `(org-level-3
+     ((,class (
+	       :foreground ,orange-2))))
+   `(org-level-4
+     ((,class (
+	       :foreground ,cyan-3))))
+   `(org-level-5
+     ((,class (
+	       :foreground ,red-1))))
+   `(org-level-6
+     ((,class (
+	       :foreground ,purple-2))))
+   `(org-level-7
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(org-level-8
+     ((,class (
+	       :foreground ,yellow-2))))
+   `(org-tag
+     ((,class (
+	       :background ,black-3
+	       :foreground ,white-1
+	       :bold t
+	       :weight bold))))
+
+   `(org-column
+     ((,class (
+	       :background ,black-4
+	       :foreground ,black-3))))
+   `(org-column-title
+     ((,class (
+	       :background ,blue-0
+	       :foreground ,black-5
+	       :underline t
+	       :weight bold))))
+   `(org-agenda-structure
+     ((,class (
+	       :foreground ,cyan-4
+	       :background nil
+	       :bold t))))
+   `(org-deadline-announce
+     ((,class (
+	       :foreground ,red-3))))
+   `(org-scheduled
+     ((,class (
+	       :foreground ,white-3))))
+   `(org-scheduled-previously
+     ((,class (
+	       :foreground ,red-1))))
+   `(org-scheduled-today
+     ((,class (
+	       :foreground ,blue-1))))
+   `(org-special-keyword
+     ((,class (
+	       :background ,black-3
+	       :foreground ,white-1))))
+   `(org-table
+     ((,class (
+	       :background ,black-3
+	       :foreground ,white-1))))
+   `(org-time-grid
+     ((,class (
+	       :foreground ,black-2))))
+   `(org-upcoming-deadline
+     ((,class (
+	       :foreground ,red-1))))
+   `(org-warning
+     ((,class (
+	       :bold t
+	       :foreground ,white-0
+	       :background ,red-3))))
+   `(org-formula
+     ((,class (
+	       :foreground ,purple-2))))
+   `(org-headline-done
+     ((,class (
+	       :foreground ,green-2))))
+   `(org-hide
+     ((,class (
+	       :foreground ,black-5))))
+   `(org-code
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-4))))
+   `(org-link
+     ((,class (
+	       :foreground ,blue-1
+	       :underline t))))
+   `(org-footnote
+     ((,class (
+	       :foreground ,magenta-3))))
+   `(org-ellipsis
+     ((,class (
+	       :foreground ,red-2))))
+   `(org-agenda-clocking
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,blue-0
+	       :bold t))))
+   `(org-agenda-date
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-5
+	       :underline nil))))
+   `(org-agenda-date-weekend
+     ((,class (
+	       :foreground ,purple-1
+	       :underline nil
+	       :bold nil))))
+   `(org-agenda-date-today
+     ((,class (
+	       :foreground ,blue-0
+	       :background ,black-2-5
+	       :slant italic
+	       :weight bold))))
+   `(org-agenda-column-dateline
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-3
+	       :underline t))))
+   `(org-agenda-todo
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-2))))
+   `(org-agenda-done
+     ((,class (
+	       :foreground ,green-2
+	       :background nil))))
+   `(org-agenda-dimmed-todo-face
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-2))))
+   `(org-priority
+     ((,class (
+	       :foreground ,red-1
+	       :background ,nil))))
+   `(org-block
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-4))))
+   `(org-block-background
+     ((,class (
+	       :foreground nil
+	       :background ,black-4))))
+   `(org-block-begin-line
+     ((,class (
+	       :foreground ,white-0
+	       :background ,blue-3))))
+   `(org-block-end-line
+     ((,class (
+	       :foreground ,black-3
+	       :background ,black-4))))
+   `(org-quote
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-3))))
+   `(org-mode-line-clock
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,blue-0
+	       :bold t))))
+   `(org-mode-line-clock-overrun
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-1
+	       :bold t))))
+   `(org-verbatim
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-3
+	       :bold nil))))
+
+   ;; outline
+   `(outline-1
+     ((,class (
+	       :foreground ,blue-1))))
+   `(outline-2
+     ((,class (
+	       :foreground ,green-2))))
+   `(outline-3
+     ((,class (
+	       :foreground ,orange-2))))
+   `(outline-4
+     ((,class (
+	       :foreground ,cyan-3))))
+   `(outline-5
+     ((,class (
+	       :foreground ,red-1))))
+   `(outline-6
+     ((,class (
+	       :foreground ,purple-2))))
+   `(outline-7
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(outline-8
+     ((,class (
+	       :foreground ,yellow-2))))
+
+   ;; undo-tree
+   `(undo-tree-visualizer-default-face
+     ((,class (
+	       :foreground ,white-1))))
+   `(undo-tree-visualizer-current-face
+     ((,class (
+	       :foreground ,green-2
+	       :weight bold))))
+   `(undo-tree-visualizer-active-branch-face
+     ((,class (
+	       :foreground ,red-2))))
+   `(undo-tree-visualizer-register-face
+     ((,class (
+	       :foreground ,yellow-2))))
+
+   ;; Markdown-mode
+   `(markdown-blockquote-face
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-3
+	       :italic t))))
+   `(markdown-bold-face
+     ((,class (
+	       :foreground ,white-1
+	       :bold t))))
+   `(markdown-comment-face
+     ((,class (
+	       :foreground ,black-2
+	       :italic t))))
+   `(markdown-header-delimiter-face
+     ((,class (
+	       :foreground ,green-3
+	       :bold t))))
+   `(markdown-header-face
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(markdown-header-rule-face
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(markdown-header-face-1
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(markdown-header-face-2
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(markdown-header-face-3
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(markdown-header-face-4
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(markdown-header-face-5
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(markdown-header-face-6
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(markdown-link-face
+     ((,class (
+	       :foreground ,magenta-1
+	       :underline t))))
+   `(markdown-inline-code-face
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-3))))
+   `(markdown-italic-face
+     ((,class (
+	       :foreground ,white-1
+	       :italic t
+	       :underline ,white-1))))
+   `(markdown-list-face
+     ((,class (
+	       :foreground ,green-2
+	       :background ,black-5
+	       :bold t))))
+   `(markdown-math-face
+     ((,class (
+	       :foreground ,magenta-1))))
+   `(markdown-missing-link-face
+     ((,class (
+	       :foreground ,red-1
+	       :bold t))))
+   `(markdown-pre-face
+     ((,class (
+	       :foreground ,blue-1))))
+   `(markdown-reference-face
+     ((,class (
+	       :foreground ,orange-2
+	       :italic t))))
+   `(markdown-url-face
+     ((,class (
+	       :foreground ,magenta-3
+	       :underline ,magenta-3))))
+
+   ;; Twittering-mode
+   `(twittering-username-face
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-4
+	       :bold t
+	       :underline t))))
+   `(twittering-uri-face
+     ((,class (
+	       :foreground ,blue-1
+	       :underline t))))
+   `(twittering-timeline-footer-face
+     ((,class (
+	       :foreground ,white-3))))
+   `(twittering-timeline-header-face
+     ((,class (
+	       :foreground ,white-3))))
+
+   ;; Jabber
+   `(jabber-activity-face
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(jabber-activity-personal-face
+     ((,class (
+	       :foreground ,cyan-3))))
+   `(jabber-chat-error
+     ((,class (
+	       :foreground ,red-00
+	       :background ,red-2))))
+   `(jabber-chat-prompt-foreign
+     ((,class (
+	       :foreground ,orange-2))))
+   `(jabber-chat-prompt-local
+     ((,class (
+	       :foreground ,blue-1))))
+   `(jabber-chat-prompt-system
+     ((,class (
+	       :foreground ,yellow-2
+	       :weight bold))))
+   `(jabber-chat-text-foreign
+     ((,class (
+	       :foreground ,white-0))))
+   `(jabber-chat-text-local
+     ((,class (
+	       :foreground ,white-3))))
+   `(jabber-rare-time-face
+     ((,class (
+	       :foreground ,black-1))))
+   `(jabber-roster-user-away
+     ((,class (
+	       :foreground ,orange-2))))
+   `(jabber-roster-user-chatty
+     ((,class (
+	       :foreground ,purple-1))))
+   `(jabber-roster-user-dnd
+     ((,class (
+	       :foreground ,red-1))))
+   `(jabber-roster-user-error
+     ((,class (
+	       :foreground ,red-00
+	       :background ,red-3))))
+   `(jabber-roster-user-offline
+     ((,class (
+	       :foreground ,black-1))))
+   `(jabber-roster-user-online
+     ((,class (
+	       :foreground ,green-2))))
+   `(jabber-roster-user-xa
+     ((,class (
+	       :foreground ,black-1))))
+
+   ;; popup
+   `(popup-face
+     ((,class (
+	       :background ,black-3
+	       :foreground ,blue-1))))
+   `(popup-isearch-match
+     ((,class (
+	       :background ,black-3
+	       :foreground ,magenta-2
+	       :bold t))))
+   `(popup-menu-face
+     ((,class (
+	       :background ,black-3
+	       :foreground ,blue-1))))
+   `(popup-menu-mouse-face
+     ((,class (
+	       :background ,green-0
+	       :foreground ,black-4))))
+   `(popup-menu-selection-face
+     ((,class (
+	       :background ,blue-3
+	       :foreground ,blue-0))))
+   `(popup-menu-summary-face
+     ((,class (
+	       :background ,black-3
+	       :foreground ,blue-1))))
+   `(popup-scroll-bar-background-face
+     ((,class (
+	       :background ,black-3
+	       :foreground ,black-3))))
+   `(popup-scroll-bar-foreground-face
+     ((,class (
+	       :background ,black-2
+	       :foreground ,white-3))))
+   `(popup-summary-face
+     ((,class (
+	       :background ,black-3
+	       :foreground ,blue-1))))
+   `(popup-tip-face
+     ((,class (
+	       :background ,black-2-5
+	       :foreground ,white-1
+	       :stipple nil))))
+
+   ;; company
+   `(company-echo
+     ((,class (
+	       :background nil
+	       :foreground ,white-1))))
+   `(company-echo-common
+     ((,class (
+	       :background ,black-3
+	       :foreground ,red-1))))
+   `(company-preview
+     ((,class (
+	       :background ,black-5
+	       :foreground ,magenta-2))))
+   `(company-preview-common
+     ((,class (
+	       :background ,black-5
+	       :foreground ,magenta-2))))
+   `(company-preview-search
+     ((,class (
+	       :background ,black-4
+	       :foreground ,magenta-2
+	       :bold t))))
+   `(company-scrollbar-bg
+     ((,class (
+	       :background ,black-3))))
+   `(company-scrollbar-fg
+     ((,class (
+	       :background ,white-3))))
+   `(company-template-field
+     ((,class (
+	       :background ,yellow-00
+	       :foreground ,black-4))))
+   `(company-tooltip
+     ((,class (
+	       :background ,black-3
+	       :foreground ,blue-1))))
+   `(company-tooltip-annotation
+     ((,class (
+	       :background ,black-4
+	       :foreground ,red-1))))
+   `(company-tooltip-common
+     ((,class (
+	       :background ,black-2-5
+	       :foreground ,blue-0))))
+   `(company-tooltip-common-selection
+     ((,class (
+	       :background ,blue-3
+	       :foreground ,blue-0
+	       :bold t))))
+   `(company-tooltip-mouse
+     ((,class (
+	       :background ,green-0
+	       :foreground ,black-5))))
+   `(company-tooltip-selection
+     ((,class (
+	       :background ,blue-3
+	       :foreground ,blue-0))))
+
+   ;; Button and link faces
+   `(link
+     ((,class (
+	       :underline t
+	       :foreground ,blue-1))))
+   `(link-visited
+     ((,class (
+	       :underline t
+	       :foreground ,blue-2))))
+
+   ;; Gnus
+   `(gnus-button
+     ((,class (
+	       :weight normal
+	       :foreground ,blue-1
+	       :underline t))))
+   `(gnus-cite-1
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-10
+     ((,class (
+	       :foreground ,magenta-1
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-11
+     ((,class (
+	       :foreground ,cyan-3
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-2
+     ((,class (
+	       :foreground ,green-2
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-3
+     ((,class (
+	       :foreground ,magenta-2
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-4
+     ((,class (
+	       :foreground ,cyan-3
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-5
+     ((,class (
+	       :foreground ,red-0
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-6
+     ((,class (
+	       :foreground ,purple-1
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-7
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-8
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-cite-9
+     ((,class (
+	       :foreground ,green-2
+	       :background ,black-4
+	       :slant italic))))
+   `(gnus-emphasis-highlight-words
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00
+	       :bold t))))
+   `(gnus-group-mail-1
+     ((,class (
+	       :foreground ,blue-1))))
+   `(gnus-group-mail-1-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-mail-1-low
+     ((,class (
+	       :foreground ,blue-2))))
+   `(gnus-group-mail-2
+     ((,class (
+	       :foreground ,orange-2))))
+   `(gnus-group-mail-2-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-mail-2-low
+     ((,class (
+	       :foreground ,orange-3))))
+   `(gnus-group-mail-3
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(gnus-group-mail-3-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-mail-3-low
+     ((,class (
+	       :foreground ,magenta-3))))
+   `(gnus-group-mail-low
+     ((,class (
+	       :foreground ,yellow-3))))
+   `(gnus-group-mail-low-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-news-1
+     ((,class (
+	       :foreground ,blue-1))))
+   `(gnus-group-news-1-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-news-1-low
+     ((,class (
+	       :foreground ,blue-2))))
+   `(gnus-group-news-2
+     ((,class (
+	       :foreground ,orange-2))))
+   `(gnus-group-news-2-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-news-2-low
+     ((,class (
+	       :foreground ,orange-3))))
+   `(gnus-group-news-3
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(gnus-group-news-3-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-news-3-low
+     ((,class (
+	       :foreground ,magenta-3))))
+   `(gnus-group-news-4
+     ((,class (
+	       :foreground ,purple-2))))
+   `(gnus-group-news-4-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-news-4-low
+     ((,class (
+	       :foreground ,purple-3))))
+   `(gnus-group-news-5
+     ((,class (
+	       :foreground ,cyan-3))))
+   `(gnus-group-news-5-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-news-5-low
+     ((,class (
+	       :foreground ,cyan-4))))
+   `(gnus-group-news-6
+     ((,class (
+	       :foreground ,green-1))))
+   `(gnus-group-news-6-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-group-news-6-low
+     ((,class (
+	       :foreground ,green-3))))
+   `(gnus-group-news-low
+     ((,class (
+	       :foreground ,yellow-3))))
+   `(gnus-group-news-low-empty
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-header-content
+     ((,class (
+	       :foreground ,magenta-1 ))))
+   `(gnus-header-from
+     ((,class (
+	       :foreground ,blue-1
+	       :underline t))))
+   `(gnus-header-name
+     ((,class (
+	       :foreground ,black-1))))
+   `(gnus-header-newsgroups
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(gnus-header-subject
+     ((,class (
+	       :foreground ,white-0
+	       :bold t))))
+   `(gnus-server-agent
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-server-closed
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-server-denied
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-server-offline
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-server-opened
+     ((,class (
+	       :foreground ,black-2))))
+   `(gnus-signature
+     ((,class (
+	       :slant italic
+	       :foreground ,black-2))))
+   `(gnus-splash
+     ((,class (
+	       :foreground ,black-1))))
+   `(gnus-summary-cancelled
+     ((,class (
+	       :foreground ,black-2
+	       :background ,black-5))))
+   `(gnus-summary-high-ancient
+     ((,class (
+	       :bold t
+	       :foreground ,red-3
+	       :background nil))))
+   `(gnus-summary-high-read
+     ((,class (
+	       :bold t
+	       :foreground ,white-1))))
+   `(gnus-summary-high-ticked
+     ((,class (
+	       :slant italic
+	       :bold t
+	       :foreground ,red-2
+	       :background nil))))
+   `(gnus-summary-high-undownloaded
+     ((,class (
+	       :slant italic
+	       :foreground ,red-2
+	       :background nil))))
+   `(gnus-summary-high-unread
+     ((,class (
+	       :bold t
+	       :foreground ,red-0))))
+   `(gnus-summary-low-ancient
+     ((,class (
+	       :foreground ,green-3))))
+   `(gnus-summary-low-read
+     ((,class (
+	       :foreground ,white-1))))
+   `(gnus-summary-low-ticked
+     ((,class (
+	       :slant italic
+	       :foreground ,green-1))))
+   `(gnus-summary-low-undownloaded
+     ((,class (
+	       :slant italic
+	       :foreground ,green-2))))
+   `(gnus-summary-low-unread
+     ((,class (
+	       :slant italic
+	       :foreground ,green-0))))
+   `(gnus-summary-normal-ancient
+     ((,class (
+	       :foreground ,blue-2))))
+   `(gnus-summary-normal-read
+     ((,class (
+	       :foreground ,white-1))))
+   `(gnus-summary-normal-ticked
+     ((,class (
+	       :slant italic
+	       :foreground ,blue-1))))
+   `(gnus-summary-normal-undownloaded
+     ((,class (
+	       :slant italic
+	       :foreground ,blue-1))))
+   `(gnus-summary-normal-unread
+     ((,class (
+	       :foreground ,blue-0
+	       :bold t))))
+   `(gnus-summary-selected
+     ((,class (
+	       :background ,green-0
+	       :foreground ,green-5))))
+
+   ;; Helm
+   `(helm-bookmark-directory
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-5
+	       :bold t))))
+   `(helm-bookmark-file
+     ((,class (
+	       :foreground ,yellow-4
+	       :background ,yellow-0))))
+   `(helm-bookmark-info
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-0))))
+   `(helm-buffer-directory
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(helm-buffer-process
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(helm-buffer-saved-out
+     ((,class (
+	       :foreground ,red-2
+	       :background ,black-5))))
+   `(helm-buffer-size
+     ((,class (
+	       :foreground ,orange-2))))
+   `(helm-candidate-number
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,white-0))))
+   `(helm-ff-directory
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-5
+	       :bold t))))
+   `(helm-ff-excutable
+     ((,class (
+	       :foreground ,green-1
+	       :background ,black-5
+	       :bold t))))
+   `(helm-ff-file
+     ((,class (
+	       :foreground ,white-1
+	       :background ,black-5))))
+   `(helm-ff-invalid-symlink
+     ((,class (
+	       :foreground ,white-1
+	       :background ,red-2))))
+   `(helm-ff-prefix
+     ((,class (
+	       :foreground ,white-1
+	       :background ,orange-2))))
+   `(helm-grep-cmd-line
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-00
+	       :bold t))))
+   `(helm-grep-file
+     ((,class (
+	       :foreground ,purple-1))))
+   `(helm-grep-finish
+     ((,class (
+	       :foreground ,green-2))))
+   `(helm-grep-lineno
+     ((,class (
+	       :foreground ,orange-2))))
+   `(helm-grep-match
+     ((,class (
+	       :background ,black-4
+	       :foreground ,yellow-1
+	       :bold t))))
+   `(helm-grep-running
+     ((,class (
+	       :foreground ,red-0
+	       :background nil))))
+   `(helm-header
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,blue-0))))
+   `(helm-lisp-show-completion
+     ((,class (
+	       :foreground ,black-3
+	       :background ,green-0))))
+   `(helm-match
+     ((,class (
+	       :foreground ,green-2
+	       :background ,black-5
+	       :bold t))))
+   `(helm-selection
+     ((,class (
+	       :foreground nil
+	       :background ,blue-3))))
+   `(helm-selection-line
+     ((,class (
+	       :foreground nil
+	       :background ,yellow-4))))
+   `(helm-source-header
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-2-5
+	       :bold t))))
+   `(helm-visible-mark
+     ((,class (
+	       :foreground ,magenta-2
+	       :background ,magenta-0))))
+
+   ;; Dired/Dired+
+   `(dired-directory
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(dired-flagged
+     ((,class (
+	       :foreground ,red-1))))
+   `(dired-header
+     ((,class (
+	       :foreground ,black-5
+	       :background ,green-2
+	       :bold t))))
+   `(dired-ignored
+     ((,class (
+	       :foreground ,black-1))))
+   `(dired-mark
+     ((,class (
+	       :foreground ,green-1))))
+   `(dired-marked
+     ((,class (
+	       :foreground ,green-2))))
+   `(dired-perm-write
+     ((,class (
+	       :foreground ,red-2
+	       :bold t))))
+   `(dired-symlink
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(dired-warning
+     ((,class (
+	       :foreground ,white-1
+	       :background ,red-3
+	       :bold t))))
+   `(diredp-compressed-file-suffix
+     ((,class (
+	       :foreground ,purple-2))))
+   `(diredp-date-time
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-4))))
+   `(diredp-deletion
+     ((,class (
+	       :foreground ,white-1,
+	       :background ,red-3))))
+   `(diredp-deletion-file-name
+     ((,class (
+	       :foreground ,red-2))))
+   `(diredp-dir-heading
+     ((,class (
+	       :foreground ,black-5
+	       :background ,green-2))))
+   `(diredp-dir-priv
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-5
+	       :bold t))))
+   `(diredp-display-msg
+     ((,class (
+	       :foreground ,orange-2))))
+   `(diredp-executable-tag
+     ((,class (
+	       :foreground ,green-2))))
+   `(diredp-file-name
+     ((,class (
+	       :foreground ,white-1))))
+   `(diredp-file-suffix
+     ((,class (
+	       :foreground ,orange-2))))
+   `(diredp-flag-mark
+     ((,class (
+	       :foreground ,white-1
+	       :background ,magenta-3
+	       :bold t))))
+   `(diredp-flag-mark-line
+     ((,class (
+	       :foreground ,black-5
+	       :background ,magenta-1))))
+   `(diredp-ignored-file-name
+     ((,class (
+	       :foreground ,black-2))))
+   `(diredp-link-priv
+     ((,class (
+	       :foreground ,magenta-3))))
+   `(diredp-mode-line-flagged
+     ((,class (
+	       :foreground ,black-5
+	       :background ,green-2))))
+   `(diredp-mode-line-marked
+     ((,class (
+	       :foreground ,white-1
+	       :background ,magenta-3 bold t))))
+   `(diredp-no-priv
+     ((,class (
+	       :foreground ,white-1
+	       :background ,black-4))))
+   `(diredp-number
+     ((,class (
+	       :foreground ,yellow-1))))
+   `(diredp-other-priv
+     ((,class (
+	       :foreground ,white-1
+	       :background ,blue-3))))
+   `(diredp-rare-priv
+     ((,class (
+	       :foreground ,white-1
+	       :background ,purple-2))))
+   `(diredp-symlink
+     ((,class (
+	       :foreground ,magenta-3))))
+   `(diredp-read-priv
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-0))))
+   `(diredp-write-priv
+     ((,class (
+	       :foreground ,blue-5
+	       :background ,blue-0))))
+   `(diredp-exec-priv
+     ((,class (
+	       :foreground ,red-3
+	       :background ,orange-0))))
+
+   ;; Magit >= 2.1.0
+   `(magit-bisect-bad
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00))))
+   `(magit-bisect-good
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-0))))
+   `(magit-bisect-skip
+     ((,class (
+	       :foreground ,yellow-4
+	       :background ,orange-00))))
+   `(magit-blame-date
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-3))))
+   `(magit-blame-hash
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-3))))
+   `(magit-blame-heading
+     ((,class (
+	       :foreground ,white-1
+	       :background ,black-3))))
+   `(magit-blame-name
+     ((,class (
+	       :foreground ,green-1
+	       :background ,black-3))))
+   `(magit-blame-summary
+     ((,class (
+	       :foreground ,white-2
+	       :background ,black-3))))
+   `(magit-branch-current
+     ((,class (
+	       :foreground ,white-0
+	       :background ,orange-2
+	       :bold t
+	       :underline nil))))
+   `(magit-branch-local
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-00
+	       :bold t
+	       :underline t))))
+   `(magit-branch-remote
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,blue-0
+	       :bold t
+	       :underline t))))
+   `(magit-cherry-equivalent
+     ((,class (
+	       :foreground ,purple-2))))
+   `(magit-cherry-unmatched
+     ((,class (
+	       :foreground ,cyan-4))))
+   `(magit-diff-added
+     ((,class (
+	       :foreground ,green-0
+	       :background nil
+	       :bold t))))
+   `(magit-diff-added-highlight
+     ((,class (
+	       :foreground ,green-0
+	       :bold t
+	       :inherit (magit-section-highlight)))))
+   `(magit-diff-base
+     ((,class (
+	       :foreground ,yellow-1
+	       :background nil))))
+   `(magit-diff-base-highlight
+     ((,class (
+	       :foreground ,yellow-1
+	       :bold t
+	       :inherit (magit-section-highlight)))))
+   `(magit-diff-conflict-heading
+     ((,class (
+	       :foreground ,white-0
+	       :background ,orange-2))))
+   `(magit-diff-context
+     ((,class (
+	       :foreground ,white-1
+	       :background nil))))
+   `(magit-diff-context-highlight
+     ((,class (
+	       :foreground ,white-1
+	       :inherit (magit-section-highlight)))))
+   `(magit-diff-file-heading
+     ((,class (
+	       :foreground ,white-0
+	       :bold t))))
+   `(magit-diff-file-heading-highlight
+     ((,class (
+	       :background ,blue-3
+	       :bold t))))
+   `(magit-diff-file-heading-selection
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-2
+	       :bold t))))
+   `(magit-diff-hunk-heading
+     ((,class (
+	       :foreground ,black-2
+	       :background ,black-3
+	       :bold t))))
+   `(magit-diff-hunk-heading-highlight
+     ((,class (
+	       :foreground ,black-4
+	       :background ,blue-01))))
+   `(magit-diff-hunk-heading-selection
+     ((,class (
+	       :foreground ,white-1
+	       :background ,white-1))))
+   `(magit-diff-lines-boundary
+     ((,class (
+	       :foreground ,white-1
+	       :background ,red-0))))
+   `(magit-diff-lines-heading
+     ((,class (
+	       :foreground ,white-1
+	       :background ,red-0))))
+   `(magit-diff-our
+     ((,class (
+	       :foreground ,magenta-3))))
+   `(magit-diff-our-highlight
+     ((,class (
+	       :foreground ,magenta-3
+	       :background ,magenta-00))))
+   `(magit-diff-removed
+     ((,class (
+	       :foreground ,red-0
+	       :background nil
+	       :bold t))))
+   `(magit-diff-removed-highlight
+     ((,class (
+	       :foreground ,red-0
+	       :bold t
+	       :inherit (magit-section-highlight)))))
+   `(magit-diff-their
+     ((,class (
+	       :foreground ,cyan-4)))) ;
+   `(magit-diff-their-highlight
+     ((,class (
+	       :foreground ,cyan-6
+	       :background ,cyan-1))))
+   `(magit-diff-whitespace-warning
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-3))))
+   `(magit-diffstat-added
+     ((,class (
+	       :foreground ,green-3
+	       :background ,green-0
+	       :bold t))))
+   `(magit-diffstat-removed
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-0
+	       :bold t))))
+   `(magit-dimmed
+     ((,class (
+	       :foreground ,black-2))))
+   `(magit-filename
+     ((,class (
+	       :foreground ,blue-1))))
+   `(magit-hash
+     ((,class (
+	       :foreground ,orange-2
+	       :background nil))))
+   `(magit-head
+     ((,class (
+	       :foreground ,orange-4
+	       :background ,orange-000))))
+   `(magit-header-line
+     ((,class (
+	       :foreground ,orange-2))))
+   `(magit-log-author
+     ((,class (
+	       :foreground ,green-2
+	       :background nil))))
+   `(magit-log-date
+     ((,class (
+	       :foreground ,black-2
+	       :background nil))))
+   `(magit-log-graph
+     ((,class (
+	       :foreground ,black-2
+	       :background nil))))
+   `(magit-process-ng
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00
+	       :underline t))))
+   `(magit-process-ok
+     ((,class (
+	       :foreground ,green-3
+	       :background ,green-00
+	       :underline t))))
+   `(magit-reflog-amend
+     ((,class (
+	       :foreground ,magenta-3
+	       :background ,magenta-00))))
+   `(magit-reflog-checkout
+     ((,class (
+	       :foreground ,green-3
+	       :background ,green-00))))
+   `(magit-reflog-cherry-pick
+     ((,class (
+	       :foreground ,orange-4
+	       :background ,orange-00))))
+   `(magit-reflog-commit
+     ((,class (
+	       :foreground ,yellow-4
+	       :background ,yellow-0))))
+   `(magit-reflog-merge
+     ((,class (
+	       :foreground ,purple-4
+	       :background ,purple-00))))
+   `(magit-reflog-other
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-3))))
+   `(magit-reflog-rebase
+     ((,class (
+	       :foreground ,cyan-6
+	       :background ,cyan-2))))
+   `(magit-reflog-remote
+     ((,class (
+	       :foreground ,blue-4
+	       :background ,blue-0))))
+   `(magit-reflog-reset
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00))))
+   `(magit-section-heading
+     ((,class (
+	       :foreground ,orange-3
+	       :background nil
+	       :bold t
+	       :underline t))))
+   `(magit-section-heading-selection
+     ((,class (
+	       :background ,blue-0))))
+   `(magit-section-highlight
+     ((,class (
+	       :background ,black-3))))
+   `(magit-sequence-done
+     ((,class (
+	       :foreground ,green-3))))
+   `(magit-sequence-drop
+     ((,class (
+	       :foreground ,orange-2))))
+   `(magit-sequence-head
+     ((,class (
+	       :foreground ,blue-2))))
+   `(magit-sequence-onto
+     ((,class (
+	       :foreground ,purple-2))))
+   `(magit-sequence-part
+     ((,class (
+	       :foreground ,cyan-4))))
+   `(magit-sequence-pick
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(magit-sequence-stop
+     ((,class (
+	       :foreground ,red-3))))
+   `(magit-signature-bad
+     ((,class (
+	       :foreground ,red-2))))
+   `(magit-signature-good
+     ((,class (
+	       :foreground ,green-3))))
+   `(magit-signature-untrusted
+     ((,class (
+	       :foreground ,yellow-3))))
+   `(magit-tag
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,blue-0))))
+   `(magit-valid-signature
+     ((,class (
+	       :foreground ,cyan-4
+	       :background ,LIGHT_BG
+	       :bold t))))
+   `(magit-whitespace-warning-face
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-2
+	       :bold t))))
+
+   ;; Magit
+   `(magit-branch
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-01
+	       :bold t
+	       :underline t))))
+   `(magit-diff-add
+     ((,class (
+	       :foreground ,green-0
+	       :background nil
+	       :bold t))))
+   `(magit-diff-del
+     ((,class (
+	       :foreground ,red-0
+	       :background nil
+	       :bold t))))
+   `(magit-diff-file-header
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-2
+	       :bold t))))
+   `(magit-diff-hunk-header
+     ((,class (
+	       :foreground ,white-2
+	       :background ,black-2-5
+	       :bold t))))
+   `(magit-diff-merge-current
+     ((,class (
+	       :foreground ,purple-1))))
+   `(magit-diff-merge-diff3-separator
+     ((,class (
+	       :foreground ,purple-1))))
+   `(magit-diff-merge-proposed
+     ((,class (
+	       :foreground ,purple-1))))
+   `(magit-diff-merge-separator
+     ((,class (
+	       :foreground ,purple-1))))
+   `(magit-diff-none
+     ((,class (
+	       :foreground ,black-2))))
+   `(magit-header
+     ((,class (
+	       :foreground ,blue-2
+	       :background ,white-0
+	       :underline ,blue-2))))
+   `(magit-item-highlight
+     ((,class (
+	       :background "#444444"
+	       :foreground ,white-0))))
+   `(magit-item-mark
+     ((,class (
+	       :foreground ,white-0
+	       :background ,blue-3))))
+   `(magit-log-author
+     ((,class (
+	       :foreground ,green-0
+	       :background ,black-4))))
+   `(magit-log-author-date-cutoff
+     ((,class (
+	       :foreground ,red-1
+	       :bold t))))
+   `(magit-log-date
+     ((,class (
+	       :foreground ,white-1
+	       :background ,black-4))))
+   `(magit-log-graph
+     ((,class (
+	       :foreground ,white-2
+	       :background ,black-4))))
+   `(magit-log-head-label-bisect-bad
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00))))
+   `(magit-log-head-label-bisect-good
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-0))))
+   `(magit-log-head-label-bisect-skip
+     ((,class (
+	       :foreground ,yellow-3
+	       :background ,orange-00))))
+   `(magit-log-head-label-default
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-2
+	       :bold t
+	       :underline t))))
+   `(magit-log-head-label-head
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-01
+	       :bold t
+	       :underline t))))
+   `(magit-log-head-label-local
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-00
+	       :bold t
+	       :underline t))))
+   `(magit-log-head-label-patches
+     ((,class (
+	       :foreground ,orange-4
+	       :background ,orange-0
+	       :bold t
+	       :underline t))))
+   `(magit-log-head-label-remote
+     ((,class (
+	       :foreground ,blue-4
+	       :background ,blue-0
+	       :bold t
+	       :underline t))))
+   `(magit-log-head-label-tags
+     ((,class (
+	       :foreground ,yellow-4
+	       :background ,yellow-00
+	       :bold t
+	       :underline t))))
+   `(magit-log-head-label-wip
+     ((,class (
+	       :foreground ,white-2
+	       :background ,black-2))))
+   `(magit-log-message
+     ((,class (
+	       :foreground ,white-1
+	       :background nil))))
+   `(magit-log-reflog-label-amend
+     ((,class (
+	       :foreground ,magenta-3
+	       :background ,magenta-0))))
+   `(magit-log-reflog-label-checkout
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-00))))
+   `(magit-log-reflog-label-cherry-pick
+     ((,class (
+	       :foreground ,orange-4
+	       :background ,orange-00))))
+   `(magit-log-reflog-label-commit
+     ((,class (
+	       :foreground ,yellow-4
+	       :background ,yellow-0))))
+   `(magit-log-reflog-label-merge
+     ((,class (
+	       :foreground ,purple-4
+	       :background ,purple-0))))
+   `(magit-log-reflog-label-other
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-3))))
+   `(magit-log-reflog-label-rebase
+     ((,class (
+	       :foreground ,cyan-6
+	       :background ,cyan-2))))
+   `(magit-log-reflog-label-remote
+     ((,class (
+	       :foreground ,blue-4
+	       :background ,blue-0))))
+   `(magit-log-reflog-label-reset
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00))))
+   `(magit-log-sha1
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-4))))
+   `(magit-process-ng
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00
+	       :underline t
+	       :bold t))))
+   `(magit-process-ok
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-00
+	       :underline t
+	       :bold t))))
+   `(magit-section-title
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :underline t
+	       :bold ,t))))
+   `(magit-signature-bad
+     ((,class (
+	       :foreground ,red-1))))
+   `(magit-signature-good
+     ((,class (
+	       :foreground ,green-1))))
+   `(magit-signature-none
+     ((,class (
+	       :foreground ,white-1))))
+   `(magit-signature-untrusted
+     ((,class (
+	       :foreground ,cyan-3))))
+   `(magit-tag
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,blue-0))))
+   `(magit-valid-signature
+     ((,class (
+	       :foreground ,cyan-3
+	       :background ,black-5
+	       :bold t))))
+   `(magit-whitespace-warning-face
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-3
+	       :bold t))))
+
+   ;; git-commit-mode
+   `(git-commit-branch-face
+     ((,class (
+	       :foreground ,blue-4
+	       :background ,white-0
+	       :bold t
+	       :underline t))))
+   `(git-commit-comment-action-face
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :underline t))))
+   `(git-commit-comment-file-face
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(git-commit-comment-heading-face
+     ((,class (
+	       :foreground ,green-01
+	       :background ,black-3
+	       :bold t))))
+   `(git-commit-known-pseudo-header-face
+     ((,class (
+	       :foreground ,green-1))))
+   `(git-commit-no-branch-face
+     ((,class (
+	       :foreground ,orange-3))))
+   `(git-commit-nonempty-second-line-face
+     ((,class (
+	       :foreground ,red-2))))
+   `(git-commit-note-face
+     ((,class (
+	       :foreground ,cyan-3))))
+   `(git-commit-overlong-summary-face
+     ((,class (
+	       :foreground ,red-2))))
+   `(git-commit-pseudo-header-face
+     ((,class (
+	       :foreground ,magenta-3))))
+   `(git-commit-summary-face
+     ((,class (
+	       :foreground ,blue-1))))
+   `(git-rebase-description-face
+     ((,class (
+	       :foreground ,black-3))))
+   `(git-rebase-killed-action-face
+     ((,class (
+	       :foreground ,black-3))))
+
+   ;; Message faces
+   `(message-cited-text
+     ((,class (
+	       :foreground ,green-1))))
+   `(message-header-cc
+     ((,class (
+	       :foreground ,blue-0))))
+   `(message-header-name
+     ((,class (
+	       :foreground ,white-3))))
+   `(message-header-newsgroups
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(message-header-other
+     ((,class (
+	       :foreground ,magenta-1))))
+   `(message-header-subject
+     ((,class (
+	       :foreground ,white-0
+	       :bold t))))
+   `(message-header-to
+     ((,class (
+	       :foreground ,blue-1
+	       :underline t
+	       :bold t))))
+   `(message-header-xheader
+     ((,class (
+	       :foreground ,black-1))))
+   `(message-mml
+     ((,class (
+	       :foreground ,orange-2))))
+   `(message-separator
+     ((,class (
+	       :foreground ,black-2-5))))
+
+   ;; Grep
+   `(grep-context-face
+     ((,class (
+	       :foreground ,red-2))))
+   `(grep-error-face
+     ((,class (
+	       :foreground ,red-1
+	       :weight bold
+	       :underline t))))
+   `(grep-hit-face
+     ((,class (
+	       :foreground ,green-2))))
+   `(grep-match-face
+     ((,class (
+	       :foreground nil
+	       :background nil
+	       :inherit match))))
+
+   ;; Diff
+   `(diff-added
+     ((,class (
+	       :foreground ,green-0
+	       :background ,black-4
+	       :bold t))))
+   `(diff-changed
+     ((,class (
+	       :foreground ,yellow-2
+	       :background ,black-4
+	       :bold t))))
+   `(diff-context
+     ((,class (
+	       :foreground ,black-2-5))))
+   `(diff-file-header
+     ((,class (
+	       :foreground ,black-5
+	       :background ,blue-0
+	       :bold t))))
+   `(diff-function
+     ((,class (
+	       :foreground ,black-4
+	       :background ,white-2))))
+   `(diff-header
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,blue-0))))
+   `(diff-hunk-header
+     ((,class (
+	       :foreground ,blue-0
+	       :background ,black-3
+	       :bold t))))
+   `(diff-index
+     ((,class (
+	       :foreground ,black-4
+	       :background ,white-3
+	       :bold t))))
+   `(diff-indicator-added
+     ((,class (
+	       :foreground ,white-0
+	       :background ,green-3
+	       :bold t))))
+   `(diff-indicator-changed
+     ((,class (
+	       :foreground ,white-0
+	       :background ,yellow-3
+	       :bold t))))
+   `(diff-indicator-removed
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-3
+	       :bold t))))
+   `(diff-nonexistent
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-3
+	       :bold t))))
+   `(diff-refine-added
+     ((,class (
+	       :foreground ,white-0
+	       :background ,green-4
+	       :bold t))))
+   `(diff-refine-change
+     ((,class (
+	       :foreground ,white-0
+	       :background ,yellow-4
+	       :bold t))))
+   `(diff-refine-removed
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-3
+	       :bold t))))
+   `(diff-removed
+     ((,class (
+	       :foreground ,red-0
+	       :background ,black-4
+	       :bold t))))
+
+   ;; Ediff
+   `(ediff-current-diff-A
+     ((,class (
+	       :background ,yellow-4))))
+   `(ediff-current-diff-Ancestor
+     ((,class (
+	       :background ,blue-3))))
+   `(ediff-current-diff-B
+     ((,class (
+	       :background ,purple-4))))
+   `(ediff-current-diff-C
+     ((,class (
+	       :background ,orange-5))))
+   `(ediff-even-diff-A
+     ((,class (
+	       :background ,black-3))))
+   `(ediff-even-diff-Ancestor
+     ((,class (
+	       :background ,black-3))))
+   `(ediff-even-diff-B
+     ((,class (
+	       :background ,black-3))))
+   `(ediff-even-diff-C
+     ((,class (
+	       :background ,black-3))))
+   `(ediff-fine-diff-A
+     ((,class (
+	       :foreground nil
+	       :background ,green-5
+	       :bold t))))
+   `(ediff-fine-diff-Ancestor
+     ((,class (
+	       :foreground nil
+	       :background ,green-5
+	       :bold t))))
+   `(ediff-fine-diff-B
+     ((,class (
+	       :foreground nil
+	       :background ,green-5
+	       :bold t))))
+   `(ediff-fine-diff-C
+     ((,class (
+	       :foreground nil
+	       :background ,green-5
+	       :bold t))))
+   `(ediff-odd-diff-A
+     ((,class (
+	       :background ,red-3))))
+   `(ediff-odd-diff-Ancestor
+     ((,class (
+	       :background ,red-3))))
+   `(ediff-odd-diff-B
+     ((,class (
+	       :background ,red-3))))
+   `(ediff-odd-diff-C
+     ((,class (
+	       :background ,red-3))))
+
+   ;; smerge
+   `(smerge-refined-change
+     ((,class (
+	       :background ,blue-3
+	       :foreground ,white-0))))
+
+   ;; Flyspell faces
+   `(flyspell-duplicate
+     ((,class (
+	       :underline t foreground-color,orange-1))))
+   `(flyspell-incorrect
+     ((,class (
+	       :background ,red-1
+	       :foreground ,white-1
+	       :bold t))))
+
+   ;; Semantic faces
+   `(semantic-decoration-on-includes
+     ((,class (
+	       :underline ,black-1))))
+   `(semantic-decoration-on-private-members-face
+
+     ((,class (
+	       :background ,purple-3))))
+   `(semantic-decoration-on-protected-members-face
+
+     ((,class (
+	       :background ,magenta-3))))
+   `(semantic-decoration-on-unknown-includes
+
+     ((,class (
+	       :background ,red-3))))
+   `(semantic-decoration-on-unparsed-includes
+
+     ((,class (
+	       :background ,black-4))))
+   `(semantic-tag-boundary-face
+     ((,class (
+	       :overline ,blue-1))))
+   `(semantic-unmatched-syntax-face
+     ((,class (
+	       :underline ,red-1))))
+
+   ;; CUA
+   `(cua-rectangle
+     ((,class (
+	       :background ,magenta-3
+	       :foreground ,white-1))))
+
+   ;; Ace-jump
+   `(ace-jump-face-background
+     ((,class (
+	       :background nil
+	       :foreground ,black-2-5))))
+   `(ace-jump-face-foreground
+     ((,class (
+	       :foreground ,orange-2
+	       :bold t))))
+
+   ;; avy-mode
+   `(avy-lead-face
+     ((,class (
+	       :background ,cyan-1
+	       :foreground ,black-4))))
+   `(avy-lead-face-0
+     ((,class (
+	       :background ,purple-00
+	       :foreground ,black-4))))
+   `(avy-lead-face-1
+     ((,class (
+	       :background ,white-2
+	       :foreground ,black-4))))
+   `(avy-lead-face-2
+     ((,class (
+	       :background ,green-2
+	       :foreground ,black-4))))
+
+   ;; Rainbow-delimiters
+   `(rainbow-delimiters-depth-1-face ((,class (:foreground "#9a4040" :bold t))))
+   `(rainbow-delimiters-depth-2-face ((,class (:foreground "#ff5e5e" :bold t))))
+   `(rainbow-delimiters-depth-3-face ((,class (:foreground "#ffaa77" :bold t))))
+   `(rainbow-delimiters-depth-4-face ((,class (:foreground "#dddd77" :bold t))))
+   `(rainbow-delimiters-depth-5-face ((,class (:foreground "#80ee80" :bold t))))
+   `(rainbow-delimiters-depth-6-face ((,class (:foreground "#66bbff" :bold t))))
+   `(rainbow-delimiters-depth-7-face ((,class (:foreground "#da6bda" :bold t))))
+   `(rainbow-delimiters-depth-8-face ((,class (:foreground "#afafaf" :bold t))))
+   `(rainbow-delimiters-depth-9-face ((,class (:foreground "#f0f0f0" :bold t))))
+   `(rainbow-delimiters-unmatched-face
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-3
+	       :bold t))))
+
+   ;; EShell
+   `(eshell-ls-archive
+     ((,class (
+	       :foreground ,purple-2))))
+   `(eshell-ls-backup
+     ((,class (
+	       :foreground ,black-3))))
+   `(eshell-ls-clutter
+     ((,class (
+	       :foreground ,black-2))))
+   `(eshell-ls-directory
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(eshell-ls-executable
+     ((,class (
+	       :foreground ,green-2))))
+   `(eshell-ls-missing
+     ((,class (
+	       :foreground ,white-0
+	       :background ,red-3))))
+   `(eshell-ls-product
+     ((,class (
+	       :foreground ,white-0
+	       :background ,green-2))))
+   `(eshell-ls-readonly
+     ((,class (
+	       :foreground ,orange-3))))
+   `(eshell-ls-special
+     ((,class (
+	       :foreground ,yellow-1))))
+   `(eshell-ls-symlink
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(eshell-ls-unreadable
+     ((,class (
+	       :foreground ,black-2))))
+   `(eshell-prompt
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-2-5
+	       :bold t))))
+
+   ;; Comint prompt
+   `(comint-highlight-prompt
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-2-5
+	       :bold t))))
+
+   ;; which-function-mode
+   `(which-func
+     ((,class (
+	       :foreground ,white-0
+	       :background ,orange-2))))
+
+   ;; Flymake
+   `(flymake-warnline
+     ((,class (
+	       :underline ,orange-2))))
+   `(flymake-errline
+     ((,class (
+	       :underline ,red-2))))
+
+   ;; Flycheck
+   `(flycheck-error
+     ((,class (
+	       :background ,red-2
+	       :foreground ,white-0
+	       :bold t))))
+   `(flycheck-warnline
+     ((,class (
+	       :background ,orange-2
+	       :foreground ,white-0
+	       :bold t))))
+
+   ;; Malabar
+   `(malabar-error-face
+     ((,class (
+	       :underline ,red-2))))
+   `(malabar-warning-face
+     ((,class (
+	       :underline ,orange-2))))
+   `(malabar-info-face
+     ((,class (
+	       :underline ,blue-2))))
+
+   ;; MMM-Mode
+   `(mmm-cleanup-submode-face
+     ((,class (
+	       :background ,orange-00))))
+   `(mmm-code-submode-face
+     ((,class (
+	       :background ,blue-00))))
+   `(mmm-comment-submode-face
+     ((,class (
+	       :background ,blue-0))))
+   `(mmm-declaration-submode-face
+     ((,class (
+	       :background ,cyan-1))))
+   `(mmm-default-submode-face
+     ((,class (
+	       :background nil))))
+   `(mmm-delimiter-face
+     ((,class (
+	       :background nil
+	       :foreground ,white-0))))
+   `(mmm-init-submode-face
+     ((,class (
+	       :background ,magenta-0))))
+   `(mmm-output-submode-face
+     ((,class (
+	       :background ,purple-00))))
+   `(mmm-special-submode-face
+     ((,class (
+	       :background ,green-00))))
+
+   ;; Clojure/Cider
+   `(clojure-test-failure-face
+     ((,class (
+	       :underline ,orange-2))))
+   `(clojure-test-error-face
+     ((,class (
+	       :underline ,red-2))))
+   `(clojure-test-success-face
+     ((,class (
+	       :underline ,green-3))))
+   `(cider-deprecated-face
+     ((,class (
+	       :background ,red-4))))
+
+   ;; Javascript
+   `(js2-function-param-face
+     ((,class (
+	       :foreground ,green-3))))
+   `(js2-external-variable
+     ((,class (
+	       :foreground ,orange-2
+	       :underline t))))
+   `(js2-error
+     ((,class (
+	       :foreground ,red-2
+	       :underline t
+	       :bold t))))
+   `(js2-warning
+     ((,class (
+	       :foreground nil
+	       :underline t
+	       :bold t))))
+
+   ;; rcirc
+   `(rcirc-bright-nick
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(rcirc-dim-nick
+     ((,class (
+	       :foreground ,black-2
+	       :bold t))))
+   `(rcirc-keyword
+     ((,class (
+	       :foreground ,magenta-2
+	       :bold t))))
+   `(rcirc-my-nick
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(rcirc-nick-in-message
+     ((,class (
+	       :foreground ,green-3))))
+   `(rcirc-nick-in-message-full-line
+     ((,class (
+	       :foreground ,blue-3))))
+   `(rcirc-other-nick
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(rcirc-prompt
+     ((,class (
+	       :foreground ,black-3
+	       :background ,green-01
+	       :bold t))))
+   `(rcirc-server
+     ((,class (
+	       :foreground ,black-1))))
+   `(rcirc-server-prefix
+     ((,class (
+	       :foreground ,black-1))))
+   `(rcirc-timestamp
+     ((,class (
+	       :foreground ,orange-2))))
+   `(rcirc-track-keyword
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(rcirc-track-nick
+     ((,class (
+	       :foreground ,blue-1))))
+   `(rcirc-url
+     ((,class (
+	       :foreground ,blue-1
+	       :bold nil
+	       :underline ,blue-2))))
+
+   ;; ERC
+   `(erc-button
+     ((,class (
+	       :foreground ,blue-1
+	       :underline ,blue-1
+	       :bold nil))))
+   `(erc-current-nick-face
+     ((,class (
+	       :foreground ,green-1))))
+   `(erc-dangerous-hosts
+     ((,class (
+	       :foreground ,red-2
+	       :bold t))))
+   `(erc-direct-msg-face
+     ((,class (
+	       :foreground ,orange-2))))
+   `(erc-error-face
+     ((,class (
+	       :foreground ,red-2))))
+   `(erc-header-face
+     ((,class (
+	       :background ,blue-1))))
+   `(erc-input-face
+     ((,class (
+	       :foreground ,white-0))))
+   `(erc-keyword-face
+     ((,class (
+	       :foreground ,magenta-2
+	       :bold t))))
+   `(erc-my-nick-face
+     ((,class (
+	       :foreground ,green-1
+	       :bold t))))
+   `(erc-nick-default-face
+     ((,class (
+	       :bold t
+	       :foreground ,blue-1))))
+   `(erc-nick-msg-face
+     ((,class (
+	       :weight normal
+	       :foreground ,orange-2))))
+   `(erc-notice-face
+     ((,class (
+	       :foreground ,black-2))))
+   `(erc-pal-face
+     ((,class (
+	       :foreground ,purple-1))))
+   `(erc-prompt-face
+     ((,class (
+	       :bold t
+	       :foreground ,green-01
+	       :background ,black-2-5))))
+   `(erc-timestamp-face
+     ((,class (
+	       :foreground ,orange-2))))
+
+   ;; ReStructuredText
+   `(rst-level-1-face
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-2-face
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-3-face
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-4-face
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-5-face
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-6-face
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-1
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-2
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-3
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-4
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-5
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-level-6
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-adornment
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-5
+	       :bold t))))
+   `(rst-block
+     ((,class (
+	       :foreground ,green-1
+	       :background ,black-3
+	       :bold t))))
+   `(rst-comment
+     ((,class (
+	       :foreground ,red-0
+	       :background ,red-3
+	       :bold t))))
+   `(rst-literal
+     ((,class (
+	       :foreground ,green-1
+	       :background ,black-3))))
+   `(rst-reference
+     ((,class (
+	       :foreground ,magenta-2
+	       :background ,black-5))))
+   `(rst-definition
+     ((,class (
+	       :foreground ,yellow-1
+	       :background ,black-5))))
+   `(rst-directive
+     ((,class (
+	       :foreground ,purple-1
+	       :background ,black-4
+	       :bold t))))
+   `(rst-external
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-5))))
+   `(rst-transition
+     ((,class (
+	       :foreground ,green-2
+	       :background ,black-4
+	       :bold t))))
+
+   ;; yalinum
+   `(yalinum-bar-face
+     ((,class (
+	       :foreground ,black-2-5
+	       :background ,white-1))))
+   `(yalinum-face
+     ((,class (
+	       :foreground ,white-1
+	       :background ,black-2))))
+   `(yalinum-track-face
+     ((,class (
+	       :foreground ,white-1
+	       :background ,black-2-5))))
+
+   ;; Ruby
+   `(enh-ruby-heredoc-delimiter-face
+     ((,class (
+	       :foreground ,purple-2))))
+   `(enh-ruby-op-face
+     ((,class (
+	       :foreground ,orange-3
+	       :bold t))))
+   `(enh-ruby-regexp-delimiter-face
+     ((,class (
+	       :foreground ,purple-2))))
+   `(enh-ruby-string-delimiter-face
+     ((,class (
+	       :foreground ,purple-0))))
+   `(erm-syn-errline
+     ((,class (
+	       :foreground ,red-00
+	       :background ,red-3
+	       :bold t
+	       :underline t))))
+   `(erm-syn-warnline
+     ((,class (
+	       :bold t
+	       :underline t))))
+
+   ;; ansi-term
+   `(term-color-black
+     ((,class (
+	       :background ,black-5
+	       :foreground ,black-5))))
+   `(term-color-blue
+     ((,class (
+	       :background ,cyan-3
+	       :foreground ,cyan-3))))
+   `(term-color-cyan
+     ((,class (
+	       :background ,cyan-3
+	       :foreground ,cyan-3))))
+   `(term-color-green
+     ((,class (
+	       :background ,green-2
+	       :foreground ,green-2))))
+   `(term-color-magenta
+     ((,class (
+	       :background ,magenta-3
+	       :foreground ,magenta-3))))
+   `(term-color-red
+     ((,class (
+	       :background ,red-1
+	       :foreground ,red-1))))
+   `(term-color-white
+     ((,class (
+	       :background ,white-0
+	       :foreground ,white-0))))
+   `(term-color-yellow
+     ((,class (
+	       :background ,orange-2
+	       :foreground ,orange-2))))
+
+   ;; ido-mode
+   `(ido-first-match
+     ((,class (
+	       :foreground ,orange-2
+	       :bold t))))
+   `(ido-incomplete-regexp
+     ((,class (
+	       :foreground ,red-0
+	       :bold t))))
+   `(ido-indicator
+     ((,class (
+	       :foreground ,yellow-4
+	       :background ,orange-00))))
+   `(ido-only-match
+     ((,class (
+	       :foreground ,green-2
+	       :background nil))))
+   `(ido-subdir
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(ido-virtual
+     ((,class (
+	       :foreground ,magenta-3))))
+
+   ;; ivy-mode
+   `(ivy-current-match
+     ((,class (
+	       :foreground ,orange-2
+	       :bold t
+	       :inherit highlight))))
+   `(ivy-confirm-face
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-00
+	       :bold t))))
+   `(ivy-subdir
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(ivy-virtual
+     ((,class (
+	       :foreground ,magenta-3))))
+
+   `(ivy-minibuffer-match-face-1
+     ((,class (
+	       :background ,blue-1
+	       :foreground ,white-0))))
+   `(ivy-minibuffer-match-face-2
+     ((,class (
+	       :bold t
+	       :background ,green-2
+	       :foreground ,white-0))))
+   `(ivy-minibuffer-match-face-3
+     ((,class (
+	       :bold t
+	       :background ,magenta-2
+	       :foreground ,white-0))))
+   `(ivy-minibuffer-match-face-4
+     ((,class (
+	       :bold t
+	       :background ,cyan-3
+	       :foreground ,white-0))))
+
+   ;; swiper
+   `(swiper-match-face-1
+     ((,class (
+	       :background ,blue-1
+	       :foreground ,white-0))))
+   `(swiper-match-face-2
+     ((,class (
+	       :bold t
+	       :background ,green-2
+	       :foreground ,white-0))))
+   `(swiper-match-face-3
+     ((,class (
+	       :bold t
+	       :background ,magenta-2
+	       :foreground ,white-0))))
+   `(swiper-match-face-4
+     ((,class (
+	       :bold t
+	       :background ,cyan-3
+	       :foreground ,white-0))))
+   `(swiper-line-face
+     ((,class (
+	       :foreground ,orange-2
+	       :bold t
+	       :inherit highlight))))
+
+   ;; volatile-highlights
+   `(vhl/default-face
+     ((,class (
+	       :foreground ,black-3
+	       :background ,green-0))))
+
+   ;; notmuch
+   `(notmuch-search-unread-face
+     ((,class (
+	       :weight bold))))
+
+   ;; git-gutter (&-fringe)
+   `(git-gutter:added
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-0
+	       :bold t))))
+   `(git-gutter:deleted
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00
+	       :bold t))))
+   `(git-gutter:modified
+     ((,class (
+	       :foreground ,yellow-4
+	       :background ,yellow-0
+	       :bold t))))
+   `(git-gutter-fr+-added
+     ((,class (
+	       :foreground ,green-3))))
+   `(git-gutter-fr+-deleted
+     ((,class (
+	       :foreground ,red-1))))
+   `(git-gutter-fr+-modified
+     ((,class (
+	       :foreground ,yellow-4))))
+
+
+   ;; cfw: Calendar Framework
+   `(cfw:face-day-title
+     ((,class (
+	       :foreground ,white-0
+	       :background "#262626"))))
+   `(cfw:face-grid
+     ((,class (
+	       :foreground ,black-2))))
+   `(cfw:face-header
+     ((,class (
+	       :foreground ,white-1
+	       :background ,black-3
+	       :bold t))))
+   `(cfw:face-holiday
+     ((,class (
+	       :foreground ,purple-1
+	       :background "#262626"
+	       :bold t))))
+   `(cfw:face-saturday
+     ((,class (
+	       :foreground ,blue-01
+	       :background ,blue-3
+	       :bold t))))
+   `(cfw:face-select
+     ((,class (
+	       :foreground ,black-5
+	       :background ,blue-1))))
+   `(cfw:face-sunday
+     ((,class (
+	       :foreground ,red-00
+	       :background ,red-3
+	       :bold t))))
+   `(cfw:face-today
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-3))))
+   `(cfw:face-today-title
+     ((,class (
+	       :foreground ,white-0
+	       :background ,orange-2))))
+   `(cfw:face-toolbar
+     ((,class (
+	       :foreground ,white-1
+	       :background ,black-3))))
+   `(cfw:face-toolbar-button-off
+     ((,class (
+	       :foreground ,cyan-5
+	       :background ,black-3))))
+   `(cfw:face-toolbar-button-on
+     ((,class (
+	       :foreground ,red-1
+	       :background ,white-0))))
+
+   ;; Column marker
+   `(column-marker-1
+     ((,class (
+	       :background ,black-2-5))))
+   `(column-marker-2
+     ((,class (
+	       :background ,yellow-4))))
+   `(column-marker-3
+     ((,class (
+	       :background ,red-3))))
+
+   ;; Swoop
+   `(swoop-face-header-format-line
+     ((,class (
+	       :foreground ,black-6
+	       :background nil
+	       :underline nil))))
+   `(swoop-face-line-buffer-name
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-0))))
+   `(swoop-face-line-number
+     ((,class (
+	       :foreground "#87875f"
+	       :background "#d7d7af"))))
+   `(swoop-face-target-line
+     ((,class (
+	       :foreground ,yellow-1
+	       :background ,black-2-5))))
+   `(swoop-face-target-words
+     ((,class (
+	       :foreground ,magenta-1
+	       :background ,black-2-5
+	       :bold t))))
+   `(helm-swoop-target-line-block-face
+     ((,class (
+	       :foreground ,yellow-1
+	       :background ,black-3))))
+   `(helm-swoop-target-line-face
+     ((,class (
+	       :foreground ,yellow-1
+	       :background ,black-2-5))))
+   `(helm-swoop-target-word-face
+     ((,class (
+	       :foreground ,magenta-3
+	       :background ,magenta-0
+	       :bold t))))
+
+   ;; widget
+   `(widget-button
+     ((,class (
+	       :foreground ,blue-1
+	       :underline t
+	       :bold t))))
+   `(widget-button-pressed
+     ((,class (
+	       :foreground ,blue-0))))
+   `(widget-documentation
+     ((,class (
+	       :foreground ,green-1))))
+   `(widget-field
+     ((,class (
+	       :foreground ,green-0
+	       :background ,black-3))))
+   `(widget-inactive
+     ((,class (
+	       :foreground ,black-2))))
+   `(widget-single-line-field
+     ((,class (
+	       :foreground ,green-0
+	       :background ,black-3))))
+
+   ;; table
+   `(table-cell
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-3))))
+
+   ;; compilation
+   `(compilation-column-number
+     ((,class (
+	       :foreground ,green-2))))
+   `(compilation-error
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-0
+	       :bold t))))
+   `(compilation-info
+     ((,class (
+	       :foreground ,orange-2
+	       :background ,black-3))))
+   `(compilation-line-number
+     ((,class (
+	       :foreground ,blue-1))))
+   `(compilation-mode-line-exit
+     ((,class (
+	       :foreground ,green-4
+	       :background ,green-0
+	       :bold t))))
+   `(compilation-mode-line-fail
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00
+	       :bold t))))
+   `(compilation-mode-line-run
+     ((,class (
+	       :foreground ,orange-4
+	       :background ,orange-00
+	       :bold t))))
+   `(compilation-warning
+     ((,class (
+	       :foreground ,orange-3))))
+
+   ;; Neotree
+   `(neo-banner-face
+     ((,class (
+	       :foreground ,green-3
+	       :background nil))))
+   `(neo-header-face
+     ((,class (
+	       :foreground ,green-1
+	       :background nil))))
+   `(neo-root-dir-face
+     ((,class (
+	       :foreground ,magenta-1))))
+   `(neo-button-face
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(neo-dir-link-face
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(neo-expand-btn-face
+     ((,class (
+	       :foreground ,blue-1
+	       :background ,black-2-5))))
+   `(neo-file-link-face
+     ((,class (
+	       :foreground ,white-1))))
+
+   ;; info
+   `(info-header-node
+     ((,class (
+	       :foreground ,magenta-2
+	       :bold t))))
+   `(info-header-xref
+     ((,class (
+	       :foreground ,blue-1
+	       :background nil
+	       :bold t))))
+   `(info-index-match
+     ((,class (
+	       :background ,blue-3))))
+   `(info-menu-header
+     ((,class (
+	       :foreground ,white-0
+	       :bold t
+	       :underline t))))
+   `(info-menu-star
+     ((,class (
+	       :foreground ,red-1))))
+   `(info-node
+     ((,class (
+	       :foreground ,red-3))))
+   `(info-title-1
+     ((,class (
+	       :foreground ,blue-1
+	       :bold t))))
+   `(info-title-2
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(info-title-3
+     ((,class (
+	       :foreground ,orange-2
+	       :bold t))))
+   `(info-title-4
+     ((,class (
+	       :foreground ,magenta-2
+	       :bold t))))
+   `(info-xref
+     ((,class (
+	       :foreground ,blue-1
+	       :underline t))))
+   `(info-xref-visited
+     ((,class (
+	       :foreground ,purple-1
+	       :underline t))))
+
+   ;; Tuareg
+   `(tuareg-font-lock-error-face
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00
+	       :bold t))))
+   `(tuareg-font-lock-governing-face
+     ((,class (
+	       :foreground ,white-1
+	       :bold t))))
+   `(tuareg-font-lock-interactive-error-face
+     ((,class (
+	       :foreground ,red-3
+	       :background ,red-00
+	       :bold t))))
+   `(tuareg-font-lock-interactive-output-face
+     ((,class (
+	       :foreground ,blue-3))))
+   `(tuareg-font-lock-multistage-face
+     ((,class (
+	       :foreground ,blue-3
+	       :background ,blue-0))))
+   `(tuareg-font-lock-operator-face
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+
+   ;; CPerl
+   `(cperl-array-face
+     ((,class (
+	       :foreground ,blue-01
+	       :background ,blue-3))))
+   `(cperl-hash-face
+     ((,class (
+	       :foreground ,orange-0
+	       :background ,red-4))))
+   `(cperl-nonoverridable-face
+     ((,class (
+	       :foreground ,green-01
+	       :background ,green-5))))
+
+   ;; Haskell
+   `(haskell-interactive-face-compile-error
+     ((,class (
+	       :foreground ,red-0
+	       :background nil
+	       :bold t))))
+   `(haskell-interactive-face-compile-warning
+     ((,class (
+	       :foreground ,orange-2
+	       :background nil
+	       :bold t))))
+   `(haskell-interactive-face-garbage
+     ((,class (
+	       :foreground ,black-2))))
+   `(haskell-interactive-face-prompt
+     ((,class (
+	       :foreground ,green-01
+	       :background ,black-2-5
+	       :bold t))))
+   `(haskell-interactive-face-result
+     ((,class (
+	       :foreground ,blue-1))))
+
+   ;; EMMS
+   `(emms-state-current-playing-time
+     ((,class (
+	       :foreground ,blue-3
+	       :bold t))))
+   `(emms-state-total-playing-time
+     ((,class (
+	       :foreground ,blue-3))))
+   `(emms-playlist-selected-face
+     ((,class (
+	       :foreground ,green-2
+	       :bold t))))
+   `(emms-playlist-track-face
+     ((,class (
+	       :foreground ,cyan-5))))
+
+
+   ;; tty-menu
+   `(menu
+     ((,class (
+	       :foreground ,black-1
+	       :background ,black-3))))
+   `(tty-menu-disabled-face
+     ((,class (
+	       :foreground ,black-2-5
+	       :background ,black-3))))
+   `(tty-menu-enabled-face
+     ((,class (
+	       :foreground ,white-0
+	       :background ,black-3
+	       :bold t))))
+   `(tty-menu-selected-face
+     ((,class (
+	       :background ,blue-3))))
+
+   ;; web-mode
+   `(web-mode-comment-face
+     ((,class (
+	       :foreground ,black-2-5))))
+   `(web-mode-current-element-highlight-face
+     ((,class (
+	       :background ,black-3))))
+   `(web-mode-current-column-highlight-face
+     ((,class (
+	       :background ,black-3))))
+   `(web-mode-symbol-face
+     ((,class (
+	       :foreground ,yellow-2))))
+   `(web-mode-type-face
+     ((,class (
+	       :foreground ,cyan-3))))
+
+   ;; Custom
+   `(custom-button
+     ((,class (
+	       :background ,blue-0
+	       :foreground ,blue-3
+
+	       :box (
+		     :line-width 1
+		     :style released-button)))))
+   `(custom-button-mouse
+     ((,class (
+	       :background ,blue-00
+	       :foreground ,black-3
+
+	       :box (
+		     :line-width 1
+		     :style released-button)))))
+   `(custom-button-pressed
+     ((,class (
+	       :foreground ,black-3
+	       :background ,white-1
+
+	       :box (
+		     :line-width 1
+		     :style pressed-button)))))
+
+   ;; Hydra
+   `(hydra-face-red
+     ((,class (
+	       :foreground ,red-0))))
+   `(hydra-face-blue
+     ((,class (
+	       :foreground ,blue-1))))
+   `(hydra-face-amaranth
+     ((,class (
+	       :foreground ,magenta-2))))
+
+   ;; rpm-spec-mode
+   `(rpm-spec-tag-face
+     ((,class (
+	       :foreground ,blue-1))))
+   `(rpm-spec-obsolete-tag-face
+     ((,class (
+	       :foreground ,white-0
+	       :bold t
+	       :background ,red-2))))
+   `(rpm-spec-macro-face
+     ((,class (
+	       :foreground ,yellow-2))))
+   `(rpm-spec-var-face
+     ((,class (
+	       :foreground ,purple-1))))
+   `(rpm-spec-doc-face
+     ((,class (
+	       :foreground ,magenta-2))))
+   `(rpm-spec-dir-face
+     ((,class (
+	       :foreground ,green-2))))
+   `(rpm-spec-package-face
+     ((,class (
+	       :foreground ,red-0))))
+   `(rpm-spec-ghost-face
+     ((,class (
+	       :foreground ,red-0))))
+   `(rpm-spec-section-face
+     ((,class (
+	       :foreground ,yellow-2)))))
+
+  (custom-theme-set-variables
+   'my-moe-dark
+   `(ansi-color-names-vector [,black-5 ,red-0 ,green-0 ,yellow-1
+				       ,blue-1 ,purple-1 ,blue-0 ,white-1]))
+
+
+  ;; Rainbow-indents
+  (dotimes (i 9)
+    (make-face (intern (concat "rainbow-indent-depth-"
+			       (number-to-string (+ i 1))
+			       "-face"))))
+
+  (if window-system
+      (progn
+	(defvar highlight-indent-guides-character ?\x0020 "make it a space.")
+	(setq-default highlight-indent-guides-character ?\x0020)
+	(let*
+	    ((char-width (frame-char-width (selected-frame)))
+	     (hl-stipple (if (> char-width 8)
+			     (list char-width 4 (string 1 1 1 1 1 1 1 1))
+			   (list char-width 4 (string 1 1 1 1)))))
+	  (set-face-attribute 'highlight-indent-guides-top-character-face nil
+			      :stipple hl-stipple
+			      :foreground blue-0
+			      :bold t)
+	  (dotimes (i 9)
+	    (set-face-attribute
+	     (intern (concat "rainbow-indent-depth-"
 			     (number-to-string (+ i 1))
-			     "-face"))))
-
-(if window-system
-    (progn
-      (setq highlight-indent-guides-character ?\x0020)
-
-     (let*
-	 ((char-width (frame-char-width (selected-frame)))
-	  (hl-stipple (if (> char-width 8)
-			  (list char-width 4 (string 1 1 1 1 1 1 1 1))
-			(list char-width 4 (string 1 1 1 1)))))
-       (set-face-attribute! 'highlight-indent-guides-top-character-face nil
-			   :stipple hl-stipple
-			   :foreground blue-0)
-       (dotimes (i 9)
-	 (set-face-attribute!
-	  (intern (concat "rainbow-indent-depth-"
-			  (number-to-string (+ i 1))
-			  "-face"))
-	  nil
-	  :inherit
-	  (intern (concat "rainbow-delimiters-depth-"
-			  (number-to-string (+ i 1))
-			  "-face"))
-	  :stipple hl-stipple)))))
+			     "-face"))
+	     nil
+	     :inherit
+	     (intern (concat "rainbow-delimiters-depth-"
+			     (number-to-string (+ i 1))
+			     "-face"))
+	     :stipple hl-stipple)))))
 
 
-(if (not window-system)
-    (progn
-      (dotimes (i 9)
-	(set-face-attribute!
-	 (intern (concat "rainbow-indent-depth-"
-			 (number-to-string (+ i 1))
-			 "-face"))
-	 nil
-	 :inherit
-	 (intern (concat "rainbow-delimiters-depth-"
-			 (number-to-string (+ i 1))
-			 "-face"))
-	 :stipple nil))))
+  (if (not window-system)
+      (progn
+	(dotimes (i 9)
+	  (set-face-attribute
+	   (intern (concat "rainbow-indent-depth-"
+			   (number-to-string (+ i 1))
+			   "-face"))
+	   nil
+	   :inherit
+	   (intern (concat "rainbow-delimiters-depth-"
+			   (number-to-string (+ i 1))
+			   "-face"))
+	   :stipple nil)))))
 
 (provide-theme 'my-moe-dark)
+
+;; (fringe-helper-define 'git-gutter-fr+-added nil
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX..")
+
+;; (fringe-helper-define 'git-gutter-fr+-deleted nil
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX..")
+
+;; (fringe-helper-define 'git-gutter-fr+-modified nil
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX.."
+;;   "..XXXX..")
+
+(fringe-helper-define 'git-gutter-fr+-added nil
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "XXXXXXXX"
+  "XXXXXXXX"
+  "...XX..."
+  "...XX..."
+  "...XX...")
+
+(fringe-helper-define 'git-gutter-fr+-deleted nil
+  "........"
+  "........"
+  "........"
+  "XXXXXXXX"
+  "XXXXXXXX"
+  "........"
+  "........"
+  "........")
+
+(fringe-helper-define 'git-gutter-fr+-modified nil
+  "........"
+  "XX......"
+  ".XX....."
+  "..XX...."
+  "...XX..."
+  "....XX.."
+  ".....XX."
+  "......XX"
+  "........")
+
+
+;; Local Variables:
+;; no-byte-compile:
+;; End:
+
+;;; my-moe-dark-theme.el ends here

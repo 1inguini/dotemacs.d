@@ -3,7 +3,7 @@
 
 !/init.el
 !/theme/
-!/my-lisp/
+!/mylisp/
 !/snippets/
 !/.gitignore
 !/.git/

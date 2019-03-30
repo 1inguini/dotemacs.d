@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: foreign import c
+# key: ccall
+# --
+
+foreign import ccall "${1:mylib}.h $2" c_$2:: $3IO ${4:()}
+$0

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: atcoder
+# key: atcoder
+# --
+fn main() {
+    use std::io::{stdin, Read};
+    let input = String::new();
+    stdin().read_to_string(&mut input).expect("read_to_string");
+    $0
+}

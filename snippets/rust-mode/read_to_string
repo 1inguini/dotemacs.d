@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: read_to_string
+# key: reast
+# --
+
+stdin().read_to_string(&mut ${1:input})${0:.expect("${2:read_to_string}")}

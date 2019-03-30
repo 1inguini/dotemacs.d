@@ -1,0 +1,39 @@
+;; package --- Summary
+;;; Commentary:
+;;; Code:
+
+(require #'pcre2el)
+(require #'ov)
+(require #'m-buffer)
+(require #'s)
+
+(setq spaces-to-show (pcre-to-elisp "^ +| +$|\t +| +\t"))
+(setq space-indicator "·")
+(setq show-space-ov '())
+
+(defun show-space-write ()
+  (interactive)
+  "whitespace with char instead of highlight"
+  (dolist (i (m-buffer-match (current-buffer)
+			     spaces-to-show ;; a regexp string
+			     :numeric t))
+    (setq-local $substrings
+		(buffer-substring-no-properties (nth 0 i)
+						(nth 1 i)))
+    (if (s-match (pcre-to-elisp "^\t") $substrings)
+	(setcar i (+ 1 (nth 0 i))))
+    (if (s-match (pcre-to-elisp "(\t)$") $substrings)
+	(setcar (cdr i) (+ 1 (nth 1 i))))
+    (add-to-list 'show-space-ov
+		 (ov (nth 0 i) (nth 1 i)
+		     'display
+		     (apply #'concat
+			    (make-list (- (nth 1 i) (nth 0 i))
+				       space-indicator))))))
+
+
+(defun show-space-reset ()
+  (interactive)
+  (dolist (i show-space-ov) (ov-reset i))
+  )
+

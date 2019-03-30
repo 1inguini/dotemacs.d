@@ -1,0 +1,3 @@
+[submodule "mylisp/company-mlton"]
+	path = mylisp/company-mlton
+	url = https://github.com/MatthewFluet/company-mlton.git

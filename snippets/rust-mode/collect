@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: collect
-# key: collect
-# --
-
-.collect::${2:<Vec<${1:&str}>>}()

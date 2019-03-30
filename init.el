@@ -7,31 +7,13 @@
 ;;   (setq user-emacs-directory
 ;;	(file-name-directory
 ;;	 load-file-name)))
-(require  #'package)
-(setq package-enable-at-startup nil)
-;; MELPAを追加
-(add-to-list  #'package-archives #'("melpa" . "https://melpa.org/packages/") t)
-;; MELPA-stableを追加
-(add-to-list  #'package-archives #'("melpa-stable" . "https://stable.melpa.org/packages/") t)
-;; Marmaladeを追加
-(add-to-list  #'package-archives  #'("marmalade" . "http://marmalade-repo.org/packages/") t)
-;; Orgを追加
-(add-to-list  #'package-archives #'("org" . "http://orgmode.org/elpa/") t)
-;; emacswikiを追加
-;; (add-to-list  #'package-archives #'("emacswiki" . "http://www.emacswiki.org/emacs/download/") t)
-
-(setq package-check-signature nil)
-;;初期化
-(package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/mylisp")
 
-(load-file
- "~/.emacs.d/packages.el")
+(load-file "~/.emacs.d/packages.el")
 
 
-(set-language-environment
- "Japanese")
+(set-language-environment "Japanese")
 
 (prefer-coding-system 'utf-8)
 (setq coding-system-for-read
@@ -73,6 +55,14 @@
 (require #'tuareg)
 (require #'merlin)
 (require #'merlin-eldoc)
+(add-to-list 'load-path "~/.emacs.d/mylisp/company-mlton")
+(require #'company-mlton)
+(require #'lsp-mode)
+(require #'lsp-haskell)
+(require #'lsp-ui)
+(add-to-list 'load-path "/home/linguini/my-repo/source/llvm/llvm/llvm/utils/emacs")
+(require #'llvm-mode)
+(require #'tablegen-mode)
 
 (if window-system
     (progn
@@ -80,6 +70,8 @@
       (require #'exwm-randr)
       ;; (require #'gpastel)
       ))
+
+(exec-path-from-shell-initialize)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (setq custom-safe-themes t)
@@ -181,8 +173,34 @@
 
 (load "flycheck-smlsharp.el")
 
+
+(require 'flycheck)
+
 (font-lock-add-keywords 'sml-mode
 			'(("|" . 'font-lock-keyword-face)))
+
+(defun my-company-mlton-init ()
+  "Initializes company-mlton backend.
+Makes variable `company-backends' buffer local, pushes
+`company-mlton-grouped-backend' (consisting of
+`company-mlton-keyword' and `company-mlton-basis') to it, calls
+`company-mlton-basis-autodetect', and enables `company-mode'.
+This function is suitable for adding to `sml-mode-hook'."
+  (interactive)
+  (setq-local company-backends
+	      '((company-yasnippet :with
+				   company-mlton-grouped-backend
+				   company-lua
+				   company-dabbrev
+				   company-files
+				   company-dabbrev-code
+				   company-gtags
+				   company-etags
+				   company-keywords)))
+  (company-mlton-basis-autodetect))
+
+(add-hook 'sml-mode-hook #'my-company-mlton-init)
+
 
 (defun my-c-mode-common-hook ()
   "."
@@ -300,6 +318,38 @@
 (add-hook 'racer-mode-hook #'company-mode)
 (setq company-tooltip-align-annotations t)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
+;; (add-hook 'haskell-mode-hook #'lsp)
+
+;; (add-hook 'haskell-mode-hook #'haskell-interactive-mode)
+(setq haskell-stylish-on-save t)
+
+
+(setq lsp-print-io t)
+
+(setq lsp-haskell-process-path-hie "hie-wrapper")
+
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-tramp-connection "hie-wrapper")
+                  :major-modes '(haskell-mode)
+                  :remote? t
+                  :server-id 'hie-wrapper))
+
+(setq lsp-prefer-flymake nil)
+
+(add-hook 'lsp-mode-hook 'my-lsp-company-init)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+(defun my-lsp-company-init ()
+  (setq-local company-backends
+	      '((company-yasnippet :with
+				   company-lsp
+				   company-dabbrev
+				   company-files
+				   company-dabbrev-code
+				   company-gtags
+				   company-etags
+				   company-keywords))))
 
 
 (defun my-arduino-mode-company-init ()
@@ -738,7 +788,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 
 (general-define-key
  :keymaps 'global-map
- "<delete>" 'smart-hungry-delete-forrward-char
+ "<delete>" 'smart-hungry-delete-forward-char
  "<backspace>" 'smart-hungry-delete-backward-char
  "C-x" 'Control-X-prefix
  "C-\\" 'mozc-mode
@@ -815,11 +865,6 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 
 
 (general-define-key
- :keymaps 'ivy-minibuffer-map
- "M-<tab>" 'next-line
- "M-<iso-lefttab>" 'previous-line)
-
-(general-define-key
  :keymaps 'ctl-x-map
  "C-b" 'swiper-multi
  "t" 'universal-argument
@@ -830,12 +875,16 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  ;; "M-j" 'skk-mode
  "M-o" 'exwm-workspace-switch)
 
-
 (general-define-key
  :keymaps 'mode-specific-map
  "<left>" 'winner-undo
  "<right>" 'winner-redo)
 
+(general-define-key
+ :keymaps 'ivy-minibuffer-map
+ "<backspace>" 'ivy-backward-delete-char
+ "M-<tab>" 'next-line
+ "M-<iso-lefttab>" 'previous-line)
 
 (general-define-key
  :keymaps 'swiper-map
@@ -897,6 +946,9 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 
 ;; (setq undo-tree-auto-save-history t)
 (desktop-save-mode t)
+
+(server-start)
+
 (if window-system
     (progn
       ;; ←GUI用設定を、ここに記述
@@ -986,8 +1038,8 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
       (setq exwm-randr-workspaoce-output-plist '(0 "HDMI-0" 1  "HDMI1" 2 "DP1"))
       (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
       (remove-hook 'exwm-randr-screen-change-hook
-		(lambda ()
-		  (start-process-shell-command "bash" nil "bash ~/.screenlayout/default.sh")))))
+		   (lambda ()
+		     (start-process-shell-command "bash" nil "bash ~/.screenlayout/default.sh")))))
 
 (if (not window-system)
     (progn
@@ -1057,7 +1109,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(org-agenda-window-setup (quote current-window))
  '(package-selected-packages
    (quote
-    (smart-hungry-delete smart-hungry-mode sml-mode dune merlin-eldoc flycheck-ocaml merlin tuareg company-arduino arduino-mode rainbow-mode undo-tree winum telephone-line lispxmp xah-replace-pairs flycheck-nim fcitx lsp-mode clang-format shackle calfw-ical calfw calfw-cal calfw-org diminish eldoc-eval doom-modeline magit elein elien clj-refactor cider CIDER all-the-icons m-buffer ov el-doc pcre2el swiper flx markdown-mode pyvenv highlight-indentation find-file-in-project auto-complete jedi-core python-environment epc ctable concurrent deferred popup pos-tip pkg-info epl f dash s memoize quelpa package yasnippet yasnippet-snippets layout-restore poet-theme neotree all-the-icons-dired all-the-icons-ivy htmlize gpastel ivy-rich company-statistics switch-window rust-mode ace-window flycheck-pos-tip flycheck-popup-tip flycheck-rust racer cargo elpy flycheck indent-guide-mode pipenv company-lua lua-mode auto-virtualenvwrapper virtualenvwrapper virtalenvwrapper flymake-python company-jedi py-autopep8 jedi counsel-jedi yaml-mode review-mode add-hooks ddskk exwm-edit org-plus-contrib nix-mode adaptive-wrap mozc company-quickhelp company-quickhelp-mode company-flx company smex mozc-mode moe leuven-theme leuven leaven uimage auto-sudoedit w3m general counsel avy winner exwm-surf winner-mode rainbow-delimiters dired-toggle-sudo dired-atool multi-term multiple-cursors which-key ivy moe-theme smartparens helm 0blayout exwm-x)))
+    (yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics undo-tree counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel)))
  '(projectile-mode t nil (projectile))
  '(rust-always-locate-project-on-open t)
  '(skk-jisyo-edit-user-accepts-editing t)
@@ -1079,6 +1131,10 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  ;; If there is more than one, they won't work right.
  )
 
+
+(setq package-selected-packages (append my-common-packages
+					my-gui-packages
+					my-cui-packages))
 
 (put 'dired-find-alternate-file 'disabled
      nil)

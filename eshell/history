@@ -1,7 +1,0 @@
-micro
-micro
-emacs
-micro
-TERM=xterm-256color micro init.el
-micro init.el
-nano

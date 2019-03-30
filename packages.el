@@ -3,16 +3,27 @@
 ;;; Code:
 
 (require  #'package)
-;; MELPAを追加
-(add-to-list  #'package-archives #'("melpa" . "https://melpa.org/packages/") t)
-;; MELPA-stableを追加
-(add-to-list  #'package-archives #'("melpa-stable" . "https://stable.melpa.org/packages/") t)
-;; Marmaladeを追加
-(add-to-list  #'package-archives  #'("marmalade" . "http://marmalade-repo.org/packages/") t)
-;; Orgを追加
-(add-to-list  #'package-archives #'("org" . "http://orgmode.org/elpa/") t)
-;; emacswikiを追加
-;; (add-to-list  #'package-archives #'("emacswiki" . "http://www.emacswiki.org/emacs/download/") t)
+
+(setq package-archives
+      '(
+	("elpa" . "https://elpa.gnu.org/packages/")
+	;; MELPAを追加
+	("melpa" . "https://melpa.org/packages/")
+	;; MELPA-stableを追加
+	("melpa-stable" . "https://stable.melpa.org/packages/")
+	;; Marmaladeを追加
+	("marmalade" . "http://marmalade-repo.org/packages/")
+	;; Orgを追加
+	("org" . "http://orgmode.org/elpa/")
+	;; emacswikiを追加
+	("emacswiki" . "http://www.emacswiki.org/emacs/download/"))
+
+      package-archive-priorities
+      '(("elpa" . 15)
+	("melpa-stable" . 10)
+	("melpa" . 5)
+	("marmalade" . 1)
+	("org" . 0)))
 
 (setq package-check-signature nil)
 ;;初期化
@@ -21,11 +32,18 @@
 ;; packages to be installed in both gui and cui
 (setq my-gui-packages
       ;; packages to be installed only in gui
-      #'(exwm gpastel))
+      #'(exwm
+	 gpastel))
 
-
-
-(setq my-common-packages #'(smart-hungry-delete
+(setq my-common-packages #'(yaml-mode
+			    exec-path-from-shell
+			    lsp-mode
+			    lsp-ui
+			    company-lsp
+			    lsp-haskell
+			    haskell-mode
+			    haskell-snippets
+			    smart-hungry-delete
 			    sml-mode
 			    dune
 			    flycheck-ocaml

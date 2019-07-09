@@ -3,8 +3,8 @@
 
 !/init.el
 !/packages.el
-!/themes
-!/mylisp
-!/snippets
+!/themes/
+!/mylisp/
+!/snippets/
 !/.gitignore
-!/.git
+!/.git/

@@ -63,26 +63,148 @@
 (add-to-list 'load-path "/home/linguini/my-repo/source/llvm/llvm/llvm/utils/emacs")
 (require #'llvm-mode)
 (require #'tablegen-mode)
+(add-to-list 'load-path "~/.emacs.d/mylisp/undo-tree")
+(require #'undo-tree)
 
 (if window-system
     (progn
+      (require #'xcb)
       (require #'exwm)
       (require #'exwm-randr)
-      ;; (require #'gpastel)
+      (require #'exwm-config)
+      (require #'gpastel)
       ))
+
+(if window-system
+    (progn
+      ;; ←GUI用設定を、ここに記述
+      ;;(package-install #'exwm-x); ; (require 'exwmx-sendstring)
+      ;;(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
+      ;; set exwm buffer name according to application
+      (defun exwm-rename-buffer-to-title ()
+	(exwm-workspace-rename-buffer exwm-title))
+      (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
+      (setq exwm-workspace-number 3)
+      ;; (require 'exwm-systemtray)
+      ;; (exwm-systemtray-enable)
+
+      ;;(add-hook 'exwm-randr-screen-change-hook;;           (lambda ()
+      ;;             (async-shell-command
+      ;;	     "
+      ;; ")))
+      ;; (package-install  #'exwm-edit)
+      ;; (require #'exwm-edit)
+      (defun gpastel-exwm-counsel-yank-pop ()
+	"Same as `counsel-yank-pop' and paste into exwm buffer."
+	(interactive)
+	(let ((inhibit-read-only t)
+	      ;; Make sure we send selected yank-pop candidate to
+	      ;; clipboard:
+	      (yank-pop-change-selection t))
+	  (call-interactively #'counsel-yank-pop))
+	(when (derived-mode-p 'exwm-mode)
+	  ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
+	  (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
+	  ;; (exwm-input--fake-key ?\C-v)
+	  ))
+      
+      (exwm-input-set-key (kbd "M-y")
+			  #'gpastel-exwm-counsel-yank-pop)
+      (exwm-input-set-key (kbd "M-y")
+			  #'gpastel-exwm-counsel-yank-pop)
+      ;; (gpastel-mode -1)
+
+
+      ;; (set-fontset-font (frame-parameter nil #'font)
+      ;;			#'unicode
+      ;;			(font-spec :family "Inconsolata"
+      ;;				   :size 14))
+
+      ;; (set-face-attribute 'default nil :family "inconsolata" :height 160)
+
+      (setq japanese-fonts "UmeGothic")
+      (setq font-size 12)
+
+      (set-fontset-font nil
+			#'ascii
+			(font-spec :family "inconsolata"
+				   :size font-size))
+
+
+					; 半角ｶﾅ設定
+      (set-fontset-font nil
+			;; (frame-parameter nil #'font)
+			#'katakana-jisx0201
+			(font-spec :family japanese-fonts
+				   :size font-size))
+
+					; 全角かな設定
+      (set-fontset-font nil
+			;; (frame-parameter nil #'font)
+			#'japanese-jisx0208
+			(font-spec :family japanese-fonts
+				   :size font-size))
+
+      ;;ずれ確認用
+      ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+      ;; 0123456789012345678901234567890123456789
+      ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+      ;; あいうえおあいうえおあいうえおあいうえお
+      ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
+      ;; (add-hook 'kill-emacs-hook
+      ;;		(lambda ()
+      ;;		  (window-configuration-to-register ?1)
+      ;;		  (save-buffer-kill-emacs)))
+
+      ;; (diff-hl-mode t)
+      ;; (diff-hl-margin-mode -1)
+
+      (setq exwm-debug-on nil)
+      (add-to-list 'exwm-manage-configurations '((equal exwm-class-name "Slack") managed t))
+      (setq switch-window-shortcut-appearance 'text)
+      ;; (fringe-mode '(nil . 0))ini
+      (setq exwm-randr-workspaoce-output-plist '(
+						 0 "HDMI1"
+						 1  "HDMI-0"
+						 ;; 2 "DP1"
+						 ))
+      ;; (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
+      (add-hook 'exwm-randr-screen-change-hook
+		(lambda ()
+       		  (start-process-shell-command "sh" nil "sh ~/.screenlayout/default.sh")))
+      (add-hook 'exwm-randr-screen-change-hook #'cce/refresh-display-scale)
+      ;; (exwm-enable)
+      (exwm-randr-enable)
+      ))
+
+(if (not window-system)
+    (progn
+      ;; ←CUI用設定を、ここに記述
+      ;; (diff-hl-margin-mode)
+
+      (setq switch-window-shortcut-appearance
+	    'asciiart)))
+(if (not window-system)
+    (progn
+      ;; ←CUI用設定を、ここに記述
+      ;; (diff-hl-margin-mode)
+
+      (setq switch-window-shortcut-appearance
+	    'asciiart)))
+
 
 (exec-path-from-shell-initialize)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (setq custom-safe-themes t)
+;; (load-theme 'tango-dark t)
 (load-theme 'my-moe-dark t)
-
 
 ;; Turn on `display-time-mode' if you don't use an external bar.
 (setq display-time-default-load-average nil)
 (display-time-mode nil)
 
-(menu-bar-mode -1)
+(menu-bar-mode t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -163,7 +285,7 @@
 
 ;; (flycheck-define-checker smlsharp
 ;;   "A SMLsharp syntax checker using the `SMLsharp -ftype-only` command."
-  
+
 ;;   :command ("smlsharp" "-ftypecheck-only" source)
 ;;   :error-patterns
 ;;   ((error line-start (file-name) ":" line "." column "-" line "." column " Error:\n"
@@ -323,7 +445,37 @@ This function is suitable for adding to `sml-mode-hook'."
 
 ;; (add-hook 'haskell-mode-hook #'haskell-interactive-mode)
 (setq haskell-stylish-on-save t)
+;; フックを設定
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
+(add-hook 'haskell-mode-hook 'haskell-doc-mode)
+;; (add-hook 'haskell-mode-hook 'view-mode)
 
+(setq haskell-process-type 'stack-ghci)
+(setq haskell-process-path-ghci "stack")
+(setq haskell-process-args-ghci "ghci")
+(setq haskell-mode-stylish-haskell-path "~/.local/bin/stylish-haskell")
+
+(defun haskell-underscore-to-camelcase ()
+  (interactive)
+  (let* ((bounds (bounds-of-thing-at-point 'symbol))
+         (symb (buffer-substring-no-properties (car bounds) (cdr bounds)))
+         (rep-func '(lambda (str)
+                      (if (not (= 2 (length str)))
+                          str
+                        (let ((listed (mapcar 'char-to-string
+                                              (string-to-list str))))
+                          (upcase (cadr listed)))))))
+    (save-restriction
+      (when (and symb
+                 (<= 2 (length symb)))
+
+        (narrow-to-region (car bounds) (cdr bounds))
+        (delete-region (point-min) (point-max))
+        (insert (replace-regexp-in-string "\\(_[a-zA-Z]\\)" rep-func symb))
+        (goto-char (cdr bounds))
+        ))))
 
 (setq lsp-print-io t)
 
@@ -432,8 +584,8 @@ This function is suitable for adding to `sml-mode-hook'."
 			(- rainbow-delimiters-max-face-count
 			   rainbow-delimiters-outermost-only-face-count)))))
 	     "-face")))
-												       ((eq responsive 'top)
-													'highlight-indent-guides-top-character-face)))
+   ((eq responsive 'top)
+    'highlight-indent-guides-top-character-face)))
 
 
 (setq highlight-indent-guides-highlighter-function 'rainbow-indent-highlighter)
@@ -808,7 +960,8 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  ;; "C-b" 'previous-buffer
  "M-<left>" 'backward-word
  "M-<right>" 'forward-word
- "TAB" 'company-indent-or-complete-common)
+ "<backtab>" 'company-indent-or-complete-common
+ "TAB" 'self-insert-command)
 
 (general-define-key
  :keymaps 'gpastel-mode-map
@@ -855,7 +1008,8 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 (general-define-key
  :keymaps 'uim-mode-map
  "ESC" nil
- "M-m" 'Control-X-prefix)
+ "M-m" 'Control-X-prefix
+ "C-h" nil)
 
 
 ;; (general-define-key
@@ -949,106 +1103,6 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 
 (server-start)
 
-(if window-system
-    (progn
-      ;; ←GUI用設定を、ここに記述
-      ;;(package-install #'exwm-x); ; (require 'exwmx-sendstring)
-      ;;(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
-      ;; set exwm buffer name according to application
-      (defun exwm-rename-buffer-to-title ()
-	(exwm-workspace-rename-buffer exwm-title))
-      (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
-      (setq exwm-workspace-number 3)
-      ;; (require 'exwm-systemtray)
-      ;; (exwm-systemtray-enable)
-      (exwm-randr-enable)
-
-      ;;(add-hook 'exwm-randr-screen-change-hook;;           (lambda ()
-      ;;             (async-shell-command
-      ;;	     "
-      ;; ")))
-      ;; (package-install  #'exwm-edit)
-      ;; (require #'exwm-edit)
-      (defun gpastel-exwm-counsel-yank-pop ()
-	"Same as `counsel-yank-pop' and paste into exwm buffer."
-	(interactive)
-	(let ((inhibit-read-only t)
-	      ;; Make sure we send selected yank-pop candidate to
-	      ;; clipboard:
-	      (yank-pop-change-selection t))
-	  (call-interactively #'counsel-yank-pop))
-	(when (derived-mode-p 'exwm-mode)
-	  ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
-	  (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
-	  ;; (exwm-input--fake-key ?\C-v)
-	  ))
-      
-      (exwm-input-set-key (kbd "M-y")
-			  #'gpastel-exwm-counsel-yank-pop)
-      (exwm-input-set-key (kbd "M-y")
-			  #'gpastel-exwm-counsel-yank-pop)
-      ;; (gpastel-mode -1)
-
-
-      ;; (set-fontset-font (frame-parameter nil #'font)
-      ;;			#'unicode
-      ;;			(font-spec :family "Inconsolata"
-      ;;				   :size 14))
-
-      ;; (set-face-attribute 'default nil :family "inconsolata" :height 160)
-
-      (setq japanese-fonts "UmeGothic")
-
-      (set-fontset-font nil
-			#'ascii
-			(font-spec :family "inconsolata"
-				   :size 12))
-
-
-					; 半角ｶﾅ設定
-      (set-fontset-font nil
-			;; (frame-parameter nil #'font)
-			#'katakana-jisx0201
-			(font-spec :family japanese-fonts
-				   :size 12))
-
-					; 全角かな設定
-      (set-fontset-font nil
-			;; (frame-parameter nil #'font)
-			#'japanese-jisx0208
-			(font-spec :family japanese-fonts
-				   :size 12))
-
-      ;;ずれ確認用
-      ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-      ;; 0123456789012345678901234567890123456789
-      ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
-      ;; あいうえおあいうえおあいうえおあいうえお
-      ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
-      ;; (add-hook 'kill-emacs-hook
-      ;;		(lambda ()
-      ;;		  (window-configuration-to-register ?1)
-      ;;		  (save-buffer-kill-emacs)))
-
-      ;; (diff-hl-mode t)
-      ;; (diff-hl-margin-mode -1)
-
-      (setq switch-window-shortcut-appearance 'text)
-      ;; (fringe-mode '(nil . 0))
-      (setq exwm-randr-workspaoce-output-plist '(0 "HDMI-0" 1  "HDMI1" 2 "DP1"))
-      (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
-      (remove-hook 'exwm-randr-screen-change-hook
-		   (lambda ()
-		     (start-process-shell-command "bash" nil "bash ~/.screenlayout/default.sh")))))
-
-(if (not window-system)
-    (progn
-      ;; ←CUI用設定を、ここに記述
-      ;; (diff-hl-margin-mode)
-
-      (setq switch-window-shortcut-appearance
-	    'asciiart)))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -1099,7 +1153,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(ivy-height 40)
  '(ivy-height-alist nil)
  '(ivy-rich-mode t)
- '(line-spacing 0.2)
+ '(line-spacing 0.1)
  '(lispy-compat (quote (edebug cider)))
  '(lispy-eval-display-style (quote overlay))
  '(magit-log-arguments (quote ("-n256" "--graph" "--decorate" "--color")))
@@ -1109,7 +1163,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(org-agenda-window-setup (quote current-window))
  '(package-selected-packages
    (quote
-    (yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics undo-tree counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel)))
+    (yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel)))
  '(projectile-mode t nil (projectile))
  '(rust-always-locate-project-on-open t)
  '(skk-jisyo-edit-user-accepts-editing t)

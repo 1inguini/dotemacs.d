@@ -109,7 +109,7 @@
 			    company
 			    company-flx
 			    company-statistics
-			    undo-tree
+			    ;; undo-tree
 			    counsel
 			    smex
 			    ivy-rich

@@ -1,3 +1,6 @@
 [submodule "mylisp/company-mlton"]
 	path = mylisp/company-mlton
 	url = https://github.com/MatthewFluet/company-mlton.git
+[submodule "mylisp/undo-tree"]
+	path = mylisp/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git

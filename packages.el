@@ -35,7 +35,15 @@
       #'(exwm
 	 gpastel))
 
-(setq my-common-packages #'(yaml-mode
+(setq my-common-packages #'(lean-mode
+			    fstar-mode
+			    idris-mode
+			    flycheck-ats2
+			    company-tabnine
+			    htmlize
+			    company-ghc
+			    fish-mode
+			    yaml-mode
 			    exec-path-from-shell
 			    lsp-mode
 			    lsp-ui

@@ -1,4 +1,4 @@
-;; package --- Summary
+;; package --- Summfont-lock-ary
 ;;; Commentary:
 ;;; Code:
 
@@ -65,132 +65,137 @@
 (require #'tablegen-mode)
 (add-to-list 'load-path "~/.emacs.d/mylisp/undo-tree")
 (require #'undo-tree)
+(require #'company-tabnine)
 
-(if window-system
-    (progn
-      (require #'xcb)
-      (require #'exwm)
-      (require #'exwm-randr)
-      (require #'exwm-config)
-      (require #'gpastel)
-      ))
+(when (eq 'x window-system)
+  (require #'xcb)
+  (require #'exwm)
+  (require #'exwm-randr)
+  (require #'exwm-config)
+  (require #'gpastel)
+  )
 
-(if window-system
-    (progn
-      ;; ←GUI用設定を、ここに記述
-      ;;(package-install #'exwm-x); ; (require 'exwmx-sendstring)
-      ;;(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
-      ;; set exwm buffer name according to application
-      (defun exwm-rename-buffer-to-title ()
-	(exwm-workspace-rename-buffer exwm-title))
-      (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
-      (setq exwm-workspace-number 3)
-      ;; (require 'exwm-systemtray)
-      ;; (exwm-systemtray-enable)
+(when (eq 'x window-system)
+  ;; ←GUI用設定を、ここに記述
 
-      ;;(add-hook 'exwm-randr-screen-change-hook;;           (lambda ()
-      ;;             (async-shell-command
-      ;;	     "
-      ;; ")))
-      ;; (package-install  #'exwm-edit)
-      ;; (require #'exwm-edit)
-      (defun gpastel-exwm-counsel-yank-pop ()
-	"Same as `counsel-yank-pop' and paste into exwm buffer."
-	(interactive)
-	(let ((inhibit-read-only t)
-	      ;; Make sure we send selected yank-pop candidate to
-	      ;; clipboard:
-	      (yank-pop-change-selection t))
-	  (call-interactively #'counsel-yank-pop))
-	(when (derived-mode-p 'exwm-mode)
-	  ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
-	  (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
-	  ;; (exwm-input--fake-key ?\C-v)
-	  ))
-      
-      (exwm-input-set-key (kbd "M-y")
-			  #'gpastel-exwm-counsel-yank-pop)
-      (exwm-input-set-key (kbd "M-y")
-			  #'gpastel-exwm-counsel-yank-pop)
-      ;; (gpastel-mode -1)
+  
+  ;; (set-fontset-font (frame-parameter nil #'font)
+  ;;			#'unicode
+  ;;			(font-spec :family "Inconsolata"
+  ;;				   :size 14))
 
+  ;; (set-face-attribute 'default nil :family "inconsolata" :height 160)
 
-      ;; (set-fontset-font (frame-parameter nil #'font)
-      ;;			#'unicode
-      ;;			(font-spec :family "Inconsolata"
-      ;;				   :size 14))
+  (setq japanese-fonts "UmeGothic")
+  (setq font-size 14)
 
-      ;; (set-face-attribute 'default nil :family "inconsolata" :height 160)
+  (set-fontset-font nil
+		    #'unicode
+		    (font-spec :family "NotoSansMono"
+			       :size font-size))
 
-      (setq japanese-fonts "UmeGothic")
-      (setq font-size 12)
-
-      (set-fontset-font nil
-			#'ascii
-			(font-spec :family "inconsolata"
-				   :size font-size))
+  (set-fontset-font nil
+		    #'ascii
+		    (font-spec :family "inconsolata"
+			       :size font-size))
 
 
 					; 半角ｶﾅ設定
-      (set-fontset-font nil
-			;; (frame-parameter nil #'font)
-			#'katakana-jisx0201
-			(font-spec :family japanese-fonts
-				   :size font-size))
+  (set-fontset-font nil
+		    ;; (frame-parameter nil #'font)
+		    #'katakana-jisx0201
+		    (font-spec :family japanese-fonts
+			       :size font-size))
 
 					; 全角かな設定
-      (set-fontset-font nil
-			;; (frame-parameter nil #'font)
-			#'japanese-jisx0208
-			(font-spec :family japanese-fonts
-				   :size font-size))
+  (set-fontset-font nil
+		    ;; (frame-parameter nil #'font)
+		    #'japanese-jisx0208
+		    (font-spec :family japanese-fonts
+			       :size font-size))
 
-      ;;ずれ確認用
-      ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-      ;; 0123456789012345678901234567890123456789
-      ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
-      ;; あいうえおあいうえおあいうえおあいうえお
-      ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
-      ;; (add-hook 'kill-emacs-hook
-      ;;		(lambda ()
-      ;;		  (window-configuration-to-register ?1)
-      ;;		  (save-buffer-kill-emacs)))
+  ;;ずれ確認用
+  ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+  ;; 0123456789012345678901234567890123456789
+  ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+  ;; あいうえおあいうえおあいうえおあいうえお
+  ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
+  ;; (add-hook 'kill-emacs-hook
+  ;;		(lambda ()
+  ;;		  (window-configuration-to-register ?1)
+  ;;		  (save-buffer-kill-emacs)))
 
-      ;; (diff-hl-mode t)
-      ;; (diff-hl-margin-mode -1)
+  ;; (diff-hl-mode t)
+  ;; (diff-hl-margin-mode -1)
 
-      (setq exwm-debug-on nil)
-      (add-to-list 'exwm-manage-configurations '((equal exwm-class-name "Slack") managed t))
-      (setq switch-window-shortcut-appearance 'text)
-      ;; (fringe-mode '(nil . 0))ini
-      (setq exwm-randr-workspaoce-output-plist '(
-						 0 "HDMI1"
-						 1  "HDMI-0"
-						 ;; 2 "DP1"
-						 ))
-      ;; (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
-      (add-hook 'exwm-randr-screen-change-hook
-		(lambda ()
-       		  (start-process-shell-command "sh" nil "sh ~/.screenlayout/default.sh")))
-      (add-hook 'exwm-randr-screen-change-hook #'cce/refresh-display-scale)
-      ;; (exwm-enable)
-      (exwm-randr-enable)
+  
+  ;;(package-install #'exwm-x); ; (require 'exwmx-sendstring)
+  ;;(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
+  ;; set exwm buffer name according to application
+  (defun exwm-rename-buffer-to-title ()
+    (exwm-workspace-rename-buffer exwm-title))
+  (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
+  (setq exwm-workspace-number 3)
+  ;; (require 'exwm-systemtray)
+  ;; (exwm-systemtray-enable)
+
+  ;;(add-hook 'exwm-randr-screen-change-hook;;           (lambda ()
+  ;;             (async-shell-command
+  ;;	     "
+  ;; ")))
+  ;; (package-install  #'exwm-edit)
+  ;; (require #'exwm-edit)
+  (defun gpastel-exwm-counsel-yank-pop ()
+    "Same as `counsel-yank-pop' and paste into exwm buffer."
+    (interactive)
+    (let ((inhibit-read-only t)
+	  ;; Make sure we send selected yank-pop candidate to
+	  ;; clipboard:
+	  (yank-pop-change-selection t))
+      (call-interactively #'counsel-yank-pop))
+    (when (derived-mode-p 'exwm-mode)
+      ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
+      (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
+      ;; (exwm-input--fake-key ?\C-v)
       ))
+  
+  (exwm-input-set-key (kbd "M-y")
+		      #'gpastel-exwm-counsel-yank-pop)
+  (exwm-input-set-key (kbd "M-y")
+		      #'gpastel-exwm-counsel-yank-pop)
+  ;; (gpastel-mode -1)
 
-(if (not window-system)
-    (progn
-      ;; ←CUI用設定を、ここに記述
-      ;; (diff-hl-margin-mode)
 
-      (setq switch-window-shortcut-appearance
-	    'asciiart)))
-(if (not window-system)
-    (progn
-      ;; ←CUI用設定を、ここに記述
-      ;; (diff-hl-margin-mode)
+  (setq exwm-debug-on nil)
+  (add-to-list 'exwm-manage-configurations '((equal exwm-class-name "Slack") managed t))
+  (setq switch-window-shortcut-appearance 'text)
+  ;; (fringe-mode '(nil . 0))ini
+  (setq exwm-randr-workspaoce-output-plist '(
+					     0 "HDMI1"
+					     1  "HDMI-0"
+					     ;; 2 "DP1"
+					     ))
+  ;; (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
+  (add-hook 'exwm-randr-screen-change-hook
+	    (lambda ()
+	      (start-process-shell-command "sh" nil "sh ~/.screenlayout/default.sh")))
+  (add-hook 'exwm-randr-screen-change-hook #'cce/refresh-display-scale)
+  ;; (exwm-enable)
+  (exwm-randr-enable)
+  )
 
-      (setq switch-window-shortcut-appearance
-	    'asciiart)))
+(when (eq window-system nil)
+    ;; ←CUI用設定を、ここに記述
+    ;; (diff-hl-margin-mode)
+
+    (setq switch-window-shortcut-appearance
+	  'asciiart))
+
+(when (eq window-system nil)
+  ;; ←CUI用設定を、ここに記述
+  ;; (diff-hl-margin-mode)
+  (setq switch-window-shortcut-appearance
+	'asciiart))
 
 
 (exec-path-from-shell-initialize)
@@ -210,7 +215,6 @@
 
 
 (setq linum-format " %4d")
-
 
 (setq switch-window-threshold 2)
 (setq switch-window-minibuffer-shortcut ?z)
@@ -295,7 +299,6 @@
 
 (load "flycheck-smlsharp.el")
 
-
 (require 'flycheck)
 
 (font-lock-add-keywords 'sml-mode
@@ -364,6 +367,8 @@ This function is suitable for adding to `sml-mode-hook'."
 
 (add-hook 'prog-mode-hook #'flycheck-mode)
 
+;; (setq flycheck-disabled-checkers '(haskell-stack-ghc haskell-ghc))
+
 ;; (require #'flycheck)
 
 ;; (defun flycheck-ignore-setup-failure ()
@@ -380,7 +385,6 @@ This function is suitable for adding to `sml-mode-hook'."
 ;; (package-install #'flymake-python-pyflakes)
 ;; (require 'flymake-python-pyflakes)
 ;; (flymake-python-pyflakes-load)
-
 
 (use-package cider
   :init
@@ -407,6 +411,7 @@ This function is suitable for adding to `sml-mode-hook'."
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+
 ;; (package-install #'flycheck-pycheckers)
 ;; (require #'flycheck-pycheckers)
 
@@ -441,6 +446,15 @@ This function is suitable for adding to `sml-mode-hook'."
 (setq company-tooltip-align-annotations t)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
+
+(with-eval-after-load 'flycheck
+  (flycheck-ats2-setup))
+;; If you use PATSHOME instead of ATSHOME, please set PATSHOME as follows:
+
+(setenv "PATSHOME" "/usr/lib/ats2-postiats-0.3.13")
+(load "ats2-mode.el")
+
+
 ;; (add-hook 'haskell-mode-hook #'lsp)
 
 ;; (add-hook 'haskell-mode-hook #'haskell-interactive-mode)
@@ -451,6 +465,28 @@ This function is suitable for adding to `sml-mode-hook'."
 (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
 (add-hook 'haskell-mode-hook 'haskell-doc-mode)
 ;; (add-hook 'haskell-mode-hook 'view-mode)
+
+;; (setenv "PATH" "home/linguini/.opam/default/bin:/home/linguini/.opam/default/bin:/home/linguini/.cargo/bin:/home/linguini/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/env:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/linguini/.stack/snapshots/x86_64-linux-tinfo6/9d4d78a5e69ddae38593d6526911d8c84af84e5639229895687a73788eb833bb/8.6.5/bin:/home/linguini/.stack/compiler-tools/x86_64-linux-tinfo6/ghc-8.6.5/bin:/home/linguini/.stack/programs/x86_64-linux/ghc-tinfo6-8.6.5/bin:/home/linguini/.opam/default/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/env:/home/linguini/.gem/ruby/2.6.0:/home/linguini/.nimble/bin")
+
+;; (getenv "PATH")
+
+;; (executable-find "hlint")
+
+(flycheck-add-next-checker 'haskell-stack-ghc 'haskell-hlint)
+(add-hook 'haskell-mode-hook
+          '(lambda ()
+             (setq flycheck-checker 'haskell-stack-ghc)))
+
+(add-hook 'haskell-mode-hook #'haskell-mode-company-init)
+(defun haskell-mode-company-init ()
+  (add-to-list 'company-backends
+	       '(company-yasnippet :with company-ghc
+				   company-dabbrev
+				   company-files
+				   company-dabbrev-code
+				   company-gtags
+				   company-etags
+				   company-keywords)))
 
 (setq haskell-process-type 'stack-ghci)
 (setq haskell-process-path-ghci "stack")
@@ -489,8 +525,14 @@ This function is suitable for adding to `sml-mode-hook'."
 
 (setq lsp-prefer-flymake nil)
 
-(add-hook 'lsp-mode-hook 'my-lsp-company-init)
+;; (add-hook 'lsp-mode-hook 'my-lsp-company-init)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(add-hook 'lsp-mode-hook 'lsp-ui-doc-mode)
+(add-hook 'lsp-mode-hook 'lsp-ui-peek-mode)
+
+(setq lsp-ui-sideline-enable nil)
+(setq lsp-ui-doc-position 'top)
+(setq lsp-ui-doc-alignment 'window)
 
 (defun my-lsp-company-init ()
   (setq-local company-backends
@@ -751,24 +793,32 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 
 (company-quickhelp-mode -1)
 (setq company-backends
-      '((company-yasnippet :with
-			   company-capf
-			   company-dabbrev
-			   company-dabbrev-code
-			   company-files
-			   company-gtags
-			   company-etags
-			   company-keywords)
-	(company-yasnippet :with company-dabbrev)
-	(company-yasnippet :with company-bbdb)
-	(company-yasnippet :with company-eclim)
-	(company-yasnippet :with company-semantic)
-	(company-yasnippet :with company-clang)
-	(company-yasnippet :with company-xcode)
-	(company-yasnippet :with company-cmake)
-	(company-yasnippet :with company-files)
-	(company-yasnippet :with company-oddmuse)
-	(company-yasnippet :with company-capf)))
+      '((company-tabnine
+	 company-yasnippet
+	 :with
+	 company-capf
+	 company-dabbrev
+	 company-dabbrev-code
+	 company-files
+	 company-gtags
+	 company-etags
+	 company-keywords
+	 company-lsp
+	 )
+	;; (company-yasnippet :with company-dabbrev)
+	;; (company-yasnippet :with company-bbdb)
+	;; (company-yasnippet :with company-eclim)
+	;; (company-yasnippet :with company-semantic)
+	;; (company-yasnippet :with company-clang)
+	;; (company-yasnippet :with company-xcode)
+	;; (company-yasnippet :with company-cmake)
+	;; (company-yasnippet :with company-files)
+	;; (company-yasnippet :with company-oddmuse)
+	;; (company-yasnippet :with company-capf)
+	))
+;; Number the candidates (use M-1, M-2 etc to select completions).
+
+(setq company-show-numbers t)
 
 (company-statistics-mode)
 (setq company-transformers '(company-sort-by-backend-importance
@@ -812,7 +862,6 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 
 
 ;; enable smartparens
-
 (sp-with-modes '(emacs-lisp-mode lisp-mode lisp-interaction-mode
 				 ;;slime-mode
 				 clojure-mode
@@ -820,6 +869,8 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
   (sp-local-pair "'" nil :actions nil)
   (sp-local-pair "`" nil :actions nil))
 (smartparens-global-mode 1)
+
+(sp-pair "⟨" "⟩")
 
 (show-smartparens-global-mode 1)
 
@@ -960,8 +1011,9 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  ;; "C-b" 'previous-buffer
  "M-<left>" 'backward-word
  "M-<right>" 'forward-word
- "<backtab>" 'company-indent-or-complete-common
- "TAB" 'self-insert-command)
+ "TAB" 'company-indent-or-complete-common
+ "M-/" 'company-complete-common
+ "<backtab>" 'self-insert-command)
 
 (general-define-key
  :keymaps 'gpastel-mode-map
@@ -1147,6 +1199,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(global-company-mode t)
  '(global-hl-line-mode t)
  '(global-hl-line-sticky-flag t)
+ '(global-linum-mode t)
  '(global-undo-tree-mode t)
  '(icomplete-mode t)
  '(indent-guide-global-mode nil)
@@ -1163,7 +1216,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(org-agenda-window-setup (quote current-window))
  '(package-selected-packages
    (quote
-    (yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel)))
+    (lean-mode fstar-mode idris-mode flycheck-ats2 company-tabnine htmlize company-ghc fish-mode yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel)))
  '(projectile-mode t nil (projectile))
  '(rust-always-locate-project-on-open t)
  '(skk-jisyo-edit-user-accepts-editing t)
@@ -1173,6 +1226,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(tool-bar-mode nil)
  '(tooltip-delay 0.3)
  '(tooltip-hide-delay 100)
+ '(undo-limit 8000000)
  '(whitespace-display-mappings t)
  '(window-divider-default-places t)
  '(window-divider-mode nil)

@@ -7,8 +7,22 @@
 ;;   (setq user-emacs-directory
 ;;	(file-name-directory
 ;;	 load-file-name)))
+;;; @@ obsolete process-kill-without-query
+(make-obsolete
+ 'process-kill-without-query
+ "use `process-query-on-exit-flag' or `set-process-query-on-exit-flag'."
+ "22.1")
+(defun process-kill-without-query (process &optional flag)
+  "Say no query needed if PROCESS is running when Emacs is exited.
+Optional second argument if non-nil says to require a query.
+Value is t if a query was formerly required."
+  (let ((old (process-query-on-exit-flag process)))
+    (set-process-query-on-exit-flag process nil)
+    old))
 
 (add-to-list 'load-path "~/.emacs.d/mylisp")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/uim-el")
 
 (load-file "~/.emacs.d/packages.el")
 
@@ -39,8 +53,8 @@
 (require #'flycheck-rust)
 (require #'elpy)
 (require #'pipenv)
-(require #'company-lua)
-(require #'lua-mode)
+;; (require #'company-lua)
+;; (require #'lua-mode)
 (require #'diminish)
 (require #'whitespace)
 (require #'smartparens)
@@ -76,112 +90,11 @@
   )
 
 (when (eq 'x window-system)
-  ;; ←GUI用設定を、ここに記述
-
-  
-  ;; (set-fontset-font (frame-parameter nil #'font)
-  ;;			#'unicode
-  ;;			(font-spec :family "Inconsolata"
-  ;;				   :size 14))
-
-  ;; (set-face-attribute 'default nil :family "inconsolata" :height 160)
-
-  (setq japanese-fonts "UmeGothic")
-  (setq font-size 14)
-
-  (set-fontset-font nil
-		    #'unicode
-		    (font-spec :family "NotoSansMono"
-			       :size font-size))
-
-  (set-fontset-font nil
-		    #'ascii
-		    (font-spec :family "inconsolata"
-			       :size font-size))
-
-
-					; 半角ｶﾅ設定
-  (set-fontset-font nil
-		    ;; (frame-parameter nil #'font)
-		    #'katakana-jisx0201
-		    (font-spec :family japanese-fonts
-			       :size font-size))
-
-					; 全角かな設定
-  (set-fontset-font nil
-		    ;; (frame-parameter nil #'font)
-		    #'japanese-jisx0208
-		    (font-spec :family japanese-fonts
-			       :size font-size))
-
-  ;;ずれ確認用
-  ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
-  ;; 0123456789012345678901234567890123456789
-  ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
-  ;; あいうえおあいうえおあいうえおあいうえお
-  ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
-  ;; (add-hook 'kill-emacs-hook
-  ;;		(lambda ()
-  ;;		  (window-configuration-to-register ?1)
-  ;;		  (save-buffer-kill-emacs)))
-
-  ;; (diff-hl-mode t)
-  ;; (diff-hl-margin-mode -1)
-
-  
-  ;;(package-install #'exwm-x); ; (require 'exwmx-sendstring)
-  ;;(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
-  ;; set exwm buffer name according to application
-  (defun exwm-rename-buffer-to-title ()
-    (exwm-workspace-rename-buffer exwm-title))
-  (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
-  (setq exwm-workspace-number 3)
-  ;; (require 'exwm-systemtray)
-  ;; (exwm-systemtray-enable)
-
-  ;;(add-hook 'exwm-randr-screen-change-hook;;           (lambda ()
-  ;;             (async-shell-command
-  ;;	     "
-  ;; ")))
-  ;; (package-install  #'exwm-edit)
-  ;; (require #'exwm-edit)
-  (defun gpastel-exwm-counsel-yank-pop ()
-    "Same as `counsel-yank-pop' and paste into exwm buffer."
-    (interactive)
-    (let ((inhibit-read-only t)
-	  ;; Make sure we send selected yank-pop candidate to
-	  ;; clipboard:
-	  (yank-pop-change-selection t))
-      (call-interactively #'counsel-yank-pop))
-    (when (derived-mode-p 'exwm-mode)
-      ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
-      (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
-      ;; (exwm-input--fake-key ?\C-v)
-      ))
-  
-  (exwm-input-set-key (kbd "M-y")
-		      #'gpastel-exwm-counsel-yank-pop)
-  (exwm-input-set-key (kbd "M-y")
-		      #'gpastel-exwm-counsel-yank-pop)
-  ;; (gpastel-mode -1)
-
-
-  (setq exwm-debug-on nil)
-  (add-to-list 'exwm-manage-configurations '((equal exwm-class-name "Slack") managed t))
-  (setq switch-window-shortcut-appearance 'text)
-  ;; (fringe-mode '(nil . 0))ini
-  (setq exwm-randr-workspaoce-output-plist '(
-					     0 "HDMI1"
-					     1  "HDMI-0"
-					     ;; 2 "DP1"
-					     ))
-  ;; (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
-  (add-hook 'exwm-randr-screen-change-hook
-	    (lambda ()
-	      (start-process-shell-command "sh" nil "sh ~/.screenlayout/default.sh")))
-  (add-hook 'exwm-randr-screen-change-hook #'cce/refresh-display-scale)
-  ;; (exwm-enable)
-  (exwm-randr-enable)
+  (require #'xcb)
+  (require #'exwm)
+  (require #'exwm-randr)
+  (require #'exwm-config)
+  (require #'gpastel)
   )
 
 (when (eq window-system nil)
@@ -197,12 +110,9 @@
   (setq switch-window-shortcut-appearance
 	'asciiart))
 
-
-(exec-path-from-shell-initialize)
-
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (setq custom-safe-themes t)
-;; (load-theme 'tango-dark t)
+(load-theme 'tango-dark t)
 (load-theme 'my-moe-dark t)
 
 ;; Turn on `display-time-mode' if you don't use an external bar.
@@ -252,39 +162,40 @@
 (add-hook 'c-mode-common-hook 'flycheck-mode t)
 
 
-;;This snippet enables lua-mode
-;; This line is not necessary, if lua-mode.el is already on your load-path
+;; ;;This snippet enables lua-mode
+;; ;; This line is not necessary, if lua-mode.el is already on your load-path
 
-(autoload 'lua-mode "lua-mode" "Lua editing mode."
-  t)
-(add-to-list 'interpreter-mode-alist
-	     '("lua" . lua-mode))
-(add-to-list 'auto-mode-alist
-	     '("\\.lua$" . lua-mode))
+;; (autoload 'lua-mode "lua-mode" "Lua editing mode."
+;;   t)
+;; (add-to-list 'interpreter-mode-alist
+;; 	     '("lua" . lua-mode))
+;; (add-to-list 'auto-mode-alist
+;; 	     '("\\.lua$" . lua-mode))
 
-(package-install #'company-lua)
+;; (package-install #'company-lua)
 
-(defun my-lua-mode-company-init ()
-  (setq-local company-backends
-	      '((company-yasnippet :with
-				   company-lua
-				   company-dabbrev
-				   company-files
-				   company-dabbrev-code
-				   company-gtags
-				   company-etags
-				   company-keywords))))
+;; (defun my-lua-mode-company-init ()
+;;   (setq-local company-backends
+;; 	      '((company-yasnippet :with
+;; 				   company-lua
+;; 				   company-dabbrev
+;; 				   company-files
+;; 				   company-dabbrev-code
+;; 				   company-gtags
+;; 				   company-etags
+;; 				   company-keywords))))
 
-(add-hook 'lua-mode-hook #'my-lua-mode-company-init)
+;; (add-hook 'lua-mode-hook #'my-lua-mode-company-init)
 
-(eval-after-load 'flymake
-  '(progn
-     (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$"
-                                                     (lambda ()
-                                                       (list "/usr/local/bin/smlsharp" (list "-ftypecheck-only" (buffer-file-name))))
-                                                     (lambda () nil)))
-     (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(Error\\|Warning\\):"
-                                               1 2 3 4))))
+;; (eval-after-load 'flymake
+;;   '(progn
+;;      (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$"
+;;                                                      (lambda ()
+;;                                                        (list "/usr/local/bin/smlsharp" (list "-ftypecheck-only" (buffer-file-name))))
+;;                                                      (lambda () nil)))
+;;      (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(Error\\|Warning\\):"
+;;                                                1 2 3 4))))
+
 ;; (add-hook 'sml-mode-hook #'flymake-mode)
 
 ;; (flycheck-define-checker smlsharp
@@ -315,7 +226,7 @@ This function is suitable for adding to `sml-mode-hook'."
   (setq-local company-backends
 	      '((company-yasnippet :with
 				   company-mlton-grouped-backend
-				   company-lua
+				   ;; company-lua
 				   company-dabbrev
 				   company-files
 				   company-dabbrev-code
@@ -464,6 +375,7 @@ This function is suitable for adding to `sml-mode-hook'."
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
 (add-hook 'haskell-mode-hook 'haskell-doc-mode)
+
 ;; (add-hook 'haskell-mode-hook 'view-mode)
 
 ;; (setenv "PATH" "home/linguini/.opam/default/bin:/home/linguini/.opam/default/bin:/home/linguini/.cargo/bin:/home/linguini/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/env:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/linguini/.stack/snapshots/x86_64-linux-tinfo6/9d4d78a5e69ddae38593d6526911d8c84af84e5639229895687a73788eb833bb/8.6.5/bin:/home/linguini/.stack/compiler-tools/x86_64-linux-tinfo6/ghc-8.6.5/bin:/home/linguini/.stack/programs/x86_64-linux/ghc-tinfo6-8.6.5/bin:/home/linguini/.opam/default/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/env:/home/linguini/.gem/ruby/2.6.0:/home/linguini/.nimble/bin")
@@ -472,12 +384,18 @@ This function is suitable for adding to `sml-mode-hook'."
 
 ;; (executable-find "hlint")
 
+;; (setq racer-rust-src-path
+;;       (concat (string-trim
+;;                (shell-command-to-string "rustc --print sysroot"))
+;;               "/lib/rustlib/src/rust/src"))
+
 (flycheck-add-next-checker 'haskell-stack-ghc 'haskell-hlint)
 (add-hook 'haskell-mode-hook
           '(lambda ()
              (setq flycheck-checker 'haskell-stack-ghc)))
 
 (add-hook 'haskell-mode-hook #'haskell-mode-company-init)
+(add-hook 'haskell-mode-hook #'subword-mode)
 (defun haskell-mode-company-init ()
   (add-to-list 'company-backends
 	       '(company-yasnippet :with company-ghc
@@ -488,7 +406,7 @@ This function is suitable for adding to `sml-mode-hook'."
 				   company-etags
 				   company-keywords)))
 
-(setq haskell-process-type 'stack-ghci)
+(setq haskell-process-type 'stack)
 (setq haskell-process-path-ghci "stack")
 (setq haskell-process-args-ghci "ghci")
 (setq haskell-mode-stylish-haskell-path "~/.local/bin/stylish-haskell")
@@ -515,13 +433,22 @@ This function is suitable for adding to `sml-mode-hook'."
 
 (setq lsp-print-io t)
 
-(setq lsp-haskell-process-path-hie "hie-wrapper")
+;; (setq lsp-haskell-process-path-hie "hie-wrapper")
+(setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
 
-(lsp-register-client
- (make-lsp-client :new-connection (lsp-tramp-connection "hie-wrapper")
-                  :major-modes '(haskell-mode)
-                  :remote? t
-                  :server-id 'hie-wrapper))
+;; (setq eglot-server-programs
+;;       ( add-to-list
+;; 	(remove '(haskell-mode "hie-wrapper") eglot-server-programs)
+;; 	'(haskell-mode . ("haskell-language-server-wrapper")))
+;;       )
+
+(print eglot-server-programs)
+
+;; (lsp-register-client
+;;  (make-lsp-client :new-connection (lsp-tramp-connection "hie-wrapper")
+;;                   :major-modes '(haskell-mode)
+;;                   :remote? t
+;;                   :server-id 'hie-wrapper))
 
 (setq lsp-prefer-flymake nil)
 
@@ -1150,6 +1077,119 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 ;;  )
 
 
+(when (eq 'x window-system)
+  ;; ←GUI用設定を、ここに記述
+
+  
+  ;; (set-fontset-font (frame-parameter nil #'font)
+  ;;			#'unicode
+  ;;			(font-spec :family "Inconsolata"
+  ;;				   :size 14))
+
+  ;; (set-face-attribute 'default nil :family "inconsolata" :height 160)
+  (setq font-size 14)
+  (setq japanese-fonts "UmeGothic")
+  (setq japanese-font-size 14)
+
+  (set-fontset-font nil
+		    #'unicode
+		    (font-spec :family "NotoSansMonoCJK"
+			       :size font-size))
+
+  (set-fontset-font nil '(#x1F000 . #x1FAFF) "NotoEmoji")
+
+  (set-fontset-font nil
+		    #'ascii
+		    (font-spec :family "inconsolata"
+			       :size font-size))
+
+
+					; 半角ｶﾅ設定
+  (set-fontset-font nil
+		    ;; (frame-parameter nil #'font)
+		    #'katakana-jisx0201
+		    (font-spec :family japanese-fonts
+			       :size japanese-font-size))
+
+					; 全角かな設定
+  (set-fontset-font nil
+		    ;; (frame-parameter nil #'font)
+		    #'japanese-jisx0208
+		    (font-spec :family japanese-fonts
+			       :size japanese-font-size))
+
+  ;;ずれ確認用
+  ;; abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+  ;; 0123456789012345678901234567890123456789
+  ;; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+  ;; あいうえおあいうえおあいうえおあいうえお
+  ;; 愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛愛
+  ;; 🤔
+  
+  ;; (add-hook 'kill-emacs-hook
+  ;;		(lambda ()
+  ;;		  (window-configuration-to-register ?1)
+  ;;		  (save-buffer-kill-emacs)))
+
+  ;; (diff-hl-mode t)
+  ;; (diff-hl-margin-mode -1)
+
+  
+  ;;(package-install #'exwm-x); ; (require 'exwmx-sendstring)
+  ;;(add-to-list 'load-path "/home/linguini/.emacs.d/elpa/exwm-x-20180227.1057"
+  ;; set exwm buffer name according to application
+  (defun exwm-rename-buffer-to-title ()
+    (exwm-workspace-rename-buffer exwm-title))
+  (add-hook 'exwm-update-title-hook 'exwm-rename-buffer-to-title)
+  (setq exwm-workspace-number 3)
+  ;; (require 'exwm-systemtray)
+  ;; (exwm-systemtray-enable)
+
+  ;;(add-hook 'exwm-randr-screen-change-hook;;           (lambda ()
+  ;;             (async-shell-command
+  ;;	     "
+  ;; ")))
+  ;; (package-install  #'exwm-edit)
+  ;; (require #'exwm-edit)
+  (defun gpastel-exwm-counsel-yank-pop ()
+    "Same as `counsel-yank-pop' and paste into exwm buffer."
+    (interactive)
+    (let ((inhibit-read-only t)
+	  ;; Make sure we send selected yank-pop candidate to
+	  ;; clipboard:
+	  (yank-pop-change-selection t))
+      (call-interactively #'counsel-yank-pop))
+    (when (derived-mode-p 'exwm-mode)
+      ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
+      (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
+      ;; (exwm-input--fake-key ?\C-v)
+      ))
+  
+  (exwm-input-set-key (kbd "M-y")
+		      #'gpastel-exwm-counsel-yank-pop)
+  (exwm-input-set-key (kbd "M-y")
+		      #'gpastel-exwm-counsel-yank-pop)
+  ;; (gpastel-mode -1)
+
+
+  (setq exwm-debug-on nil)
+  (add-to-list 'exwm-manage-configurations '((equal exwm-class-name "Slack") managed t))
+  (setq switch-window-shortcut-appearance 'text)
+  ;; (fringe-mode '(nil . 0))ini
+  (setq exwm-randr-workspaoce-output-plist '(
+					     0 "HDMI1"
+					     1  "HDMI-0"
+					     ;; 2 "DP1"
+					     ))
+  ;; (add-hook 'exwm-randr-screen-change-hook (lambda () (load-file "~/.emacs.d/init.el")))
+  (add-hook 'exwm-randr-screen-change-hook
+	    (lambda ()
+	      (start-process-shell-command "sh" nil "sh ~/.screenlayout/default.sh")))
+  (add-hook 'exwm-randr-screen-change-hook #'cce/refresh-display-scale)
+  ;; (exwm-enable)
+  (exwm-randr-enable)
+ )
+
 ;; (setq undo-tree-auto-save-history t)
 (desktop-save-mode t)
 
@@ -1164,35 +1204,32 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
    [default default default italic underline success warning error])
  '(blink-matching-delay 0)
  '(blink-matching-paren-dont-ignore-comments t)
- '(cider-completion-annotations-include-ns (quote always))
+ '(cider-completion-annotations-include-ns 'always)
  '(debug-on-error t)
  '(desktop-globals-to-clear nil)
  '(desktop-globals-to-save
-   (quote
-    (kill-ring desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history)))
+   '(kill-ring desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history))
  '(desktop-restore-in-current-display nil)
  '(desktop-save-mode t)
  '(diff-hl-flydiff-mode t)
  '(diff-hl-margin-mode t)
  '(display-time-mode t)
  '(elpy-modules
-   (quote
-    (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults)))
+   '(elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults))
  '(enable-recursive-minibuffers nil)
  '(exwm-input-line-mode-passthrough nil)
  '(exwm-input-move-event [M-down-mouse-1])
  '(exwm-input-prefix-keys
-   (quote
-    ([134217848]
+   '([134217848]
      [134217824]
      [134217766]
      [134217786]
      [134217837]
-     [M-tab])))
+     [M-tab]))
  '(exwm-input-resize-event [M-down-mouse-3])
  '(fci-rule-color "#202020")
- '(flycheck-clang-warnings (quote ("all" "extra")))
- '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(flycheck-clang-warnings '("all" "extra"))
+ '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
  '(flycheck-pos-tip-mode nil)
  '(global-auto-revert-mode t)
  '(global-centered-cursor-mode nil)
@@ -1207,16 +1244,15 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(ivy-height-alist nil)
  '(ivy-rich-mode t)
  '(line-spacing 0.1)
- '(lispy-compat (quote (edebug cider)))
- '(lispy-eval-display-style (quote overlay))
- '(magit-log-arguments (quote ("-n256" "--graph" "--decorate" "--color")))
+ '(lispy-compat '(edebug cider))
+ '(lispy-eval-display-style 'overlay)
+ '(magit-log-arguments '("-n256" "--graph" "--decorate" "--color"))
  '(mode-icons-mode t)
- '(mozc-candidate-style (quote overlay))
+ '(mozc-candidate-style 'overlay)
  '(org-agenda-restore-windows-after-quit t)
- '(org-agenda-window-setup (quote current-window))
+ '(org-agenda-window-setup 'current-window)
  '(package-selected-packages
-   (quote
-    (lean-mode fstar-mode idris-mode flycheck-ats2 company-tabnine htmlize company-ghc fish-mode yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel)))
+   '(pkgbuild-mode lean-mode fstar-mode idris-mode flycheck-ats2 company-tabnine htmlize company-ghc fish-mode yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel))
  '(projectile-mode t nil (projectile))
  '(rust-always-locate-project-on-open t)
  '(skk-jisyo-edit-user-accepts-editing t)

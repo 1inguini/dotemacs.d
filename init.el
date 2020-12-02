@@ -35,28 +35,13 @@ Value is t if a query was formerly required."
 (setq coding-system-for-write
       'utf-8)
 
-(require #'rainbow-delimiters)
 (require #'srefactor-lisp)
 (require #'general)
-(require #'winum)
-(require #'telephone-line)
 (require #'flycheck-popup-tip)
-(require #'jedi)
-(require #'company-jedi)
-(require #'highlight-indent-guides)
-(require #'switch-window)
-(require #'uim)
 (require #'generic-x)
-(require #'rust-mode)
-(require #'cargo)
-(require #'racer)
-(require #'flycheck-rust)
-(require #'elpy)
-(require #'pipenv)
 ;; (require #'company-lua)
 ;; (require #'lua-mode)
 (require #'diminish)
-(require #'whitespace)
 (require #'smartparens)
 (require #'ivy-rich)
 (require #'avy)
@@ -89,124 +74,11 @@ Value is t if a query was formerly required."
   (require #'gpastel)
   )
 
-(when (eq 'x window-system)
-  (require #'xcb)
-  (require #'exwm)
-  (require #'exwm-randr)
-  (require #'exwm-config)
-  (require #'gpastel)
-  )
 
-(when (eq window-system nil)
-    ;; ←CUI用設定を、ここに記述
-    ;; (diff-hl-margin-mode)
-
-    (setq switch-window-shortcut-appearance
-	  'asciiart))
-
-(when (eq window-system nil)
-  ;; ←CUI用設定を、ここに記述
-  ;; (diff-hl-margin-mode)
-  (setq switch-window-shortcut-appearance
-	'asciiart))
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(setq custom-safe-themes t)
-(load-theme 'tango-dark t)
-(load-theme 'my-moe-dark t)
-
-;; Turn on `display-time-mode' if you don't use an external bar.
-(setq display-time-default-load-average nil)
-(display-time-mode nil)
-
-(menu-bar-mode t)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
-
-(setq linum-format " %4d")
-
-(setq switch-window-threshold 2)
-(setq switch-window-minibuffer-shortcut ?z)
-
-;; (add-to-list 'load-path "/home/linguini/.emacs.d/elpa/ibus-el-0.3.29")
-;; (require  #'ibus)
-
-;; (add-hook 'after-init-hook 'ibus-mode-on)
-
-;; (setq mozc-helper-program-name "home/linguini/.cache/yay/mozc/pkg/emacs-mozc/usr/bin/mozc_emacs_helper")
-;; (require #'mozc)
-;; (setq default-input-method "japanese-mozc")
-;; (setq mozc-candidate-style 'overlay)
-
-(setq uim-candidate-display-inline t)
-(setq uim-preedit-display-fences t)
-(setq uim-candidate-display-frame t)
-(define-globalized-minor-mode global-uim-mode
-  uim-mode
-  uim-mode)
-(global-uim-mode t)
-
-;; (package-install 'ddskk)
-;; (require  #'skk)
-;; ;; M-x skk-tutorialでNo file found as 〜とエラーが出たときにskk-tut-fileを設定
-;; ;; make what-whereでSKK tutorialsで表示されるディレクトリ上のSKK.tutを指定
-;; (setq skk-tut-file "/usr/share/skk/SKK.tut"); ; (setq SKK_DATADIR "/usr/share/skk")
-;; (setq skk-show-annotation nil)
-;; (setq skk-show-inline 'vertical)
-;; (setq skk-auto-insert-paren t)
-;; (setq skk-egg-like-newline t)
-(setq recentf-auto-cleanup 'never)
 
 ;; (setq c-mode-common-hook nil)
 (add-hook 'c-mode-common-hook 'flycheck-mode t)
 
-
-;; ;;This snippet enables lua-mode
-;; ;; This line is not necessary, if lua-mode.el is already on your load-path
-
-;; (autoload 'lua-mode "lua-mode" "Lua editing mode."
-;;   t)
-;; (add-to-list 'interpreter-mode-alist
-;; 	     '("lua" . lua-mode))
-;; (add-to-list 'auto-mode-alist
-;; 	     '("\\.lua$" . lua-mode))
-
-;; (package-install #'company-lua)
-
-;; (defun my-lua-mode-company-init ()
-;;   (setq-local company-backends
-;; 	      '((company-yasnippet :with
-;; 				   company-lua
-;; 				   company-dabbrev
-;; 				   company-files
-;; 				   company-dabbrev-code
-;; 				   company-gtags
-;; 				   company-etags
-;; 				   company-keywords))))
-
-;; (add-hook 'lua-mode-hook #'my-lua-mode-company-init)
-
-;; (eval-after-load 'flymake
-;;   '(progn
-;;      (add-to-list 'flymake-allowed-file-name-masks '(".+\\.sml$"
-;;                                                      (lambda ()
-;;                                                        (list "/usr/local/bin/smlsharp" (list "-ftypecheck-only" (buffer-file-name))))
-;;                                                      (lambda () nil)))
-;;      (add-to-list 'flymake-err-line-patterns '("^\\([^: ]*\\):\\([0-9]+\\)\\.\\([0-9]+\\)-[0-9]+\\.[0-9]+ \\(Error\\|Warning\\):"
-;;                                                1 2 3 4))))
-
-;; (add-hook 'sml-mode-hook #'flymake-mode)
-
-;; (flycheck-define-checker smlsharp
-;;   "A SMLsharp syntax checker using the `SMLsharp -ftype-only` command."
-
-;;   :command ("smlsharp" "-ftypecheck-only" source)
-;;   :error-patterns
-;;   ((error line-start (file-name) ":" line "." column "-" line "." column " Error:\n"
-;; 	  (message) "\n" line-end))
-;;   :modes sml-mode)
-;; (add-to-list 'flycheck-checkers 'smlsharp)
 
 (load "flycheck-smlsharp.el")
 
@@ -470,104 +342,8 @@ This function is suitable for adding to `sml-mode-hook'."
 				   company-etags
 				   company-keywords))))
 
-
-(defun my-arduino-mode-company-init ()
-  (setq-local company-backends
-	      '((company-yasnippet :with
-				   company-arduino
-				   company-dabbrev
-				   company-files
-				   company-dabbrev-code
-				   company-gtags
-				   company-etags
-				   company-keywords))))
-
-(add-hook 'arduino-mode 'may-arduino-company-init)
-
-(autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code" t)
-(autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
-(autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger" t)
-(autoload 'merlin-mode "merlin" "Merlin mode" t)
-
-(with-eval-after-load 'merlin
-  ;; Disable Merlin's own error checking
-  (setq merlin-error-after-save nil)
-
-  ;; Enable Flycheck checker
-  (flycheck-ocaml-setup))
-
-(add-hook 'tuareg-mode-hook 'merlin-mode)
-;; (add-hook 'caml-mode-hook 'merlin-mode)
-
-;; (require #'indent-guide)
-;; (set-face-foreground #'indent-guide-face "LightGrey")
-;; (setq indent-guide-recursive nil)
-
-;; (indent-guide-global-mode)
-
-(setq highlight-indent-guides-method 'character)
-;; (setq highlight-indent-guides-character ?\|)
-(setq highlight-indent-guides-character ?\x0020)
-(setq highlight-indent-guides-delay 0)
-(setq highlight-indent-guides-responsive 'top)
-;; (setq rainbow-indent-highlighter-count 9)
-
-;; (defun rainbow-indent-highlighter (level responsive display)
-;;   (cond
-;;    ((null responsive)
-;;     (concat "rainbow-delimiters-depth-"
-;;	    (number-to-string
-;;	     (if (<= (+ level 1) rainbow-delimiters-max-face-count)
-;;		 ;; Our nesting depth has a face defined for it.
-;;		 (+ level 1)
-;;	       ;; Deeper than # of defined faces; cycle back through to
-;;	       ;; `rainbow-delimiters-outermost-only-face-count' + 1.
-;;	       ;; Return face # that corresponds to current nesting level.
-;;	       (+ 1 rainbow-delimiters-outermost-only-face-count
-;;		  (mod (- level rainbow-delimiters-outermost-only-face-count 1)
-;;		       (- rainbow-delimiters-max-face-count
-;;			  rainbow-delimiters-outermost-only-face-count)))))
-;;	    "-face"))
-;;    ((eq responsive 'top)
-;;     'highlight-indent-guides-top-character-face)
-;;    (t nil)))
-
-
-
-(defun rainbow-indent-highlighter (depth responsive display)
-  (cond
-   ((eq responsive nil)
-    (intern-soft
-     (concat "rainbow-indent-depth-"
-	     (number-to-string
-	      (if (<= (+ depth 1) rainbow-delimiters-max-face-count)
-		  ;; Our nesting depth has a face defined for it.
-		  (+ depth 1)
-		;; Deeper than # of defined faces; cycle back through to
-		;; `rainbow-delimiters-outermost-only-face-count' + 1.
-		;; Return face # that corresponds to current nesting level.
-		(+ 1 rainbow-delimiters-outermost-only-face-count
-		   (mod (- depth rainbow-delimiters-max-face-count)
-			(- rainbow-delimiters-max-face-count
-			   rainbow-delimiters-outermost-only-face-count)))))
-	     "-face")))
-   ((eq responsive 'top)
-    'highlight-indent-guides-top-character-face)))
-
-
-(setq highlight-indent-guides-highlighter-function 'rainbow-indent-highlighter)
-
 ;; (add-hook #'prog-mode-hook #'highlight-indent-guides-mode)
 
-(defun lisp-less-prog-mode-hook-highlight-indent-guides-mode ()
-  (if (or (eq major-mode 'emacs-lisp-mode)
-	  (eq major-mode 'clojure-mode)
-	  (eq major-mode 'common-lisp-mode)
-	  (eq major-mode 'dune-mode))
-      (highlight-indent-guides-mode -1)
-    (highlight-indent-guides-mode t)))
-
-(add-hook 'prog-mode-hook 'lisp-less-prog-mode-hook-highlight-indent-guides-mode)
 
 
 ;; (remove-hook #'emacs-lisp-mode-hook #'highlight-indent-guides-mode t)
@@ -589,38 +365,6 @@ This function is suitable for adding to `sml-mode-hook'."
   "Minchoize current buffer."
   (interactive)
   (ov (point-min) (point-max) 'face '(:family "umeMincho")))
-
-
-(setq whitespace-space-regexp "\\(\u3000+\\)")
-(setq whitespace-display-mappings
-      '((space-mark ?\  [?·] [?.])
-	(space-mark ?\u3000 [?\□])
-	(space-mark ?\xA0 [?\u00A4] [?_])
-	(space-mark ?\t [?⟼ ?\t] [?\\?\t])
-	(space-mark ?\n [?\¬ ?\n])))
-
-;; (setq org-mode-hook nil)
-
-(add-hook 'rust-mode-hook
-	  (lambda ()
-	    (push '("=>" . ?⇒) prettify-symbols-alist)
-	    (prettify-symbols-mode)))
-
-(add-hook 'rust-mode-hook
-	  (lambda ()
-	    (adaptive-wrap-prefix-mode  -1)))
-
-;; (defun my-rust-mode-company-init ()
-;;   (setq-local company-backends
-;; 	      '((company-yasnippet))))
-;; (add-hook 'rust-mode-hook 'my-rust-mode-company-init)
-
-(setq shackle-rules
-      '(("*Agenda Commands*" :aline right :ratio 0.3)
-	("*Org Agenda*" :aline right :ratio 0.3)
-	("*Help*" :align right :ratio 0.3)))
-(shackle-mode 1)
-(setq shackle-lighter "")
 
 
 ;; (set-face-background 'highlight-indentation-face "#0000ff")
@@ -779,13 +523,6 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 ;; (global-undo-tree-mode)
 ;; (setq undo-tree-visualizer-diff t)
 
-;;ivy設定
-
-(ivy-mode 1)
-(ivy-rich-mode t)
-(setq ivy-re-builders-alist #'((t . ivy--regex-ignore-order)))
-
-
 ;; enable smartparens
 (sp-with-modes '(emacs-lisp-mode lisp-mode lisp-interaction-mode
 				 ;;slime-mode
@@ -804,81 +541,17 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
 ;; (load-theme 'my-moe-dark t :no-confirm)
 
 
-
-
-;; enable which key mode
-(which-key-mode t)
-
-;; enable multiple cursor
-(multiple-cursors-mode 1)
-
 ;; enable powerline
 ;; (powerline-default-theme)
 ;;install magit
 ;;(package-install  #'magit)
 
-(projectile-global-mode t)
 
 (winum-mode t)
-
-;; telephone-line
-(setq telephone-line-height 14)
-;; (setq telephone-line-faces
-;;       '((evil . (mode-line . mode-line-inactive))
-;;         (accent .(mode-line-emphasis . mode-line-emphasis))
-;;         (nil . (mode-line-inactive . mode-line-inactive))))
-
-(setq telephone-line-faces
-      '((evil . (mode-line-inactive . mode-line-inactive))
-        (accent . (telephone-line-accent-active . telephone-line-accent-inactive))
-        (nil . (mode-line . mode-line-inactive))))
-
-(telephone-line-defsegment telephone-line-nil-segment ()
-  "")
-
-;; Left edge
-(setq telephone-line-lhs
-      '((nil . ((telephone-line-window-number-segment t)
-		 telephone-line-input-info-segment))
-	(accent . (telephone-line-projectile-buffer-segment
-		   telephone-line-buffer-modified-segment))
-	(evil . (telephone-line-simple-major-mode-segment
-		telephone-line-simple-minor-mode-segment
-		telephone-line-nil-segment))))
-;; Right edge
-(setq telephone-line-rhs
-      '((evil . (telephone-line-atom-encoding-segment
-		telephone-line-misc-info-segment))
-	(accent . (telephone-line-flycheck-segment
-		   (telephone-line-vc-segment :active)))
-	(nil . (telephone-line-filesize-segment
-		telephone-line-hud-segment))))
-
-(telephone-line-mode t)
-
 
 ;; dired の圧縮・解凍機能で atool を使う
 (define-key dired-mode-map "z" #'dired-atool-do-unpack)
 (define-key dired-mode-map "Z" #'dired-atool-do-pack)
-
-
-;; インデントに合わせて折り返し
-(define-globalized-minor-mode global-adaptive-wrap-prefix-mode
-  adaptive-wrap-prefix-mode
-  adaptive-wrap-prefix-mode)
-(global-adaptive-wrap-prefix-mode 1)
-
-(add-hook #'rust-mode-hook '(lambda () (adaptive-wrap-prefix-mode -1)))
-
-(setq-default cursor-type '(bar . 1))
-;;括弧の深さをカラーコードで表す
-(setq rainbow-delimiters-outermost-only-face-count 1)
-
-(define-globalized-minor-mode global-rainbow-delimiters-mode
-  rainbow-delimiters-mode
-  rainbow-delimiters-mode)
-
-(global-rainbow-delimiters-mode 1)
 
 (define-globalized-minor-mode global-centered-cursor-mode
   centered-cursor-mode
@@ -1203,6 +876,8 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(blink-matching-delay 0)
  '(blink-matching-paren-dont-ignore-comments t)
  '(cider-completion-annotations-include-ns 'always)
+ '(custom-safe-themes
+   '("13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "fe1c13d75398b1c8fd7fdd1241a55c286b86c3e4ce513c4292d01383de152cb7" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default))
  '(debug-on-error t)
  '(desktop-globals-to-clear nil)
  '(desktop-globals-to-save
@@ -1237,6 +912,8 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(global-linum-mode t)
  '(global-undo-tree-mode t)
  '(icomplete-mode t)
+ '(imenu-list-position 'left)
+ '(imenu-list-size 30)
  '(indent-guide-global-mode nil)
  '(ivy-height 40)
  '(ivy-height-alist nil)
@@ -1249,8 +926,22 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(mozc-candidate-style 'overlay)
  '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-window-setup 'current-window)
+ '(package-archive-priorities
+   '(("elpa" . 15)
+     ("melpa-stable" . 10)
+     ("melpa" . 5)
+     ("marmalade" . 1)
+     ("org" . 0)
+     ("gnu" . 0)))
+ '(package-archives
+   '(("melpa" . "https://melpa.org/packages/")
+     ("gnu" . "https://elpa.gnu.org/packages/")
+     ("melpa-stable" . "https://stable.melpa.org/packages/")
+     ("marmalade" . "http://marmalade-repo.org/packages/")
+     ("org" . "http://orgmode.org/elpa/")
+     ("emacswiki" . "http://www.emacswiki.org/emacs/download/")))
  '(package-selected-packages
-   '(pkgbuild-mode lean-mode fstar-mode idris-mode flycheck-ats2 company-tabnine htmlize company-ghc fish-mode yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel))
+   '(dracula-theme pkgbuild-mode lean-mode fstar-mode idris-mode flycheck-ats2 company-tabnine htmlize company-ghc fish-mode yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel))
  '(projectile-mode t nil (projectile))
  '(rust-always-locate-project-on-open t)
  '(skk-jisyo-edit-user-accepts-editing t)
@@ -1261,7 +952,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(tooltip-delay 0.3)
  '(tooltip-hide-delay 100)
  '(undo-limit 8000000)
- '(whitespace-display-mappings t)
+ '(whitespace-display-mappings t t)
  '(window-divider-default-places t)
  '(window-divider-mode nil)
  '(winum-mode t))

@@ -442,8 +442,6 @@ This function is suitable for adding to `sml-mode-hook'."
 ;; 	'(haskell-mode . ("haskell-language-server-wrapper")))
 ;;       )
 
-(print eglot-server-programs)
-
 ;; (lsp-register-client
 ;;  (make-lsp-client :new-connection (lsp-tramp-connection "hie-wrapper")
 ;;                   :major-modes '(haskell-mode)

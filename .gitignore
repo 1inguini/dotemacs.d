@@ -3,9 +3,6 @@
 
 !/init.el
 !/newinit.el
-!/packages.el
-!/themes/
-!/mylisp/
 !/snippets/
 !/.gitignore
 !/.git/

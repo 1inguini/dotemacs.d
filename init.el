@@ -877,7 +877,7 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
  '(blink-matching-paren-dont-ignore-comments t)
  '(cider-completion-annotations-include-ns 'always)
  '(custom-safe-themes
-   '("13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "fe1c13d75398b1c8fd7fdd1241a55c286b86c3e4ce513c4292d01383de152cb7" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default))
+   '("26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" default))
  '(debug-on-error t)
  '(desktop-globals-to-clear nil)
  '(desktop-globals-to-save
@@ -931,15 +931,15 @@ The window scope is determined by `avy-all-windows' (ARG negates it)."
      ("melpa-stable" . 10)
      ("melpa" . 5)
      ("marmalade" . 1)
-     ("org" . 0)
-     ("gnu" . 0)))
+     ("org" . 0)))
  '(package-archives
-   '(("melpa" . "https://melpa.org/packages/")
-     ("gnu" . "https://elpa.gnu.org/packages/")
-     ("melpa-stable" . "https://stable.melpa.org/packages/")
-     ("marmalade" . "http://marmalade-repo.org/packages/")
-     ("org" . "http://orgmode.org/elpa/")
-     ("emacswiki" . "http://www.emacswiki.org/emacs/download/")))
+   '(("org" ly-raw string "\"https://orgmode.org/elpa/\"")
+     ("melpa" ly-raw string "\"https://melpa.org/packages/\"")
+     ("gnu" ly-raw string "\"https://elpa.gnu.org/packages/\"")
+     ("melpa-stable" ly-raw string "\"https://stable.melpa.org/packages/\"")
+     ("marmalade" ly-raw string "\"http://marmalade-repo.org/packages/\"")
+     ("org" ly-raw string "\"http://orgmode.org/elpa/\"")
+     ("emacswiki" ly-raw string "\"http://www.emacswiki.org/emacs/download/\"")))
  '(package-selected-packages
    '(dracula-theme pkgbuild-mode lean-mode fstar-mode idris-mode flycheck-ats2 company-tabnine htmlize company-ghc fish-mode yaml-mode exec-path-from-shell lsp-mode lsp-ui company-lsp lsp-haskell haskell-mode haskell-snippets smart-hungry-delete sml-mode dune flycheck-ocaml merlin-eldoc merlin tuareg arduino-mode company-arduino rainbow-mode winum telephone-line centered-cursor-mode calfw-org calfw git-gutter-fringe+ lispxmp highlight-indent-guides quickrun flycheck-nim nim-mode eglot clang-format shackle diminish projectile elein use-package cider clj-refactor clojure-mode s srefactor m-buffer ov elisp-def pcre2el lispy switch-window lua-mode company-lua yasnippet-snippets flycheck flycheck-pos-tip flycheck-popup-tip py-autopep8 jedi company-jedi pipenv elpy rust-mode cargo racer flycheck-rust review-mode org-plus-contrib nix-mode auto-sudoedit avy winner company-quickhelp company company-flx company-statistics counsel smex ivy-rich smartparens leuven-theme moe-theme which-key multiple-cursors powerline multi-term dired-atool dired-toggle-sudo adaptive-wrap rainbow-delimiters general switch-window exwm gpastel))
  '(projectile-mode t nil (projectile))

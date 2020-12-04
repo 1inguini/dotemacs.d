@@ -24,48 +24,33 @@ Value is t if a query was formerly required."
 
 ;; <leaf-install-code>
 (eval-and-compile
-  (custom-set-variables
-   '(package-archives '(("melpa" . "https://melpa.org/packages/")
-			("gnu" . "https://elpa.gnu.org/packages/")
-			("melpa-stable" . "https://stable.melpa.org/packages/")
-			("marmalade" . "http://marmalade-repo.org/packages/")
-			("org" . "http://orgmode.org/elpa/")
-			("emacswiki" . "http://www.emacswiki.org/emacs/download/")))
-   '(package-archive-priorities
-     '(("elpa" . 15)
-       ("melpa-stable" . 10)
-       ("melpa" . 5)
-       ("marmalade" . 1)
-       ("org" . 0)
-       ("gnu" . 0))))
-  
+  (customize-set-variable
+   'package-archives '(("org" . "https://orgmode.org/elpa/")
+                       ("melpa" . "https://melpa.org/packages/")
+                       ("gnu" . "https://elpa.gnu.org/packages/")))
   (package-initialize)
   (unless (package-installed-p 'leaf)
     (package-refresh-contents)
     (package-install 'leaf))
 
-  (leaf leaf
+  (leaf leaf-keywords
+    :ensure t
+    :init
+    ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
+    ;; (leaf hydra :ensure t)
+    ;; (leaf el-get :ensure t)
+    (leaf blackout :ensure t)
+
     :config
-    (leaf leaf-convert :ensure t)
-
-    (leaf leaf-tree
-      :ensure t
-      :custom
-      ((imenu-list-size . 30)
-       (imenu-list-position . 'left)))
-    
-    (leaf leaf-keywords
-      :ensure t
-      :init
-      ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
-      ;; (leaf hydra :ensure t)
-      ;; (leaf el-get :ensure t)
-      (leaf blackout :ensure t)
-
-      :config
-      ;; initialize leaf-keywords.el
-      (leaf-keywords-init))))
+    ;; initialize leaf-keywords.el
+    (leaf-keywords-init)))
 ;; </leaf-install-code>
+
+(leaf leaf-tree
+  :ensure t
+  :custom
+  ((imenu-list-size . 30)
+   (imenu-list-position . 'left)))
 
 (leaf *emacs
   :custom
@@ -193,33 +178,32 @@ Value is t if a query was formerly required."
   :ensure t
   :after cl-generic
   :init
-  (telephone-line-defsegment telephone-line-nil-segment ()
-    "")
+  (telephone-line-defsegment telephone-line-nil-segment () "")
   :global-minor-mode telephone-line-mode
   :custom
-  (telephone-line-height . 14)
-  (telephone-line-faces .
-			'((evil . (mode-line-inactive . mode-line-inactive))
-			  (accent . (telephone-line-accent-active . telephone-line-accent-inactive))
-			  (nil . (mode-line . mode-line-inactive))))
+  ((telephone-line-height . 14)
+   (telephone-line-faces .
+			 '((evil . (mode-line-inactive . mode-line-inactive))
+			   (accent . (telephone-line-accent-active . telephone-line-accent-inactive))
+			   (nil . (mode-line . mode-line-inactive))))
 
-  ;; Left edge
-  (telephone-line-lhs .
-		      '((nil . ((telephone-line-window-number-segment t)
-				telephone-line-input-info-segment))
-			(accent . (telephone-line-projectile-buffer-segment
-				   telephone-line-buffer-modified-segment))
-			(evil . (telephone-line-simple-major-mode-segment
-				 telephone-line-simple-minor-mode-segment
-				 telephone-line-nil-segment))))
-  ;; Right edge
-  (telephone-line-rhs .
-		      '((evil . (telephone-line-atom-encoding-segment
-				 telephone-line-misc-info-segment))
-			(accent . (telephone-line-flycheck-segment
-				   (telephone-line-vc-segment :active)))
-			(nil . (telephone-line-filesize-segment
-				telephone-line-hud-segment)))))
+   ;; Left edge
+   (telephone-line-lhs .
+		       '((nil . ((telephone-line-window-number-segment t)
+				 telephone-line-input-info-segment))
+			 (accent . (telephone-line-projectile-buffer-segment
+				    telephone-line-buffer-modified-segment))
+			 (evil . (telephone-line-simple-major-mode-segment
+				  telephone-line-simple-minor-mode-segment
+				  telephone-line-nil-segment))))
+   ;; Right edge
+   (telephone-line-rhs .
+		       '((evil . (telephone-line-atom-encoding-segment
+				  telephone-line-misc-info-segment))
+			 (accent . (telephone-line-flycheck-segment
+				    (telephone-line-vc-segment :active)))
+			 (nil . (telephone-line-filesize-segment
+				 telephone-line-hud-segment))))))
 
 (leaf uim
   :tag "builtin"
@@ -247,8 +231,12 @@ Value is t if a query was formerly required."
   :blackout t
   :global-minor-mode global-undo-tree-mode
   :bind
-  ((:global-map
-    ("C-z" . undo-tree-undo)
+  ((:undo-tree-map
+    ("C-x" . nil))
+   (:global-map
+    ("C-z" . undo))
+   (:undo-tree-map
+    ([remap undo] . undo-tree-undo)
     ("C-y" . undo-tree-redo))
    (:ctl-x-map
     ("u" . undo-tree-visualize))))
@@ -269,6 +257,7 @@ Value is t if a query was formerly required."
   :url "https://github.com/dimitri/switch-window"
   :emacs>= 24
   :ensure t
+  :require
   :bind
   (:ctl-x-map
    ("o" . switch-window))
@@ -337,6 +326,7 @@ Value is t if a query was formerly required."
 	    (eq major-mode 'dune-mode))
 	(highlight-indent-guides-mode -1)
       (highlight-indent-guides-mode t)))
+
   (leaf lisp-less-prog-mode-hook-highlight-indent-guides-mode
     :hook prog-mode-hook))
 
@@ -379,16 +369,16 @@ Value is t if a query was formerly required."
   :url "https://github.com/abo-abo/swiper"
   :emacs>= 24.1
   :ensure t
+  :global-minor-mode ivy-mode
   ;; :bind
   ;; (:ivy-minibuffer-map
   ;;  ("<backspace>" . ivy-backward-delete-char)
   ;;  ("M-<tab>" . next-line)
   ;; ("M-<iso-lefttab>" . previous-line))
   :custom
-  (ivy-re-builders-alist . #'((t . ivy--regex-ignore-order)))
+  ((ivy-re-builders-alist . #'((t . ivy--regex-ignore-order)))
+   (ivy-height . 40))
   :config
-  (ivy-mode t)
-
   (leaf ivy-rich
     :doc "More friendly display transformer for ivy."
     :req "emacs-24.4" "ivy-0.8.0"
@@ -438,9 +428,7 @@ Value is t if a query was formerly required."
   :url "https://github.com/justbur/emacs-which-key"
   :emacs>= 24.4
   :ensure t
-  :config
-  ;; enable which key mode
-  (which-key-mode t))
+  :global-minor-mode which-key-mode)
 
 (leaf multiple-cursors
   :doc "Multiple cursors for Emacs."
@@ -459,20 +447,19 @@ Value is t if a query was formerly required."
   :url "https://github.com/bbatsov/projectile"
   :emacs>= 25.1
   :ensure t
-  :config
-  (projectile-mode t))
+  :global-minor-mode projectile-mode t)
 
 (leaf adaptive-wrap
   :doc "Smart line-wrapping with wrap-prefix"
   :added "2020-12-02"
   :url "http://elpa.gnu.org/packages/adaptive-wrap.html"
   :ensure t
-  :config
+  :init
   ;; インデントに合わせて折り返し
   (define-globalized-minor-mode global-adaptive-wrap-prefix-mode
     adaptive-wrap-prefix-mode
     adaptive-wrap-prefix-mode)
-  (global-adaptive-wrap-prefix-mode 1))
+  :global-minor-mode global-adaptive-wrap-prefix-mode)
 
 (leaf flycheck
   :doc "On-the-fly syntax checking"
@@ -485,7 +472,16 @@ Value is t if a query was formerly required."
   :blackout t
   :hook prog-mode-hook
   :config
-  (flycheck-mode t))
+  (leaf flycheck-popup-tip
+    :doc "Display Flycheck error messages using popup.el"
+    :req "flycheck-0.22" "popup-0.5" "emacs-24"
+    :tag "tooltip" "flycheck" "tools" "convenience" "emacs>=24"
+    :added "2020-12-04"
+    :url "https://github.com/flycheck/flycheck-popup-tip/"
+    :emacs>= 24
+    :ensure t
+    :after flycheck
+    :hook flycheck-mode-hook))
 
 (leaf ov
   :doc "Overlay library for Emacs Lisp"
@@ -526,13 +522,16 @@ Value is t if a query was formerly required."
   :url "http://company-mode.github.io/"
   :emacs>= 24.3
   :ensure t
+  :global-minor-mode global-company-mode
   :custom
   ((company-idle-delay . 0)
    (company-minimum-prefix-length . 1)
    (company-quickhelp-mode . -1)
    (company-show-numbers . t)
-   (company-transformers .
-			 '(company-sort-by-backend-importance company-sort-by-statistics company-sort-by-occurrence))
+   ;; (company-transformers .
+   ;; 			 '(company-sort-by-backend-importance
+   ;; 			   company-sort-by-statistics
+   ;; 			   company-sort-by-occurrence))
    (company-require-match))
   ;; '( company-backends
   ;;     '((company-tabnine
@@ -558,9 +557,18 @@ Value is t if a query was formerly required."
   ;; 	;; (company-yasnippet :with company-oddmuse)
   ;; 	;; (company-yasnippet :with company-capf)
   ;; 	))
+  
   :config
-  (company-statistics-mode t)
-  (global-company-mode t)
+  (leaf company-statistics
+    :doc "Sort candidates using completion history"
+    :req "emacs-24.3" "company-0.8.5"
+    :tag "matching" "convenience" "abbrev" "emacs>=24.3"
+    :added "2020-12-04"
+    :url "https://github.com/company-mode/company-statistics"
+    :emacs>= 24.3
+    :ensure t
+    :after company
+    :hook company-mode)
 
   (leaf company-flx
     :doc "flx based fuzzy matching for company"
@@ -583,11 +591,25 @@ Value is t if a query was formerly required."
   :global-minor-mode yas-global-mode
   :bind
   (:yas-minor-mode-map
-   ("C-c &" . nil))
+   ("C-c" . nil))
   (:mode-specific-map
    ("C-s" . yas-insert-snippet)
    ("C-n" . yas-new-snippet)
    ("C-v" . yas-visit-snippet-file)))
+
+(leaf lispy
+  :doc "vi-like Paredit"
+  :req "emacs-24.1" "ace-window-0.8.0" "hydra-0.12.1" "iedit-0.97" "multiple-cursors-1.3.0" "swiper-0.2.0"
+  :tag "emacs>=24.1"
+  :added "2020-12-04"
+  :emacs>= 24.1
+  :ensure t
+  :after ace-window hydra iedit multiple-cursors swiper
+  :hook emacs-lisp-mode-hook
+  :bind
+  (:lispy-mode-map
+   ("C-x" . nil)
+   ("M-m" . nil)))
 
 (leaf smartparens
   :doc "Automatic insertion, wrapping and paredit-like navigation with user defined pairs."
@@ -595,18 +617,17 @@ Value is t if a query was formerly required."
   :added "2020-12-02"
   :ensure t
   :require t
+  :global-minor-mode show-smartparens-global-mode
   :config
   ;; enable smartparens
-  (sp-with-modes '(emacs-lisp-mode lisp-mode lisp-interaction-mode
-				   ;;slime-mode
-				   clojure-mode)
+  (sp-with-modes '(emacs-lisp-mode
+		   lisp-mode
+		   lisp-interaction-mode)
     (sp-local-pair "'" nil :actions nil)
     (sp-local-pair "`" nil :actions nil))
   (smartparens-global-mode 1)
 
-  (sp-pair "⟨" "⟩")
-
-  (show-smartparens-global-mode 1))
+  (sp-pair "⟨" "⟩"))
 
 (leaf dired
   :doc "directory-browsing commands"
@@ -677,8 +698,9 @@ Value is t if a query was formerly required."
   :config
   (bind-keys
    :map global-map
-   ("M-m" . Control-X-prefix)))
-
-;; memo lispyは便利
+   ("M-m" . Control-X-prefix))
+  (bind-keys
+   :map ctl-x-map
+   ("8" . iso-transl-ctl-x-8-map)))
 
 ;;; init.el ens here

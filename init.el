@@ -136,7 +136,7 @@ Value is t if a query was formerly required."
   :doc "display line numbers in the left margin"
   :tag "builtin"
   :added "2020-12-02"
-  :config
+  :global-minor-mode global-linum-mode
   :custom
   (linum-format . " %4d"))
 
@@ -352,8 +352,7 @@ Value is t if a query was formerly required."
   :ensure t
   :require
   :bind
-  (:ctl-x-map
-   ([remap other-window] . switch-window))
+  ([remap other-window] . switch-window)
   :custom
   ((switch-window-threshold . 2)
    (switch-window-minibuffer-shortcut . 122))
@@ -684,10 +683,13 @@ Value is t if a query was formerly required."
   :ensure t
   :after ace-window hydra iedit multiple-cursors swiper
   :preface (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
-  :bind
-  (:lispy-mode-map
-   ("M-m" . nil)))
-
+  ;; :bind
+  ;; (:lispy-mode-map
+  ;;  ("M-m" . nil))
+  )
+(eval-after-load 'lispy
+  '(bind-keys :map lispy-mode-map
+	      ("M-m" . nil)))
 
 (leaf lsp-mode
   :doc "LSP mode"
@@ -786,7 +788,7 @@ Value is t if a query was formerly required."
   :ensure t
   :bind
   (:global-map
-   ([remap delete-forward-char] . smart-hungry-delete-forward-char)
+   ;; ([remap delete-forward-char] . smart-hungry-delete-forward-char)
    ([remap delete-backward-char] . smart-hungry-delete-backward-char)))
 
 (leaf cua-base

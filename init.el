@@ -789,6 +789,13 @@ Value is t if a query was formerly required."
 	      ([remap lispy-yank] . undo-tree-redo)
 	      ("M-m" . nil)))
 
+(leaf flymake
+  :doc "A universal on-the-fly syntax checker"
+  :tag "builtin"
+  :added "2020-12-28"
+  :custom
+  ((flymake-run-in-place . nil)))
+
 (leaf lsp-mode
   :doc "LSP mode"
   :req "emacs-25.1" "dash-2.14.1" "dash-functional-2.14.1" "f-0.20.0" "ht-2.0" "spinner-1.7.3"
@@ -926,7 +933,7 @@ Value is t if a query was formerly required."
   :ensure t
   :after git-commit with-editor
   :config
-  
+
   (leaf diff-hl
     :doc "Highlight uncommitted changes using VC"
     :req "cl-lib-0.2" "emacs-24.3"
@@ -935,6 +942,9 @@ Value is t if a query was formerly required."
     :url "https://github.com/dgutov/diff-hl"
     :emacs>= 24.3
     :ensure t
+    :hook
+    ((magit-pre-refresh-hook . diff-hl-magit-pre-refresh)
+     (magit-post-refresh-hook . diff-hl-magit-post-refresh))
     :global-minor-mode global-diff-hl-mode)
 
   (leaf gitignore-mode

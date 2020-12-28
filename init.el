@@ -52,6 +52,16 @@ Value is t if a query was formerly required."
   ((imenu-list-size . 30)
    (imenu-list-position . 'left)))
 
+(leaf leaf-convert
+  :doc "Convert many format to leaf format"
+  :req "emacs-26.1" "leaf-3.6.0" "leaf-keywords-1.1.0" "ppp-2.1"
+  :tag "tools" "emacs>=26.1"
+  :added "2020-12-17"
+  :url "https://github.com/conao3/leaf-convert.el"
+  :emacs>= 26.1
+  :ensure t
+  :after leaf leaf-keywords ppp)
+
 (leaf *emacs
   :custom
   ;; Turn on `display-time-mode' if you don't use an external bar.
@@ -83,7 +93,7 @@ Value is t if a query was formerly required."
 		      (font-spec :family "NotoSansMonoCJK"
 				 :size font-size))
 
-    (set-fontset-font nil '(126976 . 129791) "NotoEmoji")
+    (set-fontset-font nil '(126976 . 129791) "NotoColorEmoji")
 
     (set-fontset-font nil
 		      #'ascii
@@ -313,7 +323,8 @@ Value is t if a query was formerly required."
   :bind
   (:uim-mode-map
    ("ESC" . nil)
-   ("C-h" . nil))
+   ("C-h" . nil)
+   ("<delete>" . nil))
   :custom
   ((uim-candidate-display-inline . t)
    (uim-preedit-display-fences . t)
@@ -342,6 +353,44 @@ Value is t if a query was formerly required."
   :custom
   (recentf-auto-cleanup . 'never))
 
+(leaf files
+  :doc "file input and output commands for Emacs"
+  :tag "builtin"
+  :added "2020-12-15"
+  :custom
+  ((backup-directory-alist . '(("." . "~/.emacs.d/backups")))
+   (auto-save-file-name-transforms . '((".*" "~/.emacs.d/backups" t)))))
+
+(leaf backup-each-save
+  :doc "backup each savepoint of a file"
+  :added "2020-12-15"
+  :ensure t
+  :require t
+  :hook (after-save-hook . backup-each-save)
+  :config
+  (defvar backup-each-save-mirror-location "~/.emacs.d/backups"))
+
+(leaf autorevert
+  :doc "revert buffers when files on disk change"
+  :tag "builtin"
+  :added "2020-12-15"
+  :global-minor-mode global-auto-revert-mode)
+
+(leaf desktop
+  :doc "save partial status of Emacs when killed"
+  :tag "builtin"
+  :added "2020-12-15"
+  :custom
+  (desktop-save-mode . t))
+
+(leaf session
+  :doc "use variables, registers and buffer places across sessions"
+  :tag "tools" "data" "desktop" "session management" "session"
+  :added "2020-12-15"
+  :url "http://emacs-session.sourceforge.net/"
+  :ensure t
+  :hook (after-init-hook . session-initialize))
+
 (leaf switch-window
   :doc "A *visual* way to switch window"
   :req "emacs-24"
@@ -354,8 +403,8 @@ Value is t if a query was formerly required."
   :bind
   ([remap other-window] . switch-window)
   :custom
-  ((switch-window-threshold . 2)
-   (switch-window-minibuffer-shortcut . 122))
+  ((switch-window-threshold . 3)
+   (switch-window-minibuffer-shortcut . ?z))
   :config
   (leaf *cui
     ;; ←CUI用設定を、ここに記述
@@ -404,6 +453,18 @@ Value is t if a query was formerly required."
 				  (space-mark ?\t [?⟼ ?\t] [?\\?\t])
 				  (space-mark ?\n [?\¬ ?\n])))))
 
+(leaf avy
+  :doc "Jump to arbitrary positions in visible text and select text quickly."
+  :req "emacs-24.1" "cl-lib-0.5"
+  :tag "location" "point" "emacs>=24.1"
+  :added "2020-12-17"
+  :url "https://github.com/abo-abo/avy"
+  :emacs>= 24.1
+  :ensure t
+  :bind
+  (:global-map
+   ("C-<tab>" . avy-goto-char)))
+
 (leaf ivy
   :doc "Incremental Vertical completYon"
   :req "emacs-24.1"
@@ -433,8 +494,19 @@ Value is t if a query was formerly required."
     :ensure t
     :after swiper
     :blackout t
-    :global-minor-mode counsel-mode)
-  
+    :global-minor-mode counsel-mode
+    :bind
+    (:counsel-mode-map
+     ("<C-i>" . counsel-imenu))
+    :custom
+    (ivy-initial-inputs-alist . nil
+			      ;; '((org-refile . "^")
+			      ;; 	(org-agenda-refile . "^")
+			      ;; 	(org-capture-refile . "^")
+			      ;; 	(Man-completion-table . "^")
+			      ;; 	(woman . "^"))
+			      ))
+
   (leaf ivy-rich
     :doc "More friendly display transformer for ivy."
     :req "emacs-24.4" "ivy-0.8.0"
@@ -462,7 +534,18 @@ Value is t if a query was formerly required."
       ("C-z" . ivy-reverse-i-search)
       ("M-c" . swiper-mc)
       ("C-o" . ivy-occur)
-      ("C-v" . nil)))))
+      ("C-v" . nil))))
+
+  (leaf amx
+    :doc "Alternative M-x with extra features."
+    :req "emacs-24.4" "s-0"
+    :tag "usability" "convenience" "emacs>=24.4"
+    :added "2020-12-18"
+    :url "http://github.com/DarwinAwardWinner/amx/"
+    :emacs>= 24.4
+    :ensure t
+    :custom
+    (amx-history-length . 50)))
 
 (leaf which-key
   :doc "Display available keybindings in popup"
@@ -503,6 +586,13 @@ Value is t if a query was formerly required."
   :ensure t
   :global-minor-mode projectile-mode)
 
+(leaf htmlize
+  :doc "Convert buffer text and decorations to HTML."
+  :tag "extensions" "hypermedia"
+  :added "2020-12-17"
+  :url "https://github.com/hniksic/emacs-htmlize"
+  :ensure t)
+
 (leaf adaptive-wrap
   :doc "Smart line-wrapping with wrap-prefix"
   :added "2020-12-02"
@@ -525,6 +615,21 @@ Value is t if a query was formerly required."
   :ensure t
   :preface (add-hook 'prog-mode-hook #'flycheck-mode)
   :config
+
+  (leaf flycheck-pos-tip
+    :doc "Display Flycheck errors in GUI tooltips"
+    :req "emacs-24.1" "flycheck-0.22" "pos-tip-0.4.6"
+    :tag "convenience" "tools" "emacs>=24.1"
+    :added "2020-12-17"
+    :url "https://github.com/flycheck/flycheck-pos-tip"
+    :emacs>= 24.1
+    :ensure t
+    :after flycheck pos-tip
+    :when window-system
+    :hook flycheck-mode-hook
+    :custom
+    (flycheck-pos-tip-timeout . 0))
+
   (leaf flycheck-popup-tip
     :doc "Display Flycheck error messages using popup.el"
     :req "flycheck-0.22" "popup-0.5" "emacs-24"
@@ -534,6 +639,7 @@ Value is t if a query was formerly required."
     :emacs>= 24
     :ensure t
     :after flycheck
+    :when (not window-system)
     :hook flycheck-mode-hook))
 
 (leaf ov
@@ -588,7 +694,7 @@ Value is t if a query was formerly required."
 			  company-sort-by-occurrence))
    (company-require-match . nil)
    (company-backends .
-		     '(company-lsp
+		     '(company-capf
 		       (company-tabnine
 			company-yasnippet
 			:with
@@ -643,17 +749,7 @@ Value is t if a query was formerly required."
     :url "https://github.com/TommyX12/company-tabnine/"
     :emacs>= 25
     :ensure t
-    :after company unicode-escape)
-
-  (leaf company-lsp
-    :doc "Company completion backend for lsp-mode."
-    :req "emacs-25.1" "lsp-mode-6.0" "company-0.9.0" "s-1.2.0" "dash-2.11.0"
-    :tag "emacs>=25.1"
-    :added "2020-12-08"
-    :url "https://github.com/tigersoldier/company-lsp"
-    :emacs>= 25.1
-    :ensure t
-    :after lsp-mode company))
+    :after company unicode-escape))
 
 (leaf yasnippet
   :doc "Yet another snippet extension for Emacs."
@@ -689,6 +785,7 @@ Value is t if a query was formerly required."
   )
 (eval-after-load 'lispy
   '(bind-keys :map lispy-mode-map
+	      ([remap lispy-yank] . undo-tree-redo)
 	      ("M-m" . nil)))
 
 (leaf lsp-mode
@@ -702,7 +799,11 @@ Value is t if a query was formerly required."
   :preface (add-hook 'prog-major-mode-hook #'lsp-prog-major-mode-enable)
   :custom
   (lsp-prefer-flymake . nil)
+  :bind
+  (:mode-specific-map
+   ("f" . lsp-format-buffer))
   :config
+
   (leaf lsp-ui
     :doc "UI modules for lsp-mode"
     :req "emacs-25.1" "dash-2.14" "dash-functional-1.2.0" "lsp-mode-6.0" "markdown-mode-2.3"
@@ -712,7 +813,9 @@ Value is t if a query was formerly required."
     :emacs>= 25.1
     :ensure t
     :after lsp-mode markdown-mode
-    :preface (add-hook 'lsp-mode-hook #'lsp-ui-mode))
+    :preface (add-hook 'lsp-mode-hook #'lsp-ui-mode)
+    :custom
+    (lsp-ui-doc-enable . nil))
 
   (leaf lsp-haskell
     :doc "Haskell support for lsp-mode"
@@ -726,7 +829,37 @@ Value is t if a query was formerly required."
     (add-hook 'haskell-mode-hook #'lsp)
     (add-hook 'haskell-literate-mode-hook #'lsp)
     :custom
-    (lsp-haskell-process-path-hie . "haskell-language-server-wrapper")))
+    ;; (lsp-haskell-process-path-hie . "haskell-language-server-wrapper")
+    (lsp-haskell-process-path-hie . "haskell-language-server-8.8.4")))
+
+(leaf haskell-mode
+  :doc "A Haskell editing mode"
+  :req "emacs-24.3"
+  :tag "repl" "ghc" "cabal" "haskell" "emacs>=24.3"
+  :added "2020-12-15"
+  :url "https://github.com/haskell/haskell-mode"
+  :emacs>= 24.3
+  :ensure t
+  :custom
+  (haskell-program-name . "stack repl"))
+
+
+(leaf subword
+  :doc "Handling capitalized subwords in a nomenclature"
+  :tag "builtin"
+  :added "2020-12-17"
+  :hook
+  haskell-mode-hook)
+
+
+(leaf yaml-mode
+  :doc "Major mode for editing YAML files"
+  :req "emacs-24.1"
+  :tag "yaml" "data" "emacs>=24.1"
+  :added "2020-12-18"
+  :emacs>= 24.1
+  :ensure t)
+
 
 (leaf smartparens
   :doc "Automatic insertion, wrapping and paredit-like navigation with user defined pairs."
@@ -747,6 +880,21 @@ Value is t if a query was formerly required."
 
   (sp-pair "⟨" "⟩"))
 
+(leaf origami
+  :doc "Flexible text folding"
+  :req "s-1.9.0" "dash-2.5.0" "emacs-24" "cl-lib-0.5"
+  :tag "folding" "emacs>=24"
+  :added "2020-12-17"
+  :url "https://github.com/gregsexton/origami.el"
+  :emacs>= 24
+  :ensure t
+  :blackout t
+  :global-minor-mode global-origami-mode
+  :bind
+  (:mode-specific-map
+   ("@ C-c" . origami-forward-toggle-node)
+   ("@ C-a" . origami-toggle-all-nodes)))
+
 (leaf dired
   :doc "directory-browsing commands"
   :tag "builtin" "files"
@@ -754,7 +902,9 @@ Value is t if a query was formerly required."
   :bind
   (:dired-mode-map
    ("z" . dired-atool-do-unpack)
-   ("Z" . dired-atool-do-pack)))
+   ("Z" . dired-atool-do-pack))
+  :config
+  (put 'dired-find-alternate-file 'disabled nil))
 
 (leaf eww
   :doc "Emacs Web Wowser"
@@ -763,6 +913,31 @@ Value is t if a query was formerly required."
   :custom
   ;; ewwのデフォルトのエンジンをgoogleに
   ((eww-search-prefix . "https://www.google.co.jp/search?q=")))
+
+(leaf git-gutter+
+  :doc "Manage Git hunks straight from the buffer"
+  :req "git-commit-0"
+  :tag "vc" "git"
+  :added "2020-12-16"
+  :url "https://github.com/nonsequitur/git-gutter-plus"
+  :ensure t
+  :after git-commit
+  :global-minor-mode global-git-gutter+-mode
+  :config
+  (leaf git-gutter-fringe+
+    :doc "Fringe version of git-gutter+.el"
+    :req "git-gutter+-0.1" "fringe-helper-1.0.1"
+    :added "2020-12-28"
+    :url "https://github.com/nonsequitur/git-gutter-fringe-plus"
+    :ensure t
+    :after git-gutter+ fringe-helper))
+
+(leaf gitignore-mode
+  :doc "Major mode for editing .gitignore files"
+  :tag "git" "vc" "convenience"
+  :added "2020-12-16"
+  :url "https://github.com/magit/git-modes"
+  :ensure t)
 
 (leaf *goto-line-beginning-indent
   :tag "out-of-MELPA"
@@ -825,6 +1000,8 @@ Value is t if a query was formerly required."
     ("t" . universal-argument)
     ;;  C-c map
     ("c" . mode-specific-command-prefix)))
+  (:input-decode-map
+   ([?\C-i] . [C-i]))
   :config
   (bind-keys
    :map global-map
@@ -834,3 +1011,111 @@ Value is t if a query was formerly required."
    ("8" . iso-transl-ctl-x-8-map)))
 
 ;;; init.el ens here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(auto-save-file-name-transforms '((".*" "~/.emacs.d/backups" t)))
+ '(backup-directory-alist '(("." . "~/.emacs.d/backups")))
+ '(company-backends
+   '(company-capf
+     (company-tabnine company-yasnippet :with company-capf company-dabbrev company-dabbrev-code company-files company-gtags company-etags company-keywords)))
+ '(company-idle-delay 0)
+ '(company-minimum-prefix-length 1)
+ '(company-quickhelp-mode -1 t)
+ '(company-require-match nil)
+ '(company-show-numbers t)
+ '(company-sort-by-backend-importance nil t)
+ '(company-sort-by-occurrence nil t)
+ '(company-sort-by-statistics nil t)
+ '(company-transformers nil)
+ '(cursor-type '(bar . 1))
+ '(desktop-save-mode t)
+ '(display-time-default-load-average nil)
+ '(eww-search-prefix "https://www.google.co.jp/search?q=" t)
+ '(flycheck-pos-tip-timeout 0 t)
+ '(fringe-mode '(nil . 0) nil (fringe))
+ '(haskell-program-name "stack repl" t)
+ '(highlight-indent-guides-delay 0)
+ '(highlight-indent-guides-highlighter-function 'rainbow-indent-highlighter)
+ '(highlight-indent-guides-method 'character)
+ '(highlight-indent-guides-responsive 'top)
+ '(imenu-list-position 'left)
+ '(imenu-list-size 30)
+ '(ivy-height 40)
+ '(ivy-re-builders-alist '((t . ivy--regex-ignore-order)) t)
+ '(linum-format " %4d")
+ '(load-prefer-newer t)
+ '(lsp-haskell-process-path-hie "haskell-language-server-8.8.4" t)
+ '(lsp-prefer-flymake nil t)
+ '(lsp-ui-doc-enable nil)
+ '(org-agenda-files '(org-directory) t)
+ '(org-default-notes-file "notes.org" t)
+ '(org-directory "~/Desktop/org/" t)
+ '(package-archives
+   '(("org" . "https://orgmode.org/elpa/")
+     ("melpa" . "https://melpa.org/packages/")
+     ("gnu" . "https://elpa.gnu.org/packages/")))
+ '(package-selected-packages
+   '(amx origami gitignore-mode yasnippet-snippets yaml-mode winum which-key use-package undo-tree tuareg telephone-line switch-window srefactor sml-mode smex smartparens smart-hungry-delete shackle session review-mode rainbow-mode rainbow-delimiters racer quickrun py-autopep8 projectile powerline pkgbuild-mode pipenv pcre2el ov org-plus-contrib nix-mode ninja-mode nim-mode nginx-mode nasm-mode nadvice multi-term moe-theme merlin-eldoc m-buffer lsp-ui lispy lispxmp leuven-theme lean-mode leaf-tree leaf-convert jedi ivy-rich idris-mode htmlize highlight-indent-guides haskell-snippets gpastel git-gutter-fringe+ general fstar-mode flycheck-rust flycheck-pos-tip flycheck-popup-tip flycheck-ocaml flycheck-nim flycheck-ats2 fish-mode exec-path-from-shell elpy elisp-def elein el-get eglot dune dracula-theme dockerfile-mode dired-toggle-sudo dired-atool diminish counsel company-tabnine company-statistics company-quickhelp company-lua company-jedi company-ghc company-flx company-arduino clj-refactor clang-format centered-cursor-mode cargo calfw-org calfw blackout backup-each-save auto-sudoedit adaptive-wrap))
+ '(rainbow-delimiters-outermost-only-face-count 1)
+ '(recentf-auto-cleanup 'never)
+ '(session-use-package t nil (session))
+ '(shackle-lighter "" t)
+ '(shackle-rules
+   '(("*Agenda Commands*" :aline right :ratio 0.3)
+     ("*Org Agenda*" :aline right :ratio 0.3)
+     ("*Help*" :align bottom :ratio 0.3)))
+ '(switch-window-minibuffer-shortcut 122 t)
+ '(switch-window-threshold 2 t)
+ '(telephone-line-faces
+   '((evil mode-line-inactive . mode-line-inactive)
+     (accent telephone-line-accent-active . telephone-line-accent-inactive)
+     (nil mode-line . mode-line-inactive)))
+ '(telephone-line-height 14)
+ '(telephone-line-lhs
+   '((nil
+      (telephone-line-window-number-segment t)
+      telephone-line-input-info-segment)
+     (accent telephone-line-projectile-buffer-segment telephone-line-buffer-modified-segment)
+     (evil telephone-line-simple-major-mode-segment telephone-line-simple-minor-mode-segment telephone-line-nil-segment)))
+ '(telephone-line-rhs
+   '((evil telephone-line-atom-encoding-segment telephone-line-misc-info-segment)
+     (accent telephone-line-flycheck-segment
+	     (telephone-line-vc-segment :active))
+     (nil telephone-line-filesize-segment telephone-line-hud-segment)))
+ '(uim-candidate-display-frame t t)
+ '(uim-candidate-display-inline t t)
+ '(uim-preedit-display-fences t t)
+ '(whitespace-display-mappings
+   '((space-mark 32
+		 [183]
+		 [46])
+     (space-mark 12288
+		 [9633])
+     (space-mark 160
+		 [164]
+		 [95])
+     (space-mark 9
+		 [10236 9]
+		 [92 9])
+     (space-mark 10
+		 [172 10])) t)
+ '(whitespace-space-regexp "\\(　+\\)" t)
+ '(winner-dont-bind-my-keys t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(highlight-indent-guides-top-character-face ((t (:inherit mode-line-face :invert t))) nil "Customized with leaf in `highlight-indent-guides' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#9a4040" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#ff5e5e" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#ffaa77" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#dddd77" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#80ee80" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#66bbff" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#da6bda" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "#afafaf" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'")
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "#f0f0f0" :bold t))) nil "Customized with leaf in `rainbow-delimiters' block at `/home/linguini/.emacs.d/init.el'"))

@@ -27,6 +27,7 @@ Value is t if a query was formerly required."
   (customize-set-variable
    'package-archives '(("org" . "https://orgmode.org/elpa/")
                        ("melpa" . "https://melpa.org/packages/")
+		       ("melpa-stable" . "http://stable.melpa.org/packages/")
                        ("gnu" . "https://elpa.gnu.org/packages/")))
   (package-initialize)
   (unless (package-installed-p 'leaf)
@@ -914,30 +915,34 @@ Value is t if a query was formerly required."
   ;; ewwのデフォルトのエンジンをgoogleに
   ((eww-search-prefix . "https://www.google.co.jp/search?q=")))
 
-(leaf git-gutter+
-  :doc "Manage Git hunks straight from the buffer"
-  :req "git-commit-0"
-  :tag "vc" "git"
-  :added "2020-12-16"
-  :url "https://github.com/nonsequitur/git-gutter-plus"
-  :ensure t
-  :after git-commit
-  :global-minor-mode global-git-gutter+-mode
-  :config
-  (leaf git-gutter-fringe+
-    :doc "Fringe version of git-gutter+.el"
-    :req "git-gutter+-0.1" "fringe-helper-1.0.1"
-    :added "2020-12-28"
-    :url "https://github.com/nonsequitur/git-gutter-fringe-plus"
-    :ensure t
-    :after git-gutter+ fringe-helper))
 
-(leaf gitignore-mode
-  :doc "Major mode for editing .gitignore files"
-  :tag "git" "vc" "convenience"
-  :added "2020-12-16"
-  :url "https://github.com/magit/git-modes"
-  :ensure t)
+(leaf magit
+  :doc "A Git porcelain inside Emacs."
+  :req "emacs-25.1" "async-20200113" "dash-20200524" "git-commit-20200516" "transient-20200601" "with-editor-20200522"
+  :tag "vc" "tools" "git" "emacs>=25.1"
+  :added "2020-12-28"
+  :url "https://github.com/magit/magit"
+  :emacs>= 25.1
+  :ensure t
+  :after git-commit with-editor
+  :config
+  
+  (leaf diff-hl
+    :doc "Highlight uncommitted changes using VC"
+    :req "cl-lib-0.2" "emacs-24.3"
+    :tag "diff" "vc" "emacs>=24.3"
+    :added "2020-12-28"
+    :url "https://github.com/dgutov/diff-hl"
+    :emacs>= 24.3
+    :ensure t
+    :global-minor-mode global-diff-hl-mode)
+
+  (leaf gitignore-mode
+    :doc "Major mode for editing .gitignore files"
+    :tag "git" "vc" "convenience"
+    :added "2020-12-16"
+    :url "https://github.com/magit/git-modes"
+    :ensure t))
 
 (leaf *goto-line-beginning-indent
   :tag "out-of-MELPA"
@@ -1033,7 +1038,7 @@ Value is t if a query was formerly required."
  '(cursor-type '(bar . 1))
  '(desktop-save-mode t)
  '(display-time-default-load-average nil)
- '(eww-search-prefix "https://www.google.co.jp/search?q=" t)
+ '(eww-search-prefix "https://www.google.co.jp/search?q=")
  '(flycheck-pos-tip-timeout 0 t)
  '(fringe-mode '(nil . 0) nil (fringe))
  '(haskell-program-name "stack repl" t)
@@ -1058,7 +1063,7 @@ Value is t if a query was formerly required."
      ("melpa" . "https://melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/")))
  '(package-selected-packages
-   '(amx origami gitignore-mode yasnippet-snippets yaml-mode winum which-key use-package undo-tree tuareg telephone-line switch-window srefactor sml-mode smex smartparens smart-hungry-delete shackle session review-mode rainbow-mode rainbow-delimiters racer quickrun py-autopep8 projectile powerline pkgbuild-mode pipenv pcre2el ov org-plus-contrib nix-mode ninja-mode nim-mode nginx-mode nasm-mode nadvice multi-term moe-theme merlin-eldoc m-buffer lsp-ui lispy lispxmp leuven-theme lean-mode leaf-tree leaf-convert jedi ivy-rich idris-mode htmlize highlight-indent-guides haskell-snippets gpastel git-gutter-fringe+ general fstar-mode flycheck-rust flycheck-pos-tip flycheck-popup-tip flycheck-ocaml flycheck-nim flycheck-ats2 fish-mode exec-path-from-shell elpy elisp-def elein el-get eglot dune dracula-theme dockerfile-mode dired-toggle-sudo dired-atool diminish counsel company-tabnine company-statistics company-quickhelp company-lua company-jedi company-ghc company-flx company-arduino clj-refactor clang-format centered-cursor-mode cargo calfw-org calfw blackout backup-each-save auto-sudoedit adaptive-wrap))
+   '(magit diff-hl amx origami gitignore-mode yasnippet-snippets yaml-mode winum which-key use-package undo-tree tuareg telephone-line switch-window srefactor sml-mode smex smartparens smart-hungry-delete shackle session review-mode rainbow-mode rainbow-delimiters racer quickrun py-autopep8 projectile powerline pkgbuild-mode pipenv pcre2el ov org-plus-contrib nix-mode ninja-mode nim-mode nginx-mode nasm-mode nadvice multi-term moe-theme merlin-eldoc m-buffer lsp-ui lispy lispxmp leuven-theme lean-mode leaf-tree leaf-convert jedi ivy-rich idris-mode htmlize highlight-indent-guides haskell-snippets gpastel general fstar-mode flycheck-rust flycheck-pos-tip flycheck-popup-tip flycheck-ocaml flycheck-nim flycheck-ats2 fish-mode exec-path-from-shell elpy elisp-def elein el-get eglot dune dracula-theme dockerfile-mode dired-toggle-sudo dired-atool diminish counsel company-tabnine company-statistics company-quickhelp company-lua company-jedi company-ghc company-flx company-arduino clj-refactor clang-format centered-cursor-mode cargo calfw-org calfw blackout backup-each-save auto-sudoedit adaptive-wrap))
  '(rainbow-delimiters-outermost-only-face-count 1)
  '(recentf-auto-cleanup 'never)
  '(session-use-package t nil (session))

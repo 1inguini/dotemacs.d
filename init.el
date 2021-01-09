@@ -559,22 +559,18 @@ Value is t if a query was formerly required."
   :blackout t
   :global-minor-mode which-key-mode)
 
-(leaf multiple-cursors
-  :doc "Multiple cursors for Emacs."
-  :req "cl-lib-0.5"
-  :added "2020-12-02"
-  :ensure t
-  :global-minor-mode multiple-cursors-mode
-  ;; enable multiple cursor
-  )
 
 (leaf multiple-cursors
   :doc "Multiple cursors for Emacs."
   :req "cl-lib-0.5"
   :added "2020-12-02"
   :ensure t
-  ;; enable multiple cursor
-  :global-minor-mode multiple-cursors-mode)
+  :require t
+  :bind
+  (:global-map
+   ("C->" . mc/mark-next-like-this)
+   ("C-<" . mc/mark-previous-like-this)
+   ("C-S-a" . mc/mark-all-like-this)))
 
 
 (leaf projectile
@@ -587,12 +583,14 @@ Value is t if a query was formerly required."
   :ensure t
   :global-minor-mode projectile-mode)
 
+
 (leaf htmlize
   :doc "Convert buffer text and decorations to HTML."
   :tag "extensions" "hypermedia"
   :added "2020-12-17"
   :url "https://github.com/hniksic/emacs-htmlize"
   :ensure t)
+
 
 (leaf adaptive-wrap
   :doc "Smart line-wrapping with wrap-prefix"
@@ -662,6 +660,16 @@ Value is t if a query was formerly required."
       (interactive)
       (ov (point-min) (point-max) 'face '(:family "umeMincho")))))
 
+(leaf lean-mode
+  :doc "A major mode for the Lean language"
+  :req "emacs-24.3" "dash-2.12.0" "dash-functional-1.2.0" "s-1.10.0" "f-0.19.0" "flycheck-30"
+  :tag "languages" "emacs>=24.3"
+  :added "2021-01-09"
+  :url "https://github.com/leanprover/lean-mode"
+  :emacs>= 24.3
+  :ensure t
+  :after flycheck)
+
 (leaf org
   :doc "Export Framework for Org Mode"
   :tag "builtin"
@@ -717,7 +725,6 @@ Value is t if a query was formerly required."
 		       ;; (company-yasnippet :with company-oddmuse)
 		       ;; (company-yasnippet :with company-capf)
 		       )))
-
   :config
   (leaf company-statistics
     :doc "Sort candidates using completion history"
@@ -990,6 +997,16 @@ Value is t if a query was formerly required."
   (:cua-global-keymap
    ("M-y" . counsel-yank-pop)))
 
+(leaf transpose-mark
+  :doc "Transpose data using the Emacs mark"
+  :tag "convenience" "transpose"
+  :added "2020-12-28"
+  :ensure t
+  :preface
+  :bind
+  (:global-map
+   ("C-m" . transpose-mark)))
+
 ;; (setq show-paren-style 'mixed)
 ;; (setq show-paren-when-point-inside-paren t)
 ;; (setq show-paren-when-point-in-periphery nil)
@@ -1049,7 +1066,7 @@ Value is t if a query was formerly required."
  '(desktop-save-mode t)
  '(display-time-default-load-average nil)
  '(eww-search-prefix "https://www.google.co.jp/search?q=")
- '(flycheck-pos-tip-timeout 0 t)
+ '(flycheck-pos-tip-timeout 0)
  '(fringe-mode '(nil . 0) nil (fringe))
  '(haskell-program-name "stack repl" t)
  '(highlight-indent-guides-delay 0)
@@ -1073,7 +1090,7 @@ Value is t if a query was formerly required."
      ("melpa" . "https://melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/")))
  '(package-selected-packages
-   '(magit diff-hl amx origami gitignore-mode yasnippet-snippets yaml-mode winum which-key use-package undo-tree tuareg telephone-line switch-window srefactor sml-mode smex smartparens smart-hungry-delete shackle session review-mode rainbow-mode rainbow-delimiters racer quickrun py-autopep8 projectile powerline pkgbuild-mode pipenv pcre2el ov org-plus-contrib nix-mode ninja-mode nim-mode nginx-mode nasm-mode nadvice multi-term moe-theme merlin-eldoc m-buffer lsp-ui lispy lispxmp leuven-theme lean-mode leaf-tree leaf-convert jedi ivy-rich idris-mode htmlize highlight-indent-guides haskell-snippets gpastel general fstar-mode flycheck-rust flycheck-pos-tip flycheck-popup-tip flycheck-ocaml flycheck-nim flycheck-ats2 fish-mode exec-path-from-shell elpy elisp-def elein el-get eglot dune dracula-theme dockerfile-mode dired-toggle-sudo dired-atool diminish counsel company-tabnine company-statistics company-quickhelp company-lua company-jedi company-ghc company-flx company-arduino clj-refactor clang-format centered-cursor-mode cargo calfw-org calfw blackout backup-each-save auto-sudoedit adaptive-wrap))
+   '(transpose-mark magit diff-hl amx origami gitignore-mode yasnippet-snippets yaml-mode winum which-key use-package undo-tree tuareg telephone-line switch-window srefactor sml-mode smex smartparens smart-hungry-delete shackle session review-mode rainbow-mode rainbow-delimiters racer quickrun py-autopep8 projectile powerline pkgbuild-mode pipenv pcre2el ov org-plus-contrib nix-mode ninja-mode nim-mode nginx-mode nasm-mode nadvice multi-term moe-theme merlin-eldoc m-buffer lsp-ui lispy lispxmp leuven-theme lean-mode leaf-tree leaf-convert jedi ivy-rich idris-mode htmlize highlight-indent-guides haskell-snippets gpastel general fstar-mode flycheck-rust flycheck-pos-tip flycheck-popup-tip flycheck-ocaml flycheck-nim flycheck-ats2 fish-mode exec-path-from-shell elpy elisp-def elein el-get eglot dune dracula-theme dockerfile-mode dired-toggle-sudo dired-atool diminish counsel company-tabnine company-statistics company-quickhelp company-lua company-jedi company-ghc company-flx company-arduino clj-refactor clang-format centered-cursor-mode cargo calfw-org calfw blackout backup-each-save auto-sudoedit adaptive-wrap))
  '(rainbow-delimiters-outermost-only-face-count 1)
  '(recentf-auto-cleanup 'never)
  '(session-use-package t nil (session))
@@ -1082,8 +1099,8 @@ Value is t if a query was formerly required."
    '(("*Agenda Commands*" :aline right :ratio 0.3)
      ("*Org Agenda*" :aline right :ratio 0.3)
      ("*Help*" :align bottom :ratio 0.3)))
- '(switch-window-minibuffer-shortcut 122 t)
- '(switch-window-threshold 2 t)
+ '(switch-window-minibuffer-shortcut 122)
+ '(switch-window-threshold 2)
  '(telephone-line-faces
    '((evil mode-line-inactive . mode-line-inactive)
      (accent telephone-line-accent-active . telephone-line-accent-inactive)
@@ -1116,8 +1133,8 @@ Value is t if a query was formerly required."
 		 [10236 9]
 		 [92 9])
      (space-mark 10
-		 [172 10])) t)
- '(whitespace-space-regexp "\\(　+\\)" t)
+		 [172 10])))
+ '(whitespace-space-regexp "\\(　+\\)")
  '(winner-dont-bind-my-keys t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

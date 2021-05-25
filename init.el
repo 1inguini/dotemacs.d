@@ -22,8 +22,10 @@ Value is t if a query was formerly required."
 (setq coding-system-for-write
       'utf-8)
 
+
 ;; <leaf-install-code>
 (eval-and-compile
+  (setq package-native-compile t)
   (customize-set-variable
    'package-archives '(("org" . "https://orgmode.org/elpa/")
                        ("melpa" . "https://melpa.org/packages/")
@@ -50,7 +52,7 @@ Value is t if a query was formerly required."
 (leaf leaf-tree
   :ensure t
   :custom
-  ((imenu-list-size . 30)
+  ((imenu-list-size . 20)
    (imenu-list-position . 'left)))
 
 (leaf leaf-convert
@@ -147,7 +149,8 @@ Value is t if a query was formerly required."
   :doc "display line numbers in the left margin"
   :tag "builtin"
   :added "2020-12-02"
-  :global-minor-mode global-linum-mode
+  ;; :global-minor-mode global-linum-mode
+  :hook prog-mode-hook
   :custom
   (linum-format . " %4d"))
 
@@ -204,7 +207,7 @@ Value is t if a query was formerly required."
 	   (concat "rainbow-delimiters-depth-" (number-to-string (+ i 1)) "-face"))
 	 :bold nil)))
      "face for rainbow-indent-highlight"))
-  
+
   (defun rainbow-indent-highlighter (depth responsive display)
     (cond
      ((eq responsive nil)
@@ -311,6 +314,22 @@ Value is t if a query was formerly required."
 				    (telephone-line-vc-segment :active)))
 			 (nil . (telephone-line-filesize-segment
 				 telephone-line-hud-segment))))))
+
+;; (leaf evil
+;;   :doc "Extensible Vi layer for Emacs."
+;;   :req "emacs-24.1" "goto-chg-1.6" "cl-lib-0.5"
+;;   :tag "vim" "emulation" "emacs>=24.1"
+;;   :added "2021-05-25"
+;;   :url "https://github.com/emacs-evil/evil"
+;;   :emacs>= 24.1
+;;   :ensure t
+;;   :after goto-chg
+;;   :global-minor-mode evil-mode
+;;   :custom
+;;   ((evil-default-cursor . '(t "#750000"))
+;;    (evil-visual-state-cursor . '("green" hollow))
+;;    (evil-normal-state-cursor . '("green" box))
+;;    (evil-insert-state-cursor . '("pink" (bar . 2)))))
 
 (leaf uim
   :tag "builtin"
@@ -547,6 +566,12 @@ Value is t if a query was formerly required."
     :ensure t
     :custom
     (amx-history-length . 50)))
+
+(leaf imenu
+  :doc "framework for mode-specific buffer indexes"
+  :tag "builtin"
+  :added "2021-01-30"
+  :global-minor-mode imenu-list-minor-mode)
 
 (leaf which-key
   :doc "Display available keybindings in popup"
@@ -864,7 +889,8 @@ Value is t if a query was formerly required."
   :tag "builtin"
   :added "2020-12-17"
   :hook
-  haskell-mode-hook)
+  haskell-mode-hook
+  idris-mode-hook)
 
 
 (leaf yaml-mode
@@ -874,6 +900,17 @@ Value is t if a query was formerly required."
   :added "2020-12-18"
   :emacs>= 24.1
   :ensure t)
+
+
+(leaf idris-mode
+  :doc "Major mode for editing Idris code"
+  :req "emacs-24" "prop-menu-0.1" "cl-lib-0.5"
+  :tag "languages" "emacs>=24"
+  :added "2021-01-29"
+  :url "https://github.com/idris-hackers/idris-mode"
+  :emacs>= 24
+  :ensure t
+  :after prop-menu)
 
 
 (leaf smartparens
@@ -929,6 +966,15 @@ Value is t if a query was formerly required."
   ;; ewwのデフォルトのエンジンをgoogleに
   ((eww-search-prefix . "https://www.google.co.jp/search?q=")))
 
+(leaf auto-sudoedit
+  :doc "Auto sudo edit by tramp"
+  :req "emacs-24.4" "f-0.19.0"
+  :tag "emacs>=24.4"
+  :added "2021-01-29"
+  :url "https://github.com/ncaq/auto-sudoedit"
+  :emacs>= 24.4
+  :ensure t
+  :global-minor-mode auto-sudoedit-mode)
 
 (leaf magit
   :doc "A Git porcelain inside Emacs."
@@ -1065,7 +1111,7 @@ Value is t if a query was formerly required."
  '(cursor-type '(bar . 1))
  '(desktop-save-mode t)
  '(display-time-default-load-average nil)
- '(eww-search-prefix "https://www.google.co.jp/search?q=")
+ '(eww-search-prefix "https://www.google.co.jp/search?q=" t)
  '(flycheck-pos-tip-timeout 0)
  '(fringe-mode '(nil . 0) nil (fringe))
  '(haskell-program-name "stack repl" t)
@@ -1090,7 +1136,7 @@ Value is t if a query was formerly required."
      ("melpa" . "https://melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/")))
  '(package-selected-packages
-   '(transpose-mark magit diff-hl amx origami gitignore-mode yasnippet-snippets yaml-mode winum which-key use-package undo-tree tuareg telephone-line switch-window srefactor sml-mode smex smartparens smart-hungry-delete shackle session review-mode rainbow-mode rainbow-delimiters racer quickrun py-autopep8 projectile powerline pkgbuild-mode pipenv pcre2el ov org-plus-contrib nix-mode ninja-mode nim-mode nginx-mode nasm-mode nadvice multi-term moe-theme merlin-eldoc m-buffer lsp-ui lispy lispxmp leuven-theme lean-mode leaf-tree leaf-convert jedi ivy-rich idris-mode htmlize highlight-indent-guides haskell-snippets gpastel general fstar-mode flycheck-rust flycheck-pos-tip flycheck-popup-tip flycheck-ocaml flycheck-nim flycheck-ats2 fish-mode exec-path-from-shell elpy elisp-def elein el-get eglot dune dracula-theme dockerfile-mode dired-toggle-sudo dired-atool diminish counsel company-tabnine company-statistics company-quickhelp company-lua company-jedi company-ghc company-flx company-arduino clj-refactor clang-format centered-cursor-mode cargo calfw-org calfw blackout backup-each-save auto-sudoedit adaptive-wrap))
+   '(one-themes atom-one-dark-theme vimrc-mode transpose-mark magit diff-hl amx origami gitignore-mode yasnippet-snippets yaml-mode winum which-key use-package undo-tree tuareg telephone-line switch-window srefactor sml-mode smex smartparens smart-hungry-delete shackle session review-mode rainbow-mode rainbow-delimiters racer quickrun py-autopep8 projectile powerline pkgbuild-mode pipenv pcre2el ov org-plus-contrib nix-mode ninja-mode nim-mode nginx-mode nasm-mode nadvice multi-term moe-theme merlin-eldoc m-buffer lsp-ui lispy lispxmp leuven-theme lean-mode leaf-tree leaf-convert jedi ivy-rich idris-mode htmlize highlight-indent-guides haskell-snippets gpastel general fstar-mode flycheck-rust flycheck-pos-tip flycheck-popup-tip flycheck-ocaml flycheck-nim flycheck-ats2 fish-mode exec-path-from-shell elpy elisp-def elein el-get eglot dune dracula-theme dockerfile-mode dired-toggle-sudo dired-atool diminish counsel company-tabnine company-statistics company-quickhelp company-lua company-jedi company-ghc company-flx company-arduino clj-refactor clang-format centered-cursor-mode cargo calfw-org calfw blackout backup-each-save auto-sudoedit adaptive-wrap))
  '(rainbow-delimiters-outermost-only-face-count 1)
  '(recentf-auto-cleanup 'never)
  '(session-use-package t nil (session))
@@ -1099,8 +1145,8 @@ Value is t if a query was formerly required."
    '(("*Agenda Commands*" :aline right :ratio 0.3)
      ("*Org Agenda*" :aline right :ratio 0.3)
      ("*Help*" :align bottom :ratio 0.3)))
- '(switch-window-minibuffer-shortcut 122)
- '(switch-window-threshold 2)
+ '(switch-window-minibuffer-shortcut 122 t)
+ '(switch-window-threshold 2 t)
  '(telephone-line-faces
    '((evil mode-line-inactive . mode-line-inactive)
      (accent telephone-line-accent-active . telephone-line-accent-inactive)
@@ -1133,8 +1179,8 @@ Value is t if a query was formerly required."
 		 [10236 9]
 		 [92 9])
      (space-mark 10
-		 [172 10])))
- '(whitespace-space-regexp "\\(　+\\)")
+		 [172 10])) t)
+ '(whitespace-space-regexp "\\(　+\\)" t)
  '(winner-dont-bind-my-keys t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

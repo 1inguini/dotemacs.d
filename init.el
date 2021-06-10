@@ -22,15 +22,14 @@ Value is t if a query was formerly required."
 (setq coding-system-for-write
       'utf-8)
 
-
 ;; <leaf-install-code>
 (eval-and-compile
   (setq package-native-compile t)
   (customize-set-variable
    'package-archives '(("org" . "https://orgmode.org/elpa/")
-                       ("melpa" . "https://melpa.org/packages/")
+		       ("melpa" . "https://melpa.org/packages/")
 		       ("melpa-stable" . "http://stable.melpa.org/packages/")
-                       ("gnu" . "https://elpa.gnu.org/packages/")))
+		       ("gnu" . "https://elpa.gnu.org/packages/")))
   (package-initialize)
   (unless (package-installed-p 'leaf)
     (package-refresh-contents)
@@ -75,13 +74,31 @@ Value is t if a query was formerly required."
   :config
   (display-time-mode nil))
 
+(leaf *native-compile
+  :custom
+  ((native-comp-always-compile . t)
+   (native-comp-async-jobs-number . 8)
+   (native-comp-async-query-on-exit . t)
+   (native-comp-speed . 3)))
+
 (leaf moe-theme
   :doc "A colorful eye-candy theme. Moe, moe, kyun!"
   :added "2020-12-02"
   :url "https://github.com/kuanyui/moe-theme.el"
   :ensure t
   :config
-  (load-theme 'moe-dark :no-confirm))
+  ;; (load-theme 'moe-dark :no-confirm)
+  )
+
+(leaf one-themes
+  :doc "One Colorscheme"
+  :req "emacs-24"
+  :tag "emacs>=24"
+  :added "2021-05-26"
+  :url "http://github.com/balajisivaraman/emacs-one-themes"
+  :emacs>= 24
+  :ensure t
+  :config (load-theme 'one-dark :no-confirm))
 
 (leaf *font
   :when window-system
@@ -92,29 +109,29 @@ Value is t if a query was formerly required."
        (japanese-font-size 14))
 
     (set-fontset-font nil
-		      #'unicode
+		      'unicode
 		      (font-spec :family "NotoSansMonoCJK"
 				 :size font-size))
 
     (set-fontset-font nil '(126976 . 129791) "NotoColorEmoji")
 
     (set-fontset-font nil
-		      #'ascii
-		      (font-spec :family "inconsolata"
+		      'ascii
+		      (font-spec :family "Inconsolata"
 				 :size font-size))
 
 
 					; 半角ｶﾅ設定
     (set-fontset-font nil
 		      ;; (frame-parameter nil #'font)
-		      #'katakana-jisx0201
+		      'katakana-jisx0201
 		      (font-spec :family japanese-fonts
 				 :size japanese-font-size))
 
 					; 全角かな設定
     (set-fontset-font nil
 		      ;; (frame-parameter nil #'font)
-		      #'japanese-jisx0208
+		      'japanese-jisx0208
 		      (font-spec :family japanese-fonts
 				 :size japanese-font-size)))
 
@@ -233,50 +250,50 @@ Value is t if a query was formerly required."
   ;;   :after highlight-indent-guides
   ;;   :custom
   ;;   (highlight-indent-guides-character . ?\x0020 ;; "make it a space."
-  ;; 				       )
+  ;;				       )
   ;;   :config
   ;;   (let*
-  ;; 	((char-width (frame-char-width (selected-frame)))
-  ;; 	 (hl-stipple (if (> char-width 8)
-  ;; 			 (list char-width 4 (string 1 1 1 1 1 1 1 1))
-  ;; 		       (list char-width 4 (string 1 1 1 1)))))
+  ;;	((char-width (frame-char-width (selected-frame)))
+  ;;	 (hl-stipple (if (> char-width 8)
+  ;;			 (list char-width 4 (string 1 1 1 1 1 1 1 1))
+  ;;		       (list char-width 4 (string 1 1 1 1)))))
 
   ;;     (set-face-attribute 'highlight-indent-guides-top-character-face nil
-  ;; 			  :inherit 'mode-line-face
-  ;; 			  :stipple hl-stipple
-  ;; 			  :bold t)
+  ;;			  :inherit 'mode-line-face
+  ;;			  :stipple hl-stipple
+  ;;			  :bold t)
   ;;     (dotimes (i 9)
-  ;; 	(custom-declare-face
-  ;; 	 (intern
-  ;; 	  (concat "rainbow-indent-depth-"
-  ;; 		  (number-to-string
-  ;; 		   (+ i 1))
-  ;; 		  "-face"))
-  ;; 	 `((t
-  ;; 	    (:inherit
-  ;; 	     ,(intern
-  ;; 	       (concat "rainbow-delimiters-depth-"
-  ;; 		       (number-to-string
-  ;; 			(+ i 1))
-  ;; 		       "-face"))
-  ;; 	     :stipple ,hl-stipple)))
-  ;; 	 "face for rainbow-indent-highlight"))))
+  ;;	(custom-declare-face
+  ;;	 (intern
+  ;;	  (concat "rainbow-indent-depth-"
+  ;;		  (number-to-string
+  ;;		   (+ i 1))
+  ;;		  "-face"))
+  ;;	 `((t
+  ;;	    (:inherit
+  ;;	     ,(intern
+  ;;	       (concat "rainbow-delimiters-depth-"
+  ;;		       (number-to-string
+  ;;			(+ i 1))
+  ;;		       "-face"))
+  ;;	     :stipple ,hl-stipple)))
+  ;;	 "face for rainbow-indent-highlight"))))
   )
 
 ;; (
 ;;  (if (not window-system)
 ;;      (progn
 ;;        (dotimes (i 9)
-;; 	 (set-face-attribute
-;; 	  (intern (concat "rainbow-indent-depth-"
-;; 			  (number-to-string (+ i 1))
-;; 			  "-face"))
-;; 	  nil
-;; 	  :inherit
-;; 	  (intern (concat "rainbow-delimiters-depth-"
-;; 			  (number-to-string (+ i 1))
-;; 			  "-face"))
-;; 	  :stipple nil)))))
+;;	 (set-face-attribute
+;;	  (intern (concat "rainbow-indent-depth-"
+;;			  (number-to-string (+ i 1))
+;;			  "-face"))
+;;	  nil
+;;	  :inherit
+;;	  (intern (concat "rainbow-delimiters-depth-"
+;;			  (number-to-string (+ i 1))
+;;			  "-face"))
+;;	  :stipple nil)))))
 
 (leaf telephone-line
   :doc "Rewrite of Powerline"
@@ -287,49 +304,95 @@ Value is t if a query was formerly required."
   :emacs>= 24.4
   :ensure t
   :after cl-generic
-  :init
-  (telephone-line-defsegment telephone-line-nil-segment () "")
-  :global-minor-mode telephone-line-mode
+  :global-minor-mode telephone-line-mode)
+
+
+(leaf bind-key
+  ;; bind-keyの設定というよりキーバインド一般の設定
+  :doc "A simple way to manage personal keybindings"
+  :tag "dotemacs" "config" "keybinding" "keys"
+  :added "2020-12-03"
+  :url "https://github.com/jwiegley/use-package"
+  :ensure t
+  :bind
+  ((:global-map
+    ([remap newline] . newline-and-indent)
+    ;; ("C-c" . kill-ring-save)
+    ;; ("C-x" . kill-region)
+    ;; ("C-v" . yank)
+    ("C-z" . undo)
+    ("C-s" . save-buffer)
+    ("M-y" . yank-pop)
+    ("M-<left>" . backward-word)
+    ("M-<right>" . forward-word)
+    ("<backtab>" . company-complete-common))
+   (:ctl-x-map
+    ;; デフォルトでC-uにバインドされてる繰り返し
+    ("t" . universal-argument)
+    ;;  C-c map
+    ("c" . mode-specific-command-prefix)))
+  (:input-decode-map
+   ([?\C-i] . [C-i]))
+  :config
+  (bind-keys
+   :map global-map
+   ("M-m" . Control-X-prefix))
+  (bind-keys
+   :map ctl-x-map
+   ("8" . iso-transl-ctl-x-8-map)))
+
+
+(leaf cliphist
+  :doc "Read data from clipboard managers at Linux and macOS"
+  :req "emacs-24.3" "ivy-0.9.0"
+  :tag "history" "manager" "clipboard" "emacs>=24.3"
+  :added "2021-06-09"
+  :url "http://github.com/redguardtoo/cliphist"
+  :emacs>= 24.3
+  :ensure t
+  :after ivy
+  :bind
+  ([remap yank-pop] . cliphist-select-item))
+
+(leaf evil
+  :doc "Extensible Vi layer for Emacs."
+  :req "emacs-24.1" "goto-chg-1.6" "cl-lib-0.5"
+  :tag "vim" "emulation" "emacs>=24.1"
+  :added "2021-05-25"
+  :url "https://github.com/emacs-evil/evil"
+  :emacs>= 24.1
+  :ensure t
+  :after goto-chg
+  :after undo-tree
+  :preface (require 'goto-chg)
+  :global-minor-mode evil-mode evil-surround-mode
   :custom
-  ((telephone-line-height . 14)
-   (telephone-line-faces .
-			 '((evil . (mode-line-inactive . mode-line-inactive))
-			   (accent . (telephone-line-accent-active . telephone-line-accent-inactive))
-			   (nil . (mode-line . mode-line-inactive))))
+  (evil-search-module . 'evil-search)
+  (evil-undo-system . 'undo-tree)
+  (evil-shift-width . 2)
+  (evil-default-cursor . 'bar)
+  (evil-normal-state-cursor . 'box)
+  (evil-insert-state-cursor . '(bar . 1))
+  (evil-visual-state-cursor . 'box)
+  :bind
+  (:evil-normal-state-map
+   ([remap yank-pop] . nil)
+   ([remap evil-ex] . execute-extended-command)
+   ([remap evil-search-forward] . swiper)
+   ("." . evil-repeat))
+  (:evil-visual-state-map
+   ("e" . eval-region))
+  (:evil-motion-state-map
+   ("C-f" . nil))
+  :config
+  (leaf evil-surround
+    :doc "emulate surround.vim from Vim"
+    :req "evil-1.2.12"
+    :tag "evil" "vi" "emulation"
+    :added "2021-05-25"
+    :ensure t
+    :after evil))
 
-   ;; Left edge
-   (telephone-line-lhs .
-		       '((nil . ((telephone-line-window-number-segment t)
-				 telephone-line-input-info-segment))
-			 (accent . (telephone-line-projectile-buffer-segment
-				    telephone-line-buffer-modified-segment))
-			 (evil . (telephone-line-simple-major-mode-segment
-				  telephone-line-simple-minor-mode-segment
-				  telephone-line-nil-segment))))
-   ;; Right edge
-   (telephone-line-rhs .
-		       '((evil . (telephone-line-atom-encoding-segment
-				  telephone-line-misc-info-segment))
-			 (accent . (telephone-line-flycheck-segment
-				    (telephone-line-vc-segment :active)))
-			 (nil . (telephone-line-filesize-segment
-				 telephone-line-hud-segment))))))
-
-;; (leaf evil
-;;   :doc "Extensible Vi layer for Emacs."
-;;   :req "emacs-24.1" "goto-chg-1.6" "cl-lib-0.5"
-;;   :tag "vim" "emulation" "emacs>=24.1"
-;;   :added "2021-05-25"
-;;   :url "https://github.com/emacs-evil/evil"
-;;   :emacs>= 24.1
-;;   :ensure t
-;;   :after goto-chg
-;;   :global-minor-mode evil-mode
-;;   :custom
-;;   ((evil-default-cursor . '(t "#750000"))
-;;    (evil-visual-state-cursor . '("green" hollow))
-;;    (evil-normal-state-cursor . '("green" box))
-;;    (evil-insert-state-cursor . '("pink" (bar . 2)))))
 
 (leaf uim
   :tag "builtin"
@@ -344,7 +407,19 @@ Value is t if a query was formerly required."
   (:uim-mode-map
    ("ESC" . nil)
    ("C-h" . nil)
-   ("<delete>" . nil))
+   ("<delete>" . nil)
+   ("<wheel-up>" . nil)
+   ("<wheel-down>" . nil)
+   ("<wheel-left>" . nil)
+   ("<wheel-right>" . nil)
+   ("<double-wheel-up>" . nil)
+   ("<double-wheel-down>" . nil)
+   ("<double-wheel-left>" . nil)
+   ("<double-wheel-right>" . nil)
+   ("<triple-wheel-up>" . nil)
+   ("<triple-wheel-down>" . nil)
+   ("<triple-wheel-left>" . nil)
+   ("<triple-wheel-right>" . nil))
   :custom
   ((uim-candidate-display-inline . t)
    (uim-preedit-display-fences . t)
@@ -517,14 +592,15 @@ Value is t if a query was formerly required."
     :global-minor-mode counsel-mode
     :bind
     (:counsel-mode-map
+     ([remap yank-pop] . nil)
      ("<C-i>" . counsel-imenu))
     :custom
     (ivy-initial-inputs-alist . nil
 			      ;; '((org-refile . "^")
-			      ;; 	(org-agenda-refile . "^")
-			      ;; 	(org-capture-refile . "^")
-			      ;; 	(Man-completion-table . "^")
-			      ;; 	(woman . "^"))
+			      ;;	(org-agenda-refile . "^")
+			      ;;	(org-capture-refile . "^")
+			      ;;	(Man-completion-table . "^")
+			      ;;	(woman . "^"))
 			      ))
 
   (leaf ivy-rich
@@ -644,7 +720,55 @@ Value is t if a query was formerly required."
     :doc "Display Flycheck errors in GUI tooltips"
     :req "emacs-24.1" "flycheck-0.22" "pos-tip-0.4.6"
     :tag "convenience" "tools" "emacs>=24.1"
-    :added "2020-12-17"
+    :added "2020-12-17"  :init
+    ;; (telephone-line-defsegment telephone-line-nil-segment () "")
+    ;; :global-minor-mode telephone-line-mode
+    ;; :custom
+    ;; ((telephone-line-height . 14)
+    ;;  (telephone-line-faces .
+    ;;			 '((evil . (mode-line-inactive . mode-line-inactive))
+    ;;			   (accent . (telephone-line-accent-active . telephone-line-accent-inactive))
+    ;;			   (nil . (mode-line . mode-line-inactive))))
+
+    ;;  ;; Left edge
+    ;;  (telephone-line-lhs .  :init
+    ;; (telephone-line-defsegment telephone-line-nil-segment () "")
+    ;; :global-minor-mode telephone-line-mode
+    ;; :custom
+    ;; ((telephone-line-height . 14)
+    ;;  (telephone-line-faces .
+    ;;			 '((evil . (mode-line-inactive . mode-line-inactive))
+    ;;			   (accent . (telephone-line-accent-active . telephone-line-accent-inactive))
+    ;;			   (nil . (mode-line . mode-line-inactive))))
+
+    ;;  ;; Left edge
+    ;;  (telephone-line-lhs .
+    ;;		       '((nil . ((telephone-line-window-number-segment t)
+    ;;				 telephone-line-input-info-segment))
+    ;;			 (accent . (telephone-line-projectile-buffer-segment
+    ;;				    telephone-line-buffer-modified-segment))
+    ;;			 (evil . (telephone-line-simple-major-mode-segment
+    ;;				  telephone-line-simple-minor-mode-segment
+    ;;				  telephone-line-nil-segment))))
+    ;;  ;; Right edge
+    ;;  (telephone-line-rhs .
+    ;;		       '((evil . (telephone-line-atom-encoding-segment
+    ;;				  telephone-line-misc-info-segment))
+    ;;			 (accent . (telephone-line-flycheck-segment
+    ;;				    (telephone-line-vc-segment :acti
+    ;;		       '((nil . ((telephone-line-window-number-segment t)
+    ;;				 telephone-line-input-info-segment))
+    ;;			 (accent . (telephone-line-projectile-buffer-segment
+    ;;				    telephone-line-buffer-modified-segment))
+    ;;			 (evil . (telephone-line-simple-major-mode-segment
+    ;;				  telephone-line-simple-minor-mode-segment
+    ;;				  telephone-line-nil-segment))))
+    ;;  ;; Right edge
+    ;;  (telephone-line-rhs .
+    ;;		       '((evil . (telephone-line-atom-encoding-segment
+    ;;				  telephone-line-misc-info-segment))
+    ;;			 (accent . (telephone-line-flycheck-segment
+    ;;				    (telephone-line-vc-segment :acti
     :url "https://github.com/flycheck/flycheck-pos-tip"
     :emacs>= 24.1
     :ensure t
@@ -693,7 +817,8 @@ Value is t if a query was formerly required."
   :url "https://github.com/leanprover/lean-mode"
   :emacs>= 24.3
   :ensure t
-  :after flycheck)
+  :after flycheck
+  :hook (lean-mode-hook . lsp))
 
 (leaf org
   :doc "Export Framework for Org Mode"
@@ -803,30 +928,55 @@ Value is t if a query was formerly required."
     :after yasnippet))
 
 
-(leaf lispy
-  :doc "vi-like Paredit"
-  :req "emacs-24.1" "ace-window-0.8.0" "hydra-0.12.1" "iedit-0.97" "multiple-cursors-1.3.0" "swiper-0.2.0"
-  :tag "emacs>=24.1"
-  :added "2020-12-07"
-  :emacs>= 24.1
-  :ensure t
-  :after ace-window hydra iedit multiple-cursors swiper
-  :preface (add-hook 'emacs-lisp-mode-hook #'lispy-mode)
-  ;; :bind
-  ;; (:lispy-mode-map
-  ;;  ("M-m" . nil))
-  )
-(eval-after-load 'lispy
-  '(bind-keys :map lispy-mode-map
-	      ([remap lispy-yank] . undo-tree-redo)
-	      ("M-m" . nil)))
+;; (leaf lispy
+;;   :doc "vi-like Paredit"
+;;   :req "emacs-24.1" "ace-window-0.8.0" "hydra-0.12.1" "iedit-0.97" "multiple-cursors-1.3.0" "swiper-0.2.0"
+;;   :tag "emacs>=24.1"
+;;   :added "2020-12-07"
+;;   :emacs>= 24.1
+;;   :ensure t
+;;   :after ace-window hydra iedit multiple-cursors swiper
+;;   :hook emacs-lisp-mode
+;;   :bind
+;;   ;; (:lispy-mode-map
+;;   ;;  ;; ([remap lispy-yank] . undo-tree-redo)
+;;   ;; ("M-m" . nil))
+;;   :config
+;;   ;; (bind-keys
+;;   ;;  :map lispy-mode-map
+;;   ;;  ("M-m" . nil))
+;;   (leaf lispyville
+;;     :doc "A minor mode for integrating evil with lispy."
+;;     :req "lispy-0" "evil-1.2.12" "cl-lib-0.5" "emacs-24.4"
+;;     :tag "parentheses" "lisp" "lispy" "evil" "vim" "emacs>=24.4"
+;;     :added "2021-05-28"
+;;     :url "https://github.com/noctuid/lispyville"
+;;     :emacs>= 24.4
+;;     :ensure t
+;;     :after lispy evil
+;;     :hook lispy-mode))
+;; (eval-after-load 'lispy
+;;   '(bind-keys :map lispy-mode-map
+;; 	      ;; ([remap lispy-yank] . undo-tree-redo)
+;; 	      ("M-m" . nil)))
 
 (leaf flymake
   :doc "A universal on-the-fly syntax checker"
   :tag "builtin"
   :added "2020-12-28"
   :custom
-  ((flymake-run-in-place . nil)))
+  (flymake-run-in-place . nil))
+
+
+(leaf reformatter
+  :doc "Define commands which run reformatters on the current buffer"
+  :req "emacs-24.3"
+  :tag "tools" "convenience" "emacs>=24.3"
+  :added "2021-06-09"
+  :url "https://github.com/purcell/emacs-reformatter"
+  :emacs>= 24.3
+  :ensure t)
+
 
 (leaf lsp-mode
   :doc "LSP mode"
@@ -836,6 +986,7 @@ Value is t if a query was formerly required."
   :emacs>= 25.1
   :ensure t
   :after spinner
+  ;; :require t
   :preface (add-hook 'prog-major-mode-hook #'lsp-prog-major-mode-enable)
   :custom
   (lsp-prefer-flymake . nil)
@@ -843,6 +994,13 @@ Value is t if a query was formerly required."
   (:mode-specific-map
    ("f" . lsp-format-buffer))
   :config
+  (add-to-list 'lsp-language-id-configuration '(lean-mode . "lean"))
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection '("npx" "lean-language-server" "--stdio"))
+    :activation-fn (lsp-activate-on "lean")
+    :server-id 'lean-ls))
+
 
   (leaf lsp-ui
     :doc "UI modules for lsp-mode"
@@ -857,6 +1015,16 @@ Value is t if a query was formerly required."
     :custom
     (lsp-ui-doc-enable . nil))
 
+  (leaf lsp-ivy
+    :doc "LSP ivy integration"
+    :req "emacs-25.1" "dash-2.14.1" "lsp-mode-6.2.1" "ivy-0.13.0"
+    :tag "debug" "languages" "emacs>=25.1"
+    :added "2021-05-28"
+    :url "https://github.com/emacs-lsp/lsp-ivy"
+    :emacs>= 25.1
+    :ensure t
+    :after lsp-mode ivy)
+
   (leaf lsp-haskell
     :doc "Haskell support for lsp-mode"
     :req "lsp-mode-3.0" "haskell-mode-1.0"
@@ -870,7 +1038,7 @@ Value is t if a query was formerly required."
     (add-hook 'haskell-literate-mode-hook #'lsp)
     :custom
     ;; (lsp-haskell-process-path-hie . "haskell-language-server-wrapper")
-    (lsp-haskell-process-path-hie . "haskell-language-server-8.8.4")))
+    ))
 
 (leaf haskell-mode
   :doc "A Haskell editing mode"
@@ -912,6 +1080,44 @@ Value is t if a query was formerly required."
   :ensure t
   :after prop-menu)
 
+;; ;; R
+;; (leaf ess
+;;   :doc "Emacs Speaks Statistics"
+;;   :req "emacs-25.1"
+;;   :tag "emacs>=25.1"
+;;   :added "2021-06-09"
+;;   :url "https://ess.r-project.org/"
+;;   :emacs>= 25.1
+;;   :ensure t
+;;   :require reformatter
+;;   :defun r-format r-format-on-save-mode r-format-on-save r-format-region evil-r-format
+;;   :init
+;;   (reformatter-define r-format
+;;     :stdin nil
+;;     :program "R"
+;;     :args `("--slave" "-e" ,(concat "library(formatR); tidy_source(source = \"" input-file "\")")))
+
+;;   (evil-define-operator evil-r-format (beg end)
+;;     "Format R code."
+;;     :repeat nil
+;;     (r-format-region beg end))
+
+;;   :hook (ess-mode-hook . r-format-on-save)
+;;   :bind
+;;   (:ess-mode-map
+;;    ([remap eval-region] . ess-eval-region)
+;;    ([remap evil-indent] . evil-r-format))
+;;   :config
+;;   (leaf ess-view-data
+;;     :doc "View Data"
+;;     :req "emacs-26.1" "ess-18.10.1" "csv-mode-1.12"
+;;     :tag "tools" "emacs>=26.1"
+;;     :added "2021-06-09"
+;;     :url "https://github.com/ShuguangSun/ess-view-data"
+;;     :emacs>= 26.1
+;;     :ensure t
+;;     :after ess csv-mode))
+
 
 (leaf smartparens
   :doc "Automatic insertion, wrapping and paredit-like navigation with user defined pairs."
@@ -920,7 +1126,9 @@ Value is t if a query was formerly required."
   :ensure t
   :blackout t
   :require t
-  :global-minor-mode show-smartparens-global-mode
+  :global-minor-mode
+  smartparens-global-mode
+  show-smartparens-global-mode
   :config
   ;; enable smartparens
   (sp-with-modes '(emacs-lisp-mode
@@ -928,9 +1136,27 @@ Value is t if a query was formerly required."
 		   lisp-interaction-mode)
     (sp-local-pair "'" nil :actions nil)
     (sp-local-pair "`" nil :actions nil))
-  (smartparens-global-mode 1)
-
-  (sp-pair "⟨" "⟩"))
+  (sp-pair "⟨" "⟩")
+  
+  (leaf evil-cleverparens
+    :doc "Evil friendly minor-mode for editing lisp."
+    :req "evil-1.0" "paredit-1" "smartparens-1.6.1" "emacs-24.4" "dash-2.12.0"
+    :tag "smartparens" "paredit" "evil" "parentheses" "cleverparens" "emacs>=24.4"
+    :added "2021-06-09"
+    :url "https://github.com/luxbock/evil-cleverparens"
+    :emacs>= 24.4
+    :ensure t
+    :after evil paredit smartparens
+    ;; :init
+    ;; (define-globalized-minor-mode global-evil-cleverparens-mode
+    ;;   evil-cleverparens-mode evil-cleverparens-mode)
+    :global-minor-mode evil-cleverparens-mode
+    :bind
+    (:evil-cleverparens-mode-map
+     ("<normal-state> M-y" . nil))
+    :custom
+    (evil-cleverparens-use-regular-insert . t)
+    (evil-cleverparens-use-additional-movement-keys . nil)))
 
 (leaf origami
   :doc "Flexible text folding"
@@ -995,10 +1221,10 @@ Value is t if a query was formerly required."
     :url "https://github.com/dgutov/diff-hl"
     :emacs>= 24.3
     :ensure t
+    :global-minor-mode global-diff-hl-mode
     :hook
     ((magit-pre-refresh-hook . diff-hl-magit-pre-refresh)
-     (magit-post-refresh-hook . diff-hl-magit-post-refresh))
-    :global-minor-mode global-diff-hl-mode)
+     (magit-post-refresh-hook . diff-hl-magit-post-refresh)))
 
   (leaf gitignore-mode
     :doc "Major mode for editing .gitignore files"
@@ -1034,14 +1260,15 @@ Value is t if a query was formerly required."
    ;; ([remap delete-forward-char] . smart-hungry-delete-forward-char)
    ([remap delete-backward-char] . smart-hungry-delete-backward-char)))
 
-(leaf cua-base
-  :doc "emulate CUA key bindings"
-  :tag "builtin"
-  :added "2020-12-07"
-  :global-minor-mode cua-mode
-  :bind
-  (:cua-global-keymap
-   ("M-y" . counsel-yank-pop)))
+;; (leaf cua-base
+;;   :doc "emulate CUA key bindings"
+;;   :tag "builtin"
+;;   :added "2020-12-07"
+;;   :global-minor-mode cua-mode
+;;   ;; :bind
+;;   ;; (:cua-global-keymap
+;;   ;;  ("M-y" . counsel-yank-pop))
+;;   )
 
 (leaf transpose-mark
   :doc "Transpose data using the Emacs mark"
@@ -1056,37 +1283,6 @@ Value is t if a query was formerly required."
 ;; (setq show-paren-style 'mixed)
 ;; (setq show-paren-when-point-inside-paren t)
 ;; (setq show-paren-when-point-in-periphery nil)
-(leaf bind-key
-  ;; bind-keyの設定というよりキーバインド一般の設定
-  :doc "A simple way to manage personal keybindings"
-  :tag "dotemacs" "config" "keybinding" "keys"
-  :added "2020-12-03"
-  :url "https://github.com/jwiegley/use-package"
-  :ensure t
-  :bind
-  ((:global-map
-    ;; ("C-c" . kill-ring-save)
-    ;; ("C-x" . kill-region)
-    ;; ("C-v" . yank)
-    ("C-s" . save-buffer)
-    ("M-y" . yank-pop)
-    ("M-<left>" . backward-word)
-    ("M-<right>" . forward-word)
-    ("<backtab>" . company-complete-common))
-   (:ctl-x-map
-    ;; デフォルトでC-uにバインドされてる繰り返し
-    ("t" . universal-argument)
-    ;;  C-c map
-    ("c" . mode-specific-command-prefix)))
-  (:input-decode-map
-   ([?\C-i] . [C-i]))
-  :config
-  (bind-keys
-   :map global-map
-   ("M-m" . Control-X-prefix))
-  (bind-keys
-   :map ctl-x-map
-   ("8" . iso-transl-ctl-x-8-map)))
 
 ;;; init.el ens here
 (custom-set-variables
@@ -1094,6 +1290,7 @@ Value is t if a query was formerly required."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(amx-history-length 50)
  '(auto-save-file-name-transforms '((".*" "~/.emacs.d/backups" t)))
  '(backup-directory-alist '(("." . "~/.emacs.d/backups")))
  '(company-backends
@@ -1109,10 +1306,17 @@ Value is t if a query was formerly required."
  '(company-sort-by-statistics nil t)
  '(company-transformers nil)
  '(cursor-type '(bar . 1))
+ '(custom-safe-themes
+   '("27a1dd6378f3782a593cc83e108a35c2b93e5ecc3bd9057313e1d88462701fcd" "b73a23e836b3122637563ad37ae8c7533121c2ac2c8f7c87b381dd7322714cd0" "eb3ef63dc31fbebb37df3646fbc1e07f25159d19bb1cade2a80000a2764690de" "171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" default))
  '(desktop-save-mode t)
  '(display-time-default-load-average nil)
+ '(evil-default-cursor 'bar)
+ '(evil-insert-state-cursor '(bar . 1) t)
+ '(evil-normal-state-cursor 'box t)
+ '(evil-undo-system 'undo-tree)
+ '(evil-visual-state-cursor 'box t)
  '(eww-search-prefix "https://www.google.co.jp/search?q=" t)
- '(flycheck-pos-tip-timeout 0)
+ '(flymake-run-in-place nil t)
  '(fringe-mode '(nil . 0) nil (fringe))
  '(haskell-program-name "stack repl" t)
  '(highlight-indent-guides-delay 0)
@@ -1120,23 +1324,25 @@ Value is t if a query was formerly required."
  '(highlight-indent-guides-method 'character)
  '(highlight-indent-guides-responsive 'top)
  '(imenu-list-position 'left)
- '(imenu-list-size 30)
+ '(imenu-list-size 20)
  '(ivy-height 40)
+ '(ivy-initial-inputs-alist nil)
  '(ivy-re-builders-alist '((t . ivy--regex-ignore-order)) t)
  '(linum-format " %4d")
  '(load-prefer-newer t)
  '(lsp-haskell-process-path-hie "haskell-language-server-8.8.4" t)
  '(lsp-prefer-flymake nil t)
- '(lsp-ui-doc-enable nil)
+ '(lsp-ui-doc-enable nil t)
  '(org-agenda-files '(org-directory) t)
  '(org-default-notes-file "notes.org" t)
  '(org-directory "~/Desktop/org/" t)
  '(package-archives
    '(("org" . "https://orgmode.org/elpa/")
      ("melpa" . "https://melpa.org/packages/")
+     ("melpa-stable" . "http://stable.melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/")))
  '(package-selected-packages
-   '(one-themes atom-one-dark-theme vimrc-mode transpose-mark magit diff-hl amx origami gitignore-mode yasnippet-snippets yaml-mode winum which-key use-package undo-tree tuareg telephone-line switch-window srefactor sml-mode smex smartparens smart-hungry-delete shackle session review-mode rainbow-mode rainbow-delimiters racer quickrun py-autopep8 projectile powerline pkgbuild-mode pipenv pcre2el ov org-plus-contrib nix-mode ninja-mode nim-mode nginx-mode nasm-mode nadvice multi-term moe-theme merlin-eldoc m-buffer lsp-ui lispy lispxmp leuven-theme lean-mode leaf-tree leaf-convert jedi ivy-rich idris-mode htmlize highlight-indent-guides haskell-snippets gpastel general fstar-mode flycheck-rust flycheck-pos-tip flycheck-popup-tip flycheck-ocaml flycheck-nim flycheck-ats2 fish-mode exec-path-from-shell elpy elisp-def elein el-get eglot dune dracula-theme dockerfile-mode dired-toggle-sudo dired-atool diminish counsel company-tabnine company-statistics company-quickhelp company-lua company-jedi company-ghc company-flx company-arduino clj-refactor clang-format centered-cursor-mode cargo calfw-org calfw blackout backup-each-save auto-sudoedit adaptive-wrap))
+   '(ess-view-data reformatter counsel avy cliphist evil-cleverparens ess company-ghc lsp-mode lsp-ivy eglot yasnippet-snippets yaml-mode which-key vimrc-mode undo-tree transpose-mark telephone-line switch-window spaceline smartparens smart-hungry-delete shackle session rainbow-delimiters projectile powerline-evil ov origami one-themes multiple-cursors moe-theme magit lsp-ui lsp-haskell lean-mode leaf-tree leaf-convert ivy-rich idris-mode htmlize highlight-indent-guides gitignore-mode ghub fringe-helper flycheck-pos-tip evil-surround diff-hl company-tabnine company-statistics company-flx blackout bind-key backup-each-save auto-sudoedit amx adaptive-wrap))
  '(rainbow-delimiters-outermost-only-face-count 1)
  '(recentf-auto-cleanup 'never)
  '(session-use-package t nil (session))
@@ -1146,26 +1352,11 @@ Value is t if a query was formerly required."
      ("*Org Agenda*" :aline right :ratio 0.3)
      ("*Help*" :align bottom :ratio 0.3)))
  '(switch-window-minibuffer-shortcut 122 t)
- '(switch-window-threshold 2 t)
- '(telephone-line-faces
-   '((evil mode-line-inactive . mode-line-inactive)
-     (accent telephone-line-accent-active . telephone-line-accent-inactive)
-     (nil mode-line . mode-line-inactive)))
- '(telephone-line-height 14)
- '(telephone-line-lhs
-   '((nil
-      (telephone-line-window-number-segment t)
-      telephone-line-input-info-segment)
-     (accent telephone-line-projectile-buffer-segment telephone-line-buffer-modified-segment)
-     (evil telephone-line-simple-major-mode-segment telephone-line-simple-minor-mode-segment telephone-line-nil-segment)))
- '(telephone-line-rhs
-   '((evil telephone-line-atom-encoding-segment telephone-line-misc-info-segment)
-     (accent telephone-line-flycheck-segment
-	     (telephone-line-vc-segment :active))
-     (nil telephone-line-filesize-segment telephone-line-hud-segment)))
+ '(switch-window-threshold 3 t)
  '(uim-candidate-display-frame t t)
  '(uim-candidate-display-inline t t)
  '(uim-preedit-display-fences t t)
+ '(warning-suppress-types '((comp) (comp)))
  '(whitespace-display-mappings
    '((space-mark 32
 		 [183]
